@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bqh03fym7is0"]
+
+[ext_resource type="Script" uid="uid://b0vipfn4ilag6" path="res://Scripts/start_menu.gd" id="1_54808"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_52tck"]
+size = Vector2(1280, 720)
+
+[node name="StartMenu" type="Control" unique_id=1998698571]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_54808")
+
+[node name="BgPlaceholder" type="Sprite2D" parent="." unique_id=1606699792]
+modulate = Color(0.40859753, 0.5007568, 0.72983867, 0.49803922)
+texture = SubResource("PlaceholderTexture2D_52tck")
+centered = false
+
+[node name="SettingsButton" type="Button" parent="." unique_id=1099062913]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 608.0
+offset_right = 704.0
+offset_bottom = 664.0
+theme_override_font_sizes/font_size = 32
+text = "Opções
+"
+
+[node name="ExitButton" type="Button" parent="." unique_id=1094835960]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 656.0
+offset_right = 144.0
+offset_bottom = 709.0
+theme_override_font_sizes/font_size = 32
+text = "Sair
+
+"
+
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

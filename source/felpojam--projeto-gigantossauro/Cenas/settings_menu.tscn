@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://bmbjeqofrspuq"]
+
+[ext_resource type="Script" uid="uid://ca3mr32rnnc4c" path="res://Scripts/settings_menu.gd" id="1_te5jf"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jhuug"]
+size = Vector2(1280, 720)
+
+[node name="SettingsMenu" type="Control" unique_id=2033712389 node_paths=PackedStringArray("master_volume_slider", "music_volume_slider", "sfx_volume_slider", "master_percent_label", "music_percent_label", "sfx_percent_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_te5jf")
+master_volume_slider = NodePath("MasterSliderVolume")
+music_volume_slider = NodePath("MusicSliderVolume")
+sfx_volume_slider = NodePath("SfxSliderVolume")
+master_percent_label = NodePath("MasterVolPercent")
+music_percent_label = NodePath("MusicVolPercent")
+sfx_percent_label = NodePath("SfxVolPercent")
+
+[node name="BgPlaceholder" type="Sprite2D" parent="." unique_id=1925870788]
+modulate = Color(0.40859753, 0.5007568, 0.72983867, 0.49803922)
+texture = SubResource("PlaceholderTexture2D_jhuug")
+centered = false
+
+[node name="SfxSliderVolume" type="HSlider" parent="." unique_id=2026447126]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 480.0
+offset_right = 880.0
+offset_bottom = 560.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicSliderVolume" type="HSlider" parent="." unique_id=800403519]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 320.0
+offset_right = 880.0
+offset_bottom = 400.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MasterSliderVolume" type="HSlider" parent="." unique_id=1653138182]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 160.0
+offset_right = 880.0
+offset_bottom = 240.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SfxText" type="Label" parent="." unique_id=1602639697]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 432.0
+offset_right = 880.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 32
+text = "Efeitos"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SfxVolPercent" type="Label" parent="." unique_id=175599257]
+layout_mode = 0
+offset_left = 888.0
+offset_top = 496.0
+offset_right = 971.0
+offset_bottom = 541.0
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicText" type="Label" parent="." unique_id=1316377532]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 272.0
+offset_right = 880.0
+offset_bottom = 352.0
+theme_override_font_sizes/font_size = 32
+text = "Música"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicVolPercent" type="Label" parent="." unique_id=1310438275]
+layout_mode = 0
+offset_left = 888.0
+offset_top = 336.0
+offset_right = 971.0
+offset_bottom = 381.0
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterText" type="Label" parent="." unique_id=498004073]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 112.0
+offset_right = 880.0
+offset_bottom = 191.0
+theme_override_font_sizes/font_size = 32
+text = "Master"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterVolPercent" type="Label" parent="." unique_id=346360193]
+layout_mode = 0
+offset_left = 888.0
+offset_top = 176.0
+offset_right = 971.0
+offset_bottom = 221.0
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsButton" type="Button" parent="." unique_id=622765169]
+layout_mode = 0
+offset_left = 584.0
+offset_top = 611.0
+offset_right = 696.0
+offset_bottom = 664.0
+theme_override_font_sizes/font_size = 32
+text = "Voltar
+"
+
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
