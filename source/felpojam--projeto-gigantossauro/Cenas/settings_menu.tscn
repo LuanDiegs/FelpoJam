@@ -132,34 +132,34 @@ text = "Voltar
 
 [node name="WindowMode" type="OptionButton" parent="." unique_id=1780138805]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 256.0
-offset_right = 239.0
-offset_bottom = 296.0
+offset_left = 96.0
+offset_top = 240.0
+offset_right = 231.0
+offset_bottom = 280.0
 
 [node name="ResolutionSetButton" type="OptionButton" parent="." unique_id=836294032]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 320.0
-offset_right = 239.0
-offset_bottom = 360.0
+offset_left = 96.0
+offset_top = 304.0
+offset_right = 231.0
+offset_bottom = 344.0
 theme_override_font_sizes/font_size = 20
 
 [node name="VsyncEnableButton" type="CheckButton" parent="." unique_id=861933029]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 384.0
-offset_right = 241.0
-offset_bottom = 440.0
+offset_left = 96.0
+offset_top = 368.0
+offset_right = 233.0
+offset_bottom = 424.0
 theme_override_font_sizes/font_size = 32
 text = "Vsync"
 
 [node name="ApplyButton" type="Button" parent="." unique_id=622608373]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 464.0
-offset_right = 219.0
-offset_bottom = 517.0
+offset_left = 96.0
+offset_top = 448.0
+offset_right = 211.0
+offset_bottom = 501.0
 theme_override_font_sizes/font_size = 32
 text = "Aplicar
 "
