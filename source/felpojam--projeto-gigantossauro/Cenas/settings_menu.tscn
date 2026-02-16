@@ -5,7 +5,7 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jhuug"]
 size = Vector2(1280, 720)
 
-[node name="SettingsMenu" type="Control" unique_id=2033712389 node_paths=PackedStringArray("master_volume_slider", "music_volume_slider", "sfx_volume_slider", "master_percent_label", "music_percent_label", "sfx_percent_label")]
+[node name="SettingsMenu" type="Control" unique_id=2033712389 node_paths=PackedStringArray("master_volume_slider", "music_volume_slider", "sfx_volume_slider", "master_percent_label", "music_percent_label", "sfx_percent_label", "resolution_option", "mode_option")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +19,8 @@ sfx_volume_slider = NodePath("SfxSliderVolume")
 master_percent_label = NodePath("MasterVolPercent")
 music_percent_label = NodePath("MusicVolPercent")
 sfx_percent_label = NodePath("SfxVolPercent")
+resolution_option = NodePath("ResolutionSetButton")
+mode_option = NodePath("WindowMode")
 
 [node name="BgPlaceholder" type="Sprite2D" parent="." unique_id=1925870788]
 modulate = Color(0.40859753, 0.5007568, 0.72983867, 0.49803922)
@@ -118,7 +120,7 @@ theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SettingsButton" type="Button" parent="." unique_id=622765169]
+[node name="ReturnButton" type="Button" parent="." unique_id=622765169]
 layout_mode = 0
 offset_left = 584.0
 offset_top = 611.0
@@ -128,4 +130,40 @@ theme_override_font_sizes/font_size = 32
 text = "Voltar
 "
 
-[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[node name="WindowMode" type="OptionButton" parent="." unique_id=1780138805]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 256.0
+offset_right = 239.0
+offset_bottom = 296.0
+
+[node name="ResolutionSetButton" type="OptionButton" parent="." unique_id=836294032]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 320.0
+offset_right = 239.0
+offset_bottom = 360.0
+theme_override_font_sizes/font_size = 20
+
+[node name="VsyncEnableButton" type="CheckButton" parent="." unique_id=861933029]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 384.0
+offset_right = 241.0
+offset_bottom = 440.0
+theme_override_font_sizes/font_size = 32
+text = "Vsync"
+
+[node name="ApplyButton" type="Button" parent="." unique_id=622608373]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 464.0
+offset_right = 219.0
+offset_bottom = 517.0
+theme_override_font_sizes/font_size = 32
+text = "Aplicar
+"
+
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="toggled" from="VsyncEnableButton" to="." method="_on_vsync_enable_button_toggled"]
+[connection signal="pressed" from="ApplyButton" to="." method="_on_apply_button_pressed"]
