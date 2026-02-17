@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b33dqb5af4wow"]
+
+[ext_resource type="PackedScene" uid="uid://3euyqw8mawnm" path="res://Cenas/player_boss_battle.tscn" id="1_80gly"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_je5y7"]
+size = Vector2(1290, 77.5)
+
+[node name="Node2D" type="Node2D" unique_id=2036808053]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=733051241]
+collision_layer = 64
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1821763978]
+position = Vector2(655, 666.25)
+shape = SubResource("RectangleShape2D_je5y7")
+
+[node name="PlayerBossBattle" parent="." unique_id=215043948 instance=ExtResource("1_80gly")]
+position = Vector2(415, 360)
