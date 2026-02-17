@@ -5,8 +5,8 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0ui4t"]
 size = Vector2(128, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktmuk"]
-size = Vector2(126, 126)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnmmn"]
+size = Vector2(128, 128)
 
 [node name="ObstaclePlaceholder" type="RigidBody2D" unique_id=357976468 groups=["Obstacles"]]
 collision_layer = 66
@@ -17,4 +17,4 @@ script = ExtResource("1_lnmmn")
 texture = SubResource("PlaceholderTexture2D_0ui4t")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=771197902]
-shape = SubResource("RectangleShape2D_ktmuk")
+shape = SubResource("RectangleShape2D_lnmmn")
