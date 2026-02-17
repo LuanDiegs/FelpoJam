@@ -27,6 +27,12 @@ Global="*uid://cymxuu5fsparp"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
+
+[global_group]
+
+Player=""
+Obstacles=""
 
 [physics]
 
