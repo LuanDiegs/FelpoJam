@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b1ufgtckjsbtw"]
 
-[ext_resource type="Script" uid="uid://e5xfdpnl4n48" path="res://Scripts/obstacle.gd" id="1_5x8we"]
+[ext_resource type="Script" uid="uid://e5xfdpnl4n48" path="res://Scripts/obstacle.gd" id="1_lnmmn"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0ui4t"]
 size = Vector2(32, 32)
@@ -13,7 +13,7 @@ size = Vector2(34, 34)
 
 [node name="ObstaclePlaceholder" type="StaticBody2D" unique_id=1791009903 groups=["Obstacles"]]
 collision_layer = 2
-script = ExtResource("1_5x8we")
+script = ExtResource("1_lnmmn")
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=560448378]
 texture = SubResource("PlaceholderTexture2D_0ui4t")
