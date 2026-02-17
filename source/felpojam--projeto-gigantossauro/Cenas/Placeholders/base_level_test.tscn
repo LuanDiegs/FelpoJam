@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://x5whwss62fdt"]
 
 [ext_resource type="PackedScene" uid="uid://3euyqw8mawnm" path="res://Cenas/player_boss_battle.tscn" id="1_vaer1"]
+[ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Placeholders/obstacle_placeholder.tscn" id="2_g0id4"]
 
 [sub_resource type="Gradient" id="Gradient_72efe"]
 colors = PackedColorArray(0.8474744, 0.84747446, 0.84747446, 1, 0.84705883, 0.84705883, 0.84705883, 1)
@@ -227,3 +228,6 @@ shape = SubResource("RectangleShape2D_g0id4")
 
 [node name="PlayerBossBattle" parent="." unique_id=215043948 instance=ExtResource("1_vaer1")]
 position = Vector2(295, 485)
+
+[node name="ObstaclePlaceholder" parent="." unique_id=357976468 instance=ExtResource("2_g0id4")]
+position = Vector2(975, 525)

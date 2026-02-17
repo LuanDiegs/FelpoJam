@@ -3,16 +3,14 @@
 [ext_resource type="Script" uid="uid://e5xfdpnl4n48" path="res://Scripts/obstacle.gd" id="1_lnmmn"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0ui4t"]
-size = Vector2(32, 32)
+size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktmuk"]
-size = Vector2(32, 32)
+size = Vector2(126, 126)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5x8we"]
-size = Vector2(34, 34)
-
-[node name="ObstaclePlaceholder" type="StaticBody2D" unique_id=1791009903 groups=["Obstacles"]]
-collision_layer = 2
+[node name="ObstaclePlaceholder" type="RigidBody2D" unique_id=357976468 groups=["Obstacles"]]
+collision_layer = 66
+collision_mask = 65
 script = ExtResource("1_lnmmn")
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=560448378]
@@ -20,12 +18,3 @@ texture = SubResource("PlaceholderTexture2D_0ui4t")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=771197902]
 shape = SubResource("RectangleShape2D_ktmuk")
-
-[node name="Area" type="Area2D" parent="." unique_id=2117504910 groups=["Obstacles"]]
-collision_layer = 0
-
-[node name="Collision" type="CollisionShape2D" parent="Area" unique_id=1005556104]
-shape = SubResource("RectangleShape2D_5x8we")
-debug_color = Color(0.95009416, 0.11039094, 0.492903, 0.41960785)
-
-[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]

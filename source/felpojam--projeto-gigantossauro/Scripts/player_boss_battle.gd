@@ -9,6 +9,8 @@ var gravity = 1200
 @export var friction : float = 1600
 @export var jump_force : float = -800
 @onready var ray_jump = $RayJump
+@onready var ray_jump2 = $RayJump2
+@onready var ray_jump3 = $RayJump3
 
 @onready var collision_shape = $Collision
 @onready var hurtbox = $Hurtbox
@@ -25,7 +27,7 @@ var original_hurtbox_pos: Vector2
 #Função que checa se está no chão
 func in_floor() -> bool:
 	#Retrona o valor de colisão do raycast
-	return ray_jump.is_colliding()
+	return ray_jump.is_colliding() or ray_jump2.is_colliding() or ray_jump3.is_colliding()
 
 func set_slide(sliding: bool):
 	
@@ -127,7 +129,19 @@ func _physics_process(delta: float) -> void:
 		#Aplica a força do pulo
 		velocity.y = jump_force
 	
-	#Aplica a vomimentação com base no velocity multiplicado pelo o delta
-	move_and_collide(velocity * delta)
-	#Arredonda a posição do objeto (evita travadinhas na movimentação)
-	position = position.round()
+	# Move e verifica colisão
+	var collision = move_and_collide(velocity * delta)
+	#Arredonda a colisão
+	position.round()
+	#Checa se está colidindo com alguma coisa
+	if collision:
+		#Pega com quem está colidindo
+		var collider = collision.get_collider()
+		#Checa se o colisor está no grupo dos obstaculos
+		if collider.is_in_group("Obstacles"):
+			#Checa se o colissor é um rigidbody
+			if collider is RigidBody2D:
+				#Direção oposta à normal da colisão (empurra para longe)
+				var push_dir = -collision.get_normal()
+				#Aplica o impulso no que colidir
+				collider.apply_central_impulse(push_dir * abs(velocity.x))
