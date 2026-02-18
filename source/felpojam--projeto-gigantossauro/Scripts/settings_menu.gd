@@ -1,4 +1,5 @@
 extends Control
+class_name SettingsMenu
 
 #Variaveis audio settings
 @export var master_volume_slider : HSlider
@@ -8,7 +9,7 @@ extends Control
 @export var music_percent_label : Label
 @export var sfx_percent_label : Label
 
-#VAriaveis video settings
+#Variaveis video settings
 @export var resolution_option : OptionButton
 @export var mode_option : OptionButton
 
@@ -33,6 +34,7 @@ var base_resolutions = [
 ]
 
 var available_resolutions = []
+
 
 #region Funções de Audio
 #Função para a mudança de volume
@@ -70,11 +72,10 @@ func setup_slider(slider: HSlider, label: Label, bus_name: String):
 	)
 #endregion
 
-#region Funções de Video
 
+#region Funções de Video
 #Função para centralizar a janela
 func center_window():
-	
 	#Cria um timer de 1 frame para garantir que o posicionamente foi aplicado
 	await get_tree().process_frame
 	
@@ -94,9 +95,9 @@ func center_window():
 	#Aplica a nova posição da janela
 	DisplayServer.window_set_position(new_pos)
 
+
 #Função de configuração inicial da resolução
 func setup_resolutions():
-	
 	#Pega a resoluyção maxima da tela principal
 	var screen_size = DisplayServer.screen_get_size()
 	var max_width = screen_size.x
@@ -127,9 +128,9 @@ func setup_resolutions():
 	#Se o indice não foi invalido aplica a ersolução do indice, se for inalido aplica a resolução maxima do monitor
 	resolution_option.select(res_idx if res_idx != -1 else 0)
 
+
 #Função de configuração inicial de modos de tela
 func setup_display_modes():
-	
 	#Limpando as opções
 	mode_option.clear()
 	#Adicionando as opções principais de modo de tela no botão
@@ -147,6 +148,7 @@ func setup_display_modes():
 		_: #caso não tenha um modo definido ou esteja invalido
 			mode_option.select(0) #Inice 0 por padrão
 
+
 #Função para aplicar o modo de tela
 func apply_display_mode():
 	#Pega o index do modo atual selecionado no botão
@@ -157,6 +159,7 @@ func apply_display_mode():
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED) #aplica o modo janela
 		1: #Modo janela sem bordas
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN) #aplica o modo tela cheia
+
 
 #Função que aplica a resolução
 func apply_resolution():
@@ -177,6 +180,7 @@ func apply_resolution():
 	else: #Caso não seja (é fullscreen)
 		get_viewport().size = new_res   # muda a resolução interna da viewport
 
+
 func apply_vsync():
 	#Salva o no do botão do csync em uma variavel
 	var vsync_check = $VsyncEnableButton
@@ -187,12 +191,11 @@ func apply_vsync():
 		var vsync_mode = DisplayServer.VSYNC_ENABLED if vsync_enabled else DisplayServer.VSYNC_DISABLED
 		#Aplica a configuração no vsync na janela
 		DisplayServer.window_set_vsync_mode(vsync_mode)
-
 #endregion
 
+
 #Função que roda ao iniciar o nó/cena
-func _ready() -> void:
-	
+func _ready() -> void:	
 	#Aplicando a configuração inicial de resolução
 	setup_resolutions()
 	#Aplicando a configuração inicial do modo de tela
@@ -205,6 +208,7 @@ func _ready() -> void:
 	setup_slider(music_volume_slider, music_percent_label, "Music")
 	setup_slider(sfx_volume_slider, sfx_percent_label, "Effects")
 
+
 #Função que executa ao pressionar o botão de voltar para o menu
 func _on_return_button_pressed() -> void:
 	#MUda para a ceno do menu principal
@@ -214,6 +218,7 @@ func _on_return_button_pressed() -> void:
 #Função toggle vsync (só armazena a intenção não aplica nada, o valor será usando no botão aplicar)
 func _on_vsync_enable_button_toggled(toggled_on: bool) -> void:
 	pass # Replace with function body.
+
 
 #Função que executa ao pressionar o botão de applicar as cofigurações de cideo
 func _on_apply_button_pressed() -> void:

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://ce8jfgykdi4nf"]
+
+[ext_resource type="Script" uid="uid://b1ocbie8outyg" path="res://Scripts/NPCs/npcs.gd" id="1_d0v3e"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bnkv5"]
+size = Vector2(150, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0v3e"]
+size = Vector2(300, 200)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0v3e"]
+content_margin_left = 1.0
+skew = Vector2(0.2, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[node name="Npc" type="Node2D" unique_id=1974864946]
+script = ExtResource("1_d0v3e")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1387425895]
+texture = SubResource("PlaceholderTexture2D_bnkv5")
+
+[node name="AreaInterativa" type="Area2D" parent="." unique_id=1362999925 groups=["NPCs"]]
+
+[node name="Interativa" type="CollisionShape2D" parent="AreaInterativa" unique_id=1445946949]
+shape = SubResource("RectangleShape2D_d0v3e")
+debug_color = Color(0.99534684, 0, 0.21473277, 0.41960785)
+
+[node name="InteractiveLabel" type="Label" parent="." unique_id=652781283]
+z_index = 4096
+offset_left = -225.0
+offset_top = -167.0
+offset_right = 229.0
+offset_bottom = -116.0
+pivot_offset = Vector2(226, 26)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 5
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_d0v3e")
+text = "Pressione 'E' para interagir"
+metadata/_edit_use_anchors_ = true

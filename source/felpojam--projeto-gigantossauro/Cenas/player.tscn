@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://3euyqw8mawnm"]
+
+[ext_resource type="Script" uid="uid://ch7gfodb7a1f0" path="res://Scripts/player.gd" id="1_g784b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08rgd"]
+size = Vector2(146, 274)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g784b"]
+size = Vector2(160, 267)
+
+[node name="PlayerBossBattle" type="CharacterBody2D" unique_id=215043948 groups=["Player"]]
+z_index = 4095
+position = Vector2(0, -137)
+collision_mask = 70
+script = ExtResource("1_g784b")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=326079195]
+shape = SubResource("RectangleShape2D_08rgd")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=55514792]
+collision_layer = 32
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Hurtbox" unique_id=1801665405]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_g784b")
+debug_color = Color(0.9490196, 0.10980392, 0.49411765, 0.41960785)
+
+[node name="RayJump" type="RayCast2D" parent="." unique_id=1235867979]
+position = Vector2(-73, 0)
+scale = Vector2(4, 4)
+target_position = Vector2(0, 35)
+collision_mask = 64
+
+[node name="RayJump2" type="RayCast2D" parent="." unique_id=128805423]
+scale = Vector2(4, 4)
+target_position = Vector2(0, 35)
+collision_mask = 64
+
+[node name="RayJump3" type="RayCast2D" parent="." unique_id=668276863]
+position = Vector2(73, 0)
+scale = Vector2(4, 4)
+target_position = Vector2(0, 35)
+collision_mask = 64
