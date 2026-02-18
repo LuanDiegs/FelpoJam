@@ -115,7 +115,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 	
 	#checa se a tecla de slide está sendo pressionada e se a velocidade x é maior que speed / 2.5
-	if Input.is_action_pressed("slide") and abs(velocity.x) > speed / 2.5 :
+	if Input.is_action_pressed("slide") and abs(velocity.x) > speed / 3:
 		set_slide(true) #Faz o slide
 	else: #Caso o contrario
 		set_slide(false) #Não faz o slide
