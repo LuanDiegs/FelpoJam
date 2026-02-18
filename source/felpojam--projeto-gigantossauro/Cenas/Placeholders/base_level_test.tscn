@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://x5whwss62fdt"]
 
-[ext_resource type="PackedScene" uid="uid://3euyqw8mawnm" path="res://Cenas/player_boss_battle.tscn" id="1_vaer1"]
+[ext_resource type="PackedScene" uid="uid://3euyqw8mawnm" path="res://Cenas/player.tscn" id="1_vaer1"]
 [ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Placeholders/obstacle_placeholder.tscn" id="2_g0id4"]
+[ext_resource type="PackedScene" uid="uid://ce8jfgykdi4nf" path="res://Cenas/NPCs/NPCs.tscn" id="3_jafct"]
 
 [sub_resource type="Gradient" id="Gradient_72efe"]
 colors = PackedColorArray(0.8474744, 0.84747446, 0.84747446, 1, 0.84705883, 0.84705883, 0.84705883, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xna6u"]
 gradient = SubResource("Gradient_72efe")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0id4"]
+size = Vector2(5110, 82.5)
 
 [sub_resource type="Gradient" id="Gradient_1w86j"]
 colors = PackedColorArray(0.28235295, 0, 0, 1, 0.05978801, 0.37337592, 0.66549146, 1)
@@ -35,9 +39,6 @@ colors = PackedColorArray(1, 0.26, 0.26, 1, 0.57730263, 6.6420434e-06, 0.3903638
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_upuu2"]
 gradient = SubResource("Gradient_jw1xg")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0id4"]
-size = Vector2(5110, 82.5)
-
 [node name="Base_level_test" type="Node2D" unique_id=1242278278]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=2037398130]
@@ -46,188 +47,198 @@ scale = Vector2(113.28125, 38.90625)
 texture = SubResource("GradientTexture2D_xna6u")
 centered = false
 
-[node name="Floor3" type="Sprite2D" parent="." unique_id=1462822823]
+[node name="Chao" type="StaticBody2D" parent="." unique_id=1842553620]
+collision_layer = 64
+collision_mask = 0
+
+[node name="ChaoCollision" type="CollisionShape2D" parent="Chao" unique_id=30658458]
+position = Vector2(2560, 678.75)
+shape = SubResource("RectangleShape2D_g0id4")
+
+[node name="Props" type="Node" parent="." unique_id=548173110]
+
+[node name="Floor3" type="Sprite2D" parent="Props" unique_id=1462822823]
 position = Vector2(5920, 641)
 scale = Vector2(0.25976563, 1)
 texture = SubResource("GradientTexture2D_j2l78")
 centered = false
 
-[node name="Floor4" type="Sprite2D" parent="." unique_id=307228589]
+[node name="Floor4" type="Sprite2D" parent="Props" unique_id=307228589]
 position = Vector2(5920.0005, 0)
 scale = Vector2(0.25976563, 1)
 texture = SubResource("GradientTexture2D_j2l78")
 centered = false
 
-[node name="Floor5" type="Sprite2D" parent="." unique_id=1381321231]
+[node name="Floor5" type="Sprite2D" parent="Props" unique_id=1381321231]
 position = Vector2(5120.0005, 639.00006)
 scale = Vector2(0.046874825, 1.2656248)
 texture = SubResource("GradientTexture2D_j2l78")
 centered = false
 
-[node name="Floor10" type="Sprite2D" parent="." unique_id=558389901]
+[node name="Floor10" type="Sprite2D" parent="Props" unique_id=558389901]
 position = Vector2(5505, 660)
 scale = Vector2(0.005859338, 0.78125143)
 texture = SubResource("GradientTexture2D_j2l78")
 centered = false
 
-[node name="Floor9" type="Sprite2D" parent="." unique_id=81465506]
+[node name="Floor9" type="Sprite2D" parent="Props" unique_id=81465506]
 position = Vector2(5360, 670)
 scale = Vector2(0.06250003, 0.43749988)
 texture = SubResource("GradientTexture2D_j2l78")
 centered = false
 
-[node name="Floor6" type="Sprite2D" parent="." unique_id=935809275]
+[node name="Floor6" type="Sprite2D" parent="Props" unique_id=935809275]
 position = Vector2(5330, 479)
 scale = Vector2(0.00585944, 2.5312495)
 texture = SubResource("GradientTexture2D_j2l78")
 centered = false
 
-[node name="Floor7" type="Sprite2D" parent="." unique_id=585463452]
+[node name="Floor7" type="Sprite2D" parent="Props" unique_id=585463452]
 position = Vector2(5680.0005, 640)
 scale = Vector2(0.046874825, 1.2656248)
 texture = SubResource("GradientTexture2D_j2l78")
 centered = false
 
-[node name="Floor8" type="Sprite2D" parent="." unique_id=672127558]
+[node name="Floor8" type="Sprite2D" parent="Props" unique_id=672127558]
 position = Vector2(5680, 480.00003)
 scale = Vector2(0.00585944, 2.5312495)
 texture = SubResource("GradientTexture2D_j2l78")
 centered = false
 
-[node name="Floor11" type="Sprite2D" parent="." unique_id=815532396]
+[node name="Floor11" type="Sprite2D" parent="Props" unique_id=815532396]
 position = Vector2(5040, 64.000015)
 scale = Vector2(0.015625006, 3.765625)
 texture = SubResource("GradientTexture2D_j2l78")
 centered = false
 
-[node name="Floor12" type="Sprite2D" parent="." unique_id=1600699084]
+[node name="Floor12" type="Sprite2D" parent="Props" unique_id=1600699084]
 position = Vector2(5074.9995, 305)
 scale = Vector2(0.008789102, 5.2343745)
 texture = SubResource("GradientTexture2D_j2l78")
 centered = false
 
-[node name="Floor13" type="Sprite2D" parent="." unique_id=1875418005]
+[node name="Floor13" type="Sprite2D" parent="Props" unique_id=1875418005]
 position = Vector2(5920, 65)
 scale = Vector2(0.015625006, 3.765625)
 texture = SubResource("GradientTexture2D_j2l78")
 centered = false
 
-[node name="Floor14" type="Sprite2D" parent="." unique_id=1310634336]
+[node name="Floor14" type="Sprite2D" parent="Props" unique_id=1310634336]
 position = Vector2(5919.9995, 305)
 scale = Vector2(0.008789102, 5.2343745)
 texture = SubResource("GradientTexture2D_j2l78")
 centered = false
 
-[node name="Floor2" type="Sprite2D" parent="." unique_id=273868806]
+[node name="Floor2" type="Sprite2D" parent="Props" unique_id=273868806]
 texture = SubResource("GradientTexture2D_j2l78")
 centered = false
 
-[node name="Obstacles" type="Sprite2D" parent="." unique_id=739159950]
+[node name="Obstacles" type="Sprite2D" parent="Props" unique_id=739159950]
 position = Vector2(691.5, 558)
 scale = Vector2(1.671875, 2.4687495)
 texture = SubResource("GradientTexture2D_kcuwb")
 
-[node name="Obstacles2" type="Sprite2D" parent="." unique_id=301161162]
+[node name="Obstacles2" type="Sprite2D" parent="Props" unique_id=301161162]
 position = Vector2(695, 486.75)
 scale = Vector2(3.2812498, 0.38281223)
 texture = SubResource("GradientTexture2D_kcuwb")
 
-[node name="Obstacles3" type="Sprite2D" parent="." unique_id=1213404632]
+[node name="Obstacles3" type="Sprite2D" parent="Props" unique_id=1213404632]
 position = Vector2(1464.375, 244.50002)
 scale = Vector2(0.6445295, 5.1406255)
 texture = SubResource("GradientTexture2D_kcuwb")
 
-[node name="Obstacles4" type="Sprite2D" parent="." unique_id=781949383]
+[node name="Obstacles4" type="Sprite2D" parent="Props" unique_id=781949383]
 position = Vector2(2280, 584.00006)
 rotation = 1.1502264
-scale = Vector2(1.337891, 1.4765627)
+scale = Vector2(1.337891, 1.4765629)
 texture = SubResource("GradientTexture2D_kcuwb")
 
-[node name="Obstacles5" type="Sprite2D" parent="." unique_id=2120457509]
+[node name="Obstacles5" type="Sprite2D" parent="Props" unique_id=2120457509]
 position = Vector2(2410, 584)
 rotation = 0.034628212
-scale = Vector2(2.302473, 1.4765627)
+scale = Vector2(2.3024728, 1.4765626)
 texture = SubResource("GradientTexture2D_kcuwb")
 
-[node name="Obstacles6" type="Sprite2D" parent="." unique_id=972154976]
+[node name="Obstacles6" type="Sprite2D" parent="Props" unique_id=972154976]
 position = Vector2(2340, 489)
-rotation = 0.14459294
-scale = Vector2(1.4457692, 1.4765627)
+rotation = 0.14459293
+scale = Vector2(1.4457692, 1.4765629)
 texture = SubResource("GradientTexture2D_kcuwb")
 
-[node name="Obstacles7" type="Sprite2D" parent="." unique_id=690283285]
+[node name="Obstacles7" type="Sprite2D" parent="Props" unique_id=690283285]
 position = Vector2(3895.612, 577.4234)
 rotation = 1.1502264
-scale = Vector2(1.337891, 1.4765627)
+scale = Vector2(1.337891, 1.4765629)
 texture = SubResource("GradientTexture2D_kcuwb")
 
-[node name="Obstacles8" type="Sprite2D" parent="." unique_id=637005403]
+[node name="Obstacles8" type="Sprite2D" parent="Props" unique_id=637005403]
 position = Vector2(4025.612, 577.4232)
 rotation = 0.034628212
-scale = Vector2(2.302473, 1.4765627)
+scale = Vector2(2.3024728, 1.4765626)
 texture = SubResource("GradientTexture2D_kcuwb")
 
-[node name="Obstacles9" type="Sprite2D" parent="." unique_id=1217580033]
+[node name="Obstacles9" type="Sprite2D" parent="Props" unique_id=1217580033]
 position = Vector2(3955.6118, 482.42316)
-rotation = 0.14459294
-scale = Vector2(1.4457692, 1.4765627)
+rotation = 0.14459293
+scale = Vector2(1.4457692, 1.4765629)
 texture = SubResource("GradientTexture2D_kcuwb")
 
-[node name="NPCs" type="Sprite2D" parent="." unique_id=540759709]
+[node name="NPCs" type="Sprite2D" parent="Props" unique_id=540759709]
 position = Vector2(3319.9998, 494)
 scale = Vector2(2.296875, 4.328125)
 texture = SubResource("GradientTexture2D_gmu47")
 
-[node name="NPCs2" type="Sprite2D" parent="." unique_id=2124034206]
+[node name="NPCs2" type="Sprite2D" parent="Props" unique_id=2124034206]
 position = Vector2(1849.9999, 498.99994)
 scale = Vector2(2.296875, 4.328125)
 texture = SubResource("GradientTexture2D_gmu47")
 
-[node name="NPCs3" type="Sprite2D" parent="." unique_id=1730760264]
+[node name="NPCs3" type="Sprite2D" parent="Props" unique_id=1730760264]
 position = Vector2(3595, 499)
 scale = Vector2(2.296875, 4.328125)
 texture = SubResource("GradientTexture2D_gmu47")
 
-[node name="Slowers" type="Sprite2D" parent="." unique_id=1894825478]
+[node name="Slowers" type="Sprite2D" parent="Props" unique_id=1894825478]
 position = Vector2(2820, 499)
 scale = Vector2(2.296875, 4.328125)
 texture = SubResource("GradientTexture2D_upuu2")
 
-[node name="Slowers2" type="Sprite2D" parent="." unique_id=281825542]
+[node name="Slowers2" type="Sprite2D" parent="Props" unique_id=281825542]
 position = Vector2(4580, 500)
 scale = Vector2(2.296875, 4.328125)
 texture = SubResource("GradientTexture2D_upuu2")
 
-[node name="Obstacles10" type="Sprite2D" parent="." unique_id=55001902]
+[node name="Obstacles10" type="Sprite2D" parent="Props" unique_id=55001902]
 position = Vector2(4716.5005, 558.5)
 scale = Vector2(1.671875, 2.4687495)
 texture = SubResource("GradientTexture2D_kcuwb")
 
-[node name="Obstacles11" type="Sprite2D" parent="." unique_id=95796236]
+[node name="Obstacles11" type="Sprite2D" parent="Props" unique_id=95796236]
 position = Vector2(4720, 487.25)
 scale = Vector2(3.2812498, 0.38281223)
 texture = SubResource("GradientTexture2D_kcuwb")
 
-[node name="Slowers3" type="Sprite2D" parent="." unique_id=512754515]
+[node name="Slowers3" type="Sprite2D" parent="Props" unique_id=512754515]
 position = Vector2(4855, 500)
 scale = Vector2(2.296875, 4.328125)
 texture = SubResource("GradientTexture2D_upuu2")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=918689281]
+[node name="Player" type="Node" parent="." unique_id=888424964]
+
+[node name="Player" parent="Player" unique_id=215043948 instance=ExtResource("1_vaer1")]
+position = Vector2(295, 485)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=918689281]
 position = Vector2(0, -360)
 anchor_mode = 0
 zoom = Vector2(0.5, 0.5)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1842553620]
-collision_layer = 64
-collision_mask = 0
+[node name="Obstaculos" type="Node" parent="." unique_id=1061715422]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=30658458]
-position = Vector2(2560, 678.75)
-shape = SubResource("RectangleShape2D_g0id4")
-
-[node name="PlayerBossBattle" parent="." unique_id=215043948 instance=ExtResource("1_vaer1")]
-position = Vector2(295, 485)
-
-[node name="ObstaclePlaceholder" parent="." unique_id=357976468 instance=ExtResource("2_g0id4")]
+[node name="Obstaculo" parent="Obstaculos" unique_id=357976468 instance=ExtResource("2_g0id4")]
 position = Vector2(975, 525)
+
+[node name="NpCs" parent="." unique_id=1056850006 instance=ExtResource("3_jafct")]
+position = Vector2(550, 537)
+npc_name = "Joana"

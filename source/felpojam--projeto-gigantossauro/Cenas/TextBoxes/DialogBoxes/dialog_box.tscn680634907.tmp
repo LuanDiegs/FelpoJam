@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ds3m7ggl5s42s"]
+
+[ext_resource type="Script" uid="uid://1toxp6x1v4o" path="res://Scripts/TextBoxes/DialogBox/dialog_box.gd" id="1_dmrbj"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dmrbj"]
+
+[node name="DialogBox" type="MarginContainer" unique_id=400176840]
+anchors_preset = -1
+anchor_right = 0.03125
+anchor_bottom = 0.055555556
+offset_right = 33.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+script = ExtResource("1_dmrbj")
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1549025012]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_dmrbj")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=191449047]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1919438807]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Oie"
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1825118119]

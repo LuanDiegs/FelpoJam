@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b33dqb5af4wow"]
 
-[ext_resource type="PackedScene" uid="uid://3euyqw8mawnm" path="res://Cenas/player_boss_battle.tscn" id="1_80gly"]
+[ext_resource type="PackedScene" uid="uid://3euyqw8mawnm" path="res://Cenas/player.tscn" id="1_80gly"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_je5y7"]
 size = Vector2(1290, 77.5)

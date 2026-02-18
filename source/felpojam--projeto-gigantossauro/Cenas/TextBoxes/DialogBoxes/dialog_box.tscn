@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://ds3m7ggl5s42s"]
+
+[ext_resource type="Script" uid="uid://1toxp6x1v4o" path="res://Scripts/TextBoxes/DialogBox/dialog_box.gd" id="1_dmrbj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_20ydk"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+
+[node name="DialogBox" type="PanelContainer" unique_id=1521272385]
+z_index = 4096
+anchors_preset = -1
+anchor_right = 0.1
+anchor_bottom = 0.16666666
+offset_right = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(60, 64)
+size_flags_horizontal = 0
+size_flags_vertical = 8
+script = ExtResource("1_dmrbj")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1152890467]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="MarginContainer" unique_id=2086256017]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/line_spacing = 5
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_20ydk")
+text = "a"
+vertical_alignment = 1
+text_direction = 1

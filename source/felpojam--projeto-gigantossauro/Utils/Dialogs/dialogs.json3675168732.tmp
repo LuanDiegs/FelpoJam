@@ -1,0 +1,19 @@
+{
+	"phase1": {
+		"joana": {
+			"phrase1": "Oi, eu sou a Joana",
+			"phrase2": "Joana é o meu nome",
+			"phrase3": "Joana é legal"
+		},
+		"matheus": {
+			"phrase1": "Oi, eu sou o Matheus",
+			"phrase2": "Matheus é o meu nome",
+			"phrase3": "Matheus é legal"
+		},
+		"andré": {
+			"phrase1": "Oi, eu sou o André",
+			"phrase2": "André é o meu nome",
+			"phrase3": "André é legal"
+		}
+	}
+}
