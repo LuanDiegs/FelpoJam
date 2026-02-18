@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmbjeqofrspuq"]
 
-[ext_resource type="Script" uid="uid://ca3mr32rnnc4c" path="res://Scripts/settings_menu.gd" id="1_te5jf"]
+[ext_resource type="Script" uid="uid://ca3mr32rnnc4c" path="res://Scripts/Menus/SettingsMenu/settings_menu.gd" id="1_te5jf"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jhuug"]
 size = Vector2(1280, 720)

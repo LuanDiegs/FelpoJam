@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b1ufgtckjsbtw"]
 
-[ext_resource type="Script" uid="uid://e5xfdpnl4n48" path="res://Scripts/obstacle.gd" id="1_lnmmn"]
+[ext_resource type="Script" uid="uid://e5xfdpnl4n48" path="res://Scripts/Obstacles/obstacle.gd" id="1_lnmmn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lnmmn"]
 
