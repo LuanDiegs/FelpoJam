@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://3euyqw8mawnm" path="res://Cenas/player_boss_battle.tscn" id="1_pmuks"]
 [ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Placeholders/obstacle_placeholder.tscn" id="2_v3qbn"]
-[ext_resource type="PackedScene" uid="uid://cjy0bum5jk1cp" path="res://Cenas/boss.tscn" id="3_lmnlx"]
+[ext_resource type="PackedScene" path="res://Cenas/boss.tscn" id="3_lmnlx"]
 
 [sub_resource type="Gradient" id="Gradient_72efe"]
 colors = PackedColorArray(0.8474744, 0.84747446, 0.84747446, 1, 0.84705883, 0.84705883, 0.84705883, 1)
