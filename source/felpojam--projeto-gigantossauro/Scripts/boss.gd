@@ -16,7 +16,7 @@ var boss_life: int = 5
 @export var attack_chance : float = 0.005 #Chance por frame
 @export var attack_time : float = 1 #Segundos
 @export var attack_time_transition : float = 1 #Segundos
-@export var camera : Camera2D
+@export var camera : Camera2D = null
 
 var obstacle = preload("res://Cenas/Placeholders/obstacle_placeholder.tscn")
 var bullets = null
@@ -90,10 +90,18 @@ func execute_attack(stt, delta):
 						var instance = obstacle.instantiate()
 						#Pega a camada onde se deve criar o objeto
 						var layer = get_parent()
-						#Define um y inicial para o intem instanciado
-						var initial_y = camera.global_position.y - 128
+						
+						#Define um y inicial para o item instanciado
+						var initial_y
+						if camera != null: #Caso camera não for null
+							#pega o y da camera e diminui 128 ouxeks
+							initial_y = camera.global_position.y - 128 
+						else: #Caso contrario (seja null, não tenha uma camera)
+							initial_y = -843 #0 y inicial é -843
+							#Printa no debug
+							print("Camera não encontrada")
 						#Define uma posição aleatoria enteo limite esquerdo e direito
-						var min_limit = randf_range(left_limit, initial_y)
+						var min_limit = randf_range(left_limit, right_limit)
 						#Define a posição inicial da instancia no eixo x e y
 						instance.position = Vector2(min_limit, initial_y)
 						#Adiciona a intancia na layr correta
