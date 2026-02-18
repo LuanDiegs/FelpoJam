@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://cyqdyssjcmxgk"]
 
+<<<<<<< HEAD
 [ext_resource type="PackedScene" path="res://Cenas/player_boss_battle.tscn" id="1_vaer1"]
+=======
+[ext_resource type="PackedScene" uid="uid://bvad14hsyus2p" path="res://Cenas/Player/player.tscn" id="1_jafct"]
+>>>>>>> cbd33a22826132a96cba0e93ffc6d78a0beff807
 [ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Placeholders/obstacle_placeholder.tscn" id="2_g0id4"]
 [ext_resource type="PackedScene" uid="uid://ce8jfgykdi4nf" path="res://Cenas/NPCs/NPCs.tscn" id="3_jafct"]
 
@@ -226,13 +230,13 @@ texture = SubResource("GradientTexture2D_upuu2")
 
 [node name="Player" type="Node" parent="." unique_id=888424964]
 
-[node name="Player" parent="Player" unique_id=215043948 instance=ExtResource("1_vaer1")]
-position = Vector2(295, 485)
-
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=918689281]
 position = Vector2(0, -360)
 anchor_mode = 0
 zoom = Vector2(0.5, 0.5)
+
+[node name="Player" parent="Player" unique_id=167809822 instance=ExtResource("1_jafct")]
+position = Vector2(108, 551)
 
 [node name="Obstaculos" type="Node" parent="." unique_id=1061715422]
 
