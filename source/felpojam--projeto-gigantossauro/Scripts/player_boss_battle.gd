@@ -149,6 +149,10 @@ func _physics_process(delta: float) -> void:
 				if normal.y > 0: 
 					#Aplica o empurrão
 					collider.apply_central_impulse(Vector2(0, velocity.y))
+					
+					var remaing = velocity * delta - collision.get_travel()
+					if remaing.length() > 0:
+						move_and_collide(remaing)
 		
 	#Checa se está no chão
 	if ray_jumps[1].is_colliding():
