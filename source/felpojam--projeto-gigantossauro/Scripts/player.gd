@@ -150,4 +150,4 @@ func _physics_process(delta: float) -> void:
 				#Direção oposta à normal da colisão (empurra para longe)
 				var push_dir = -collision.get_normal()
 				#Aplica o impulso no que colidir
-				collider.apply_central_impulse(push_dir * abs(velocity.x))
+				collider.apply_central_impulse(push_dir * abs(velocity.x / 2))
