@@ -148,19 +148,28 @@ func _physics_process(delta: float) -> void:
 				#Se o normal de y for maior que 0
 				if normal.y > 0: 
 					#Aplica o empurrão
-					collider.apply_central_impulse(Vector2(0, velocity.y))
-					
-					var remaing = velocity * delta - collision.get_travel()
-					if remaing.length() > 0:
-						move_and_collide(remaing)
+					collider.apply_central_impulse(Vector2(0, velocity.y)) 
 		
 	#Checa se está no chão
-	if ray_jumps[1].is_colliding():
-		#Pega o ponto de colisão do raycast
-		var collision_point = ray_jumps[1].get_collision_point()
-		#Checa se a posição global y é maior que o ponto de colisão
-		if global_position.y > collision_point.y:
-			#Define o y como o ponto de colisão
-			global_position.y = collision_point.y
-			#Zera a velocidade
+	if in_floor():
+		
+		#Salva a variavel mais alta (agora é null)
+		var more_height_point = null
+		
+		#Cria um laço de repetição 
+		for ray in ray_jumps:
+			#Checa se tem um raycast e se ele está colidindo
+			if ray and ray.is_colliding():
+				#Salva o ponto de collisão do raycast
+				var point = ray.get_collision_point()
+				#Checa se o ponto de colião é igual a nulo ou menor que o ponto y do ponto y maior
+				if more_height_point == null or point.y < more_height_point.y:
+					#Seta o ponto como o maior ponto y
+					more_height_point = point
+		
+		#Checa se o maior ponto é diferente de null e se a posição global y é maior que o maior ponto y
+		if more_height_point != null and global_position.y > more_height_point.y:
+			#Define a posição global y como o ponto y mais alto
+			global_position.y = more_height_point.y
+			#Zera a velocidade y
 			velocity.y = 0
