@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://3euyqw8mawnm" path="res://Cenas/player_boss_battle.tscn" id="1_vaer1"]
 [ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Placeholders/obstacle_placeholder.tscn" id="2_g0id4"]
+[ext_resource type="PackedScene" uid="uid://cjy0bum5jk1cp" path="res://Cenas/boss.tscn" id="3_jafct"]
 
 [sub_resource type="Gradient" id="Gradient_72efe"]
 colors = PackedColorArray(0.8474744, 0.84747446, 0.84747446, 1, 0.84705883, 0.84705883, 0.84705883, 1)
@@ -41,7 +42,7 @@ size = Vector2(5110, 82.5)
 [node name="Base_level_test" type="Node2D" unique_id=1242278278]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=2037398130]
-position = Vector2(0, -670)
+position = Vector2(-505, -700.00006)
 scale = Vector2(113.28125, 38.90625)
 texture = SubResource("GradientTexture2D_xna6u")
 centered = false
@@ -214,9 +215,8 @@ scale = Vector2(2.296875, 4.328125)
 texture = SubResource("GradientTexture2D_upuu2")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=918689281]
-position = Vector2(0, -360)
+position = Vector2(-5, 5)
 anchor_mode = 0
-zoom = Vector2(0.5, 0.5)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1842553620]
 collision_layer = 64
@@ -231,3 +231,8 @@ position = Vector2(295, 485)
 
 [node name="ObstaclePlaceholder" parent="." unique_id=357976468 instance=ExtResource("2_g0id4")]
 position = Vector2(975, 525)
+
+[node name="Boss" parent="." unique_id=261981283 instance=ExtResource("3_jafct")]
+position = Vector2(280, 55)
+left_limit = 0.0
+right_limit = 720.0

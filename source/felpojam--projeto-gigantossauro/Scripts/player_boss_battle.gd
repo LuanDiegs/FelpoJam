@@ -8,9 +8,8 @@ var gravity = 1200
 @export var turn_acelleration : float = 1800
 @export var friction : float = 1600
 @export var jump_force : float = -800
-@onready var ray_jump = $RayJump
-@onready var ray_jump2 = $RayJump2
-@onready var ray_jump3 = $RayJump3
+
+@onready var ray_jumps = [$RayJump, $RayJump2, $RayJump3, $RayJump4, $RayJump5]
 
 @onready var collision_shape = $Collision
 @onready var hurtbox = $Hurtbox
@@ -27,7 +26,7 @@ var original_hurtbox_pos: Vector2
 #Função que checa se está no chão
 func in_floor() -> bool:
 	#Retrona o valor de colisão do raycast
-	return ray_jump.is_colliding() or ray_jump2.is_colliding() or ray_jump3.is_colliding()
+	return ray_jumps[0].is_colliding() or ray_jumps[1].is_colliding() or ray_jumps[2].is_colliding() or ray_jumps[3].is_colliding() or ray_jumps[4].is_colliding()
 
 func set_slide(sliding: bool):
 	
@@ -97,9 +96,6 @@ func _physics_process(delta: float) -> void:
 	if !in_floor():
 		#Aplica a gravidade
 		velocity.y += gravity * delta
-	else: #caso contrario
-		#Zera a velocidade y
-		velocity.y = 0
 	
 	#Salva o valor das teclas pressionadas, uma em valor negativo e outra em valor positivo
 	var direction = Input.get_axis("move_left", "move_right")
@@ -137,11 +133,30 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		#Pega com quem está colidindo
 		var collider = collision.get_collider()
-		#Checa se o colisor está no grupo dos obstaculos
-		if collider.is_in_group("Obstacles"):
-			#Checa se o colissor é um rigidbody
-			if collider is RigidBody2D:
-				#Direção oposta à normal da colisão (empurra para longe)
-				var push_dir = -collision.get_normal()
-				#Aplica o impulso no que colidir
-				collider.apply_central_impulse(push_dir * abs(velocity.x / 2))
+		#Checa se o colisor está no grupo dos obstaculos se o colissor é um rigidbody
+		if collider.is_in_group("Obstacles") and collider is RigidBody2D:
+			
+			#Pega o normal da colisão
+			var normal = collision.get_normal()
+			#Checa se o normal x é maior que o normal y
+			if abs(normal.x) > abs(normal.y):
+				#Pega a direção inversa do normal
+				var push_dir = -normal
+				#Aplica o empurrão
+				collider.apply_central_impulse(push_dir * abs(velocity.x / 2.5))
+			else: #caso contrario
+				#Se o normal de y for maior que 0
+				if normal.y > 0: 
+					#Aplica o empurrão
+					collider.apply_central_impulse(Vector2(0, velocity.y))
+		
+	#Checa se está no chão
+	if ray_jumps[1].is_colliding():
+		#Pega o ponto de colisão do raycast
+		var collision_point = ray_jumps[1].get_collision_point()
+		#Checa se a posição global y é maior que o ponto de colisão
+		if global_position.y > collision_point.y:
+			#Define o y como o ponto de colisão
+			global_position.y = collision_point.y
+			#Zera a velocidade
+			velocity.y = 0
