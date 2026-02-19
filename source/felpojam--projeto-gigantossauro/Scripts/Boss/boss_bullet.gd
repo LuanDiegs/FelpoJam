@@ -7,11 +7,11 @@ var direction = Vector2.RIGHT
 #Função que roda a cada frame
 func _physics_process(delta: float) -> void:
 	#Incrementa posição com base na direção vezes a velocidade vezes delta
-	position += (direction * speed) * delta
+	global_position += (direction * speed) * delta
 	#Rotaciona para a direção que está indo
 	rotation = direction.angle()
 	#Checa se o y é maior ou igual que 1080
-	if position.y >= 1080:
+	if global_position.y >= 1080:
 		#Apaga da memoria
 		queue_free()
 
