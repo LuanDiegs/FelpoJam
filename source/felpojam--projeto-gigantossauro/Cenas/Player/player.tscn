@@ -58,15 +58,6 @@ scale = Vector2(4, 4)
 target_position = Vector2(5, 36)
 collision_mask = 66
 
-[node name="PrincipalCamera" type="Camera2D" parent="." unique_id=1710026888 node_paths=PackedStringArray("player")]
-position = Vector2(0, -360)
-zoom = Vector2(0.5, 0.5)
-process_callback = 0
-limit_left = 0
-position_smoothing_enabled = true
-script = ExtResource("2_8xljj")
-player = NodePath("..")
-
 [node name="RayJump6" type="RayCast2D" parent="." unique_id=1398361088]
 position = Vector2(0, -137)
 scale = Vector2(4, 4)
@@ -91,3 +82,11 @@ scale = Vector2(4, 4)
 target_position = Vector2(-1, 36)
 collision_mask = 66
 
+[node name="PrincipalCamera" type="Camera2D" parent="." unique_id=1710026888 node_paths=PackedStringArray("player")]
+position = Vector2(0, -360)
+zoom = Vector2(0.5, 0.5)
+process_callback = 0
+limit_left = 0
+position_smoothing_enabled = true
+script = ExtResource("2_8xljj")
+player = NodePath("..")
