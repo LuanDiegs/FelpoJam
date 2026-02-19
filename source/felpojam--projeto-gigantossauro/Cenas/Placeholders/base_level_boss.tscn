@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bkihe7uyrfh4l"]
 
+[ext_resource type="Script" uid="uid://3q2cs03el14o" path="res://Scripts/Boss/level_boss.gd" id="1_4uhye"]
 [ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Placeholders/obstacle_placeholder.tscn" id="2_4uhye"]
 [ext_resource type="PackedScene" uid="uid://bvad14hsyus2p" path="res://Cenas/Player/player.tscn" id="3_1rqcj"]
-[ext_resource type="PackedScene" uid="uid://cjy0bum5jk1cp" path="res://Cenas/Boss/boss.tscn" id="3_q3t4r"]
+[ext_resource type="PackedScene" uid="uid://cjy0bum5jk1cp" path="res://Cenas/Boss/boss.tscn" id="3_4uhye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kuyq"]
 size = Vector2(5110, 82.5)
@@ -40,8 +41,9 @@ colors = PackedColorArray(0.8474744, 0.84747446, 0.84747446, 1, 0.84705883, 0.84
 gradient = SubResource("Gradient_72efe")
 
 [node name="BaseLevel_boss" type="Node2D" unique_id=963935472]
+script = ExtResource("1_4uhye")
 
-[node name="Chao" type="StaticBody2D" parent="." unique_id=1320302390]
+[node name="Chao" type="StaticBody2D" parent="." unique_id=1320302390 groups=["Floor"]]
 collision_layer = 64
 collision_mask = 0
 
@@ -260,14 +262,23 @@ position = Vector2(0, -715)
 anchor_mode = 0
 zoom = Vector2(0.5, 0.5)
 
-[node name="ObstaclePlaceholder" parent="." unique_id=357976468 instance=ExtResource("2_4uhye")]
-position = Vector2(975, 525)
-
-[node name="Boss" parent="." unique_id=261981283 node_paths=PackedStringArray("camera") instance=ExtResource("3_q3t4r")]
-position = Vector2(800, -360)
-left_limit = 85.0
-right_limit = 2475.0
-camera = NodePath("../Camera2D")
-
 [node name="Player" parent="." unique_id=167809822 instance=ExtResource("3_1rqcj")]
-position = Vector2(101, 628)
+position = Vector2(590, 600)
+
+[node name="Boss" parent="." unique_id=261981283 instance=ExtResource("3_4uhye")]
+position = Vector2(2475, -335)
+left_limit = 95.0
+right_limit = 2475.0
+
+[node name="ObstaclePlaceholder" parent="." unique_id=357976468 instance=ExtResource("2_4uhye")]
+position = Vector2(1150, 505)
+
+[node name="PlayersLifeCount" type="Label" parent="." unique_id=1269895423]
+offset_left = 25.0
+offset_top = 425.0
+offset_right = 98.0
+offset_bottom = 600.0
+theme_override_font_sizes/font_size = 128
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

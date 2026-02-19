@@ -26,13 +26,14 @@ expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
-[node name="Npc" type="Node2D" unique_id=1974864946]
+[node name="Npc" type="Node2D" unique_id=1974864946 groups=["NPCs"]]
 script = ExtResource("1_d0v3e")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1387425895]
 texture = SubResource("PlaceholderTexture2D_bnkv5")
 
-[node name="AreaInterativa" type="Area2D" parent="." unique_id=1362999925 groups=["NPCs"]]
+[node name="AreaInterativa" type="Area2D" parent="." unique_id=1362999925]
+collision_layer = 8
 
 [node name="Interativa" type="CollisionShape2D" parent="AreaInterativa" unique_id=1445946949]
 shape = SubResource("RectangleShape2D_d0v3e")
