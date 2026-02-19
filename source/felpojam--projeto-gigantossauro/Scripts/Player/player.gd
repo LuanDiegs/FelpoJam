@@ -3,7 +3,7 @@ class_name Player
 #variaveis
 var gravity = 1200
 
-@export var speed : float = 1200
+@export var speed : float = 2400
 @export var acelleration : float = 400
 @export var turn_acelleration : float = 2400
 @export var friction : float = 1600
