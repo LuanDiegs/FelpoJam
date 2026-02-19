@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://rvyixvm1ll61"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0v3e"]
+size = Vector2(300, 200)
+
+[node name="AreaInterativa" type="Area2D" unique_id=554324001 groups=["NPCs"]]
+
+[node name="Interativa" type="CollisionShape2D" parent="." unique_id=761066790]
+shape = SubResource("RectangleShape2D_d0v3e")
+debug_color = Color(0.99534684, 0, 0.21473277, 0.41960785)

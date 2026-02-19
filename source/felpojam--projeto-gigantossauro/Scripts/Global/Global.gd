@@ -33,6 +33,10 @@ signal DialogOpen(node: Node, phase: int, npc: String)
 signal DialogClosed
 
 
+#Constantes
+var NPC_Spawn_y = 540.0
+
+
 func get_action_key(action_name: String):
 	# Pega o nome do evento que foi passado
 	var button_events_name = str(InputMap.action_get_events(action_name)[0])
@@ -49,6 +53,7 @@ func open_dialog_modal(node: Node, level: int, npc_name: String):
 	dialogNode.reference_node = node
 	
 	node.add_child(dialogNode)
+
 
 func _get_json_file_and_return_dic(level: int, npc_name: String) -> Dictionary:
 	var file = FileAccess.open(dialogs_json, FileAccess.READ)
