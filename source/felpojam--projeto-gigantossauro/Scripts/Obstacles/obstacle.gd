@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Obstacle
 
 #Função de colisão da area 2D dele (Vai ser usada para fazer coisas com o player quando ele colidir)
 func _on_area_body_entered(body: Node2D) -> void:

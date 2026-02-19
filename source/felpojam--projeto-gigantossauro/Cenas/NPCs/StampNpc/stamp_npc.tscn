@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://c1hulgff7kndp"]
+
+[ext_resource type="Script" uid="uid://c64xhqtvt5nbl" path="res://Scripts/NPCs/StampNpc/stamp_npc.gd" id="1_gxuit"]
+[ext_resource type="PackedScene" uid="uid://rvyixvm1ll61" path="res://Cenas/NPCs/Components/area_interativa_npc.tscn" id="1_mk810"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jlqwx"]
+size = Vector2(150, 200)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mk810"]
+size = Vector2(100, 100)
+
+[sub_resource type="FontVariation" id="FontVariation_mk810"]
+variation_embolden = 1.0
+variation_transform = Transform2D(1.35, -0.045, -0.245, 1.12, -0.145, 0)
+
+[sub_resource type="Gradient" id="Gradient_gxuit"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xkucb"]
+gradient = SubResource("Gradient_gxuit")
+width = 32
+height = 32
+
+[node name="StampNpc" type="Node2D" unique_id=717433113 node_paths=PackedStringArray("label")]
+script = ExtResource("1_gxuit")
+label = NodePath("StampLabel")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=680743639]
+position = Vector2(0, 100)
+texture = SubResource("PlaceholderTexture2D_jlqwx")
+offset = Vector2(0, -100)
+
+[node name="AreaInterativa" parent="." unique_id=554324001 instance=ExtResource("1_mk810")]
+
+[node name="StampLabel" type="Control" parent="." unique_id=908051306]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -200.0
+offset_right = 40.0
+offset_bottom = -160.0
+
+[node name="StampPopUp" type="PanelContainer" parent="StampLabel" unique_id=1055155445]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = -74.0
+offset_top = -85.0
+offset_right = 76.0
+offset_bottom = 65.0
+pivot_offset = Vector2(75, 87)
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="StampLabel/StampPopUp" unique_id=1312101313]
+position = Vector2(75, 77)
+texture = SubResource("PlaceholderTexture2D_mk810")
+
+[node name="Dick" type="Label" parent="StampLabel" unique_id=626536966]
+layout_mode = 0
+offset_left = 62.0
+offset_top = -113.0
+offset_right = 90.0
+offset_bottom = -46.0
+pivot_offset = Vector2(11, 25)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_fonts/font = SubResource("FontVariation_mk810")
+theme_override_font_sizes/font_size = 48
+text = "E"
+
+[node name="Stamp" type="Sprite2D" parent="StampLabel" unique_id=1781282869]
+visible = false
+scale = Vector2(10, 10)
+texture = SubResource("GradientTexture2D_xkucb")

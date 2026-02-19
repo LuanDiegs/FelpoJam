@@ -22,6 +22,9 @@ func _ready() -> void:
 	
 	# Ajustamos a posicao para ele ficar em cima da cabeca do node
 	self.global_position.y = reference_node.position.y - 300
+	
+	#Signals
+	Global.DialogClosed.connect(dialog_closed)
 
 
 func dialog_closed():

@@ -6,7 +6,6 @@ extends Node2D
 
 #Função que roda ao iniciar o nó
 func _ready() -> void:
-	
 	#Conecta o sinal do player na função de mudar de vida no label
 	player.life_changed.connect(player_life_changed)
 	#Adiciona o valor da vida do player no label

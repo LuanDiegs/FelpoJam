@@ -3,7 +3,7 @@ class_name Player
 #variaveis
 var gravity = 1200
 
-@export var speed : float = 2400
+@export var speed : float = 1400
 @export var acelleration : float = 400
 @export var turn_acelleration : float = 2400
 @export var friction : float = 1600
@@ -11,7 +11,6 @@ var gravity = 1200
 var lifes = Global.player_lifes
 
 @onready var ray_jumps = [$RayJump, $RayJump2, $RayJump3, $RayJump4, $RayJump5]
-
 
 @onready var collision_shape = $Collision
 @onready var hurtbox = $Hurtbox
@@ -156,8 +155,7 @@ func _physics_process(delta: float) -> void:
 		#Pega com quem está colidindo
 		var collider = collision.get_collider()
 		#Checa se o colisor está no grupo dos obstaculos se o colissor é um rigidbody
-		if collider.is_in_group("Obstacles") and collider is RigidBody2D:
-			
+		if collider.is_in_group("Obstacles") and collider is RigidBody2D:	
 			#Pega o normal da colisão
 			var normal = collision.get_normal()
 			#Checa se o normal x é maior que o normal y
@@ -174,7 +172,6 @@ func _physics_process(delta: float) -> void:
 		
 	#Checa se está no chão
 	if in_floor():
-		
 		#Salva a variavel mais alta (agora é null)
 		var more_height_point = null
 		
