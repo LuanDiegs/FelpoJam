@@ -7,7 +7,9 @@ var actual_state := State.WALKING
 var direction : int = 1
 var can_instantiate : bool = true
 
-var boss_life: int = 3
+var boss_lifes: int = 1
+
+signal boss_life_changed(new_life)
 
 @export var speed : float = 600
 @export var speed_running : float = 1200
@@ -21,9 +23,20 @@ var boss_life: int = 3
 var obstacle = preload("res://Cenas/Placeholders/obstacle_placeholder.tscn")
 var bullet = preload("res://Cenas/Boss/boss_bullet.tscn")
 
+#Função de tomar dano
+func take_damage():
+	
+	#Diminui a vida do boss
+	boss_lifes -= 1
+	#Emite o sinal de mudança de vida do boss
+	boss_life_changed.emit(boss_lifes)
+	#Removendo todos os obstaculos da cena
+	get_tree().call_group("Obstacles", "queue_free")
+
 #Função que executa o estado de caminhada
 func execute_walking(vel, time, time_transition, chance, delta):
 	
+	#Attack_chance é igual a chance
 	attack_chance = chance
 	
 	#Incrementa a posição no valor de speed com base na direção vezes o delta
@@ -41,7 +54,7 @@ func execute_walking(vel, time, time_transition, chance, delta):
 	#Checa um valor flutuativo aleatorio de 0 a 1 a todo frame
 	if randf() < attack_chance:
 		can_instantiate = true #define que pode instanciar
-		if boss_life > 3:
+		if boss_lifes > 3:
 			actual_state = [State.ATTACK, State.ATTACK2].pick_random() #Pega aleatoriamente um desses estados
 		else: #caso contrario
 			actual_state = [State.ATTACK, State.ATTACK3, State.ATTACK4, State.ATTACK5, State.ATTACK].pick_random() #Pega aleatoriamente um desses estados
@@ -241,7 +254,7 @@ func execute_attack(stt, delta):
 func _process(delta: float) -> void:
 	
 	#Checa se a vida é maior a 2
-	if boss_life > 3:
+	if boss_lifes > 3:
 		#Verifica se o actual_state tem um valor especifico
 		match actual_state:	
 			#Se o valor de actual_state for state.walking
@@ -259,7 +272,7 @@ func _process(delta: float) -> void:
 				#xecuta a função de ataque (ataque 2)
 				execute_attack(actual_state, delta)
 	#Caso o contrario (a vida é igual o menor que 2)
-	else:
+	elif boss_lifes >= 1:
 		
 		match actual_state:
 			
@@ -287,3 +300,21 @@ func _process(delta: float) -> void:
 			State.ATTACK5:
 				#xecuta a função de ataque (ataque 5)
 				execute_attack(actual_state, delta)
+	#Caso não seja nenhum dos dois (ou seja, 0 ou menos)
+	else:
+		#Cria um timer de 1 segundo
+		await  get_tree().create_timer(1).timeout
+		#Vai pra cena de creditos
+		get_tree().change_scene_to_file(Global.credits_menu)
+
+#Função que checa a entrade de corpos no hurtbox
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	#Checa se o corpor está no grupo de obstaculos e é um rigid body
+	if body.is_in_group("Obstacles") and body is RigidBody2D:
+		
+		print(boss_lifes)
+		
+		#Checa se a velocidade linear y é maior que 0
+		if body.linear_velocity.y > 0:
+			#Executa a função de tomar dano
+			take_damage()
