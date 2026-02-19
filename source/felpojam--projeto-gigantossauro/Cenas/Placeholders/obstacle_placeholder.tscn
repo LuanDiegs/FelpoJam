@@ -12,9 +12,6 @@ size = Vector2(128, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnmmn"]
 size = Vector2(128, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_brulv"]
-size = Vector2(130, 130)
-
 [node name="ObstaclePlaceholder" type="RigidBody2D" unique_id=357976468 groups=["Obstacles"]]
 collision_layer = 2
 collision_mask = 67
@@ -28,11 +25,3 @@ texture = SubResource("PlaceholderTexture2D_0ui4t")
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=771197902]
 shape = SubResource("RectangleShape2D_lnmmn")
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
-
-[node name="Area" type="Area2D" parent="." unique_id=1639502758]
-
-[node name="Collision" type="CollisionShape2D" parent="Area" unique_id=257647572]
-shape = SubResource("RectangleShape2D_brulv")
-debug_color = Color(1, 0.2784314, 0.3019608, 0.49803922)
-
-[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]

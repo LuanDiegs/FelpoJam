@@ -7,7 +7,7 @@ var actual_state := State.WALKING
 var direction : int = 1
 var can_instantiate : bool = true
 
-var boss_lifes: int = 1
+var boss_lifes: int = 5
 
 signal boss_life_changed(new_life)
 
@@ -40,16 +40,16 @@ func execute_walking(vel, time, time_transition, chance, delta):
 	attack_chance = chance
 	
 	#Incrementa a posição no valor de speed com base na direção vezes o delta
-	position.x += (direction * vel) * delta
+	global_position.x += (direction * vel) * delta
 	#arredonda a posição
-	position.round()
+	global_position.round()
 	#Checa se a posição x é maior ou igual que o limite da direita
-	if position.x >= right_limit:
-		position.x = right_limit #Limita a posição x no limite da direita
+	if global_position.x >= right_limit:
+		global_position.x = right_limit #Limita a posição x no limite da direita
 		direction = -1 #Alterna a direção (vai pra esquerda)
 	#Checa se a posição x é menor ou igual que o limite da esquerda
-	elif position.x <= left_limit:
-		position.x = left_limit #Limita a posição x no limite da esquerda
+	elif global_position.x <= left_limit:
+		global_position.x = left_limit #Limita a posição x no limite da esquerda
 		direction = 1 #Altera a direção (vai pra direita)
 	#Checa um valor flutuativo aleatorio de 0 a 1 a todo frame
 	if randf() < attack_chance:
@@ -69,7 +69,7 @@ func spawn_obstacles():
 	#Pega a camada onde se deve criar o objeto
 	var layer = get_parent()
 	#Define a posição inicial da instancia na posição x e y atual
-	instance.position = Vector2(position.x, position.y - 128)
+	instance.global_position = Vector2(position.x, position.y - 128)
 	#Adiciona a intancia na layr correta
 	layer.add_child(instance)
 
@@ -80,7 +80,7 @@ func spawn_bullet(dir):
 	#Salva em qual layer deve ser instanciada
 	var layer = get_parent()
 	#Define a posição inicial do tito
-	instance.position = global_position
+	instance.global_position = global_position
 	#Define a direção com base na posição do player
 	instance.direction = dir
 	#Adiciona a instancia na camada correta
@@ -140,7 +140,7 @@ func spawn_multiply_bullets(quantity : int, dir):
 			#Printa no debug
 			print("Camera não encontrada")
 		#Define a posição inicial da instancia no eixo x e y
-		instance.position = Vector2(new_x, initial_y)
+		instance.global_position = Vector2(new_x, initial_y)
 		#Define a direção para baixo
 		instance.direction = dir
 		#Adiciona a intancia na layr correta

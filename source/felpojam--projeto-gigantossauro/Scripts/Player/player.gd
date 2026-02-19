@@ -10,7 +10,7 @@ var gravity = 1200
 @export var jump_force : float = -800
 var lifes = Global.player_lifes
 
-@onready var ray_jumps = [$RayJump, $RayJump2, $RayJump3, $RayJump4, $RayJump5]
+@onready var ray_jumps = [$RayJump, $RayJump2, $RayJump3, $RayJump4, $RayJump5,  $RayJump6, $RayJump7, $RayJump8, $RayJump9]
 
 @onready var collision_shape = $Collision
 @onready var hurtbox = $Hurtbox
@@ -34,7 +34,7 @@ signal life_changed(new_life)
 #Função que checa se está no chão
 func in_floor() -> bool:
 	#Retrona o valor de colisão do raycast
-	return ray_jumps[0].is_colliding() or ray_jumps[1].is_colliding() or ray_jumps[2].is_colliding() or ray_jumps[3].is_colliding() or ray_jumps[4].is_colliding()
+	return ray_jumps[0].is_colliding() or ray_jumps[1].is_colliding() or ray_jumps[2].is_colliding() or ray_jumps[3].is_colliding() or ray_jumps[4].is_colliding() or ray_jumps[5].is_colliding() or ray_jumps[6].is_colliding() or ray_jumps[7].is_colliding() or ray_jumps[8].is_colliding()
 
 
 func set_slide(sliding: bool):
@@ -148,7 +148,7 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
 	
 	#Arredonda a colisão
-	position.round()
+	global_position.round()
 	
 	#Checa se está colidindo com alguma coisa
 	if collision:

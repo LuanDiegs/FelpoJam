@@ -66,3 +66,28 @@ limit_left = 0
 position_smoothing_enabled = true
 script = ExtResource("2_8xljj")
 player = NodePath("..")
+
+[node name="RayJump6" type="RayCast2D" parent="." unique_id=1398361088]
+position = Vector2(0, -137)
+scale = Vector2(4, 4)
+target_position = Vector2(6, 36)
+collision_mask = 66
+
+[node name="RayJump7" type="RayCast2D" parent="." unique_id=1435767888]
+position = Vector2(0, -137)
+scale = Vector2(4, 4)
+target_position = Vector2(-6, 36)
+collision_mask = 66
+
+[node name="RayJump8" type="RayCast2D" parent="." unique_id=258557244]
+position = Vector2(-60, -137)
+scale = Vector2(4, 4)
+target_position = Vector2(1, 36)
+collision_mask = 66
+
+[node name="RayJump9" type="RayCast2D" parent="." unique_id=740438779]
+position = Vector2(61, -139)
+scale = Vector2(4, 4)
+target_position = Vector2(-1, 36)
+collision_mask = 66
+
