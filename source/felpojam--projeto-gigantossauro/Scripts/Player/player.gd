@@ -8,6 +8,7 @@ var gravity = 1200
 @export var turn_acelleration : float = 2400
 @export var friction : float = 1600
 @export var jump_force : float = -800
+var lifes = Global.player_lifes
 
 @onready var ray_jumps = [$RayJump, $RayJump2, $RayJump3, $RayJump4, $RayJump5]
 
@@ -26,6 +27,8 @@ var original_hurtbox_pos: Vector2
 
 @export var slide_height_ratio := 0.5
 @export var slide_width_ratio := 1.5
+
+signal life_changed(new_life)
 
 
 #Função que checa se está no chão
@@ -69,6 +72,12 @@ func set_slide(sliding: bool):
 			hurt_shape.size.y = original_hurtbox_height
 			hurtbox_shape.position.y = original_hurtbox_pos.y
 
+#função de tomar dano
+func take_damage(amount: int):
+	#Desincrementa a vida do player com base n o amount
+	lifes -= amount
+	#Emite o sinal d emudança de vida
+	life_changed.emit(lifes)
 
 #Função que roda ao iniciar onó/cena
 func _ready() -> void:
@@ -94,6 +103,13 @@ func _ready() -> void:
 		#Salv a posição do hurtbox
 		original_hurtbox_pos = hurtbox_shape.position
 
+#Função que roda a todo quadro
+func _process(_delta: float) -> void:
+	if lifes <= 0:
+		
+		await get_tree().create_timer(1).timeout
+		
+		get_tree().reload_current_scene()
 
 #Função de processamento de fisica
 func _physics_process(delta: float) -> void:
@@ -152,7 +168,7 @@ func _physics_process(delta: float) -> void:
 				#Se o normal de y for maior que 0
 				if normal.y > 0: 
 					#Aplica o empurrão
-					collider.apply_central_impulse(Vector2(0, velocity.y)) 
+					collider.apply_central_impulse(Vector2(0, velocity.y * 5)) 
 		
 	#Checa se está no chão
 	if in_floor():

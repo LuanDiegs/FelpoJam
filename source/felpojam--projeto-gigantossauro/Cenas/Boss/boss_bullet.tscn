@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://1jjs6id7cee8"]
+
+[ext_resource type="Script" uid="uid://b6ed6myewlxhe" path="res://Scripts/Boss/boss_bullet.gd" id="1_mrkoy"]
+
+[sub_resource type="Gradient" id="Gradient_mrkoy"]
+offsets = PackedFloat32Array(0, 0.9886364)
+colors = PackedColorArray(0.42279392, 0.5149285, 0, 1, 0.67127264, 0.38186774, 0.8949746, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2llp1"]
+gradient = SubResource("Gradient_mrkoy")
+width = 96
+height = 48
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2llp1"]
+size = Vector2(90, 50)
+
+[node name="BossBullet" type="Area2D" unique_id=1019908341 groups=["Boss"]]
+collision_layer = 128
+collision_mask = 98
+script = ExtResource("1_mrkoy")
+
+[node name="Texture" type="Sprite2D" parent="." unique_id=105954143]
+texture = SubResource("GradientTexture2D_2llp1")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1959221314]
+shape = SubResource("RectangleShape2D_2llp1")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

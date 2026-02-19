@@ -27,6 +27,7 @@ Global="*uid://cymxuu5fsparp"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=2
 window/stretch/mode="canvas_items"
 
 [global_group]
@@ -36,6 +37,7 @@ Obstacles=""
 NPCs=""
 Enemies=""
 Boss=""
+Floor=""
 
 [input]
 
@@ -78,6 +80,7 @@ interact={
 2d_physics/layer_5="Hitbox"
 2d_physics/layer_6="Hurtbox"
 2d_physics/layer_7="Floor"
+2d_physics/layer_8="Bullet"
 
 [physics]
 
