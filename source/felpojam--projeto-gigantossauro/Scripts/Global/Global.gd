@@ -1,8 +1,9 @@
 extends Node
 
 #Cenas
-var start_menu = "res://Cenas/start_menu.tscn"
-var settings_menu = "res://Cenas/settings_menu.tscn"
+var start_menu = "res://Cenas/Menus/MainMenu/start_menu.tscn"
+var settings_menu = "res://Cenas/Menus/SettingsMenu/settings_menu.tscn"
+var credits_menu = "res://Cenas/Menus/CreditsMenu/credits_menu.tscn"
 var dialogs_json = "res://Utils/Dialogs/dialogs.json"
 
 #Variaveis gerais

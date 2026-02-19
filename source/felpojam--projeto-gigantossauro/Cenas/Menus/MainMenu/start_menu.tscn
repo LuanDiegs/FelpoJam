@@ -19,12 +19,22 @@ modulate = Color(0.40859753, 0.5007568, 0.72983867, 0.49803922)
 texture = SubResource("PlaceholderTexture2D_52tck")
 centered = false
 
+[node name="CreditsButton" type="Button" parent="." unique_id=1319867856]
+layout_mode = 0
+offset_left = 570.0
+offset_top = 610.0
+offset_right = 710.0
+offset_bottom = 666.0
+theme_override_font_sizes/font_size = 32
+text = "Creditos
+"
+
 [node name="SettingsButton" type="Button" parent="." unique_id=1099062913]
 layout_mode = 0
-offset_left = 576.0
-offset_top = 608.0
-offset_right = 704.0
-offset_bottom = 664.0
+offset_left = 575.0
+offset_top = 530.0
+offset_right = 703.0
+offset_bottom = 583.0
 theme_override_font_sizes/font_size = 32
 text = "Opções
 "
@@ -40,5 +50,6 @@ text = "Sair
 
 "
 
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
