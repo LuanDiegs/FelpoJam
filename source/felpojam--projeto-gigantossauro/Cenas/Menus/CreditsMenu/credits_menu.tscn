@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://djr383oaw30ts"]
+
+[ext_resource type="Script" uid="uid://hdy4w3rqi1em" path="res://Scripts/Menus/CreditsMenu/credits_menu.gd" id="1_ukhn6"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mt1bo"]
+size = Vector2(1280, 720)
+
+[node name="CreditsMenu" type="Control" unique_id=431387502]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ukhn6")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1592988077]
+texture = SubResource("PlaceholderTexture2D_mt1bo")
+centered = false
+
+[node name="Code" type="Label" parent="." unique_id=1685871230]
+layout_mode = 0
+offset_top = 57.0
+offset_right = 1280.0
+offset_bottom = 145.0
+theme_override_font_sizes/font_size = 64
+text = "Programação"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CodePeoples" type="Label" parent="Code" unique_id=848786689]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 1280.0
+offset_bottom = 203.0
+theme_override_font_sizes/font_size = 32
+text = "Wesley Brito (Mordchan)
+Zdzin"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="Label" parent="." unique_id=2049594834]
+layout_mode = 0
+offset_top = 507.0
+offset_right = 1280.0
+offset_bottom = 595.0
+theme_override_font_sizes/font_size = 64
+text = "Músicas"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicPeoples" type="Label" parent="Music" unique_id=1994981917]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 1280.0
+offset_bottom = 155.0
+theme_override_font_sizes/font_size = 32
+text = "Kevin Molina (Knive)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Visual" type="Label" parent="." unique_id=1097159349]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 282.0
+offset_right = 1290.0
+offset_bottom = 370.0
+theme_override_font_sizes/font_size = 64
+text = "Visual"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VisualPeoples2" type="Label" parent="Visual" unique_id=939235006]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 1280.0
+offset_bottom = 203.0
+theme_override_font_sizes/font_size = 32
+text = "Pâmela Palazzi (Pampalazzi)
+Ruam Costa (Stuartts)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="." unique_id=344070208]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 654.0
+offset_right = 135.0
+offset_bottom = 707.0
+theme_override_font_sizes/font_size = 32
+text = "Voltar
+"
+
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
