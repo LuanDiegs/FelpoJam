@@ -2,7 +2,7 @@ extends CanvasLayer
 
 signal _transition_finished
 
-@onready var color_rect: ColorRect = $ColorRect
+@onready var color_rect: ColorRect = $ColorRect 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
@@ -24,7 +24,7 @@ func _on_animation_finished(anim_name: String):
 		color_rect.visible = false
 
 
-func change_to_scene(scene: PackedScene):
+func change_to_scene(scene: String):
 	Transition.transition()
 	await Transition._transition_finished
-	get_tree().change_scene_to_packed(scene)
+	get_tree().change_scene_to_file(scene)

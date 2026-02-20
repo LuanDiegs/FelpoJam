@@ -265,19 +265,30 @@ zoom = Vector2(0.5, 0.5)
 [node name="Player" parent="." unique_id=167809822 instance=ExtResource("3_1rqcj")]
 position = Vector2(590, 600)
 
-[node name="Boss" parent="." unique_id=261981283 instance=ExtResource("3_4uhye")]
-position = Vector2(2475, -335)
+[node name="Boss" parent="." unique_id=261981283 node_paths=PackedStringArray("camera") instance=ExtResource("3_4uhye")]
+position = Vector2(1245, -335)
 left_limit = 95.0
 right_limit = 2475.0
+camera = NodePath("../Camera2D")
 
 [node name="ObstaclePlaceholder" parent="." unique_id=357976468 instance=ExtResource("2_4uhye")]
 position = Vector2(1150, 505)
 
-[node name="PlayersLifeCount" type="Label" parent="." unique_id=1269895423]
+[node name="PlayersLifeCounter" type="Label" parent="." unique_id=1269895423]
 offset_left = 25.0
 offset_top = 425.0
 offset_right = 98.0
 offset_bottom = 600.0
+theme_override_font_sizes/font_size = 128
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BossLifeCounter" type="Label" parent="." unique_id=124683096]
+offset_left = 2475.0
+offset_top = -705.0
+offset_right = 2548.0
+offset_bottom = -530.0
 theme_override_font_sizes/font_size = 128
 text = "0"
 horizontal_alignment = 1

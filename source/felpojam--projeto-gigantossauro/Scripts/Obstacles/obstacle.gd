@@ -1,9 +1,9 @@
 extends RigidBody2D
 class_name Obstacle
 
-#Função de colisão da area 2D dele (Vai ser usada para fazer coisas com o player quando ele colidir)
-func _on_area_body_entered(body: Node2D) -> void:
+#função que roda a todo frame
+func  _process(delta: float) -> void:
 	
-	   #Checa se o corpo que colidiu está no grupo "Player
-	if body.is_in_group("Player"):
-		pass #faz nada ainda	
+	#Checa se a posição global y é maior que 1280
+	if global_position.y > 1280:
+		queue_free()

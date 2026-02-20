@@ -2,7 +2,7 @@ extends CanvasLayer
 class_name Intermission_Base
 
 @export var scene_number: int = 1
-@export var scene_to_change: PackedScene
+@export var scene_to_change_uid: String
 
 const default_text: Dictionary = { "lore_1": "Eita"}
 
@@ -94,7 +94,7 @@ func _get_json_file_and_return_dic() -> Dictionary:
 func _input(event: InputEvent) -> void:
 	#Troca a cena pro tutorial
 	if lore_finished:
-		Transition.change_to_scene(Global.tutorial)
+		Transition.change_to_scene(scene_to_change_uid)
 		
 	if event.is_action_pressed("interact") and current_lore_sentence <= count_lore_sentences + 1:
 		if !tween_text_ratio:

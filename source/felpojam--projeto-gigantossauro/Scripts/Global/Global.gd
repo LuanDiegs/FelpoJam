@@ -1,10 +1,11 @@
 extends Node
 
 #Cenas
-var start_menu := preload("uid://bqh03fym7is0")
-var settings_menu := preload("uid://bmbjeqofrspuq")
-var intermission_1 := preload("uid://bxgq6p58qxcx3")
-var tutorial := preload("uid://4w463o650n0")
+var credits_menu = "uid://d0be4afyq8exh"
+var start_menu := "uid://bqh03fym7is0"
+var settings_menu := "uid://bmbjeqofrspuq"
+var intermission_1 := "uid://bxgq6p58qxcx3"
+var tutorial := "uid://4w463o650n0"
 var dialogs_json = "res://Utils/Dialogs/dialogs.json"
 var lore_json = "res://Scripts/Levels/Intermission/intermission_lore.json"
 
@@ -42,7 +43,7 @@ var NPC_Spawn_y = 540.0
 func get_action_key(action_name: String):
 	# Pega o nome do evento que foi passado
 	var button_events_name = str(InputMap.action_get_events(action_name)[0])
-	return button_events_name.get_slice(":",1).get_slice(",",0).get_slice("(",1).get_slice(")",0)
+	return button_events_name.get_slice(":", 1).get_slice(",", 0).get_slice("(", 1).get_slice(")", 0)
 
 
 func open_dialog_modal(node: Node, level: int, npc_name: String):
@@ -81,7 +82,7 @@ func _get_json_file_and_return_dic(level: int, npc_name: String) -> Dictionary:
 	if !json_parsed.has(phase):
 		return _randomize_default_text()
 	
-	var npcName = npc_name.to_lower()	
+	var npcName = npc_name.to_lower()
 	if !json_parsed[phase].has(npcName):
 		return _randomize_default_text()
 

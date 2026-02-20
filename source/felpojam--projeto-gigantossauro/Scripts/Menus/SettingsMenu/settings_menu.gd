@@ -246,8 +246,7 @@ func save_video_settings():
 
 #Função que executa ao pressionar o botão de voltar para o menu
 func _on_return_button_pressed() -> void:
-	#MUda para a ceno do menu principal
-	get_tree().change_scene_to_packed(Global.start_menu)
+	get_tree().change_scene_to_file(Global.start_menu)
 
 
 #Função toggle vsync (só armazena a intenção não aplica nada, o valor será usando no botão aplicar)

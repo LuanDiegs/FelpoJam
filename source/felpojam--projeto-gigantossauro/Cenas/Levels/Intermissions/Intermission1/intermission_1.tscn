@@ -5,4 +5,4 @@
 [node name="Intermission1" type="CanvasLayer" unique_id=1909795097]
 
 [node name="IntermissionBase" parent="." unique_id=1378133792 instance=ExtResource("1_koyf2")]
-scene_number = null
+scene_to_change_uid = "uid://4w463o650n0"
