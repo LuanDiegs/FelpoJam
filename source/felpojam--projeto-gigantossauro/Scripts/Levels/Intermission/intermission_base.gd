@@ -47,8 +47,6 @@ func _set_sentence():
 		tween_down.parallel().tween_property(press_to_continue, "position:y", press_to_continue.position.y + 10, 1.5)
 		tween_down.tween_property(press_to_continue, "position:y", press_to_continue.position.y, 1.5)
 		tween_down.set_loops()
-		
-		await tween_modulate_continue.finished
 	
 	current_lore_sentence += 1
 
@@ -95,6 +93,7 @@ func _input(event: InputEvent) -> void:
 	#Troca a cena pro tutorial
 	if lore_finished:
 		Transition.change_to_scene(scene_to_change_uid)
+		return
 		
 	if event.is_action_pressed("interact") and current_lore_sentence <= count_lore_sentences + 1:
 		if !tween_text_ratio:

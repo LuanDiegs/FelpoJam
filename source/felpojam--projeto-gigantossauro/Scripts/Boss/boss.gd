@@ -6,10 +6,8 @@ enum State {WALKING, ATTACK, ATTACK2, ATTACK3, ATTACK4, ATTACK5}
 var actual_state := State.WALKING
 var direction : int = 1
 var can_instantiate : bool = true
-
-var boss_lifes: int = 5
-
-signal boss_life_changed(new_life)
+var boss_lifes: int = 1
+var is_dead : bool = false
 
 @export var speed : float = 600
 @export var speed_running : float = 1200
@@ -23,15 +21,20 @@ signal boss_life_changed(new_life)
 var obstacle = preload("res://Cenas/Placeholders/obstacle_placeholder.tscn")
 var bullet = preload("res://Cenas/Boss/boss_bullet.tscn")
 
+signal boss_life_changed(new_life)
+signal boss_is_dead
+
 #Função de tomar dano
 func take_damage():
 	
-	#Diminui a vida do boss
-	boss_lifes -= 1
-	#Emite o sinal de mudança de vida do boss
-	boss_life_changed.emit(boss_lifes)
-	#Removendo todos os obstaculos da cena
-	get_tree().call_group("Obstacles", "queue_free")
+	#Checa se a vida é maior que 0
+	if boss_lifes > 0 and !is_dead:
+		#Diminui a vida do boss
+		boss_lifes -= 1
+		#Emite o sinal de mudança de vida do boss
+		boss_life_changed.emit(boss_lifes)
+		#Removendo todos os obstaculos da cena
+		get_tree().call_group("Obstacles", "queue_free")
 
 #Função que executa o estado de caminhada
 func execute_walking(vel, time, time_transition, chance, delta):
@@ -57,7 +60,7 @@ func execute_walking(vel, time, time_transition, chance, delta):
 		if boss_lifes > 3:
 			actual_state = [State.ATTACK, State.ATTACK2].pick_random() #Pega aleatoriamente um desses estados
 		else: #caso contrario
-			actual_state = [State.ATTACK, State.ATTACK3, State.ATTACK4, State.ATTACK5, State.ATTACK].pick_random() #Pega aleatoriamente um desses estados
+			actual_state = [State.ATTACK, State.ATTACK3, State.ATTACK, State.ATTACK4, State.ATTACK, State.ATTACK5, State.ATTACK].pick_random() #Pega aleatoriamente um desses estados
 		attack_timer = time #SEta o timer do ataque para 1 segundo
 		attack_time_transition = time_transition #Seta o timer de espera para a transição deestado depois do ataque para 1 segundo
 
@@ -250,6 +253,13 @@ func execute_attack(stt, delta):
 					#Executa a transição do ataque
 					attack_transition(delta)
 
+
+func _ready() -> void:
+	
+	await get_tree().create_timer(2).timeout
+	
+	take_damage()
+
 #função de pprocessamento a cada quadro
 func _process(delta: float) -> void:
 	
@@ -300,19 +310,19 @@ func _process(delta: float) -> void:
 			State.ATTACK5:
 				#xecuta a função de ataque (ataque 5)
 				execute_attack(actual_state, delta)
-	#Caso não seja nenhum dos dois (ou seja, 0 ou menos)
+	#Caso seja 0
 	else:
-		#Cria um timer de 1 segundo
-		await  get_tree().create_timer(1).timeout
-		#Vai pra cena de creditos
-		get_tree().change_scene_to_file(Global.credits_menu)
+		#Checa se is_dead é falso
+		if !is_dead:
+			#Emite o sinal que morreu
+			boss_is_dead.emit()
+			#Is_dead é verdadeiro (morreu)
+			is_dead = true
 
 #Função que checa a entrade de corpos no hurtbox
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	#Checa se o corpor está no grupo de obstaculos e é um rigid body
 	if body.is_in_group("Obstacles") and body is RigidBody2D:
-		
-		print(boss_lifes)
 		
 		#Checa se a velocidade linear y é maior que 0
 		if body.linear_velocity.y > 0:
