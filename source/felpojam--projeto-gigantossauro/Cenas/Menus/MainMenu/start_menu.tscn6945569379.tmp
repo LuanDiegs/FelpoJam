@@ -75,6 +75,5 @@ text = "Sair
 
 "
 
-[connection signal="pressed" from="MarginContainer/Labels/ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Labels/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Labels/ButtonsContainer/ExitButton" to="." method="_on_exit_button_pressed"]

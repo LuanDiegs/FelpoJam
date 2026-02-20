@@ -1,9 +1,12 @@
 extends Node
 
 #Cenas
-var start_menu = "res://Cenas/start_menu.tscn"
-var settings_menu = "res://Cenas/settings_menu.tscn"
+var start_menu := preload("uid://bqh03fym7is0")
+var settings_menu := preload("uid://bmbjeqofrspuq")
+var intermission_1 := preload("uid://bxgq6p58qxcx3")
+var tutorial := preload("uid://4w463o650n0")
 var dialogs_json = "res://Utils/Dialogs/dialogs.json"
+var lore_json = "res://Scripts/Levels/Intermission/intermission_lore.json"
 
 #Variaveis gerais
 var player_lifes = 5
@@ -31,7 +34,6 @@ var defaultTexts: Dictionary = {
 #Signals importantes
 signal DialogOpen(node: Node, phase: int, npc: String)
 signal DialogClosed
-
 
 #Constantes
 var NPC_Spawn_y = 540.0
@@ -92,3 +94,29 @@ func _randomize_default_text() -> Dictionary:
 	var key = "default" + str(randomDefault)
 	
 	return defaultTexts[key]
+
+#Função para centralizar a janela
+func center_window():
+	#Cria um timer de 1 frame para garantir que o posicionamente foi aplicado
+	await get_tree().process_frame
+	
+	#Obtem a area util da tela (desconsidera a barra de tarefas)
+	var screen_rect = DisplayServer.screen_get_usable_rect()
+	var window_size = DisplayServer.window_get_size() # salva o tamanho da janela
+
+	#Calula a posição centralizada dentro da area util da tela
+	var new_pos = Vector2i(
+		screen_rect.position.x + (screen_rect.size.x - window_size.x) / 2,
+		screen_rect.position.y + (screen_rect.size.y - window_size.y) / 2
+	)
+	
+	#Garante que a posição não seja negativa
+	new_pos.x = max(new_pos.x, 0)
+	new_pos.y = max(new_pos.y, 0)
+	
+	#Aplica a nova posição da janela
+	DisplayServer.window_set_position(new_pos)
+
+#Configuracoes globais
+func set_saved_settings():
+	pass
