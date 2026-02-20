@@ -92,3 +92,5 @@ offset_bottom = 707.0
 theme_override_font_sizes/font_size = 32
 text = "Voltar
 "
+
+[connection signal="pressed" from="ReturnToMenuButton" to="." method="_on_return_button_pressed"]

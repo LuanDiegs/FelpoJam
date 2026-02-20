@@ -1,16 +1,21 @@
 extends Node
 
 #Cenas
-var start_menu = "res://Cenas/Menus/MainMenu/start_menu.tscn"
-var settings_menu = "res://Cenas/Menus/SettingsMenu/settings_menu.tscn"
-var credits_menu = "res://Cenas/Menus/CreditsMenu/credits_menu.tscn"
-var transition_scene = preload("res://Cenas/ScenteTransition/scene_transition.tscn")
+var credits_menu = "uid://d0be4afyq8exh"
+var start_menu := "uid://bqh03fym7is0"
+var settings_menu := "uid://bmbjeqofrspuq"
+var intermission_1 := "uid://bxgq6p58qxcx3"
+var tutorial := "uid://4w463o650n0"
 var dialogs_json = "res://Utils/Dialogs/dialogs.json"
+var lore_json = "res://Scripts/Levels/Intermission/intermission_lore.json"
+
+#Transicao de cena
+var transition_scene = "uid://5jc7225o6nxi"
 
 #Variaveis gerais
 var player_lifes = 5
 var current_phase: int = 1
-var transition_instance : CanvasLayer 
+var transition_instance: CanvasLayer
 
 #region Sistema de Dialogos
 #Edge cases json (Caso nao ache o file de dialogos)
@@ -42,7 +47,7 @@ var NPC_Spawn_y = 540.0
 func get_action_key(action_name: String):
 	# Pega o nome do evento que foi passado
 	var button_events_name = str(InputMap.action_get_events(action_name)[0])
-	return button_events_name.get_slice(":",1).get_slice(",",0).get_slice("(",1).get_slice(")",0)
+	return button_events_name.get_slice(":", 1).get_slice(",", 0).get_slice("(", 1).get_slice(")", 0)
 
 func open_dialog_modal(node: Node, level: int, npc_name: String):
 	var dialogNode = (preload("res://Cenas/TextBoxes/DialogBoxes/dialog_box.tscn")).instantiate() as DialogBox
@@ -79,7 +84,7 @@ func _get_json_file_and_return_dic(level: int, npc_name: String) -> Dictionary:
 	if !json_parsed.has(phase):
 		return _randomize_default_text()
 	
-	var npcName = npc_name.to_lower()	
+	var npcName = npc_name.to_lower()
 	if !json_parsed[phase].has(npcName):
 		return _randomize_default_text()
 
@@ -96,8 +101,7 @@ func _randomize_default_text() -> Dictionary:
 
 #region Função de Transição de Cenas
 #Função de fade da cena
-func fade_to_scene(scene_path : String, duration : float = 0.5):
-	
+func fade_to_scene(scene_path: String, duration: float = 0.5):
 	#Instancia a transição se ainda não existir
 	#Checa se a instancia da transição é invalida
 	if !transition_instance:
@@ -134,3 +138,29 @@ func fade_to_scene(scene_path : String, duration : float = 0.5):
 	#transition_instance.queue_free()
 	#transition_instance = null
 #endregion
+
+#Função para centralizar a janela
+func center_window():
+	#Cria um timer de 1 frame para garantir que o posicionamente foi aplicado
+	await get_tree().process_frame
+	
+	#Obtem a area util da tela (desconsidera a barra de tarefas)
+	var screen_rect = DisplayServer.screen_get_usable_rect()
+	var window_size = DisplayServer.window_get_size() # salva o tamanho da janela
+
+	#Calula a posição centralizada dentro da area util da tela
+	var new_pos = Vector2i(
+		screen_rect.position.x + (screen_rect.size.x - window_size.x) / 2,
+		screen_rect.position.y + (screen_rect.size.y - window_size.y) / 2
+	)
+	
+	#Garante que a posição não seja negativa
+	new_pos.x = max(new_pos.x, 0)
+	new_pos.y = max(new_pos.y, 0)
+	
+	#Aplica a nova posição da janela
+	DisplayServer.window_set_position(new_pos)
+
+#Configuracoes globais
+func set_saved_settings():
+	pass

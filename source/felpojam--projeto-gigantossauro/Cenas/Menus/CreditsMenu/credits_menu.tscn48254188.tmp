@@ -83,7 +83,7 @@ Ruam Costa (Stuartts)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ReturnToMenuButton" type="Button" parent="." unique_id=344070208]
+[node name="ReturnButton" type="Button" parent="." unique_id=344070208]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 654.0
@@ -92,3 +92,5 @@ offset_bottom = 707.0
 theme_override_font_sizes/font_size = 32
 text = "Voltar
 "
+
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

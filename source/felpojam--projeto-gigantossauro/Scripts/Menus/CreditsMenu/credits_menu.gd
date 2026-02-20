@@ -1,6 +1,11 @@
 extends Control
 
-#Função que executa ao  pressionar o botão de voltar
-func _on_return_button_pressed() -> void:
+@onready var return_to_menu_button: Button = $ReturnToMenuButton
+
+func _ready() -> void:
+	return_to_menu_button.pressed.connect(_on_return_to_menu_button_pressed)
+	
+	
+func _on_return_to_menu_button_pressed() -> void:
 	#Volta ao menu principal
-	Global.fade_to_scene(Global.start_menu, 1)
+	Transition.change_to_scene(Global.start_menu)

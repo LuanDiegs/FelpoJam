@@ -68,12 +68,6 @@ theme_override_font_sizes/font_size = 48
 text = "Opções
 "
 
-[node name="CreditsButton" type="Button" parent="MarginContainer/Labels/ButtonsContainer" unique_id=1319867856]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Créditos
-"
-
 [node name="ExitButton" type="Button" parent="MarginContainer/Labels/ButtonsContainer" unique_id=1094835960]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
@@ -81,7 +75,5 @@ text = "Sair
 
 "
 
-[connection signal="pressed" from="MarginContainer/Labels/ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Labels/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="MarginContainer/Labels/ButtonsContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Labels/ButtonsContainer/ExitButton" to="." method="_on_exit_button_pressed"]
