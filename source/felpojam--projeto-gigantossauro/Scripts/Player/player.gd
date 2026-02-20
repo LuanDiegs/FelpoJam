@@ -103,16 +103,17 @@ func _ready() -> void:
 		#Salv a posição do hurtbox
 		original_hurtbox_pos = hurtbox_shape.position
 
-#Função que roda a todo quadro
-func _process(_delta: float) -> void:
+#Função de processamento de fisica
+func _physics_process(delta: float) -> void:
+	
 	if lifes <= 0:
 		
 		await get_tree().create_timer(1).timeout
 		
-		get_tree().reload_current_scene()
-
-#Função de processamento de fisica
-func _physics_process(delta: float) -> void:
+		if get_tree():
+			get_tree().reload_current_scene()
+	
+	
 	#checa se não está no chão
 	if !in_floor():
 		#Aplica a gravidade

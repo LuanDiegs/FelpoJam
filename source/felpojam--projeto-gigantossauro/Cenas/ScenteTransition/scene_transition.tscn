@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://5jc7225o6nxi"]
+
+[node name="SceneTransition" type="CanvasLayer" unique_id=1720085948]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1407787139]
+anchors_preset = -1
+anchor_left = -0.18100001
+anchor_top = -1.0830001
+anchor_right = 2.13
+anchor_bottom = 2.242
+offset_left = -0.31999207
+offset_top = -0.2399292
+offset_right = -0.40014648
+offset_bottom = -0.2401123
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
