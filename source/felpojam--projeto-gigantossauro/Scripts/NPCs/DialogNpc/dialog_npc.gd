@@ -17,7 +17,6 @@ func _ready() -> void:
 	_configure_label()
 	
 	#Signals proprios
-	Global.DialogOpen.connect(Global.open_dialog_modal)
 	Global.DialogClosed.connect(_reset_state_npc)
 	area_interativa.body_entered.connect(_on_body_entered_area_interativa)
 	area_interativa.body_exited.connect(_on_body_exited_area_interativa)

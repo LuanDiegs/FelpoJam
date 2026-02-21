@@ -20,7 +20,7 @@ gradient = SubResource("Gradient_gxuit")
 width = 32
 height = 32
 
-[node name="StampNpc" type="Node2D" unique_id=717433113 node_paths=PackedStringArray("label")]
+[node name="StampNpc" type="Node2D" unique_id=717433113 node_paths=PackedStringArray("label") groups=["StampNPCs"]]
 script = ExtResource("1_gxuit")
 label = NodePath("StampLabel")
 

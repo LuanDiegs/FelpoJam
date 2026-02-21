@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://rsrluaj37ape"]
+
+[ext_resource type="Script" uid="uid://j8jdj7tkbted" path="res://Scripts/Levels/Utils/StampLeft/stamps_left.gd" id="1_gkes7"]
+
+[node name="StampsLeft" type="CanvasLayer" unique_id=2143747648]
+script = ExtResource("1_gkes7")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=1353436523]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 144.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Container" type="HBoxContainer" parent="Margin" unique_id=482812407]
+layout_mode = 2
+
+[node name="LabelStamped" type="RichTextLabel" parent="Margin/Container" unique_id=1460885593]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+text = "15 / 20"
+fit_content = true
+horizontal_alignment = 2

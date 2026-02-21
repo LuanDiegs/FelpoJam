@@ -6,6 +6,9 @@ signal _transition_finished
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
+var levels_scenes: Array = [Global.tutorial]
+
+
 func _ready() -> void:
 	color_rect.visible = false
 	animation_player.animation_finished.connect(_on_animation_finished)

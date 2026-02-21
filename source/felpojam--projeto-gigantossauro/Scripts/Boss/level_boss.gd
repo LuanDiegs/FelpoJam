@@ -20,14 +20,16 @@ func _ready() -> void:
 	
 	boss.boss_is_dead.connect(boss_dead_change_scene)
 
+
 #Função que muda a vida do player no label
 func player_life_changed(new_life : int):
 	#Define o texto do label para a nova vida do player
 	player_life_label.text = str(new_life) 
 
+
 func boss_life_changed(new_life : int):
 	boss_life_label.text = str(new_life)
 
+
 func boss_dead_change_scene():
-	
-	Global.fade_to_scene(Global.credits_menu, 1)
+	Transition.change_to_scene(Global.credits_menu)

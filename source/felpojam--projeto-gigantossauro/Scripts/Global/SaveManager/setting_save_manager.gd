@@ -47,6 +47,7 @@ func _apply_saved_settings():
 
 	# Resolution
 	var resolution = file.get_value(video_config.video, video_config.resolution)
+	print(resolution)
 	if resolution:
 		DisplayServer.window_set_size(resolution)
 		Global.center_window()
