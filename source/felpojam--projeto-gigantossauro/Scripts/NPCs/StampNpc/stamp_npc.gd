@@ -37,7 +37,6 @@ func _stamp_animation():
 
 
 func _npc_go_away_animation():
-	
 	var direction = -1 if randf() < 0.5 else 1
 	
 	#Tween do movimento
@@ -57,6 +56,10 @@ func _npc_go_away_animation():
 func _input(event: InputEvent) -> void:
 	# Se apertou o botao de interagir e um dos corpos em volta é um jogador, habilita o dialogo
 	if event.is_action_pressed("interact") and _player_is_in_area() and !stamped:
+		#Emite o signal de carimbado
+		Global.NpcStamped.emit()
+		
+		#Controle de animaçoes		
 		stamped = true
 		await _stamp_animation()
 		_animate_label(false)

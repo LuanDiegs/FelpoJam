@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://couyqnjnltymh" path="res://Cenas/NPCs/DialogNpc/dialog_npc.tscn" id="2_7rt2x"]
 [ext_resource type="PackedScene" uid="uid://c1hulgff7kndp" path="res://Cenas/NPCs/StampNpc/stamp_npc.tscn" id="3_wsxoj"]
 [ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Placeholders/obstacle_placeholder.tscn" id="4_s17a2"]
-[ext_resource type="PackedScene" uid="uid://ctog77obk3wbj" path="res://Cenas/Levels/UI/LevelUI/level_ui.tscn" id="5_633wf"]
+[ext_resource type="PackedScene" uid="uid://cjydupv4ijj2c" path="res://Cenas/Utils/StampTimer/stamp_timer.tscn" id="5_633wf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbng6"]
 size = Vector2(8432, 64)
@@ -82,4 +82,5 @@ position = Vector2(6067, 271)
 [node name="Obstacle7" parent="Obstacles" unique_id=582916153 instance=ExtResource("4_s17a2")]
 position = Vector2(7228, 403)
 
-[node name="LevelUi" parent="." unique_id=249611385 instance=ExtResource("5_633wf")]
+[node name="StampTimer" parent="." unique_id=786461263 instance=ExtResource("5_633wf")]
+stamp_time_to_die = null

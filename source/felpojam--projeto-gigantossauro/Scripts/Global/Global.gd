@@ -14,8 +14,21 @@ var transition_scene = "uid://5jc7225o6nxi"
 
 #Variaveis gerais
 var player_lifes = 5
-var current_phase: int = 1
+var game_phases: Dictionary = {
+	tutorial = "tutorial",
+	level1 = "1",
+	level2 = "2",
+	level3 = "3",
+	boss = "boss"
+}
+var current_phase: String = game_phases.tutorial
 var transition_instance: CanvasLayer
+
+
+func _ready() -> void:
+	#Sinais globais
+	Global.DialogOpen.connect(Global.open_dialog_modal)
+
 
 #region Sistema de Dialogos
 #Edge cases json (Caso nao ache o file de dialogos)
@@ -38,8 +51,13 @@ var defaultTexts: Dictionary = {
 }
 
 #Signals importantes
-signal DialogOpen(node: Node, phase: int, npc: String)
+signal DialogOpen(node: Node, phase: String, npc: String)
 signal DialogClosed
+
+
+#Signal de timer
+signal NpcStamped
+
 
 #Constantes
 var NPC_Spawn_y = 540.0
@@ -49,7 +67,7 @@ func get_action_key(action_name: String):
 	var button_events_name = str(InputMap.action_get_events(action_name)[0])
 	return button_events_name.get_slice(":", 1).get_slice(",", 0).get_slice("(", 1).get_slice(")", 0)
 
-func open_dialog_modal(node: Node, level: int, npc_name: String):
+func open_dialog_modal(node: Node, level: String, npc_name: String):
 	var dialogNode = (preload("res://Cenas/TextBoxes/DialogBoxes/dialog_box.tscn")).instantiate() as DialogBox
 	
 	# Sistema para pegar as frases dos NPCs no JSON
@@ -60,7 +78,8 @@ func open_dialog_modal(node: Node, level: int, npc_name: String):
 	
 	node.add_child(dialogNode)
 
-func _get_json_file_and_return_dic(level: int, npc_name: String) -> Dictionary:
+
+func _get_json_file_and_return_dic(level: String, npc_name: String) -> Dictionary:
 	var file = FileAccess.open(dialogs_json, FileAccess.READ)
 	
 	# Se arquivo nao existe, retornamos default
@@ -80,7 +99,8 @@ func _get_json_file_and_return_dic(level: int, npc_name: String) -> Dictionary:
 	json_parsed = json_parsed as Dictionary
 	
 	# Se a fase ou nome do npc n existir, retornamos vazio
-	var phase = "phase" + str(level)
+	var phase = "phase" + level.to_lower()
+
 	if !json_parsed.has(phase):
 		return _randomize_default_text()
 	

@@ -240,8 +240,8 @@ func save_video_settings():
 	SettingSaveManager.save_video_settings(SettingSaveManager.video_config.resolution, resolutionVector)
 	
 	# Salva o modo de tela selecionado
-	var mode_option = Window.MODE_FULLSCREEN if mode_option.selected == 1 else Window.MODE_WINDOWED
-	SettingSaveManager.save_video_settings(SettingSaveManager.video_config.window, mode_option)
+	var mode = Window.MODE_FULLSCREEN if mode_option.selected == 1 else Window.MODE_WINDOWED
+	SettingSaveManager.save_video_settings(SettingSaveManager.video_config.window, mode)
 
 
 #Função que executa ao pressionar o botão de voltar para o menu

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ctog77obk3wbj"]
+
+[ext_resource type="PackedScene" uid="uid://rsrluaj37ape" path="res://Cenas/Levels/UI/StampsLeft/stamps_left.tscn" id="1_4xgp1"]
+[ext_resource type="PackedScene" uid="uid://cjydupv4ijj2c" path="res://Cenas/Levels/UI/StampTimer/stamp_timer.tscn" id="2_wquri"]
+
+[node name="LevelUi" type="CanvasLayer" unique_id=249611385]
+
+[node name="StampsLeft" parent="." unique_id=2143747648 instance=ExtResource("1_4xgp1")]
+
+[node name="StampTimer" parent="." unique_id=76836385 instance=ExtResource("2_wquri")]

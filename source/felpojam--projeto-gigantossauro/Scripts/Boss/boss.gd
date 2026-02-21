@@ -6,7 +6,7 @@ enum State {WALKING, ATTACK, ATTACK2, ATTACK3, ATTACK4, ATTACK5}
 var actual_state := State.WALKING
 var direction : int = 1
 var can_instantiate : bool = true
-var boss_lifes: int = 1
+var boss_lifes: int = 5
 var is_dead : bool = false
 
 @export var speed : float = 600
@@ -26,9 +26,9 @@ signal boss_is_dead
 
 #Função de tomar dano
 func take_damage():
-	
 	#Checa se a vida é maior que 0
 	if boss_lifes > 0 and !is_dead:
+		print("tomou")
 		#Diminui a vida do boss
 		boss_lifes -= 1
 		#Emite o sinal de mudança de vida do boss
@@ -38,7 +38,6 @@ func take_damage():
 
 #Função que executa o estado de caminhada
 func execute_walking(vel, time, time_transition, chance, delta):
-	
 	#Attack_chance é igual a chance
 	attack_chance = chance
 	

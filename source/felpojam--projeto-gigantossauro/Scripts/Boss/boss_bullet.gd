@@ -15,10 +15,12 @@ func _physics_process(delta: float) -> void:
 		#Apaga da memoria
 		queue_free()
 
+
 #Checa se um corpo entro em colisão
 func _on_body_entered(_body: Node2D) -> void:
 	#Apaga da memoria
 	queue_free()
+
 
 #Checa se uma area 2D entrou na colisão
 func _on_area_entered(area: Area2D) -> void:

@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://cjydupv4ijj2c"]
+
+[ext_resource type="Script" uid="uid://crodumsj42ac8" path="res://Scripts/Levels/Utils/StampTimer/stamp_timer.gd" id="1_n02yg"]
+
+[sub_resource type="Theme" id="Theme_n02yg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sudoc"]
+bg_color = Color(0.22951785, 0.2295179, 0.22951788, 0.8784314)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfg4h"]
+bg_color = Color(0.95, 0.928625, 0.5225, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 10
+
+[node name="StampTimer" type="CanvasLayer" unique_id=76836385]
+script = ExtResource("1_n02yg")
+
+[node name="Timer" type="Timer" parent="." unique_id=1289911169]
+
+[node name="ContainerTimer" type="MarginContainer" parent="." unique_id=1393930125]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 250
+theme_override_constants/margin_bottom = 20
+
+[node name="ContainerHeight" type="VBoxContainer" parent="ContainerTimer" unique_id=2015086235]
+layout_mode = 2
+
+[node name="TimeProgress" type="ProgressBar" parent="ContainerTimer/ContainerHeight" unique_id=1151439606]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_n02yg")
+theme_override_styles/background = SubResource("StyleBoxFlat_sudoc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kfg4h")
+value = 50.0
+show_percentage = false
+
+[node name="Labels" type="HBoxContainer" parent="ContainerTimer/ContainerHeight" unique_id=2136134251]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="NumberLabel" type="RichTextLabel" parent="ContainerTimer/ContainerHeight/Labels" unique_id=756326407]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 34
+theme_override_font_sizes/bold_font_size = 34
+bbcode_enabled = true
+text = "[b]15[/b] SEGUNDOS RESTANTES"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1

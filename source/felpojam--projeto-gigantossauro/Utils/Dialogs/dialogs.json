@@ -1,4 +1,23 @@
 {
+	"phasetutorial": {
+		"tutorial1": {
+			"phrase1": "Ah, finalmente achei você!",
+			"phrase2": "Rápido, você precisa carimbar os tickets dos passageiros!",
+			"phrase3": "O tempo de check-in tá acabando, você precisa ser rápido!",
+			"phrase4": "Vamos vamos, se não você vai ser demitido"
+		},
+		"tutorial2": {
+			"phrase1": "Ops... Parece que deixei minha mala por aqui, desculpe senhó, espero não ter atrapalhado",
+			"phrase2": "Essa gente é muito distraída, não é? Sempre deixando suas coisas por ai",
+			"phrase3": "Tome cuidado para não tropeçar nas coisas dessas pessoas"
+		},
+		"tutorial3": {
+			"phrase1": "Você é o cobrador de passagens, certo?",
+			"phrase2": "Olha aqui, vi um homem estranho passando por esse vagão",
+			"phrase3": "Ele foi pra aquela direção",
+			"phrase4": "Tome cuidado, ele parece perigoso..."
+		}
+	},
 	"phase1": {
 		"joana": {
 			"phrase1": "Oi, eu sou a Joana, se eu pegar um texto muito grande, ele fica muitooooooooooooooooooooooooooooooooooo grande",
