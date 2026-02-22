@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ow5adp35qrb2"]
+
+[ext_resource type="Script" uid="uid://dn3hwvbi667sa" path="res://Scripts/Levels/Utils/StarNewPhaseOrWorld/start_new_phase_or_world_area.gd" id="1_hoda3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a21vc"]
+size = Vector2(5, 5000)
+
+[node name="StartNewPhaseOrWorldArea" type="Node2D" unique_id=605447168]
+script = ExtResource("1_hoda3")
+
+[node name="Area" type="Area2D" parent="." unique_id=1570610132]
+
+[node name="Collision" type="CollisionShape2D" parent="Area" unique_id=1394952502]
+shape = SubResource("RectangleShape2D_a21vc")

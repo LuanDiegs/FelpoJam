@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d2w3fgqh4ym2f"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_y1jt0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y1jt0"]
+radius = 5.0
+height = 76.0
+
+[node name="ObstacleSegment" type="RigidBody2D" unique_id=1903392246]
+collision_layer = 0
+collision_mask = 0
+mass = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1469899185]
+position = Vector2(0, -2.861023e-06)
+scale = Vector2(10, 76)
+texture = SubResource("PlaceholderTexture2D_y1jt0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=915216653]
+shape = SubResource("CapsuleShape2D_y1jt0")

@@ -7,29 +7,34 @@ var settings_menu := "uid://bmbjeqofrspuq"
 var intermission_1 := "uid://bxgq6p58qxcx3"
 var tutorial := "uid://4w463o650n0"
 var dialogs_json = "res://Utils/Dialogs/dialogs.json"
-var lore_json = "res://Scripts/Levels/Intermission/intermission_lore.json"
+var lore_json = "res://Utils/IntermissionLore/intermission_lore.json"
 
 #Transicao de cena
 var transition_scene = "uid://5jc7225o6nxi"
 
 #Variaveis gerais
 var player_lifes = 5
-var game_phases: Dictionary = {
-	tutorial = "tutorial",
-	level1 = "1",
-	level2 = "2",
-	level3 = "3",
-	boss = "boss"
-}
-var current_phase: String = game_phases.tutorial
+enum GAME_WORLDS { tutorial = 0, world1 = 1, world2 = 2, world3 = 3, boss = 4}
+enum GAME_PHASES { phase1 = 1,	phase2 = 2,	phase3 = 3}
+
 var transition_instance: CanvasLayer
+
+#Signals importantes
+signal DialogOpen(node: Node, world: int, npc: String)
+signal DialogClosed
+
+#Signal de timer
+signal NpcStamped
+
+#Signal de resetar timer e o UI dos personagens 
+signal PhaseChanged(phaseNumber: GAME_PHASES)
 
 
 func _ready() -> void:
 	#Sinais globais
 	Global.DialogOpen.connect(Global.open_dialog_modal)
-
-
+	
+	
 #region Sistema de Dialogos
 #Edge cases json (Caso nao ache o file de dialogos)
 var defaultTexts: Dictionary = {
@@ -50,29 +55,18 @@ var defaultTexts: Dictionary = {
 	}
 }
 
-#Signals importantes
-signal DialogOpen(node: Node, phase: String, npc: String)
-signal DialogClosed
-
-
-#Signal de timer
-signal NpcStamped
-
-
-#Constantes
-var NPC_Spawn_y = 540.0
-
 func get_action_key(action_name: String):
 	# Pega o nome do evento que foi passado
 	var button_events_name = str(InputMap.action_get_events(action_name)[0])
 	return button_events_name.get_slice(":", 1).get_slice(",", 0).get_slice("(", 1).get_slice(")", 0)
 
-func open_dialog_modal(node: Node, level: String, npc_name: String):
-	var dialogNode = (preload("res://Cenas/TextBoxes/DialogBoxes/dialog_box.tscn")).instantiate() as DialogBox
+func open_dialog_modal(node: Node, world: int, npc_name: String):
+	var dialogNode = (preload("uid://ds3m7ggl5s42s")).instantiate() as DialogBox
+	var level = str(world)
 	
 	# Sistema para pegar as frases dos NPCs no JSON
 	var phrases = _get_json_file_and_return_dic(level, npc_name)
-	
+
 	dialogNode.npc_phrases = phrases
 	dialogNode.reference_node = node
 	
@@ -99,16 +93,15 @@ func _get_json_file_and_return_dic(level: String, npc_name: String) -> Dictionar
 	json_parsed = json_parsed as Dictionary
 	
 	# Se a fase ou nome do npc n existir, retornamos vazio
-	var phase = "phase" + level.to_lower()
-
-	if !json_parsed.has(phase):
+	var world = "world" + level.to_lower()
+	if !json_parsed.has(world):
 		return _randomize_default_text()
 	
 	var npcName = npc_name.to_lower()
-	if !json_parsed[phase].has(npcName):
+	if !json_parsed[world].has(npcName):
 		return _randomize_default_text()
 
-	return json_parsed[phase][npcName]
+	return json_parsed[world][npcName]
 	
 	
 func _randomize_default_text() -> Dictionary:
@@ -159,6 +152,7 @@ func fade_to_scene(scene_path: String, duration: float = 0.5):
 	#transition_instance = null
 #endregion
 
+#region Função Gerais
 #Função para centralizar a janela
 func center_window():
 	#Cria um timer de 1 frame para garantir que o posicionamente foi aplicado
@@ -184,3 +178,4 @@ func center_window():
 #Configuracoes globais
 func set_saved_settings():
 	pass
+#endregion

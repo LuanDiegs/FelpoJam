@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://4w463o650n0"]
+
+[ext_resource type="PackedScene" uid="uid://bvad14hsyus2p" path="res://Cenas/Player/player.tscn" id="1_jqv53"]
+[ext_resource type="PackedScene" uid="uid://couyqnjnltymh" path="res://Cenas/NPCs/DialogNpc/dialog_npc.tscn" id="2_7rt2x"]
+[ext_resource type="PackedScene" uid="uid://c1hulgff7kndp" path="res://Cenas/NPCs/StampNpc/stamp_npc.tscn" id="3_wsxoj"]
+[ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Obstacle/FloorObstacle/obstacle.tscn" id="4_s17a2"]
+[ext_resource type="PackedScene" uid="uid://cjydupv4ijj2c" path="res://Cenas/Levels/UI/StampTimer/stamp_timer.tscn" id="5_8f7ys"]
+[ext_resource type="PackedScene" uid="uid://rsrluaj37ape" path="res://Cenas/Levels/UI/StampsLeft/stamps_left.tscn" id="6_ua77c"]
+[ext_resource type="PackedScene" uid="uid://dg0ybsuj2cwws" path="res://Cenas/Obstacle/AirObstacle/air_obstacle.tscn" id="7_ua77c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbng6"]
+size = Vector2(13895, 64)
+
+[node name="Tutorial" type="Node2D" unique_id=910125680]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1649533371]
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1699526054]
+position = Vector2(3603.5, 507)
+shape = SubResource("RectangleShape2D_pbng6")
+
+[node name="Player" parent="." unique_id=167809822 instance=ExtResource("1_jqv53")]
+position = Vector2(91, 436)
+
+[node name="DialogNpcs" type="Node" parent="." unique_id=635373295]
+
+[node name="DialogNpc" parent="DialogNpcs" unique_id=261903943 instance=ExtResource("2_7rt2x")]
+position = Vector2(559, 368)
+npc_name = "Tutorial1"
+open_dialog_when_player_pass = true
+
+[node name="DialogNpc2" parent="DialogNpcs" unique_id=2105809813 instance=ExtResource("2_7rt2x")]
+position = Vector2(4385, 368)
+npc_name = "Tutorial2"
+open_dialog_when_player_pass = true
+
+[node name="DialogNpc3" parent="DialogNpcs" unique_id=175938624 instance=ExtResource("2_7rt2x")]
+position = Vector2(6456, 368)
+npc_name = "Tutorial3"
+open_dialog_when_player_pass = true
+
+[node name="DialogNpc4" parent="DialogNpcs" unique_id=6366021 instance=ExtResource("2_7rt2x")]
+position = Vector2(10351, 368)
+npc_name = "Tutorial4"
+
+[node name="StampNpcs" type="Node" parent="." unique_id=1899722392]
+
+[node name="StampNpc" parent="StampNpcs" unique_id=717433113 instance=ExtResource("3_wsxoj")]
+position = Vector2(1431, 372)
+
+[node name="StampNpc3" parent="StampNpcs" unique_id=875876358 instance=ExtResource("3_wsxoj")]
+position = Vector2(2696, 372)
+
+[node name="StampNpc4" parent="StampNpcs" unique_id=2040704394 instance=ExtResource("3_wsxoj")]
+position = Vector2(2973, 372)
+
+[node name="StampNpc5" parent="StampNpcs" unique_id=1264729001 instance=ExtResource("3_wsxoj")]
+position = Vector2(5711, 372)
+
+[node name="StampNpc6" parent="StampNpcs" unique_id=1219036461 instance=ExtResource("3_wsxoj")]
+position = Vector2(7841, 372)
+
+[node name="StampNpc7" parent="StampNpcs" unique_id=1542585013 instance=ExtResource("3_wsxoj")]
+position = Vector2(8117, 372)
+
+[node name="AirObstacles" type="Node" parent="." unique_id=801352632]
+
+[node name="AirObstacle" parent="AirObstacles" unique_id=113276379 instance=ExtResource("7_ua77c")]
+position = Vector2(7013, -21)
+
+[node name="AirObstacle2" parent="AirObstacles" unique_id=1067235578 instance=ExtResource("7_ua77c")]
+position = Vector2(9003, -21)
+
+[node name="FloorObstacles" type="Node" parent="." unique_id=586615561]
+
+[node name="Obstacle" parent="FloorObstacles" unique_id=357976468 instance=ExtResource("4_s17a2")]
+position = Vector2(3756, 409)
+
+[node name="Obstacle2" parent="FloorObstacles" unique_id=143657309 instance=ExtResource("4_s17a2")]
+position = Vector2(5076, 409)
+
+[node name="Obstacle3" parent="FloorObstacles" unique_id=1010828008 instance=ExtResource("4_s17a2")]
+position = Vector2(5217, 409)
+
+[node name="Obstacle4" parent="FloorObstacles" unique_id=354227010 instance=ExtResource("4_s17a2")]
+position = Vector2(5151, 274)
+
+[node name="Obstacle7" parent="FloorObstacles" unique_id=582916153 instance=ExtResource("4_s17a2")]
+position = Vector2(9675, 403)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=635148530]
+
+[node name="StampTimer" parent="UI" unique_id=76836385 node_paths=PackedStringArray("stamps_left_module") instance=ExtResource("5_8f7ys")]
+stamp_time_to_die = 2.0
+stop_time_debug = false
+stamps_left_module = NodePath("../StampsLeft")
+
+[node name="StampsLeft" parent="UI" unique_id=2143747648 instance=ExtResource("6_ua77c")]

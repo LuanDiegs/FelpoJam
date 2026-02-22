@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://rsrluaj37ape"]
 
-[ext_resource type="Script" uid="uid://j8jdj7tkbted" path="res://Scripts/Levels/Utils/StampLeft/stamps_left.gd" id="1_gkes7"]
+[ext_resource type="Script" uid="uid://j8jdj7tkbted" path="res://Scripts/Levels/UI/StampLeft/stamps_left.gd" id="1_gkes7"]
 
 [node name="StampsLeft" type="CanvasLayer" unique_id=2143747648]
 script = ExtResource("1_gkes7")

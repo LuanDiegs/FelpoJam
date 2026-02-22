@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cjydupv4ijj2c"]
 
-[ext_resource type="Script" uid="uid://crodumsj42ac8" path="res://Scripts/Levels/Utils/StampTimer/stamp_timer.gd" id="1_n02yg"]
+[ext_resource type="Script" uid="uid://crodumsj42ac8" path="res://Scripts/Levels/UI/StampPhaseTimer/stamp_phase_timer.gd" id="1_n02yg"]
 
 [sub_resource type="Theme" id="Theme_n02yg"]
 
@@ -29,14 +29,26 @@ anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 theme_override_constants/margin_left = 250
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 250
 theme_override_constants/margin_bottom = 20
 
 [node name="ContainerHeight" type="VBoxContainer" parent="ContainerTimer" unique_id=2015086235]
 layout_mode = 2
 
+[node name="PhasesContainer" type="HBoxContainer" parent="ContainerTimer/ContainerHeight" unique_id=835914564]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Fases" type="RichTextLabel" parent="ContainerTimer/ContainerHeight/PhasesContainer" unique_id=1103806942]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[b]Fases[/b]"
+
 [node name="TimeProgress" type="ProgressBar" parent="ContainerTimer/ContainerHeight" unique_id=1151439606]
+visible = false
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -46,17 +58,42 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_kfg4h")
 value = 50.0
 show_percentage = false
 
-[node name="Labels" type="HBoxContainer" parent="ContainerTimer/ContainerHeight" unique_id=2136134251]
+[node name="LabelsTempo" type="HBoxContainer" parent="ContainerTimer/ContainerHeight" unique_id=2136134251]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 10
 
-[node name="NumberLabel" type="RichTextLabel" parent="ContainerTimer/ContainerHeight/Labels" unique_id=756326407]
+[node name="Icon" type="PanelContainer" parent="ContainerTimer/ContainerHeight/LabelsTempo" unique_id=1368031833]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+
+[node name="RelogioIcon" type="RichTextLabel" parent="ContainerTimer/ContainerHeight/LabelsTempo/Icon" unique_id=1285667719]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 34
 theme_override_font_sizes/bold_font_size = 34
 bbcode_enabled = true
-text = "[b]15[/b] SEGUNDOS RESTANTES"
+text = "⏰"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="ContainerTimer/ContainerHeight/LabelsTempo" unique_id=1882723980]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+
+[node name="NumberLabel" type="RichTextLabel" parent="ContainerTimer/ContainerHeight/LabelsTempo/Panel" unique_id=756326407]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 34
+theme_override_font_sizes/bold_font_size = 34
+bbcode_enabled = true
+text = "00:00"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1

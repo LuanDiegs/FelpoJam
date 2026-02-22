@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://sia88htsgt87"]
 
-[ext_resource type="Script" uid="uid://b6xgyy1x5063x" path="res://Scripts/Levels/Intermission/intermission_base.gd" id="1_8mew7"]
+[ext_resource type="Script" uid="uid://b6xgyy1x5063x" path="res://Scripts/Levels/Intermissions/intermission_base.gd" id="1_8mew7"]
 
 [sub_resource type="Gradient" id="Gradient_kn5ng"]
 colors = PackedColorArray(0.11785328, 8.2724725e-08, 1.504086e-08, 1, 0.09638945, 0.09638945, 0.09638945, 1)
