@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bkihe7uyrfh4l"]
 
 [ext_resource type="Script" uid="uid://3q2cs03el14o" path="res://Scripts/Boss/level_boss.gd" id="1_4uhye"]
-[ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Placeholders/obstacle_placeholder.tscn" id="2_4uhye"]
+[ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Obstacle/FloorObstacle/obstacle.tscn" id="2_4uhye"]
 [ext_resource type="PackedScene" uid="uid://bvad14hsyus2p" path="res://Cenas/Player/player.tscn" id="3_1rqcj"]
 [ext_resource type="PackedScene" uid="uid://cjy0bum5jk1cp" path="res://Cenas/Boss/boss.tscn" id="3_4uhye"]
 

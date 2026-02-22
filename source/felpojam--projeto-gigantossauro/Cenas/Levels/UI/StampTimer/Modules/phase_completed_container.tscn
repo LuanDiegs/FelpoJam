@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bny518f180mg5"]
+
+[ext_resource type="StyleBox" uid="uid://b5wbd7b2tqaxf" path="res://Cenas/Levels/UI/StampTimer/Themes/phase_not_completed.tres" id="1_wwpkf"]
+[ext_resource type="Script" uid="uid://cqhsfro1ns2it" path="res://Cenas/Levels/UI/StampTimer/Modules/phase_completed_container.gd" id="2_ia3px"]
+
+[node name="PhaseCompletedContainer" type="PanelContainer" unique_id=441463331]
+custom_minimum_size = Vector2(200, 25)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("1_wwpkf")
+script = ExtResource("2_ia3px")

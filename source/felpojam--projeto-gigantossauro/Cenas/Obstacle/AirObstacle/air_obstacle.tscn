@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dg0ybsuj2cwws"]
+
+[ext_resource type="Script" uid="uid://3xa7ic30gd8y" path="res://Scripts/Obstacles/AirObstacle/air_obstacle.gd" id="1_8lxdx"]
+[ext_resource type="PackedScene" uid="uid://d2w3fgqh4ym2f" path="res://Cenas/Obstacle/AirObstacle/obstacle_segment.tscn" id="2_nc2gy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fy8j"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0fy8j"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6e8eq"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6e8eq"]
+size = Vector2(93, 92)
+
+[node name="AirObstacle" type="Node2D" unique_id=113276379 groups=["Obstacles"]]
+script = ExtResource("1_8lxdx")
+
+[node name="Holder" type="StaticBody2D" parent="." unique_id=335827582]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Holder" unique_id=690786731]
+shape = SubResource("RectangleShape2D_0fy8j")
+
+[node name="Sprite2D" type="Sprite2D" parent="Holder" unique_id=1349548118]
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_0fy8j")
+
+[node name="RopeSegments" type="Node2D" parent="." unique_id=2085659376]
+
+[node name="Pin H-1" type="PinJoint2D" parent="RopeSegments" unique_id=1821258500]
+position = Vector2(0, 10)
+node_a = NodePath("../../Holder")
+node_b = NodePath("../Rope1")
+disable_collision = false
+
+[node name="Rope1" parent="RopeSegments" unique_id=1903392246 instance=ExtResource("2_nc2gy")]
+position = Vector2(0, 48)
+
+[node name="Pin 1-2" type="PinJoint2D" parent="RopeSegments" unique_id=702287023]
+position = Vector2(0, 86)
+node_a = NodePath("../Rope1")
+node_b = NodePath("../Rope2")
+disable_collision = false
+
+[node name="Rope2" parent="RopeSegments" unique_id=613772852 instance=ExtResource("2_nc2gy")]
+position = Vector2(0, 124)
+
+[node name="Pin 2-3" type="PinJoint2D" parent="RopeSegments" unique_id=997983248]
+position = Vector2(0, 162)
+node_a = NodePath("../Rope2")
+node_b = NodePath("../Roope3")
+disable_collision = false
+
+[node name="Roope3" parent="RopeSegments" unique_id=30064820 instance=ExtResource("2_nc2gy")]
+position = Vector2(0, 200)
+
+[node name="Pint 3-obj" type="PinJoint2D" parent="RopeSegments" unique_id=1569802952]
+position = Vector2(0, 238)
+node_a = NodePath("../Roope3")
+node_b = NodePath("../../Obj")
+disable_collision = false
+
+[node name="Obj" type="RigidBody2D" parent="." unique_id=1835590911 groups=["Obstacles"]]
+position = Vector2(0, 284)
+collision_layer = 2
+mass = 3.0
+linear_damp_mode = 1
+linear_damp = 2.0
+angular_damp_mode = 1
+angular_damp = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obj" unique_id=1869051043]
+position = Vector2(0.25, 0.5)
+scale = Vector2(46.5, 46.5)
+texture = SubResource("PlaceholderTexture2D_6e8eq")
+
+[node name="Collision" type="CollisionShape2D" parent="Obj" unique_id=1882305006]
+position = Vector2(0.5000019, 0.25)
+shape = SubResource("RectangleShape2D_6e8eq")

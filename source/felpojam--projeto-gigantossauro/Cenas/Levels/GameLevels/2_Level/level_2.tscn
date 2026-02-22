@@ -1,10 +1,12 @@
-[gd_scene format=3 uid="uid://x5whwss62fdt"]
+[gd_scene format=3 uid="uid://c0im24hxkqyck"]
 
-[ext_resource type="PackedScene" uid="uid://bvad14hsyus2p" path="res://Cenas/Player/player.tscn" id="1_jafct"]
-[ext_resource type="Script" uid="uid://cv6f8mcpp4a1y" path="res://Scripts/Levels/Levels/1_Level/level1.gd" id="1_s6c0b"]
-[ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Obstacle/FloorObstacle/obstacle.tscn" id="2_g0id4"]
-[ext_resource type="PackedScene" uid="uid://couyqnjnltymh" path="res://Cenas/NPCs/DialogNpc/dialog_npc.tscn" id="3_jafct"]
-[ext_resource type="PackedScene" uid="uid://c1hulgff7kndp" path="res://Cenas/NPCs/StampNpc/stamp_npc.tscn" id="4_qa6fd"]
+[ext_resource type="Script" uid="uid://cv6f8mcpp4a1y" path="res://Scripts/Levels/Levels/1_Level/level1.gd" id="1_ysaun"]
+[ext_resource type="PackedScene" uid="uid://bvad14hsyus2p" path="res://Cenas/Player/player.tscn" id="2_wfafk"]
+[ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Obstacle/FloorObstacle/obstacle.tscn" id="3_tx57o"]
+[ext_resource type="PackedScene" uid="uid://c1hulgff7kndp" path="res://Cenas/NPCs/StampNpc/stamp_npc.tscn" id="4_1vjqc"]
+[ext_resource type="PackedScene" uid="uid://ow5adp35qrb2" path="res://Cenas/Levels/Utils/StartNewPhaseOrWorld/start_new_phase_or_world_area.tscn" id="5_ut7x3"]
+[ext_resource type="PackedScene" uid="uid://cjydupv4ijj2c" path="res://Cenas/Levels/UI/StampTimer/stamp_timer.tscn" id="6_jjjt0"]
+[ext_resource type="PackedScene" uid="uid://rsrluaj37ape" path="res://Cenas/Levels/UI/StampsLeft/stamps_left.tscn" id="7_slelw"]
 
 [sub_resource type="Gradient" id="Gradient_72efe"]
 colors = PackedColorArray(0.8474744, 0.84747446, 0.84747446, 1, 0.84705883, 0.84705883, 0.84705883, 1)
@@ -13,7 +15,7 @@ colors = PackedColorArray(0.8474744, 0.84747446, 0.84747446, 1, 0.84705883, 0.84
 gradient = SubResource("Gradient_72efe")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0id4"]
-size = Vector2(10000, 82.5)
+size = Vector2(30000, 82.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s6c0b"]
 size = Vector2(44.58, 721)
@@ -44,8 +46,10 @@ colors = PackedColorArray(1, 0.26, 0.26, 1, 0.57730263, 6.6420434e-06, 0.3903638
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_upuu2"]
 gradient = SubResource("Gradient_jw1xg")
 
-[node name="Base_level_test" type="Node2D" unique_id=1242278278]
-script = ExtResource("1_s6c0b")
+[node name="Level2" type="Node2D" unique_id=1242278278]
+script = ExtResource("1_ysaun")
+world_name = 2
+phases_count = 3
 
 [node name="Background" type="Sprite2D" parent="." unique_id=2037398130]
 position = Vector2(0, -670)
@@ -59,7 +63,7 @@ collision_layer = 64
 collision_mask = 0
 
 [node name="ChaoCollision" type="CollisionShape2D" parent="Chao" unique_id=30658458]
-position = Vector2(4983, 678.75)
+position = Vector2(15000, 679)
 shape = SubResource("RectangleShape2D_g0id4")
 
 [node name="ChaoCollision2" type="CollisionShape2D" parent="Chao" unique_id=1447642209]
@@ -269,51 +273,50 @@ texture = SubResource("GradientTexture2D_upuu2")
 
 [node name="Player" type="Node" parent="." unique_id=888424964]
 
-[node name="Player" parent="Player" unique_id=167809822 instance=ExtResource("1_jafct")]
-position = Vector2(95, 590)
+[node name="Player" parent="Player" unique_id=167809822 instance=ExtResource("2_wfafk")]
+position = Vector2(128, 633)
 
 [node name="Obstaculos" type="Node" parent="." unique_id=1061715422]
 
-[node name="Obstaculo" parent="Obstaculos" unique_id=357976468 instance=ExtResource("2_g0id4")]
+[node name="Obstaculo" parent="Obstaculos" unique_id=357976468 instance=ExtResource("3_tx57o")]
 position = Vector2(438, 450)
 
-[node name="Obstaculo2" parent="Obstaculos" unique_id=1147964164 instance=ExtResource("2_g0id4")]
+[node name="Obstaculo2" parent="Obstaculos" unique_id=1147964164 instance=ExtResource("3_tx57o")]
 position = Vector2(1196, 302)
 
-[node name="Obstaculo3" parent="Obstaculos" unique_id=1695803728 instance=ExtResource("2_g0id4")]
-position = Vector2(2358, 213)
+[node name="StampNpcs" type="Node" parent="." unique_id=364988389]
 
-[node name="Obstaculo4" parent="Obstaculos" unique_id=879359309 instance=ExtResource("2_g0id4")]
-position = Vector2(3668, 252)
-
-[node name="Obstaculo5" parent="Obstaculos" unique_id=924206988 instance=ExtResource("2_g0id4")]
-position = Vector2(5421, 459)
-
-[node name="Obstaculo6" parent="Obstaculos" unique_id=1313376090 instance=ExtResource("2_g0id4")]
-position = Vector2(6682, 154)
-
-[node name="Obstaculo7" parent="Obstaculos" unique_id=152767995 instance=ExtResource("2_g0id4")]
-position = Vector2(7509, 390)
-
-[node name="Obstaculo8" parent="Obstaculos" unique_id=229249373 instance=ExtResource("2_g0id4")]
-position = Vector2(8287, 213)
-
-[node name="Obstaculo9" parent="Obstaculos" unique_id=2033350222 instance=ExtResource("2_g0id4")]
-position = Vector2(8908, 568)
-
-[node name="Obstaculo10" parent="Obstaculos" unique_id=1095444975 instance=ExtResource("2_g0id4")]
-position = Vector2(9312, 233)
-
-[node name="Obstaculo11" parent="Obstaculos" unique_id=104674530 instance=ExtResource("2_g0id4")]
-position = Vector2(9696, 371)
-
-[node name="NPCs" type="Node" parent="." unique_id=364988389]
-
-[node name="DialogNpc" parent="NPCs" unique_id=261903943 instance=ExtResource("3_jafct")]
-position = Vector2(4825, 535)
-
-[node name="StampNpc" parent="NPCs" unique_id=717433113 instance=ExtResource("4_qa6fd")]
+[node name="StampNpc" parent="StampNpcs" unique_id=717433113 instance=ExtResource("4_1vjqc")]
 position = Vector2(919, 535)
 
-[node name="SpawnNpcSpawner" type="Timer" parent="." unique_id=1238415950]
-autostart = true
+[node name="PhaseTransitions" type="Node" parent="." unique_id=1677418790]
+
+[node name="StartOfLevel2" parent="PhaseTransitions" unique_id=605447168 instance=ExtResource("5_ut7x3")]
+position = Vector2(250, 27)
+world = 2
+
+[node name="Phase2Level2" parent="PhaseTransitions" unique_id=87603188 instance=ExtResource("5_ut7x3")]
+position = Vector2(10000, 27)
+phase = 2
+world = 2
+
+[node name="Phase3Level2" parent="PhaseTransitions" unique_id=108693153 instance=ExtResource("5_ut7x3")]
+position = Vector2(19998, 27)
+phase = 3
+world = 2
+
+[node name="EndOfLevel2" parent="PhaseTransitions" unique_id=60723674 instance=ExtResource("5_ut7x3")]
+position = Vector2(29997, 27)
+phase = 3
+world = 2
+go_to_next_world = true
+next_world_name = "Intermission4"
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=876751282]
+
+[node name="StampPhaseTimer" parent="UI" unique_id=76836385 node_paths=PackedStringArray("level", "stamps_left_module") instance=ExtResource("6_jjjt0")]
+max_stamp_time_to_die = null
+level = NodePath("../..")
+stamps_left_module = NodePath("../StampsLeft")
+
+[node name="StampsLeft" parent="UI" unique_id=2143747648 instance=ExtResource("7_slelw")]

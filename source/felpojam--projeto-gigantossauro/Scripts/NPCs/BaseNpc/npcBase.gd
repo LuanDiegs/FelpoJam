@@ -4,18 +4,16 @@ class_name BaseNpc
 #Exports
 @export var npc_name: String = "NPC"
 @export var label: Node = null
+@export var open_dialog_when_player_pass: bool = false
 
 #Area
 @onready var area_interativa: Area2D = $AreaInterativa
 
-
 #Dialogo
 var isPopUpOpen: bool = false
 
-
 #Label
 var inicialPositionLabel: Vector2
-
 
 func _ready() -> void:
 	_connect_signals()
@@ -23,7 +21,7 @@ func _ready() -> void:
 
 
 func _reset_state_npc():
-	await _animate_label(_player_is_in_area())
+	await _animate_label(_player_is_in_area() and !open_dialog_when_player_pass)	
 	isPopUpOpen = false
 	
 
@@ -56,12 +54,12 @@ func _configure_label():
 
 
 func _on_body_entered_area_interativa(body: Node2D):
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and !open_dialog_when_player_pass:
 		_animate_label(true)
 
 
 func _on_body_exited_area_interativa(body: Node2D):
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and !open_dialog_when_player_pass:
 		_animate_label(false)
 
 

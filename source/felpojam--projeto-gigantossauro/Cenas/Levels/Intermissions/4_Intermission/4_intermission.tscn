@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://hevhp04vosoy"]
+
+[ext_resource type="PackedScene" uid="uid://sia88htsgt87" path="res://Cenas/Levels/Intermissions/intermission_base.tscn" id="1_t8p3h"]
+
+[node name="Intermission3" type="CanvasLayer" unique_id=1909795097]
+
+[node name="IntermissionBase" parent="." unique_id=1378133792 instance=ExtResource("1_t8p3h")]
+intermission_number = 4
+scene_to_change_uid = "uid://ba6ej8rybb413"

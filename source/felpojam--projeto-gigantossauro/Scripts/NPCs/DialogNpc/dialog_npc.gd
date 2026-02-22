@@ -22,15 +22,29 @@ func _ready() -> void:
 	area_interativa.body_exited.connect(_on_body_exited_area_interativa)
 
 
+func _open_dialog_npc():
+	Global.DialogOpen.emit(self, GameProgress.current_world, npc_name)
+	isPopUpOpen = true
+	_animate_label(false)
+
+
+func _on_body_entered_area_interativa(body: Node2D):
+	if body.is_in_group("Player"):
+		if !open_dialog_when_player_pass:
+			_animate_label(true)
+		else:
+			_open_dialog_npc()
+		
+
 func _on_body_exited_area_interativa(body: Node2D):
 	if body.is_in_group("Player"):
-		_animate_label(false)
-		Global.DialogClosed.emit()
+		if !open_dialog_when_player_pass:
+			_animate_label(false)
 		
+		Global.DialogClosed.emit()
+
 
 func _input(event: InputEvent) -> void:
 	# Se apertou o botao de interagir e um dos corpos em volta é um jogador, habilita o dialogo
-	if event.is_action_pressed("interact") and _player_is_in_area() and !isPopUpOpen:
-		Global.DialogOpen.emit(self, Global.current_phase, npc_name)
-		isPopUpOpen = true
-		_animate_label(false)
+	if event.is_action_pressed("interact") and _player_is_in_area() and !isPopUpOpen and !open_dialog_when_player_pass:
+		_open_dialog_npc()

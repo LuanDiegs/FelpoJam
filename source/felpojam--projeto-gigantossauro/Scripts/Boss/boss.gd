@@ -18,8 +18,8 @@ var is_dead : bool = false
 @export var attack_time_transition : float = 1 #Segundos
 @export var camera : Camera2D = null
 
-var obstacle = preload("res://Cenas/Placeholders/obstacle_placeholder.tscn")
-var bullet = preload("res://Cenas/Boss/boss_bullet.tscn")
+var obstacle = preload("uid://b1ufgtckjsbtw")
+var bullet = preload("uid://1jjs6id7cee8")
 
 signal boss_life_changed(new_life)
 signal boss_is_dead
@@ -28,7 +28,6 @@ signal boss_is_dead
 func take_damage():
 	#Checa se a vida é maior que 0
 	if boss_lifes > 0 and !is_dead:
-		print("tomou")
 		#Diminui a vida do boss
 		boss_lifes -= 1
 		#Emite o sinal de mudança de vida do boss
