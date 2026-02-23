@@ -7,10 +7,12 @@ var current_player_lifes: int = 5
 
 
 func set_current_world(world_name: int):
+	print("Mundo atual: ", world_name)
 	current_world = world_name
 	
 	
 func set_current_phase(phase_name: int):
+	print("Fase atual: ", phase_name)
 	current_phase = phase_name
 	
 	

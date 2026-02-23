@@ -286,8 +286,79 @@ position = Vector2(1196, 302)
 
 [node name="StampNpcs" type="Node" parent="." unique_id=364988389]
 
-[node name="StampNpc" parent="StampNpcs" unique_id=717433113 instance=ExtResource("5_cmqa7")]
+[node name="Phase1" type="Node" parent="StampNpcs" unique_id=280862431]
+
+[node name="StampNpc" parent="StampNpcs/Phase1" unique_id=717433113 instance=ExtResource("5_cmqa7")]
 position = Vector2(919, 535)
+
+[node name="StampNpc2" parent="StampNpcs/Phase1" unique_id=1967649654 instance=ExtResource("5_cmqa7")]
+position = Vector2(2187, 535)
+
+[node name="StampNpc3" parent="StampNpcs/Phase1" unique_id=1589561778 instance=ExtResource("5_cmqa7")]
+position = Vector2(2459, 535)
+
+[node name="StampNpc4" parent="StampNpcs/Phase1" unique_id=1243829871 instance=ExtResource("5_cmqa7")]
+position = Vector2(3856, 535)
+
+[node name="StampNpc5" parent="StampNpcs/Phase1" unique_id=2050899279 instance=ExtResource("5_cmqa7")]
+position = Vector2(5075, 535)
+
+[node name="StampNpc6" parent="StampNpcs/Phase1" unique_id=1338577702 instance=ExtResource("5_cmqa7")]
+position = Vector2(6149, 535)
+
+[node name="StampNpc7" parent="StampNpcs/Phase1" unique_id=1204225181 instance=ExtResource("5_cmqa7")]
+position = Vector2(6309, 535)
+
+[node name="StampNpc8" parent="StampNpcs/Phase1" unique_id=1383989920 instance=ExtResource("5_cmqa7")]
+position = Vector2(7250, 535)
+
+[node name="StampNpc9" parent="StampNpcs/Phase1" unique_id=1097728204 instance=ExtResource("5_cmqa7")]
+position = Vector2(7873, 535)
+
+[node name="StampNpc10" parent="StampNpcs/Phase1" unique_id=773975500 instance=ExtResource("5_cmqa7")]
+position = Vector2(8518, 535)
+
+[node name="Phase2" type="Node" parent="StampNpcs" unique_id=885822728]
+
+[node name="StampNpc" parent="StampNpcs/Phase2" unique_id=702100092 instance=ExtResource("5_cmqa7")]
+position = Vector2(11121, 535)
+npc_phase = 2
+
+[node name="StampNpc2" parent="StampNpcs/Phase2" unique_id=1377080610 instance=ExtResource("5_cmqa7")]
+position = Vector2(12389, 535)
+npc_phase = 2
+
+[node name="StampNpc3" parent="StampNpcs/Phase2" unique_id=2120659939 instance=ExtResource("5_cmqa7")]
+position = Vector2(12661, 535)
+npc_phase = 2
+
+[node name="StampNpc4" parent="StampNpcs/Phase2" unique_id=435292652 instance=ExtResource("5_cmqa7")]
+position = Vector2(14058, 535)
+npc_phase = 2
+
+[node name="StampNpc5" parent="StampNpcs/Phase2" unique_id=1102646972 instance=ExtResource("5_cmqa7")]
+position = Vector2(15277, 535)
+npc_phase = 2
+
+[node name="StampNpc6" parent="StampNpcs/Phase2" unique_id=1055552799 instance=ExtResource("5_cmqa7")]
+position = Vector2(16351, 535)
+npc_phase = 2
+
+[node name="StampNpc7" parent="StampNpcs/Phase2" unique_id=573731053 instance=ExtResource("5_cmqa7")]
+position = Vector2(16511, 535)
+npc_phase = 2
+
+[node name="StampNpc8" parent="StampNpcs/Phase2" unique_id=1469727509 instance=ExtResource("5_cmqa7")]
+position = Vector2(17452, 535)
+npc_phase = 2
+
+[node name="StampNpc9" parent="StampNpcs/Phase2" unique_id=2077412212 instance=ExtResource("5_cmqa7")]
+position = Vector2(18075, 535)
+npc_phase = 2
+
+[node name="StampNpc10" parent="StampNpcs/Phase2" unique_id=84839626 instance=ExtResource("5_cmqa7")]
+position = Vector2(18720, 535)
+npc_phase = 2
 
 [node name="PhaseTransitions" type="Node" parent="." unique_id=1677418790]
 
@@ -315,7 +386,6 @@ next_world_name = "Intermission3"
 [node name="UI" type="CanvasLayer" parent="." unique_id=876751282]
 
 [node name="StampPhaseTimer" parent="UI" unique_id=76836385 node_paths=PackedStringArray("level", "stamps_left_module") instance=ExtResource("6_4qfbq")]
-max_stamp_time_to_die = null
 level = NodePath("../..")
 stamps_left_module = NodePath("../StampsLeft")
 
