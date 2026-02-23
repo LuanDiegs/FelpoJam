@@ -9,6 +9,7 @@ class_name StampPhaseTimerUI
 @onready var time_progress: ProgressBar = $ContainerTimer/ContainerHeight/TimeProgress
 @onready var number_label: RichTextLabel = $ContainerTimer/ContainerHeight/LabelsTempo/Panel/NumberLabel
 var time_passed: float = 0
+var time_passed_in_world: float = 0
 var timer_stopped: bool = stop_time_debug
 var phase_finished: bool = false
 
@@ -81,7 +82,7 @@ func _update_display():
 	var remaining = max_stamp_time_to_die - time_passed
 	
 	time_progress.value = remaining
-	number_label.text = "[b]%0.2f[/b]" % remaining
+	number_label.text = "[b]%0.3f[/b]" % remaining
 	
 	# Tween do progress bar
 	var tween_progress = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CIRC)
@@ -96,12 +97,19 @@ func _set_timer_stopped(value: bool):
 
 
 func _reset_timer():
+	# Colocamos que o tempo passado foi 0 e o timer não está pausado e que a fase não esta mais terminada
 	time_passed = 0
+	timer_stopped = false
+	phase_finished = false
 
 
 func _on_all_npc_stamped():
 	_set_timer_stopped(true)
 	phase_finished = true
+	
+	# Colocamos o tempo que demorou para correr as fases
+	time_passed_in_world += time_passed
+	print(time_passed_in_world)
 	
 	
 func _on_npc_stamped():

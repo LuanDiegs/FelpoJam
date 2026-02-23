@@ -8,6 +8,9 @@ class_name StampNpc
 var stamped: bool = false
 @onready var stampSprite: Sprite2D = $StampLabel/Stamp
 
+#Define a qual phase ele pertence
+@export var npc_phase: int = 1
+
 
 func _ready() -> void:
 	# Pegamos a tecla que faz a açao de interaçao

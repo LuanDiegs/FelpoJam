@@ -49,7 +49,6 @@ func _on_body_entered(body: Node):
 	# Setamos o progesso do jogo
 	GameProgress.set_current_phase(phase)
 	GameProgress.set_current_world(world)
-	print("Estamos na fase ", phase, ". Do mundo ", world)
 	
 	# Se for para o proximo mundo faz a transiçao
 	#TODO: Colocar uma confirmacao depois
