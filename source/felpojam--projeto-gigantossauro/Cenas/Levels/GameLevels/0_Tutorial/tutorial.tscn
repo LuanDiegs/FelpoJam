@@ -97,9 +97,13 @@ position = Vector2(9675, 403)
 
 [node name="StartOfTutorial" parent="PhaseTransitions" unique_id=605447168 instance=ExtResource("7_qor82")]
 position = Vector2(770, 27)
+phase = 1
+world = 0
 
 [node name="EndOfTutorial" parent="PhaseTransitions" unique_id=568993121 instance=ExtResource("7_qor82")]
 position = Vector2(11050, 27)
+phase = 1
+world = 0
 go_to_next_world = true
 next_world_name = "Intermission2"
 
