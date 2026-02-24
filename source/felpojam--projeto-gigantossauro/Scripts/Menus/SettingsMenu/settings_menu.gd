@@ -1,18 +1,15 @@
-extends Control
+extends CanvasLayer
 class_name SettingsMenu
 
 #Variaveis audio settings
 @export var master_volume_slider: HSlider
 @export var music_volume_slider: HSlider
 @export var sfx_volume_slider: HSlider
-@export var master_percent_label: Label
-@export var music_percent_label: Label
-@export var sfx_percent_label: Label
 
 #Variaveis video settings
 @export var resolution_option: OptionButton
 @export var mode_option: OptionButton
-@export var vsync: CheckButton
+@export var vsync: CheckBox
 
 #Biblioteca de resoluções
 var base_resolutions = [
@@ -58,25 +55,17 @@ func _ready() -> void:
 	Global.center_window()
 	
 	#Setando a configuração inicial de todos os sliders
-	setup_slider(master_volume_slider, master_percent_label, "Master")
-	setup_slider(music_volume_slider, music_percent_label, "Music")
-	setup_slider(sfx_volume_slider, sfx_percent_label, "Effects")
+	setup_slider(master_volume_slider, "Master")
+	setup_slider(music_volume_slider, "Music")
+	setup_slider(sfx_volume_slider, "Effects")
 	
 	#Connect sinais do mode_option
 	mode_option.item_selected.connect(set_resolution_label_enabled)
 	
 
 #region Funções de Audio
-#Função que atualiza o label de porcentagem de volume
-func update_label(label, Linear_valor: float):
-	#Armazena a porcentagem do volume
-	var percent = round(Linear_valor * 100)
-	#Muda o texto do label
-	label.text = str(percent) + "%"
-
-
 #Função para configuração inicial do sliders
-func setup_slider(slider: HSlider, label: Label, bus_name: String):
+func setup_slider(slider: HSlider, bus_name: String):
 	#Salva o index do bus 
 	var bus_idx = AudioServer.get_bus_index(bus_name)
 	#Checa se o idx do bus não é invalido
@@ -88,13 +77,9 @@ func setup_slider(slider: HSlider, label: Label, bus_name: String):
 	#Define o valor inicial do slider
 	slider.value = saved_audio_settings[bus_name]
 	
-	#Atualiza o valor do slide no label
-	update_label(label, slider.value)
-	
 	#Conecta o sinal de mudança do volume
 	slider.value_changed.connect(func(valor):
 		AudioServer.set_bus_volume_db(bus_idx, linear_to_db(valor)) # Faz a mudança em "tempo real no db do bus deo audio
-		update_label(label, valor) # Faz a mudança em "tempo real" no valor do label
 		
 		SettingSaveManager.save_audio_settings(bus_name, valor)
 	)
@@ -246,6 +231,7 @@ func save_video_settings():
 
 #Função que executa ao pressionar o botão de voltar para o menu
 func _on_return_button_pressed() -> void:
+	_apply_video_settings()
 	Transition.change_to_scene(Global.start_menu)
 
 
@@ -255,7 +241,7 @@ func _on_vsync_enable_button_toggled(_toggled_on: bool) -> void:
 
 
 #Função que executa ao pressionar o botão de applicar as cofigurações de cideo
-func _on_apply_button_pressed() -> void:
+func _apply_video_settings() -> void:
 	apply_display_mode() # aplica o modo de tela
 	apply_resolution() # aplica a resolução
 	apply_vsync() # aplica o vsync

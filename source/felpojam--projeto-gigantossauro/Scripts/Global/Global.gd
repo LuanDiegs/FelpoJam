@@ -29,10 +29,17 @@ signal NpcStamped
 #Signal de resetar timer e o UI dos personagens 
 signal PhaseChanged(phaseNumber: GAME_PHASES)
 
+#Pause
+var paused: bool = false
+
 
 func _ready() -> void:
 	#Sinais globais
 	Global.DialogOpen.connect(Global.open_dialog_modal)
+	
+	#Menu de pause ficará fechado ao iniciar o projeto
+	PauseMenu.hide()
+	SettingsPauseMenu.hide()
 	
 	
 #region Sistema de Dialogos

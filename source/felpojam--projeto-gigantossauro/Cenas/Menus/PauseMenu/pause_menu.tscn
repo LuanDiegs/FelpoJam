@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://b6kyxog5tmuek"]
+
+[ext_resource type="Script" uid="uid://h7fgfi0i20bh" path="res://Scripts/Menus/PauseMenu/pause_menu.gd" id="1_bxlta"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_twf73"]
+color = Color(1, 1, 1, 1)
+grow_begin = -100.0
+grow_end = -100.0
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=902647803]
+layer = 4
+script = ExtResource("1_bxlta")
+
+[node name="Background" type="Panel" parent="." unique_id=1435911530]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="MaginFather" type="MarginContainer" parent="." unique_id=949130413]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 375
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 375
+theme_override_constants/margin_bottom = 100
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelUI" type="PanelContainer" parent="MaginFather" unique_id=890119950]
+layout_mode = 2
+
+[node name="MarginUI" type="MarginContainer" parent="MaginFather/PanelUI" unique_id=1585639616]
+layout_mode = 2
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VboxUI" type="VBoxContainer" parent="MaginFather/PanelUI/MarginUI" unique_id=1114394011]
+layout_mode = 2
+
+[node name="LabelPausadp" type="Label" parent="MaginFather/PanelUI/MarginUI/VboxUI" unique_id=1148522981]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Pausado"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separador" type="HSeparator" parent="MaginFather/PanelUI/MarginUI/VboxUI" unique_id=1049776250]
+layout_mode = 2
+theme_override_constants/separation = 4
+theme_override_styles/separator = SubResource("StyleBoxLine_twf73")
+
+[node name="MarginButtons" type="MarginContainer" parent="MaginFather/PanelUI/MarginUI/VboxUI" unique_id=1832324104]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 0
+
+[node name="VboxButtons" type="VBoxContainer" parent="MaginFather/PanelUI/MarginUI/VboxUI/MarginButtons" unique_id=1020587899]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 75
+
+[node name="ContinueButton" type="Button" parent="MaginFather/PanelUI/MarginUI/VboxUI/MarginButtons/VboxButtons" unique_id=76401726]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "Continuar"
+
+[node name="OptionsButton" type="Button" parent="MaginFather/PanelUI/MarginUI/VboxUI/MarginButtons/VboxButtons" unique_id=799568358]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "Configurações"
+
+[node name="ReturnToMenuButton" type="Button" parent="MaginFather/PanelUI/MarginUI/VboxUI/MarginButtons/VboxButtons" unique_id=722933516]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "Voltar ao menu"
