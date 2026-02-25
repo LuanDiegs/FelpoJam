@@ -25,6 +25,7 @@ Global="*uid://cymxuu5fsparp"
 SettingSaveManager="*uid://dmdwcvqvbiww2"
 Transition="*uid://dlg4jsj47qxwo"
 GameProgress="*uid://0s4j4jolqqvt"
+MusicManager="*uid://m6y75sedekt8"
 PauseMenu="*uid://b6kyxog5tmuek"
 
 [display]
