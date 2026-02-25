@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://lhmk4vx6gkth"
+path="res://.godot/imported/Correndo.ogg-46476039b92468e370ed58ce0e6c7a9b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Efeitos Sonoros/Passos/Correndo.ogg"
+dest_files=["res://.godot/imported/Correndo.ogg-46476039b92468e370ed58ce0e6c7a9b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

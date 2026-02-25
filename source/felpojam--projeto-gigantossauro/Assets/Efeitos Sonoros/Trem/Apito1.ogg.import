@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://yclj07a4372j"
+path="res://.godot/imported/Apito1.ogg-f5b0b2423953b6175c74bdad29832edf.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Efeitos Sonoros/Trem/Apito1.ogg"
+dest_files=["res://.godot/imported/Apito1.ogg-f5b0b2423953b6175c74bdad29832edf.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

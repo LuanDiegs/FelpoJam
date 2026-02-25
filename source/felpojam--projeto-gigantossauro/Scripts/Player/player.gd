@@ -28,12 +28,10 @@ var original_hurtbox_pos: Vector2
 
 signal life_changed(new_life)
 
-
 #Função que roda ao iniciar onó/cena
 func _ready() -> void:
 	_set_and_save_player_collision_and_hurtbox()
-		
-		
+
 func _set_and_save_player_collision_and_hurtbox():
 	var col_shape = collision_shape.shape as RectangleShape2D
 	#Seta e salva as propriedades do jogador
@@ -65,13 +63,11 @@ func _set_and_save_player_collision_and_hurtbox():
 		if original_hurtbox_pos: 
 			hurtbox_shape.position = original_hurtbox_pos
 		original_hurtbox_pos = hurtbox_shape.position
-	
-		
+
 #Função que checa se está no chão
 func in_floor() -> bool:
 	#Retrona o valor de colisão do raycast
 	return ray_jumps[0].is_colliding() or ray_jumps[1].is_colliding() or ray_jumps[2].is_colliding() or ray_jumps[3].is_colliding() or ray_jumps[4].is_colliding() or ray_jumps[5].is_colliding() or ray_jumps[6].is_colliding() or ray_jumps[7].is_colliding() or ray_jumps[8].is_colliding()
-
 
 #função de tomar dano
 func take_damage(amount: int):
@@ -79,7 +75,6 @@ func take_damage(amount: int):
 	lifes -= amount
 	#Emite o sinal d emudança de vida
 	life_changed.emit(lifes)
-
 
 #Função de processamento de fisica
 func _physics_process(delta: float) -> void:
@@ -102,7 +97,6 @@ func _physics_process(delta: float) -> void:
 	#Verifica slide
 	_verify_slide()
 
-
 func _verify_direction(delta: float):
 	#Salva o valor das teclas pressionadas, uma em valor negativo e outra em valor positivo
 	var direction = Input.get_axis("move_left", "move_right")
@@ -118,7 +112,6 @@ func _verify_direction(delta: float):
 	else: #Caso o contratio (seja igual a 0, não tem uma direçãop)
 		#Aplica a fricção
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
-
 
 func _verify_if_colliding(collision):
 	#Checa se está colidindo com alguma coisa
@@ -144,7 +137,6 @@ func _verify_if_colliding(collision):
 					
 					#Aplica o empurrão
 					collider.apply_central_impulse(Vector2(0, velocity.y * 5)) 
-
 
 func _verify_if_on_floor(delta: float):
 	if in_floor():
@@ -172,7 +164,6 @@ func _verify_if_on_floor(delta: float):
 			velocity.y = 0
 	else:
 		velocity.y += gravity * delta
-			
 
 func _verify_slide():
 	#Checa se a tecla de slide está sendo pressionada e se a velocidade x é maior que speed / 2.5
@@ -180,7 +171,6 @@ func _verify_slide():
 		set_slide(true) #Faz o slide
 	else: #Caso o contrario
 		set_slide(false) #Não faz o slide
-
 
 func set_slide(sliding: bool):
 	#Salva o formato  da colião um retangulo 2D
@@ -221,13 +211,11 @@ func set_slide(sliding: bool):
 			hurt_shape.size.y = original_hurtbox_height
 			hurtbox_shape.position.y = original_hurtbox_pos.y
 	
-			
 func _input(event: InputEvent) -> void:
 	#Checa se o botão de pular foi pressionado
 	if event.is_action_pressed("jump") and in_floor() and !Global.phase_finished:
 		#Aplica a força do pulo
 		velocity.y = jump_force
-
 
 func _exit_tree() -> void:
 	#Inserimos os valores originais

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ycl5gaqjxbji"
+path="res://.godot/imported/Voz-056.ogg-01aa8da9ae4e898bc4590b61fe2fab8b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Efeitos Sonoros/Vozes/Voz-056.ogg"
+dest_files=["res://.godot/imported/Voz-056.ogg-01aa8da9ae4e898bc4590b61fe2fab8b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

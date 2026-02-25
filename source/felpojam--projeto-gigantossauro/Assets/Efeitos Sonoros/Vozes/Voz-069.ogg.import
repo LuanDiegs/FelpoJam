@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dulyuynbc6660"
+path="res://.godot/imported/Voz-069.ogg-ebefc6dea5941dcc05f400b9a8ab15f5.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Efeitos Sonoros/Vozes/Voz-069.ogg"
+dest_files=["res://.godot/imported/Voz-069.ogg-ebefc6dea5941dcc05f400b9a8ab15f5.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

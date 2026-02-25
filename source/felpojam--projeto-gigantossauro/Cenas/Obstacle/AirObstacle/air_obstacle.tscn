@@ -10,8 +10,8 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6e8eq"]
 size = Vector2(2, 2)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6e8eq"]
-size = Vector2(93, 92)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lxdx"]
+size = Vector2(93, 95)
 
 [node name="AirObstacle" type="Node2D" unique_id=113276379 groups=["Obstacles"]]
 script = ExtResource("1_8lxdx")
@@ -63,7 +63,7 @@ disable_collision = false
 [node name="Obj" type="RigidBody2D" parent="." unique_id=1835590911 groups=["Obstacles"]]
 position = Vector2(0, 284)
 collision_layer = 2
-collision_mask = 65
+collision_mask = 193
 mass = 3.0
 linear_damp_mode = 1
 linear_damp = 2.0
@@ -76,5 +76,5 @@ scale = Vector2(46.5, 46.5)
 texture = SubResource("PlaceholderTexture2D_6e8eq")
 
 [node name="Collision" type="CollisionShape2D" parent="Obj" unique_id=1882305006]
-position = Vector2(0.5000019, 0.25)
-shape = SubResource("RectangleShape2D_6e8eq")
+position = Vector2(0.5000019, -0.5)
+shape = SubResource("RectangleShape2D_8lxdx")

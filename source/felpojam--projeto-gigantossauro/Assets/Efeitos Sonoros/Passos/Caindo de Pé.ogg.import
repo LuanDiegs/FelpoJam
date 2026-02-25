@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d4ix6efgadqix"
+path="res://.godot/imported/Caindo de Pé.ogg-9496f0d78dea31f0924bf5b565d79e90.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Efeitos Sonoros/Passos/Caindo de Pé.ogg"
+dest_files=["res://.godot/imported/Caindo de Pé.ogg-9496f0d78dea31f0924bf5b565d79e90.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

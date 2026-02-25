@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dstsx3puj6ehw"
+path="res://.godot/imported/Voz-087.ogg-279ef012d3988ae77feeb2147476b43f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Efeitos Sonoros/Vozes/Voz-087.ogg"
+dest_files=["res://.godot/imported/Voz-087.ogg-279ef012d3988ae77feeb2147476b43f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
