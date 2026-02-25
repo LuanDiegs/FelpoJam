@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dcw4bqhs4pxmr"]
+
+[ext_resource type="PackedScene" uid="uid://bmbjeqofrspuq" path="res://Cenas/Menus/SettingsMenu/settings_menu.tscn" id="1_3pwtq"]
+
+[node name="SettingsPauseMenu" type="CanvasLayer" unique_id=320636693]
+layer = 10
+
+[node name="SettingsMenu" parent="." unique_id=1849821355 instance=ExtResource("1_3pwtq")]
+is_pause_menu = true

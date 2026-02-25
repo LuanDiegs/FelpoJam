@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://cjydupv4ijj2c"]
 
 [ext_resource type="Script" uid="uid://crodumsj42ac8" path="res://Scripts/Levels/UI/StampPhaseTimer/stamp_phase_timer.gd" id="1_n02yg"]
+[ext_resource type="Texture2D" uid="uid://cmd4jcwyu5pak" path="res://Assets/UI/StampsTimer/Levels/level-bar-text.png" id="2_ccmab"]
+[ext_resource type="Texture2D" uid="uid://bbn8mkkwmlhwu" path="res://Assets/UI/StampsTimer/Timer/ampulheta.png" id="2_m57cg"]
+[ext_resource type="Texture2D" uid="uid://dc8yfu3ulwsap" path="res://Assets/UI/StampsTimer/Timer/timer.png" id="3_ccmab"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nbr5c"]
+texture = ExtResource("2_ccmab")
 
 [sub_resource type="Theme" id="Theme_n02yg"]
 
@@ -18,6 +24,12 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 corner_detail = 10
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tr5jw"]
+texture = ExtResource("2_m57cg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g40qe"]
+texture = ExtResource("3_ccmab")
 
 [node name="StampTimer" type="CanvasLayer" unique_id=76836385]
 script = ExtResource("1_n02yg")
@@ -40,12 +52,21 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Fases" type="RichTextLabel" parent="ContainerTimer/ContainerHeight/PhasesContainer" unique_id=1103806942]
+[node name="PanelContainer" type="PanelContainer" parent="ContainerTimer/ContainerHeight/PhasesContainer" unique_id=1789668913]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nbr5c")
+
+[node name="Fases" type="RichTextLabel" parent="ContainerTimer/ContainerHeight/PhasesContainer/PanelContainer" unique_id=1103806942]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
-text = "[b]Fases[/b]"
+text = "Fase"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TimeProgress" type="ProgressBar" parent="ContainerTimer/ContainerHeight" unique_id=1151439606]
 visible = false
@@ -62,34 +83,27 @@ show_percentage = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 10
+theme_override_constants/separation = -30
 
 [node name="Icon" type="PanelContainer" parent="ContainerTimer/ContainerHeight/LabelsTempo" unique_id=1368031833]
-custom_minimum_size = Vector2(50, 50)
+z_index = 1
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
-
-[node name="RelogioIcon" type="RichTextLabel" parent="ContainerTimer/ContainerHeight/LabelsTempo/Icon" unique_id=1285667719]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/normal_font_size = 34
-theme_override_font_sizes/bold_font_size = 34
-bbcode_enabled = true
-text = "⏰"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_tr5jw")
 
 [node name="Panel" type="PanelContainer" parent="ContainerTimer/ContainerHeight/LabelsTempo" unique_id=1882723980]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_g40qe")
 
 [node name="NumberLabel" type="RichTextLabel" parent="ContainerTimer/ContainerHeight/LabelsTempo/Panel" unique_id=756326407]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 34
 theme_override_font_sizes/bold_font_size = 34
 bbcode_enabled = true

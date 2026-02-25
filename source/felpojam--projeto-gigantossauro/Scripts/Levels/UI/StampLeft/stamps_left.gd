@@ -4,16 +4,18 @@ class_name StampsLeftUI
 var stamps_npcs_count: int = 0
 var phase_stamped_npcs: int = 0
 var world_stamped_npcs: int = 0
-
-@onready var label_stamped: RichTextLabel = $Margin/Container/LabelStamped
-const TEMPLATE_LABEL: String = "%s / %s"
+var all_npc_stamped: bool = false
+var stamps_left: int:
+	get:
+		return stamps_npcs_count - phase_stamped_npcs
+@onready var stamped_npcs_label: Label = $StampedNpcPanel/StampedNpcsLabel
 
 signal AllNpcStamped
 
 
 func _ready() -> void:
 	#Inserimos o texto padrao 0/0
-	label_stamped.text = TEMPLATE_LABEL % [0,0]
+	stamped_npcs_label.text = str(0)
 	Global.PhaseChanged.connect(_reset_stamps_left)
 	
 	# Conecta o signal quando um npc for carimbado
@@ -25,23 +27,30 @@ func _reset_stamps_left(phase_number: int):
 	var stamped_npcs_array = get_tree().get_nodes_in_group("StampNPCs") as Array[StampNpc]
 	if stamped_npcs_array:
 		var npc_phase = stamped_npcs_array.filter(func(x: StampNpc):  return x.npc_phase == phase_number)
+		
 		stamps_npcs_count = npc_phase.size()
 		world_stamped_npcs += stamps_npcs_count
+		phase_stamped_npcs = 0
+		all_npc_stamped = false
 		
 	#Atualiza a UI
 	_update_UI()
 
 
 func _update_UI():
-	label_stamped.text = TEMPLATE_LABEL % [phase_stamped_npcs, stamps_npcs_count]
+	stamped_npcs_label.text = str(stamps_npcs_count - phase_stamped_npcs)
 
 
 func _on_npc_stamped():
 	phase_stamped_npcs += 1
+	GameProgress.set_phase_stamps(phase_stamped_npcs)
+	
 	_update_UI()
 	
 	if phase_stamped_npcs == stamps_npcs_count:
 		AllNpcStamped.emit()
 		
-		# Resetamos o count de carimbados
+		# Resetamos o count de carimbados e colocamos que todos os npcs foram carimbados
 		phase_stamped_npcs = 0
+		all_npc_stamped = true
+		

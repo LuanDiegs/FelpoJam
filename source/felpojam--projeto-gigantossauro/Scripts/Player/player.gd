@@ -107,7 +107,7 @@ func _verify_direction(delta: float):
 	#Salva o valor das teclas pressionadas, uma em valor negativo e outra em valor positivo
 	var direction = Input.get_axis("move_left", "move_right")
 	
-	if direction != 0:	
+	if direction != 0 and !Global.phase_finished:	
 		#Verifica se está tentando ir na direção oposta da velocidade atual, ou se está "parado"
 		if sign(direction) == sign(velocity.x) or velocity.x == 0:
 			#Continua com a aceleração normal
@@ -224,7 +224,7 @@ func set_slide(sliding: bool):
 			
 func _input(event: InputEvent) -> void:
 	#Checa se o botão de pular foi pressionado
-	if event.is_action_pressed("jump") and in_floor():
+	if event.is_action_pressed("jump") and in_floor() and !Global.phase_finished:
 		#Aplica a força do pulo
 		velocity.y = jump_force
 

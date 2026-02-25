@@ -40,21 +40,21 @@ func _verify_and_save_settings():
 
 
 func _apply_saved_settings():
-	# Window mode
-	var window_mode = file.get_value(video_config.video, video_config.window)
-	if window_mode:
-		DisplayServer.window_set_mode(window_mode)
-
-	# Resolution
-	var resolution = file.get_value(video_config.video, video_config.resolution)
-	if resolution:
-		DisplayServer.window_set_size(resolution)
-		Global.center_window()
-	
 	# Vsync
 	var vsync_mode = file.get_value(video_config.video, video_config.vsync)
 	if vsync_mode:
 		DisplayServer.window_set_vsync_mode(vsync_mode)
+		
+	# Window mode
+	var window_mode = file.get_value(video_config.video, video_config.window)
+	if window_mode:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		
+	# Resolution
+	var resolution = file.get_value(video_config.video, video_config.resolution)
+	if resolution and window_mode != DisplayServer.WINDOW_MODE_FULLSCREEN:
+		DisplayServer.window_set_size(resolution)
+		Global.center_window()
 	
 	#Audio master
 	var master_volume = file.get_value(audio_config.audio, audio_config.master )

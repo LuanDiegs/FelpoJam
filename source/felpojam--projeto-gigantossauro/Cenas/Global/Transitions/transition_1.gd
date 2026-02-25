@@ -28,6 +28,17 @@ func _on_animation_finished(anim_name: String):
 
 
 func change_to_scene(scene: String):
+	#Fazemos a transicao
 	Transition.transition()
+	
+	#Load na cena
+	var scene_load = load(scene)
+
+	if !scene_load:
+		scene_load = load(Global.start_menu)
+	
+	#Espera a transicao
 	await Transition._transition_finished
-	get_tree().change_scene_to_file(scene)
+	
+	#Troca efetivamente
+	get_tree().change_scene_to_packed(scene_load)

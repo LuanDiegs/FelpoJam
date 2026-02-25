@@ -1,11 +1,13 @@
 extends Node
 
 #Cenas
-var credits_menu = "uid://d0be4afyq8exh"
-var start_menu := "uid://bqh03fym7is0"
-var settings_menu := "uid://bmbjeqofrspuq"
-var intermission_1 := "uid://bxgq6p58qxcx3"
-var tutorial := "uid://4w463o650n0"
+const credits_menu = "uid://d0be4afyq8exh"
+const start_menu := "uid://bqh03fym7is0"
+const settings_menu := "uid://bmbjeqofrspuq"
+const settings_pause_menu := "uid://dcw4bqhs4pxmr"
+const intermission_1 := "uid://bxgq6p58qxcx3"
+const tutorial := "uid://4w463o650n0"
+const dead_menu = "uid://b8vlhv86akk0y"
 var dialogs_json = "res://Utils/Dialogs/dialogs.json"
 var lore_json = "res://Utils/IntermissionLore/intermission_lore.json"
 
@@ -28,6 +30,10 @@ signal NpcStamped
 
 #Signal de resetar timer e o UI dos personagens 
 signal PhaseChanged(phaseNumber: GAME_PHASES)
+
+#Sinal de o jogador "morreu"
+signal PlayerDied
+var phase_finished: bool = false
 
 
 func _ready() -> void:

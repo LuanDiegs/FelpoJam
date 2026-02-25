@@ -31,7 +31,12 @@ var next_world_name: String = "Intermission0":
 		next_world_uid = world_uids.get(value, "")	
 var next_world_uid: String = ""
 
+#Area
 @onready var area: Area2D = $Area
+
+
+#Passed
+var passed: bool = false
 
 
 func _ready() -> void:
@@ -43,8 +48,12 @@ func _on_body_entered(body: Node):
 	if not Engine.is_editor_hint():
 		next_world_uid = world_uids.get(next_world_name, "")
 	
-	if !body and !body.is_in_group("Player"):
+	#Se ja passou ou se o body não for jogador retornamos
+	if (passed) or (!body and !body.is_in_group("Player")):
 		return
+	
+	#Colocamos que o jogador já passou, ou seja, não pode mais
+	passed = true
 	
 	# Setamos o progesso do jogo
 	GameProgress.set_current_phase(phase)

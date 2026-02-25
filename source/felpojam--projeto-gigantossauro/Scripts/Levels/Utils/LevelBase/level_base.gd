@@ -9,3 +9,11 @@ class_name LevelBase
 func _ready() -> void:
 	GameProgress.set_current_world(world_name)
 	GameProgress.set_current_phase(phase_name)
+	
+	#Signal de morte
+	Global.PlayerDied.connect(_show_dead_menu)
+
+
+func _show_dead_menu():
+	var dead_menu = (preload(Global.dead_menu)).instantiate() as DeadMenu
+	add_child(dead_menu)

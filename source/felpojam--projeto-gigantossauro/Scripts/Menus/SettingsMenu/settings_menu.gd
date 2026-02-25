@@ -1,18 +1,18 @@
-extends Control
+extends CanvasLayer
 class_name SettingsMenu
 
 #Variaveis audio settings
 @export var master_volume_slider: HSlider
 @export var music_volume_slider: HSlider
 @export var sfx_volume_slider: HSlider
-@export var master_percent_label: Label
-@export var music_percent_label: Label
-@export var sfx_percent_label: Label
 
 #Variaveis video settings
 @export var resolution_option: OptionButton
 @export var mode_option: OptionButton
-@export var vsync: CheckButton
+@export var vsync: CheckBox
+
+#EhPauseMenu
+@export var is_pause_menu: bool = false
 
 #Biblioteca de resoluções
 var base_resolutions = [
@@ -44,9 +44,6 @@ func _ready() -> void:
 	saved_audio_settings = SettingSaveManager.load_audio_settings()
 	saved_video_settings = SettingSaveManager.load_video_settings()
 	
-	#Da load nas configs salvas
-	load_video_settings()
-	
 	#Aplicando a configuração inicial do modo de tela
 	setup_display_modes()
 	
@@ -54,29 +51,25 @@ func _ready() -> void:
 	setup_resolutions()
 	set_resolution_label_enabled(0)
 	
+	#Da load nas configs salvas
+	load_video_settings()
+	
 	#Centralizando a janela
 	Global.center_window()
 	
 	#Setando a configuração inicial de todos os sliders
-	setup_slider(master_volume_slider, master_percent_label, "Master")
-	setup_slider(music_volume_slider, music_percent_label, "Music")
-	setup_slider(sfx_volume_slider, sfx_percent_label, "Effects")
+	setup_slider(master_volume_slider, "Master")
+	setup_slider(music_volume_slider, "Music")
+	setup_slider(sfx_volume_slider, "Effects")
 	
 	#Connect sinais do mode_option
 	mode_option.item_selected.connect(set_resolution_label_enabled)
 	
+	
 
 #region Funções de Audio
-#Função que atualiza o label de porcentagem de volume
-func update_label(label, Linear_valor: float):
-	#Armazena a porcentagem do volume
-	var percent = round(Linear_valor * 100)
-	#Muda o texto do label
-	label.text = str(percent) + "%"
-
-
 #Função para configuração inicial do sliders
-func setup_slider(slider: HSlider, label: Label, bus_name: String):
+func setup_slider(slider: HSlider, bus_name: String):
 	#Salva o index do bus 
 	var bus_idx = AudioServer.get_bus_index(bus_name)
 	#Checa se o idx do bus não é invalido
@@ -88,13 +81,9 @@ func setup_slider(slider: HSlider, label: Label, bus_name: String):
 	#Define o valor inicial do slider
 	slider.value = saved_audio_settings[bus_name]
 	
-	#Atualiza o valor do slide no label
-	update_label(label, slider.value)
-	
 	#Conecta o sinal de mudança do volume
 	slider.value_changed.connect(func(valor):
 		AudioServer.set_bus_volume_db(bus_idx, linear_to_db(valor)) # Faz a mudança em "tempo real no db do bus deo audio
-		update_label(label, valor) # Faz a mudança em "tempo real" no valor do label
 		
 		SettingSaveManager.save_audio_settings(bus_name, valor)
 	)
@@ -116,7 +105,7 @@ func setup_resolutions():
 	
 	#Salva o tamanho da tela
 	var current_res = DisplayServer.window_get_size()
-	
+
 	#Checa se a resolução atual não está na lista
 	if !available_resolutions.has(current_res):
 		#adiciona ela na lista
@@ -174,6 +163,10 @@ func apply_display_mode():
 
 #Função que aplica a resolução
 func apply_resolution():
+	#Se for 1 não aplicamos a resolução
+	if mode_option.selected == 1:
+		return
+	
 	#Verifica se vai ser enabled ou nao
 	set_resolution_label_enabled(0)
 	
@@ -207,7 +200,6 @@ func apply_vsync():
 		var vsync_mode = DisplayServer.VSYNC_ENABLED if vsync_enabled else DisplayServer.VSYNC_DISABLED
 		#Aplica a configuração no vsync na janela
 		DisplayServer.window_set_vsync_mode(vsync_mode)
-#endregion
 
 
 func set_resolution_label_enabled(_index: int):
@@ -227,7 +219,9 @@ func load_video_settings():
 		apply_resolution()
 
 	var window_mode_saved = saved_video_settings[SettingSaveManager.video_config.window]
-	mode_option.selected = window_mode_saved
+	var window_mode_converted = 1 if window_mode_saved == DisplayServer.WINDOW_MODE_FULLSCREEN else 0
+	mode_option.select(window_mode_converted)
+
 	apply_display_mode()
 
 
@@ -244,22 +238,29 @@ func save_video_settings():
 	SettingSaveManager.save_video_settings(SettingSaveManager.video_config.window, mode)
 
 
-#Função que executa ao pressionar o botão de voltar para o menu
-func _on_return_button_pressed() -> void:
-	Transition.change_to_scene(Global.start_menu)
-
-
 #Função toggle vsync (só armazena a intenção não aplica nada, o valor será usando no botão aplicar)
 func _on_vsync_enable_button_toggled(_toggled_on: bool) -> void:
 	pass # Replace with function body.
+#endregion
 
 
 #Função que executa ao pressionar o botão de applicar as cofigurações de cideo
-func _on_apply_button_pressed() -> void:
+func _apply_video_settings() -> void:
 	apply_display_mode() # aplica o modo de tela
 	apply_resolution() # aplica a resolução
 	apply_vsync() # aplica o vsync
 	
+
 	Global.center_window() # centraliza a janela
 
 	save_video_settings() # salva as configurações de vídeo
+
+
+#Função que executa ao pressionar o botão de voltar para o menu
+func _on_return_button_pressed() -> void:
+	_apply_video_settings()
+	
+	if !is_pause_menu:
+		Transition.change_to_scene(Global.start_menu)
+	else:
+		PauseMenu.close_setting_menu()

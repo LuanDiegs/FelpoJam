@@ -1,14 +1,6 @@
-[gd_resource type="StyleBoxFlat" format=3 uid="uid://dix1hl6bcqsmp"]
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://dix1hl6bcqsmp"]
+
+[ext_resource type="Texture2D" uid="uid://jy7g2f1btds1" path="res://Assets/UI/StampsTimer/Levels/level-completed.png" id="1_romhy"]
 
 [resource]
-bg_color = Color(1, 1, 1, 1)
-skew = Vector2(0.75, 0)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+texture = ExtResource("1_romhy")
