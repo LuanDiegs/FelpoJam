@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ch7gfodb7a1f0" path="res://Scripts/Player/player.gd" id="1_vldss"]
 [ext_resource type="Script" uid="uid://8q0hxvf2x4jc" path="res://Scripts/Camera/principal_camera.gd" id="2_8xljj"]
+[ext_resource type="Texture2D" uid="uid://p1moecc0nb6" path="res://icon.svg" id="2_yjlpd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wreb2"]
 size = Vector2(146, 269)
@@ -12,6 +13,12 @@ size = Vector2(154, 270)
 [node name="Player" type="CharacterBody2D" unique_id=167809822 groups=["Player"]]
 collision_mask = 78
 script = ExtResource("1_vldss")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=218503401]
+visible = false
+position = Vector2(-3.8146973e-06, -144)
+scale = Vector2(1.125, 2.015625)
+texture = ExtResource("2_yjlpd")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=809067479]
 position = Vector2(0, -139.5)

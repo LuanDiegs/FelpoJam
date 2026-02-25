@@ -4,7 +4,10 @@ class_name StampsLeftUI
 var stamps_npcs_count: int = 0
 var phase_stamped_npcs: int = 0
 var world_stamped_npcs: int = 0
-
+var all_npc_stamped: bool = false
+var stamps_left: int:
+	get:
+		return stamps_npcs_count - phase_stamped_npcs
 @onready var stamped_npcs_label: Label = $StampedNpcPanel/StampedNpcsLabel
 
 signal AllNpcStamped
@@ -28,6 +31,7 @@ func _reset_stamps_left(phase_number: int):
 		stamps_npcs_count = npc_phase.size()
 		world_stamped_npcs += stamps_npcs_count
 		phase_stamped_npcs = 0
+		all_npc_stamped = false
 		
 	#Atualiza a UI
 	_update_UI()
@@ -39,10 +43,14 @@ func _update_UI():
 
 func _on_npc_stamped():
 	phase_stamped_npcs += 1
+	GameProgress.set_phase_stamps(phase_stamped_npcs)
+	
 	_update_UI()
 	
 	if phase_stamped_npcs == stamps_npcs_count:
 		AllNpcStamped.emit()
 		
-		# Resetamos o count de carimbados
+		# Resetamos o count de carimbados e colocamos que todos os npcs foram carimbados
 		phase_stamped_npcs = 0
+		all_npc_stamped = true
+		

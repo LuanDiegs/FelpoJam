@@ -127,7 +127,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbng6"]
-size = Vector2(13895, 64)
+size = Vector2(10492.5, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6c0b"]
+size = Vector2(44.58, 721)
 
 [node name="Tutorial" type="Node2D" unique_id=910125680]
 script = ExtResource("1_4r7rq")
@@ -241,12 +244,20 @@ collision_layer = 64
 collision_mask = 0
 
 [node name="Floor" type="CollisionShape2D" parent="FloorAndRoof" unique_id=1699526054]
-position = Vector2(6967, 507)
+position = Vector2(5281, 507)
 shape = SubResource("RectangleShape2D_pbng6")
 
 [node name="Roof" type="CollisionShape2D" parent="FloorAndRoof" unique_id=869039135]
-position = Vector2(6967, -199)
+position = Vector2(5265.75, -199)
 shape = SubResource("RectangleShape2D_pbng6")
+
+[node name="Parede" type="CollisionShape2D" parent="FloorAndRoof" unique_id=186993306]
+position = Vector2(15, 172)
+shape = SubResource("RectangleShape2D_s6c0b")
+
+[node name="Parede2" type="CollisionShape2D" parent="FloorAndRoof" unique_id=1592475784]
+position = Vector2(10478, 172)
+shape = SubResource("RectangleShape2D_s6c0b")
 
 [node name="Player" parent="." unique_id=167809822 instance=ExtResource("2_qor82")]
 position = Vector2(159, 467)
@@ -269,7 +280,7 @@ npc_name = "Tutorial3"
 open_dialog_when_player_pass = true
 
 [node name="DialogNpc4" parent="DialogNpcs" unique_id=6366021 instance=ExtResource("3_kbrmu")]
-position = Vector2(10351, 368)
+position = Vector2(9770, 368)
 npc_name = "Tutorial4"
 
 [node name="StampNpcs" type="Node2D" parent="." unique_id=729267224]
@@ -298,7 +309,7 @@ position = Vector2(8117, 372)
 position = Vector2(7013, -189)
 
 [node name="AirObstacle2" parent="AirObstacles" unique_id=1067235578 instance=ExtResource("5_lcjlg")]
-position = Vector2(9003, -189)
+position = Vector2(8614, -189)
 
 [node name="FloorObstacles" type="Node2D" parent="." unique_id=1100314317]
 
@@ -315,7 +326,7 @@ position = Vector2(5217, 409)
 position = Vector2(5151, 274)
 
 [node name="Obstacle7" parent="FloorObstacles" unique_id=582916153 instance=ExtResource("6_ga6jx")]
-position = Vector2(9675, 403)
+position = Vector2(9390, 403)
 
 [node name="PhaseTransitions" type="Node2D" parent="." unique_id=1343927095]
 
@@ -323,7 +334,7 @@ position = Vector2(9675, 403)
 position = Vector2(770, 27)
 
 [node name="EndOfTutorial" parent="PhaseTransitions" unique_id=568993121 instance=ExtResource("7_qor82")]
-position = Vector2(11050, 27)
+position = Vector2(10404, 27)
 go_to_next_world = true
 next_world_name = "Intermission2"
 

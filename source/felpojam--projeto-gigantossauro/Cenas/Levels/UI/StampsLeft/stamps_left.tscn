@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://rsrluaj37ape"]
 
 [ext_resource type="Script" uid="uid://j8jdj7tkbted" path="res://Scripts/Levels/UI/StampLeft/stamps_left.gd" id="1_gkes7"]
-[ext_resource type="Texture2D" uid="uid://b345hw52djsxx" path="res://Assets/Arts/Teste/Captura de tela 2026-02-23 224620.png" id="2_inui0"]
-[ext_resource type="Texture2D" uid="uid://cgh0diol8wudd" path="res://Assets/Arts/Teste/Captura de tela 2026-02-23 224851.png" id="3_i3jy4"]
+[ext_resource type="Texture2D" uid="uid://c8kbuj3hdr0m3" path="res://Assets/UI/StampsLeft/carimbo.png" id="2_inui0"]
+[ext_resource type="Texture2D" uid="uid://dtcfj2cl62uvo" path="res://Assets/UI/StampsLeft/contador-carimbo.png" id="3_i3jy4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ucg46"]
 texture = ExtResource("2_inui0")

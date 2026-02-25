@@ -1,15 +1,27 @@
 [gd_scene format=3 uid="uid://b6kyxog5tmuek"]
 
 [ext_resource type="Script" uid="uid://h7fgfi0i20bh" path="res://Scripts/Menus/PauseMenu/pause_menu.gd" id="1_bxlta"]
+[ext_resource type="Texture2D" uid="uid://bnjvd0r7i7h6e" path="res://Assets/UI/Global/banner/banner-fundo.png" id="2_kwtx1"]
+[ext_resource type="FontFile" uid="uid://g3vtkfb1o2l5" path="res://Assets/Fonts/Google/lexend/static/Lexend-Bold.ttf" id="3_g10sa"]
+[ext_resource type="Theme" uid="uid://jbesfq73oggh" path="res://Cenas/Utils/themes/button-themes/button-theme.tres" id="4_c2c43"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kwtx1"]
+texture = ExtResource("2_kwtx1")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_26rw0"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_twf73"]
-color = Color(1, 1, 1, 1)
 grow_begin = -100.0
 grow_end = -100.0
 
-[node name="PauseMenu" type="CanvasLayer" unique_id=902647803]
-layer = 4
+[node name="PauseMenu" type="CanvasLayer" unique_id=902647803 node_paths=PackedStringArray("continue_button", "options_button", "return_to_menu_button")]
+process_mode = 3
+layer = 10
+visible = false
 script = ExtResource("1_bxlta")
+continue_button = NodePath("PanelUI/MarginUI/VboxUI/MarginButtons/VboxButtons/ContinueButton")
+options_button = NodePath("PanelUI/MarginUI/VboxUI/MarginButtons/VboxButtons/OptionsButton")
+return_to_menu_button = NodePath("PanelUI/MarginUI/VboxUI/MarginButtons/VboxButtons/ReturnToMenuButton")
 
 [node name="Background" type="Panel" parent="." unique_id=1435911530]
 anchors_preset = 15
@@ -19,68 +31,69 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-metadata/_edit_use_anchors_ = true
 
-[node name="MaginFather" type="MarginContainer" parent="." unique_id=949130413]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/margin_left = 375
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 375
-theme_override_constants/margin_bottom = 100
-metadata/_edit_use_anchors_ = true
+[node name="PanelUI" type="PanelContainer" parent="." unique_id=890119950]
+offset_left = 375.0
+offset_top = 100.0
+offset_right = 905.0
+offset_bottom = 620.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_kwtx1")
 
-[node name="PanelUI" type="PanelContainer" parent="MaginFather" unique_id=890119950]
+[node name="MarginUI" type="MarginContainer" parent="PanelUI" unique_id=1585639616]
 layout_mode = 2
-
-[node name="MarginUI" type="MarginContainer" parent="MaginFather/PanelUI" unique_id=1585639616]
-layout_mode = 2
-theme_override_constants/margin_top = 40
+theme_override_constants/margin_top = 75
 theme_override_constants/margin_bottom = 40
 
-[node name="VboxUI" type="VBoxContainer" parent="MaginFather/PanelUI/MarginUI" unique_id=1114394011]
+[node name="VboxUI" type="VBoxContainer" parent="PanelUI/MarginUI" unique_id=1114394011]
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="LabelPausadp" type="Label" parent="MaginFather/PanelUI/MarginUI/VboxUI" unique_id=1148522981]
+[node name="LabelPausadp" type="Label" parent="PanelUI/MarginUI/VboxUI" unique_id=1148522981]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g10sa")
+theme_override_font_sizes/font_size = 44
+theme_override_styles/normal = SubResource("StyleBoxEmpty_26rw0")
 text = "Pausado"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Separador" type="HSeparator" parent="MaginFather/PanelUI/MarginUI/VboxUI" unique_id=1049776250]
+[node name="Separador" type="HSeparator" parent="PanelUI/MarginUI/VboxUI" unique_id=1049776250]
 layout_mode = 2
-theme_override_constants/separation = 4
+theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxLine_twf73")
 
-[node name="MarginButtons" type="MarginContainer" parent="MaginFather/PanelUI/MarginUI/VboxUI" unique_id=1832324104]
+[node name="MarginButtons" type="MarginContainer" parent="PanelUI/MarginUI/VboxUI" unique_id=1832324104]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_top = 0
+size_flags_horizontal = 4
+size_flags_vertical = 6
 
-[node name="VboxButtons" type="VBoxContainer" parent="MaginFather/PanelUI/MarginUI/VboxUI/MarginButtons" unique_id=1020587899]
+[node name="VboxButtons" type="VBoxContainer" parent="PanelUI/MarginUI/VboxUI/MarginButtons" unique_id=1020587899]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 75
+theme_override_constants/separation = 25
 
-[node name="ContinueButton" type="Button" parent="MaginFather/PanelUI/MarginUI/VboxUI/MarginButtons/VboxButtons" unique_id=76401726]
+[node name="ContinueButton" type="Button" parent="PanelUI/MarginUI/VboxUI/MarginButtons/VboxButtons" unique_id=76401726]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("4_c2c43")
 theme_override_font_sizes/font_size = 20
 text = "Continuar"
 
-[node name="OptionsButton" type="Button" parent="MaginFather/PanelUI/MarginUI/VboxUI/MarginButtons/VboxButtons" unique_id=799568358]
+[node name="OptionsButton" type="Button" parent="PanelUI/MarginUI/VboxUI/MarginButtons/VboxButtons" unique_id=799568358]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("4_c2c43")
 theme_override_font_sizes/font_size = 20
 text = "Configurações"
 
-[node name="ReturnToMenuButton" type="Button" parent="MaginFather/PanelUI/MarginUI/VboxUI/MarginButtons/VboxButtons" unique_id=722933516]
+[node name="ReturnToMenuButton" type="Button" parent="PanelUI/MarginUI/VboxUI/MarginButtons/VboxButtons" unique_id=722933516]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("4_c2c43")
 theme_override_font_sizes/font_size = 20
 text = "Voltar ao menu"

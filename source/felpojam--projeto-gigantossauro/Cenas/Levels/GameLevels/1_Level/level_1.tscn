@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dy5woitqacywo" path="res://Assets/Arts/Train/40_years/peça-que-conectar-trens.png" id="7_lrosg"]
 [ext_resource type="PackedScene" uid="uid://rsrluaj37ape" path="res://Cenas/Levels/UI/StampsLeft/stamps_left.tscn" id="7_sf2cx"]
 [ext_resource type="PackedScene" uid="uid://blnt6mte6r0l3" path="res://Cenas/Levels/GameLevels/Utils/Background/background.tscn" id="8_sf2cx"]
+[ext_resource type="PackedScene" uid="uid://bhqynq01gcwx" path="res://Cenas/Levels/Utils/PhaseFinishAndSpawnNextPhase/phase_finish_and_spawn_next_phase.tscn" id="14_bq6qm"]
 
 [sub_resource type="Animation" id="Animation_ue21f"]
 length = 0.001
@@ -461,16 +462,40 @@ texture = ExtResource("6_vcsnc")
 region_enabled = true
 region_rect = Rect2(327, 2502, 334, 337)
 
-[node name="Chao" type="StaticBody2D" parent="." unique_id=1842553620]
+[node name="ChaoParedeTeto" type="StaticBody2D" parent="." unique_id=1842553620]
 collision_layer = 64
 collision_mask = 0
 
-[node name="ChaoCollision" type="CollisionShape2D" parent="Chao" unique_id=30658458]
+[node name="ChaoCollision" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=30658458]
 position = Vector2(16546, 511.5)
 shape = SubResource("RectangleShape2D_g0id4")
 
-[node name="Parede" type="CollisionShape2D" parent="Chao" unique_id=1447642209]
+[node name="Teto" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=228105814]
+position = Vector2(16546, -212)
+shape = SubResource("RectangleShape2D_g0id4")
+
+[node name="Parede" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=1447642209]
 position = Vector2(-20.71, 197)
+shape = SubResource("RectangleShape2D_s6c0b")
+
+[node name="Parede2" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=1395362402]
+position = Vector2(10477, 197)
+shape = SubResource("RectangleShape2D_s6c0b")
+
+[node name="Parede3" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=326543631]
+position = Vector2(11328, 197)
+shape = SubResource("RectangleShape2D_s6c0b")
+
+[node name="Parede4" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=1204903784]
+position = Vector2(21777, 197)
+shape = SubResource("RectangleShape2D_s6c0b")
+
+[node name="Parede5" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=658910091]
+position = Vector2(22657, 197)
+shape = SubResource("RectangleShape2D_s6c0b")
+
+[node name="Parede6" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=1964040238]
+position = Vector2(33109, 197)
 shape = SubResource("RectangleShape2D_s6c0b")
 
 [node name="Player" type="Node2D" parent="." unique_id=1627431743]
@@ -584,6 +609,18 @@ phase = 3
 world = 1
 go_to_next_world = true
 next_world_name = "Intermission3"
+
+[node name="Spawns" type="Node2D" parent="PhaseTransitions" unique_id=901488849]
+
+[node name="SpawnPhase2" parent="PhaseTransitions/Spawns" unique_id=870564523 node_paths=PackedStringArray("player", "stamp_npcs_count") instance=ExtResource("14_bq6qm")]
+position = Vector2(10521, 358)
+player = NodePath("../../../Player/Player")
+stamp_npcs_count = NodePath("../../../UI/StampsLeft")
+
+[node name="SpawnPhase3" parent="PhaseTransitions/Spawns" unique_id=1519273567 node_paths=PackedStringArray("player", "stamp_npcs_count") instance=ExtResource("14_bq6qm")]
+position = Vector2(21828, 352)
+player = NodePath("../../../Player/Player")
+stamp_npcs_count = NodePath("../../../UI/StampsLeft")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=876751282]
 

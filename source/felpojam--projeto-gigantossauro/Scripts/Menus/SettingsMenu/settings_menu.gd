@@ -11,6 +11,9 @@ class_name SettingsMenu
 @export var mode_option: OptionButton
 @export var vsync: CheckBox
 
+#EhPauseMenu
+@export var is_pause_menu: bool = false
+
 #Biblioteca de resoluções
 var base_resolutions = [
 	Vector2i(3840, 2160), # 4K
@@ -41,15 +44,15 @@ func _ready() -> void:
 	saved_audio_settings = SettingSaveManager.load_audio_settings()
 	saved_video_settings = SettingSaveManager.load_video_settings()
 	
-	#Da load nas configs salvas
-	load_video_settings()
-	
 	#Aplicando a configuração inicial do modo de tela
 	setup_display_modes()
 	
 	#Aplicando a configuração inicial de resolução
 	setup_resolutions()
 	set_resolution_label_enabled(0)
+	
+	#Da load nas configs salvas
+	load_video_settings()
 	
 	#Centralizando a janela
 	Global.center_window()
@@ -61,6 +64,7 @@ func _ready() -> void:
 	
 	#Connect sinais do mode_option
 	mode_option.item_selected.connect(set_resolution_label_enabled)
+	
 	
 
 #region Funções de Audio
@@ -101,7 +105,7 @@ func setup_resolutions():
 	
 	#Salva o tamanho da tela
 	var current_res = DisplayServer.window_get_size()
-	
+
 	#Checa se a resolução atual não está na lista
 	if !available_resolutions.has(current_res):
 		#adiciona ela na lista
@@ -159,6 +163,10 @@ func apply_display_mode():
 
 #Função que aplica a resolução
 func apply_resolution():
+	#Se for 1 não aplicamos a resolução
+	if mode_option.selected == 1:
+		return
+	
 	#Verifica se vai ser enabled ou nao
 	set_resolution_label_enabled(0)
 	
@@ -192,7 +200,6 @@ func apply_vsync():
 		var vsync_mode = DisplayServer.VSYNC_ENABLED if vsync_enabled else DisplayServer.VSYNC_DISABLED
 		#Aplica a configuração no vsync na janela
 		DisplayServer.window_set_vsync_mode(vsync_mode)
-#endregion
 
 
 func set_resolution_label_enabled(_index: int):
@@ -212,7 +219,9 @@ func load_video_settings():
 		apply_resolution()
 
 	var window_mode_saved = saved_video_settings[SettingSaveManager.video_config.window]
-	mode_option.selected = window_mode_saved
+	var window_mode_converted = 1 if window_mode_saved == DisplayServer.WINDOW_MODE_FULLSCREEN else 0
+	mode_option.select(window_mode_converted)
+
 	apply_display_mode()
 
 
@@ -229,15 +238,10 @@ func save_video_settings():
 	SettingSaveManager.save_video_settings(SettingSaveManager.video_config.window, mode)
 
 
-#Função que executa ao pressionar o botão de voltar para o menu
-func _on_return_button_pressed() -> void:
-	_apply_video_settings()
-	Transition.change_to_scene(Global.start_menu)
-
-
 #Função toggle vsync (só armazena a intenção não aplica nada, o valor será usando no botão aplicar)
 func _on_vsync_enable_button_toggled(_toggled_on: bool) -> void:
 	pass # Replace with function body.
+#endregion
 
 
 #Função que executa ao pressionar o botão de applicar as cofigurações de cideo
@@ -246,6 +250,17 @@ func _apply_video_settings() -> void:
 	apply_resolution() # aplica a resolução
 	apply_vsync() # aplica o vsync
 	
+
 	Global.center_window() # centraliza a janela
 
 	save_video_settings() # salva as configurações de vídeo
+
+
+#Função que executa ao pressionar o botão de voltar para o menu
+func _on_return_button_pressed() -> void:
+	_apply_video_settings()
+	
+	if !is_pause_menu:
+		Transition.change_to_scene(Global.start_menu)
+	else:
+		PauseMenu.close_setting_menu()

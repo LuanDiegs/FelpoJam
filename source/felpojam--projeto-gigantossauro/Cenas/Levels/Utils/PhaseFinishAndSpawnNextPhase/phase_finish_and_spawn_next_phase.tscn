@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bhqynq01gcwx"]
+
+[ext_resource type="Script" uid="uid://beuugywu5ipja" path="res://Scripts/Levels/Utils/PhaseFinishAndSpawnNextPhase/phase_finish_and_spawn_next_phase.gd" id="1_ykned"]
+[ext_resource type="Texture2D" uid="uid://mqvoig58xm31" path="res://Assets/UI/Intermission/banner dialogo.png" id="2_2nxcc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrosg"]
+size = Vector2(467, 547.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tw2j"]
+size = Vector2(200, 400)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b2nfk"]
+texture = ExtResource("2_2nxcc")
+
+[node name="PhaseFinishAndSpawnNextPhase" type="Node2D" unique_id=870564523]
+script = ExtResource("1_ykned")
+
+[node name="PhaseFinishArea" type="Area2D" parent="." unique_id=1676817944]
+position = Vector2(1, 0)
+collision_layer = 0
+
+[node name="CollisionFinish" type="CollisionShape2D" parent="PhaseFinishArea" unique_id=1156162181]
+position = Vector2(-327.5, -166.25)
+shape = SubResource("RectangleShape2D_lrosg")
+debug_color = Color(0.5476393, 0, 0.017833069, 0.41960785)
+
+[node name="SpawnNextPhase" type="Area2D" parent="." unique_id=66855497]
+position = Vector2(960, -94)
+collision_layer = 0
+
+[node name="CollisionSpawn" type="CollisionShape2D" parent="SpawnNextPhase" unique_id=192164845]
+shape = SubResource("RectangleShape2D_3tw2j")
+debug_color = Color(0.5476393, 0, 0.017833069, 0.41960785)
+
+[node name="PanelWarning" type="Panel" parent="." unique_id=405360494]
+visible = false
+offset_left = -626.0
+offset_top = -449.0
+offset_right = -26.0
+offset_bottom = -199.0
+pivot_offset = Vector2(300, 125)
+theme_override_styles/panel = SubResource("StyleBoxTexture_b2nfk")
+
+[node name="LabelWarning" type="Label" parent="PanelWarning" unique_id=1291597493]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "TESTE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

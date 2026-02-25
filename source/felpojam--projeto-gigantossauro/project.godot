@@ -26,7 +26,6 @@ SettingSaveManager="*uid://dmdwcvqvbiww2"
 Transition="*uid://dlg4jsj47qxwo"
 GameProgress="*uid://0s4j4jolqqvt"
 PauseMenu="*uid://b6kyxog5tmuek"
-SettingsPauseMenu="*uid://bmbjeqofrspuq"
 
 [display]
 
@@ -43,6 +42,10 @@ Enemies=""
 Boss=""
 Floor=""
 StampNPCs=""
+
+[gui]
+
+theme/custom_font="uid://b1127ogf1w82b"
 
 [input]
 

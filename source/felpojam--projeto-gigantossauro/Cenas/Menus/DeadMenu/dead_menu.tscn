@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://b8vlhv86akk0y"]
+
+[ext_resource type="Script" uid="uid://c0nba54s1n7c2" path="res://Scripts/Menus/DeadMenu/dead_menu.gd" id="1_4dk0d"]
+[ext_resource type="Texture2D" uid="uid://b4yfjtwe3c35d" path="res://Assets/UI/DeadMenu/Banner fundo derrota.png" id="1_df4op"]
+[ext_resource type="FontFile" uid="uid://g3vtkfb1o2l5" path="res://Assets/Fonts/Google/lexend/static/Lexend-Bold.ttf" id="2_4dk0d"]
+[ext_resource type="Theme" uid="uid://jbesfq73oggh" path="res://Cenas/Utils/themes/button-themes/button-theme.tres" id="3_qng13"]
+[ext_resource type="Texture2D" uid="uid://c8kbuj3hdr0m3" path="res://Assets/UI/StampsLeft/carimbo.png" id="4_qng13"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_33mwl"]
+texture = ExtResource("1_df4op")
+region_rect = Rect2(0, 266, 1695, 1691)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_unosw"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_onvyb"]
+grow_begin = -100.0
+grow_end = -100.0
+thickness = 3
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_unosw"]
+texture = ExtResource("4_qng13")
+
+[node name="DeadMenu" type="CanvasLayer" unique_id=709151400]
+layer = 10
+visible = false
+script = ExtResource("1_4dk0d")
+
+[node name="Control" type="Control" parent="." unique_id=718770714]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="Control" unique_id=1598416640]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelUI" type="PanelContainer" parent="Control" unique_id=349371264]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 34.0
+offset_right = 976.3076
+offset_bottom = 674.0
+pivot_offset = Vector2(326, 345)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_33mwl")
+
+[node name="MarginUI" type="MarginContainer" parent="Control/PanelUI" unique_id=715208590]
+layout_mode = 2
+theme_override_constants/margin_top = 100
+
+[node name="VboxUI" type="VBoxContainer" parent="Control/PanelUI/MarginUI" unique_id=1472430013]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LabelMensagem" type="Label" parent="Control/PanelUI/MarginUI/VboxUI" unique_id=250226357]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4dk0d")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxEmpty_unosw")
+text = "Você deixou o assassino 
+escapar"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Separador" type="HSeparator" parent="Control/PanelUI/MarginUI/VboxUI" unique_id=348899154]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_onvyb")
+
+[node name="MarginItens" type="MarginContainer" parent="Control/PanelUI/MarginUI/VboxUI" unique_id=387285062]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 15
+
+[node name="VboxItems" type="VBoxContainer" parent="Control/PanelUI/MarginUI/VboxUI/MarginItens" unique_id=1004929656]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="Phase" type="Label" parent="Control/PanelUI/MarginUI/VboxUI/MarginItens/VboxItems" unique_id=1236948121]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Fase 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HboxStamps" type="HBoxContainer" parent="Control/PanelUI/MarginUI/VboxUI/MarginItens/VboxItems" unique_id=795797437]
+layout_mode = 2
+alignment = 1
+
+[node name="StampIcon" type="Panel" parent="Control/PanelUI/MarginUI/VboxUI/MarginItens/VboxItems/HboxStamps" unique_id=943027799]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_unosw")
+
+[node name="LabelStamps" type="Label" parent="Control/PanelUI/MarginUI/VboxUI/MarginItens/VboxItems/HboxStamps" unique_id=822285033]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "20 carimbos
+coletados"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HboxBotoes" type="HBoxContainer" parent="Control/PanelUI/MarginUI/VboxUI/MarginItens/VboxItems" unique_id=363340264]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Restart" type="Button" parent="Control/PanelUI/MarginUI/VboxUI/MarginItens/VboxItems/HboxBotoes" unique_id=1913541368]
+custom_minimum_size = Vector2(250, 55)
+layout_mode = 2
+theme = ExtResource("3_qng13")
+theme_override_font_sizes/font_size = 22
+text = "Reiniciar"
+
+[node name="BackToMenu" type="Button" parent="Control/PanelUI/MarginUI/VboxUI/MarginItens/VboxItems/HboxBotoes" unique_id=1772917426]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_qng13")
+theme_override_font_sizes/font_size = 22
+text = "Voltar ao menu"

@@ -1,14 +1,6 @@
-[gd_resource type="StyleBoxFlat" format=3 uid="uid://b5wbd7b2tqaxf"]
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://b5wbd7b2tqaxf"]
+
+[ext_resource type="Texture2D" uid="uid://bfulmaehkkmyh" path="res://Assets/UI/StampsTimer/Levels/level-not-completed.png" id="1_ijgvv"]
 
 [resource]
-bg_color = Color(0.38, 0.38, 0.38, 1)
-skew = Vector2(0.75, 0)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+texture = ExtResource("1_ijgvv")

@@ -1,0 +1,3 @@
+IA do google - Ao realizar pesquisas aparece um resumo pela IA, as vezes ela nos atendia bem por ser algo simples e acabávamos usando a sugestão dela. Ex: Perguntavamos "Como fazer uma colisão em Godot" e a IA respondia um CharacterBody2d ou Rigibody2d, o que supria nossa necessidade.
+
+Kimi N2 - Utilizamos a IA em ultimo caso, caso não encontrássemos o resultado no google, por exemplo perguntávamos "quando eu faço Engine.time_scale = 0 alguns rigibody desaparecem, pq issoo ocorre?" e a IA respondia e dava uma sugestão de código. Não copiamos e colamos o código que a IA mostrava, mas sim liamos e pegávamos como referencia para fazer nosso código.

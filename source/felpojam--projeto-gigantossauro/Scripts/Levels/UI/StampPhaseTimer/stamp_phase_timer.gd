@@ -35,8 +35,10 @@ func _process(delta: float) -> void:
 	if !timer_stopped:
 		_update_timer(delta)
 	
-	if time_passed >= max_stamp_time_to_die:
-		get_tree().reload_current_scene()
+	if time_passed >= max_stamp_time_to_die and !Global.phase_finished:
+		#Paramos o timer e emitimos o sinal
+		timer_stopped = true
+		Global.PlayerDied.emit()
 
 
 func _ready() -> void:
@@ -82,7 +84,7 @@ func _update_display():
 	var remaining = max_stamp_time_to_die - time_passed
 	
 	time_progress.value = remaining
-	number_label.text = "[b]%0.3f[/b]" % remaining
+	number_label.text = "%0.3f" % remaining
 	
 	# Tween do progress bar
 	var tween_progress = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CIRC)
@@ -109,7 +111,6 @@ func _on_all_npc_stamped():
 	
 	# Colocamos o tempo que demorou para correr as fases
 	time_passed_in_world += time_passed
-	print(time_passed_in_world)
 	
 	
 func _on_npc_stamped():

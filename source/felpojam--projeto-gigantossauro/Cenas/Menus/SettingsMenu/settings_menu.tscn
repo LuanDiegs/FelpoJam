@@ -1,41 +1,265 @@
 [gd_scene format=3 uid="uid://bmbjeqofrspuq"]
 
 [ext_resource type="Script" uid="uid://ca3mr32rnnc4c" path="res://Scripts/Menus/SettingsMenu/settings_menu.gd" id="1_te5jf"]
-[ext_resource type="Texture2D" uid="uid://dd8fpdnrqpf64" path="res://Assets/Arts/Teste/menu-teste.png" id="2_6xnbp"]
-[ext_resource type="Texture2D" uid="uid://do1kiktfy6lqj" path="res://Assets/Arts/Teste/panel.png" id="2_b10ey"]
+[ext_resource type="Theme" uid="uid://jbesfq73oggh" path="res://Cenas/Utils/themes/button-themes/button-theme.tres" id="2_6xnbp"]
+[ext_resource type="Texture2D" uid="uid://b5eteowh4aa0a" path="res://Assets/UI/SettingsMenu/Checkbox/checkbox.png" id="2_b10ey"]
+[ext_resource type="Texture2D" uid="uid://bnjvd0r7i7h6e" path="res://Assets/UI/Global/banner/banner-fundo.png" id="2_rrg1f"]
+[ext_resource type="FontFile" uid="uid://b1127ogf1w82b" path="res://Assets/Fonts/Google/lexend/static/Lexend-Regular.ttf" id="2_t5ktl"]
+[ext_resource type="Texture2D" uid="uid://du8oiwj4kndja" path="res://Assets/UI/SettingsMenu/Banner/banner-titulo.png" id="3_fnu67"]
+[ext_resource type="Texture2D" uid="uid://b01bxpuq2y0ub" path="res://Assets/UI/SettingsMenu/Checkbox/checkbox-selected.png" id="4_hvnmv"]
+[ext_resource type="Texture2D" uid="uid://oy1s8j5sf3af" path="res://Assets/UI/SettingsMenu/Dropdown/dropdown.png" id="5_e3nby"]
+[ext_resource type="Texture2D" uid="uid://2ftrbohxs463" path="res://Assets/UI/SettingsMenu/Slider/slide bar fundo.png" id="9_7bo42"]
+[ext_resource type="Texture2D" uid="uid://bwgmet8htx2bm" path="res://Assets/UI/SettingsMenu/Banner/thumb.png" id="9_kapwe"]
+[ext_resource type="Texture2D" uid="uid://76sjil2qc6g3" path="res://Assets/UI/SettingsMenu/Slider/slide bar.png" id="9_wdg3x"]
+[ext_resource type="Texture2D" uid="uid://c6o7sm4ke3xa" path="res://Assets/UI/SettingsMenu/Slider/thumb.png" id="10_sveky"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t5ktl"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fnu67"]
+texture = ExtResource("2_rrg1f")
+expand_margin_left = 50.0
+expand_margin_top = 50.0
+expand_margin_right = 50.0
+expand_margin_bottom = 50.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kapwe"]
+content_margin_left = 30.0
+content_margin_top = 10.0
+content_margin_right = 30.0
+content_margin_bottom = 10.0
+texture = ExtResource("3_fnu67")
+modulate_color = Color(0.5480686, 0.51997524, 0.51997524, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sveky"]
+content_margin_left = 30.0
+content_margin_top = 10.0
+content_margin_right = 30.0
+content_margin_bottom = 10.0
+texture = ExtResource("3_fnu67")
+modulate_color = Color(0.75, 0.7125, 0.7125, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7bo42"]
+content_margin_left = 30.0
+content_margin_top = 10.0
+content_margin_right = 30.0
+content_margin_bottom = 10.0
+texture = ExtResource("3_fnu67")
+
+[sub_resource type="DPITexture" id="DPITexture_e3nby"]
+
+[sub_resource type="DPITexture" id="DPITexture_rrg1f"]
+
+[sub_resource type="DPITexture" id="DPITexture_fnu67"]
+
+[sub_resource type="DPITexture" id="DPITexture_wdg3x"]
+
+[sub_resource type="DPITexture" id="DPITexture_7bo42"]
+
+[sub_resource type="DPITexture" id="DPITexture_kapwe"]
+
+[sub_resource type="DPITexture" id="DPITexture_sveky"]
+
+[sub_resource type="DPITexture" id="DPITexture_hjgl0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hjgl0"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfunv"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kfunv"]
+texture = ExtResource("2_b10ey")
+modulate_color = Color(0.75, 0.75, 0.75, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eabpy"]
+texture = ExtResource("4_hvnmv")
+modulate_color = Color(0.75, 0.75, 0.75, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4qylf"]
 texture = ExtResource("2_b10ey")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6xnbp"]
-texture = ExtResource("2_6xnbp")
-texture_margin_left = 30.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ia3wd"]
+texture = ExtResource("4_hvnmv")
+
+[sub_resource type="Theme" id="Theme_eabpy"]
+CheckBox/colors/checkbox_checked_color = Color(1, 1, 1, 1)
+CheckBox/colors/checkbox_unchecked_color = Color(1, 1, 1, 1)
+CheckBox/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+CheckBox/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+CheckBox/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+CheckBox/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+CheckBox/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+CheckBox/colors/font_outline_color = Color(0, 0, 0, 1)
+CheckBox/colors/font_pressed_color = Color(1, 1, 1, 1)
+CheckBox/constants/check_v_offset = 0
+CheckBox/constants/h_separation = 4
+CheckBox/constants/outline_size = 0
+CheckBox/font_sizes/font_size = 16
+CheckBox/fonts/font = ExtResource("2_t5ktl")
+CheckBox/icons/checked = SubResource("DPITexture_e3nby")
+CheckBox/icons/checked_disabled = SubResource("DPITexture_rrg1f")
+CheckBox/icons/radio_checked = SubResource("DPITexture_fnu67")
+CheckBox/icons/radio_checked_disabled = SubResource("DPITexture_wdg3x")
+CheckBox/icons/radio_unchecked = SubResource("DPITexture_7bo42")
+CheckBox/icons/radio_unchecked_disabled = SubResource("DPITexture_kapwe")
+CheckBox/icons/unchecked = SubResource("DPITexture_sveky")
+CheckBox/icons/unchecked_disabled = SubResource("DPITexture_hjgl0")
+CheckBox/styles/disabled = SubResource("StyleBoxEmpty_hjgl0")
+CheckBox/styles/focus = SubResource("StyleBoxFlat_kfunv")
+CheckBox/styles/hover = SubResource("StyleBoxTexture_kfunv")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxTexture_eabpy")
+CheckBox/styles/normal = SubResource("StyleBoxTexture_4qylf")
+CheckBox/styles/pressed = SubResource("StyleBoxTexture_ia3wd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iodi4"]
+texture = ExtResource("5_e3nby")
+modulate_color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eabpy"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e3nby"]
+texture = ExtResource("5_e3nby")
+modulate_color = Color(0.75, 0.75, 0.75, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fcd1d"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_abd2v"]
+texture = ExtResource("5_e3nby")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icupm"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rrg1f"]
+texture = ExtResource("5_e3nby")
+modulate_color = Color(0.75, 0.75, 0.75, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q10mb"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_erwlr"]
+OptionButton/colors/font_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+OptionButton/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+OptionButton/colors/font_hover_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+OptionButton/colors/font_hover_pressed_color = Color(0.1, 0.1, 0.1, 1)
+OptionButton/colors/font_outline_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_pressed_color = Color(0.1, 0.1, 0.1, 1)
+OptionButton/constants/align_to_largest_stylebox = 1
+OptionButton/constants/arrow_margin = 21
+OptionButton/constants/modulate_arrow = -100
+OptionButton/constants/outline_size = 0
+OptionButton/font_sizes/font_size = 24
+OptionButton/icons/arrow = null
+OptionButton/styles/disabled = SubResource("StyleBoxTexture_iodi4")
+OptionButton/styles/disabled_mirrored = SubResource("StyleBoxFlat_eabpy")
+OptionButton/styles/focus = SubResource("StyleBoxFlat_kfunv")
+OptionButton/styles/hover = SubResource("StyleBoxTexture_e3nby")
+OptionButton/styles/hover_mirrored = SubResource("StyleBoxFlat_fcd1d")
+OptionButton/styles/normal = SubResource("StyleBoxTexture_abd2v")
+OptionButton/styles/normal_mirrored = SubResource("StyleBoxFlat_icupm")
+OptionButton/styles/pressed = SubResource("StyleBoxTexture_rrg1f")
+OptionButton/styles/pressed_mirrored = SubResource("StyleBoxFlat_q10mb")
+
+[sub_resource type="QuadMesh" id="QuadMesh_kapwe"]
+size = Vector2(30, 30)
+center_offset = Vector3(15, 22, 0)
+
+[sub_resource type="MeshTexture" id="MeshTexture_sveky"]
+mesh = SubResource("QuadMesh_kapwe")
+base_texture = ExtResource("9_kapwe")
+image_size = Vector2(25, 25)
+
+[sub_resource type="QuadMesh" id="QuadMesh_hjgl0"]
+size = Vector2(30, 30)
+center_offset = Vector3(15, 22, 0)
+
+[sub_resource type="MeshTexture" id="MeshTexture_kfunv"]
+mesh = SubResource("QuadMesh_hjgl0")
+base_texture = ExtResource("10_sveky")
+image_size = Vector2(25, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hjgl0"]
+texture = ExtResource("9_wdg3x")
 expand_margin_top = 10.0
-expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b10ey"]
-texture = ExtResource("2_6xnbp")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-expand_margin_left = 10.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fcd1d"]
+texture = ExtResource("9_wdg3x")
 expand_margin_top = 10.0
-expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b10ey"]
-bg_color = Color(0, 0, 0, 1)
-border_width_top = 7
-border_width_bottom = 7
-border_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_icupm"]
+texture = ExtResource("9_7bo42")
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5ktl"]
-bg_color = Color(0.47138423, 0.4713843, 0.47138417, 1)
+[sub_resource type="Theme" id="Theme_rrg1f"]
+HSlider/constants/center_grabber = 1
+HSlider/constants/grabber_offset = -11
+HSlider/constants/tick_offset = 268
+HSlider/icons/grabber = SubResource("MeshTexture_sveky")
+HSlider/icons/grabber_disabled = null
+HSlider/icons/grabber_highlight = SubResource("MeshTexture_kfunv")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_hjgl0")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_fcd1d")
+HSlider/styles/slider = SubResource("StyleBoxTexture_icupm")
 
 [node name="SettingsMenu" type="CanvasLayer" unique_id=1849821355 node_paths=PackedStringArray("master_volume_slider", "music_volume_slider", "sfx_volume_slider", "resolution_option", "mode_option", "vsync")]
 layer = 4
@@ -68,24 +292,23 @@ theme_override_constants/margin_bottom = 100
 [node name="TabContainer" type="TabContainer" parent="MarginContainer" unique_id=1875671816]
 layout_mode = 2
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hovered_color = Color(0, 0, 0, 1)
 theme_override_colors/font_unselected_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
-theme_override_styles/panel = SubResource("StyleBoxTexture_t5ktl")
-theme_override_styles/tab_unselected = SubResource("StyleBoxTexture_6xnbp")
-theme_override_styles/tab_selected = SubResource("StyleBoxTexture_b10ey")
+theme_override_styles/panel = SubResource("StyleBoxTexture_fnu67")
+theme_override_styles/tab_unselected = SubResource("StyleBoxTexture_kapwe")
+theme_override_styles/tab_hovered = SubResource("StyleBoxTexture_sveky")
+theme_override_styles/tab_selected = SubResource("StyleBoxTexture_7bo42")
 current_tab = 0
 
 [node name="Video" type="TabBar" parent="MarginContainer/TabContainer" unique_id=1654448733]
-custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 metadata/_tab_index = 0
-metadata/_tab_name = "Video"
 
 [node name="MarginVideo" type="MarginContainer" parent="MarginContainer/TabContainer/Video" unique_id=95283029]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+layout_mode = 0
+offset_right = 530.0
+offset_bottom = 472.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 25
@@ -107,8 +330,11 @@ theme_override_font_sizes/font_size = 24
 text = "Vsync"
 
 [node name="vsyncChecked" type="CheckBox" parent="MarginContainer/TabContainer/Video/MarginVideo/GridContainer" unique_id=1206280619]
+clip_contents = true
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = SubResource("Theme_eabpy")
 
 [node name="Modo" type="Label" parent="MarginContainer/TabContainer/Video/MarginVideo/GridContainer" unique_id=641409647]
 layout_mode = 2
@@ -117,10 +343,14 @@ theme_override_font_sizes/font_size = 24
 text = "Modo"
 
 [node name="ResolutionSetButton" type="OptionButton" parent="MarginContainer/TabContainer/Video/MarginVideo/GridContainer" unique_id=836294032]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme = SubResource("Theme_erwlr")
 alignment = 1
+selected = 0
+item_count = 1
+popup/item_0/text = "Teste"
+popup/item_0/id = 1
 
 [node name="Resolução" type="Label" parent="MarginContainer/TabContainer/Video/MarginVideo/GridContainer" unique_id=2091086296]
 layout_mode = 2
@@ -129,9 +359,14 @@ theme_override_font_sizes/font_size = 24
 text = "Resolução"
 
 [node name="WindowMode" type="OptionButton" parent="MarginContainer/TabContainer/Video/MarginVideo/GridContainer" unique_id=1780138805]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme = SubResource("Theme_erwlr")
 alignment = 1
+selected = 0
+item_count = 1
+popup/item_0/text = "Teste"
+popup/item_0/id = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="VboxReturn" type="HBoxContainer" parent="MarginContainer/TabContainer/Video/MarginVideo" unique_id=1125990038]
@@ -141,18 +376,20 @@ size_flags_vertical = 10
 alignment = 1
 
 [node name="ApplyButton" type="Button" parent="MarginContainer/TabContainer/Video/MarginVideo/VboxReturn" unique_id=622608373]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(215, 50)
 layout_mode = 2
+theme = ExtResource("2_6xnbp")
 theme_override_font_sizes/font_size = 26
 toggle_mode = true
 text = "Aplicar
 "
 
 [node name="ApplyAndReturn" type="Button" parent="MarginContainer/TabContainer/Video/MarginVideo/VboxReturn" unique_id=622765169]
-custom_minimum_size = Vector2(200, 25)
+custom_minimum_size = Vector2(215, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme = ExtResource("2_6xnbp")
 theme_override_font_sizes/font_size = 26
 text = "Aplicar e voltar
 "
@@ -162,13 +399,11 @@ visible = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 metadata/_tab_index = 1
-metadata/_tab_name = "Audio"
 
 [node name="MarginVolume" type="MarginContainer" parent="MarginContainer/TabContainer/Audio" unique_id=572508787]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+layout_mode = 0
+offset_right = 530.0
+offset_bottom = 472.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 25
@@ -198,8 +433,7 @@ custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/slider = SubResource("StyleBoxFlat_b10ey")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_t5ktl")
+theme = SubResource("Theme_rrg1f")
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -213,10 +447,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SfxSliderVolume" type="HSlider" parent="MarginContainer/TabContainer/Audio/MarginVolume/GridVolume" unique_id=2026447126]
+custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-theme_override_styles/slider = SubResource("StyleBoxFlat_b10ey")
+theme = SubResource("Theme_rrg1f")
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -231,7 +466,7 @@ vertical_alignment = 1
 
 [node name="MusicSliderVolume" type="HSlider" parent="MarginContainer/TabContainer/Audio/MarginVolume/GridVolume" unique_id=800403519]
 layout_mode = 2
-theme_override_styles/slider = SubResource("StyleBoxFlat_b10ey")
+theme = SubResource("Theme_rrg1f")
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -243,10 +478,11 @@ size_flags_vertical = 10
 alignment = 1
 
 [node name="ReturnButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginVolume/VboxReturn" unique_id=1195467711]
-custom_minimum_size = Vector2(200, 25)
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme = ExtResource("2_6xnbp")
 theme_override_font_sizes/font_size = 26
 text = "Voltar
 "

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://sia88htsgt87"]
 
 [ext_resource type="Script" uid="uid://b6xgyy1x5063x" path="res://Scripts/Levels/Intermissions/intermission_base.gd" id="1_8mew7"]
+[ext_resource type="Texture2D" uid="uid://mqvoig58xm31" path="res://Assets/UI/Intermission/banner dialogo.png" id="2_mtjt7"]
 
 [sub_resource type="Gradient" id="Gradient_kn5ng"]
 colors = PackedColorArray(0.11785328, 8.2724725e-08, 1.504086e-08, 1, 0.09638945, 0.09638945, 0.09638945, 1)
@@ -9,16 +10,12 @@ colors = PackedColorArray(0.11785328, 8.2724725e-08, 1.504086e-08, 1, 0.09638945
 gradient = SubResource("Gradient_kn5ng")
 fill_to = Vector2(1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kn5ng"]
-bg_color = Color(0.043137256, 0.043137256, 0.043137256, 0.3019608)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j8kyt"]
+texture = ExtResource("2_mtjt7")
+expand_margin_left = 25.0
+expand_margin_top = 25.0
+expand_margin_right = 25.0
+expand_margin_bottom = 25.0
 
 [node name="IntermissionBase" type="CanvasLayer" unique_id=275853896]
 script = ExtResource("1_8mew7")
@@ -34,10 +31,11 @@ offset_top = 240.0
 offset_right = 1181.0
 offset_bottom = 501.0
 pivot_offset = Vector2(549, 127)
-theme_override_styles/panel = SubResource("StyleBoxFlat_kn5ng")
+theme_override_styles/panel = SubResource("StyleBoxTexture_j8kyt")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer" unique_id=743454577]
 layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 56
 text = "Quanto tempo que não ouço falar dele, hein? O carimbo é um dos maiores assassinos de todos os tempos"
 horizontal_alignment = 1
