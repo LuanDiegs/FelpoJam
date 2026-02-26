@@ -12,7 +12,7 @@ size = Vector2(201, 133)
 
 [node name="ObstaclePlaceholder" type="RigidBody2D" unique_id=357976468 groups=["Obstacles"]]
 collision_layer = 2
-collision_mask = 67
+collision_mask = 323
 mass = 5.0
 physics_material_override = SubResource("PhysicsMaterial_lnmmn")
 script = ExtResource("1_lnmmn")

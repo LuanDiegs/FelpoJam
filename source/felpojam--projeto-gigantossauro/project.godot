@@ -96,6 +96,7 @@ pause={
 2d_physics/layer_6="Hurtbox"
 2d_physics/layer_7="Floor"
 2d_physics/layer_8="Bullet"
+2d_physics/layer_9="Wall"
 
 [physics]
 

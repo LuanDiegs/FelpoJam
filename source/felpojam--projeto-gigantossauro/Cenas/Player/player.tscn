@@ -57,7 +57,7 @@ size = Vector2(146, 269)
 size = Vector2(154, 270)
 
 [node name="Player" type="CharacterBody2D" unique_id=167809822 groups=["Player"]]
-collision_mask = 78
+collision_mask = 334
 script = ExtResource("1_vldss")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=218503401]
@@ -138,6 +138,24 @@ position = Vector2(61, -139)
 scale = Vector2(4, 4)
 target_position = Vector2(-1, 36)
 collision_mask = 66
+
+[node name="RayLeft" type="RayCast2D" parent="." unique_id=737948210]
+position = Vector2(0, -137)
+scale = Vector2(4, 4)
+target_position = Vector2(-19.25, 0)
+collision_mask = 256
+
+[node name="RayRight" type="RayCast2D" parent="." unique_id=1783555221]
+position = Vector2(0, -137)
+scale = Vector2(4, 4)
+target_position = Vector2(19.25, 0)
+collision_mask = 256
+
+[node name="RayCelling" type="RayCast2D" parent="." unique_id=214141943]
+position = Vector2(0, -133)
+scale = Vector2(4, 4)
+target_position = Vector2(0, -36.5)
+collision_mask = 256
 
 [node name="PrincipalCamera" type="Camera2D" parent="." unique_id=1710026888 node_paths=PackedStringArray("player")]
 position = Vector2(0, -360)

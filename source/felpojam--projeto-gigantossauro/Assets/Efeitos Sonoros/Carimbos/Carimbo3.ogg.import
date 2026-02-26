@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://q1nqhkt1wj23"
+path="res://.godot/imported/Carimbo3.ogg-961ed69b5acffc2d66d4c05e69bde3d0.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Efeitos Sonoros/Carimbos/Carimbo3.ogg"
+dest_files=["res://.godot/imported/Carimbo3.ogg-961ed69b5acffc2d66d4c05e69bde3d0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

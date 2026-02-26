@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dunordy26adnv"
+path="res://.godot/imported/Voz-004.ogg-dd69127e5c2db7fe63bf8f9abfb61f06.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Efeitos Sonoros/Vozes/Voz-004.ogg"
+dest_files=["res://.godot/imported/Voz-004.ogg-dd69127e5c2db7fe63bf8f9abfb61f06.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

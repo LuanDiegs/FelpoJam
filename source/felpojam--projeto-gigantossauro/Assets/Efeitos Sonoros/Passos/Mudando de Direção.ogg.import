@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c1wa5sicsav1t"
+path="res://.godot/imported/Mudando de Direção.ogg-3263fa04c9ee851b3e7292abb3588ff4.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Efeitos Sonoros/Passos/Mudando de Direção.ogg"
+dest_files=["res://.godot/imported/Mudando de Direção.ogg-3263fa04c9ee851b3e7292abb3588ff4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
