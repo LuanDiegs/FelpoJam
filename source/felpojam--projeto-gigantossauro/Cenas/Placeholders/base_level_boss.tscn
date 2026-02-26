@@ -42,6 +42,7 @@ gradient = SubResource("Gradient_72efe")
 
 [node name="BaseLevel_boss" type="Node2D" unique_id=963935472]
 script = ExtResource("1_4uhye")
+metadata/_edit_horizontal_guides_ = [724.0]
 
 [node name="Chao" type="StaticBody2D" parent="." unique_id=1320302390 groups=["Floor"]]
 collision_layer = 64
