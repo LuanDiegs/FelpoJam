@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ow5adp35qrb2" path="res://Cenas/Levels/Utils/StartNewPhaseOrWorld/start_new_phase_or_world_area.tscn" id="7_qor82"]
 [ext_resource type="PackedScene" uid="uid://rsrluaj37ape" path="res://Cenas/Levels/UI/StampsLeft/stamps_left.tscn" id="8_2hkoo"]
 [ext_resource type="Texture2D" uid="uid://dgmn6ye048ddg" path="res://Assets/Arts/Train/40_years/roda.png" id="9_ue21f"]
+[ext_resource type="PackedScene" uid="uid://bhqynq01gcwx" path="res://Cenas/Levels/Utils/PhaseFinishAndSpawnNextPhase/phase_finish_and_spawn_next_phase.tscn" id="13_2hkoo"]
 
 [sub_resource type="Animation" id="Animation_cihc3"]
 length = 0.001
@@ -341,10 +342,11 @@ position = Vector2(9390, 403)
 [node name="StartOfTutorial" parent="PhaseTransitions" unique_id=605447168 instance=ExtResource("7_qor82")]
 position = Vector2(770, 27)
 
-[node name="EndOfTutorial" parent="PhaseTransitions" unique_id=568993121 instance=ExtResource("7_qor82")]
-position = Vector2(10382, 27)
-go_to_next_world = true
-next_world_name = "Intermission2"
+[node name="EndOfTutorial" parent="PhaseTransitions" unique_id=870564523 node_paths=PackedStringArray("player", "stamp_npcs_count") instance=ExtResource("13_2hkoo")]
+position = Vector2(10187, 210)
+player = NodePath("../../Player")
+stamp_npcs_count = NodePath("../../UI/StampsLeft")
+next_phase_uid = "uid://bxgq6p58qxcx3"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=635148530]
 

@@ -17,7 +17,6 @@ const world_uids = {
 
 #Phases and world
 @export var phase: Global.GAME_PHASES = Global.GAME_PHASES.phase1
-@export var world: Global.GAME_WORLDS = Global.GAME_WORLDS.tutorial
 
 #Area
 @onready var area: Area2D = $Area

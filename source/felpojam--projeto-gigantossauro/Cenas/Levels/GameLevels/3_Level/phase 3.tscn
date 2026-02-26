@@ -1,22 +1,22 @@
 [gd_scene format=3 uid="uid://dhv0ps6kf8hqj"]
 
-[ext_resource type="Script" uid="uid://cv6f8mcpp4a1y" path="res://Scripts/Levels/Levels/1_Level/level1.gd" id="1_adnl2"]
-[ext_resource type="Texture2D" uid="uid://bn07py3jc8eq1" path="res://Assets/Arts/Train/50_years/fundo.png" id="2_n2nku"]
-[ext_resource type="Texture2D" uid="uid://gr4p5dua74j6" path="res://Assets/Arts/Train/50_years/nuvens.png" id="3_5cwg3"]
-[ext_resource type="Texture2D" uid="uid://dkkyl27lthbty" path="res://Assets/Arts/Train/50_years/grama-fundo.png" id="4_rym43"]
-[ext_resource type="Texture2D" uid="uid://cwslsbxeulcyf" path="res://Assets/Arts/Train/50_years/arvre.png" id="5_30skh"]
-[ext_resource type="Texture2D" uid="uid://b3wgc6n3evdgo" path="res://Assets/Arts/Train/50_years/grama-na-frente.png" id="6_qj7jr"]
-[ext_resource type="Texture2D" uid="uid://drhvr5c376x02" path="res://Assets/Arts/Train/50_years/trem.png" id="7_41fl7"]
-[ext_resource type="Texture2D" uid="uid://bivi8qw0hot7s" path="res://Assets/Arts/Train/50_years/pedaco-trem.png" id="8_3t5jk"]
-[ext_resource type="Texture2D" uid="uid://dx42e4cr2d8x2" path="res://Assets/Arts/Train/50_years/trem-esquerdo.png" id="9_hcse8"]
-[ext_resource type="Texture2D" uid="uid://dgmn6ye048ddg" path="res://Assets/Arts/Train/40_years/roda.png" id="10_nnrub"]
-[ext_resource type="PackedScene" uid="uid://bvad14hsyus2p" path="res://Cenas/Player/player.tscn" id="12_do5dq"]
-[ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Obstacle/FloorObstacle/obstacle.tscn" id="13_qqblh"]
-[ext_resource type="PackedScene" uid="uid://c1hulgff7kndp" path="res://Cenas/NPCs/StampNpc/stamp_npc.tscn" id="14_g70c1"]
-[ext_resource type="PackedScene" uid="uid://ow5adp35qrb2" path="res://Cenas/Levels/Utils/StartNewPhaseOrWorld/start_new_phase_or_world_area.tscn" id="15_lajvx"]
-[ext_resource type="PackedScene" uid="uid://bhqynq01gcwx" path="res://Cenas/Levels/Utils/PhaseFinishAndSpawnNextPhase/phase_finish_and_spawn_next_phase.tscn" id="16_o7dsp"]
-[ext_resource type="PackedScene" uid="uid://cjydupv4ijj2c" path="res://Cenas/Levels/UI/StampTimer/stamp_timer.tscn" id="17_5fg2x"]
-[ext_resource type="PackedScene" uid="uid://rsrluaj37ape" path="res://Cenas/Levels/UI/StampsLeft/stamps_left.tscn" id="18_b8ns3"]
+[ext_resource type="Script" uid="uid://cv6f8mcpp4a1y" path="res://Scripts/Levels/Levels/1_Level/level1.gd" id="1_l7vmi"]
+[ext_resource type="Texture2D" uid="uid://bn07py3jc8eq1" path="res://Assets/Arts/Train/50_years/fundo.png" id="2_l1hbp"]
+[ext_resource type="Texture2D" uid="uid://gr4p5dua74j6" path="res://Assets/Arts/Train/50_years/nuvens.png" id="3_xeggk"]
+[ext_resource type="Texture2D" uid="uid://dkkyl27lthbty" path="res://Assets/Arts/Train/50_years/grama-fundo.png" id="4_dyo5s"]
+[ext_resource type="Texture2D" uid="uid://cwslsbxeulcyf" path="res://Assets/Arts/Train/50_years/arvre.png" id="5_8w7hr"]
+[ext_resource type="Texture2D" uid="uid://b3wgc6n3evdgo" path="res://Assets/Arts/Train/50_years/grama-na-frente.png" id="6_2lb0g"]
+[ext_resource type="Texture2D" uid="uid://drhvr5c376x02" path="res://Assets/Arts/Train/50_years/trem.png" id="7_dolt7"]
+[ext_resource type="Texture2D" uid="uid://bivi8qw0hot7s" path="res://Assets/Arts/Train/50_years/pedaco-trem.png" id="8_woe7g"]
+[ext_resource type="Texture2D" uid="uid://dx42e4cr2d8x2" path="res://Assets/Arts/Train/50_years/trem-esquerdo.png" id="9_y0p46"]
+[ext_resource type="Texture2D" uid="uid://dgmn6ye048ddg" path="res://Assets/Arts/Train/40_years/roda.png" id="10_ye8s5"]
+[ext_resource type="PackedScene" uid="uid://bvad14hsyus2p" path="res://Cenas/Player/player.tscn" id="12_faeet"]
+[ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Obstacle/FloorObstacle/obstacle.tscn" id="13_xf6pb"]
+[ext_resource type="PackedScene" uid="uid://c1hulgff7kndp" path="res://Cenas/NPCs/StampNpc/stamp_npc.tscn" id="14_tusen"]
+[ext_resource type="PackedScene" uid="uid://ow5adp35qrb2" path="res://Cenas/Levels/Utils/StartNewPhaseOrWorld/start_new_phase_or_world_area.tscn" id="15_r3soi"]
+[ext_resource type="PackedScene" uid="uid://bhqynq01gcwx" path="res://Cenas/Levels/Utils/PhaseFinishAndSpawnNextPhase/phase_finish_and_spawn_next_phase.tscn" id="16_p4kpj"]
+[ext_resource type="PackedScene" uid="uid://cjydupv4ijj2c" path="res://Cenas/Levels/UI/StampTimer/stamp_timer.tscn" id="17_cx6it"]
+[ext_resource type="PackedScene" uid="uid://rsrluaj37ape" path="res://Cenas/Levels/UI/StampsLeft/stamps_left.tscn" id="18_vh082"]
 
 [sub_resource type="Animation" id="Animation_ue21f"]
 length = 0.001
@@ -132,11 +132,14 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5egb4"]
 size = Vector2(10467, 82.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3fjk"]
-size = Vector2(44.58, 727.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ti7pf"]
+size = Vector2(10446, 82.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adnl2"]
+size = Vector2(44.58, 721)
 
 [node name="Level 3 - Phase 3" type="Node2D" unique_id=1242278278]
-script = ExtResource("1_adnl2")
+script = ExtResource("1_l7vmi")
 world_name = 3
 phase_name = 3
 phases_count = 3
@@ -158,12 +161,12 @@ metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="BackgroundAndTrain/Parallax/ParallaxbackgroundAndCloud" unique_id=967544569]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_n2nku")
+texture = ExtResource("2_l1hbp")
 
 [node name="Cloud" type="Sprite2D" parent="BackgroundAndTrain/Parallax/ParallaxbackgroundAndCloud" unique_id=1471485099]
 position = Vector2(334, 241)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_5cwg3")
+texture = ExtResource("3_xeggk")
 
 [node name="ParallaxField" type="Parallax2D" parent="BackgroundAndTrain/Parallax" unique_id=2091324000]
 z_index = -1
@@ -173,7 +176,7 @@ autoscroll = Vector2(500, 0)
 metadata/_edit_lock_ = true
 
 [node name="Field" type="Sprite2D" parent="BackgroundAndTrain/Parallax/ParallaxField" unique_id=982466804]
-texture = ExtResource("4_rym43")
+texture = ExtResource("4_dyo5s")
 
 [node name="ParallaxTree" type="Parallax2D" parent="BackgroundAndTrain/Parallax" unique_id=1399424064]
 z_index = -1
@@ -187,14 +190,14 @@ metadata/_edit_lock_ = true
 [node name="Tree" type="Sprite2D" parent="BackgroundAndTrain/Parallax/ParallaxTree" unique_id=1254406988]
 position = Vector2(-1652, 42.500004)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_30skh")
+texture = ExtResource("5_8w7hr")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="BackgroundAndTrain/Parallax" unique_id=1923636766]
 
 [node name="Frente" type="Sprite2D" parent="BackgroundAndTrain/Parallax/CanvasLayer" unique_id=269286907]
 position = Vector2(645.00006, 358.00003)
 scale = Vector2(0.25243053, 0.25243056)
-texture = ExtResource("6_qj7jr")
+texture = ExtResource("6_2lb0g")
 
 [node name="Train" type="Node2D" parent="BackgroundAndTrain" unique_id=201620812]
 metadata/_edit_lock_ = true
@@ -206,7 +209,7 @@ modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -1
 position = Vector2(1431.0001, 233.99997)
 scale = Vector2(0.5690645, 0.5690647)
-texture = ExtResource("7_41fl7")
+texture = ExtResource("7_dolt7")
 region_enabled = true
 region_rect = Rect2(0, 854, 5120, 1893)
 metadata/_edit_lock_ = true
@@ -216,7 +219,7 @@ modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -1
 position = Vector2(3476.092, 288)
 scale = Vector2(0.568, 0.568)
-texture = ExtResource("8_3t5jk")
+texture = ExtResource("8_woe7g")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(1544, 614.65, 2113, 1907.2098)
@@ -227,7 +230,7 @@ modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -1
 position = Vector2(4666.092, 286)
 scale = Vector2(0.568, 0.568)
-texture = ExtResource("8_3t5jk")
+texture = ExtResource("8_woe7g")
 region_enabled = true
 region_rect = Rect2(1532, 627, 2104, 1875.47)
 metadata/_edit_lock_ = true
@@ -237,7 +240,7 @@ modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -1
 position = Vector2(5852.0923, 288.00003)
 scale = Vector2(0.568, 0.568)
-texture = ExtResource("8_3t5jk")
+texture = ExtResource("8_woe7g")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(1544, 614.65, 2113, 1907.2098)
@@ -248,7 +251,7 @@ modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -1
 position = Vector2(7042.0923, 286)
 scale = Vector2(0.568, 0.568)
-texture = ExtResource("8_3t5jk")
+texture = ExtResource("8_woe7g")
 region_enabled = true
 region_rect = Rect2(1532, 627, 2104, 1875.47)
 metadata/_edit_lock_ = true
@@ -258,7 +261,7 @@ modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -1
 position = Vector2(8227.001, 288.00003)
 scale = Vector2(0.568, 0.568)
-texture = ExtResource("8_3t5jk")
+texture = ExtResource("8_woe7g")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(1544, 614.65, 2113, 1907.2098)
@@ -269,7 +272,7 @@ modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -1
 position = Vector2(9692.87, 34)
 scale = Vector2(0.569, 0.569)
-texture = ExtResource("9_hcse8")
+texture = ExtResource("9_y0p46")
 region_enabled = true
 region_rect = Rect2(57, 0, 3047, 2880)
 metadata/_edit_lock_ = true
@@ -282,28 +285,28 @@ autoplay = &"rotate"
 [node name="Wheels" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase3/Wheels" unique_id=1305718701]
 z_index = -2
 position = Vector2(552, 722)
-texture = ExtResource("10_nnrub")
+texture = ExtResource("10_ye8s5")
 region_enabled = true
 region_rect = Rect2(327, 2502, 334, 337)
 
 [node name="Wheels2" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase3/Wheels" unique_id=889836187]
 z_index = -2
 position = Vector2(1398, 722)
-texture = ExtResource("10_nnrub")
+texture = ExtResource("10_ye8s5")
 region_enabled = true
 region_rect = Rect2(327, 2502, 334, 337)
 
 [node name="Wheels3" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase3/Wheels" unique_id=1826889064]
 z_index = -2
 position = Vector2(9090.816, 722)
-texture = ExtResource("10_nnrub")
+texture = ExtResource("10_ye8s5")
 region_enabled = true
 region_rect = Rect2(327, 2502, 334, 337)
 
 [node name="Wheels4" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase3/Wheels" unique_id=732146538]
 z_index = -2
 position = Vector2(9936.816, 722)
-texture = ExtResource("10_nnrub")
+texture = ExtResource("10_ye8s5")
 region_enabled = true
 region_rect = Rect2(327, 2502, 334, 337)
 
@@ -315,54 +318,57 @@ collision_mask = 0
 position = Vector2(5226.5, 511.5)
 shape = SubResource("RectangleShape2D_5egb4")
 
-[node name="Teto" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=954261545]
-position = Vector2(5232.5, -212)
-shape = SubResource("RectangleShape2D_5egb4")
+[node name="ParedeTeto" type="StaticBody2D" parent="." unique_id=1736295586]
+collision_layer = 256
+collision_mask = 0
 
-[node name="Parede" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=2089095800]
+[node name="Teto" type="CollisionShape2D" parent="ParedeTeto" unique_id=1298231954]
+position = Vector2(5223, -212)
+shape = SubResource("RectangleShape2D_ti7pf")
+
+[node name="Parede" type="CollisionShape2D" parent="ParedeTeto" unique_id=908143548]
 position = Vector2(-20.71, 197)
-shape = SubResource("RectangleShape2D_c3fjk")
+shape = SubResource("RectangleShape2D_adnl2")
 
-[node name="Parede2" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=1446666614]
-position = Vector2(10484, 193.75)
-shape = SubResource("RectangleShape2D_c3fjk")
+[node name="Parede2" type="CollisionShape2D" parent="ParedeTeto" unique_id=1317205087]
+position = Vector2(10466, 197)
+shape = SubResource("RectangleShape2D_adnl2")
 
 [node name="Player" type="Node2D" parent="." unique_id=819967241]
 
-[node name="Player" parent="Player" unique_id=167809822 instance=ExtResource("12_do5dq")]
+[node name="Player" parent="Player" unique_id=167809822 instance=ExtResource("12_faeet")]
 position = Vector2(128, 435)
 
 [node name="Obstaculos" type="Node2D" parent="." unique_id=689765136]
 
-[node name="Obstaculo" parent="Obstaculos" unique_id=357976468 instance=ExtResource("13_qqblh")]
+[node name="Obstaculo" parent="Obstaculos" unique_id=357976468 instance=ExtResource("13_xf6pb")]
 position = Vector2(438, 386)
 
-[node name="Obstaculo2" parent="Obstaculos" unique_id=1147964164 instance=ExtResource("13_qqblh")]
+[node name="Obstaculo2" parent="Obstaculos" unique_id=1147964164 instance=ExtResource("13_xf6pb")]
 position = Vector2(1196, 386)
 
 [node name="StampNpcs" type="Node2D" parent="." unique_id=1162292117]
 
-[node name="StampNpc" parent="StampNpcs" unique_id=717433113 instance=ExtResource("14_g70c1")]
+[node name="StampNpc" parent="StampNpcs" unique_id=717433113 instance=ExtResource("14_tusen")]
 position = Vector2(919, 358)
 npc_phase = 3
 
 [node name="PhaseTransitions" type="Node2D" parent="." unique_id=1716037029]
 
-[node name="StartOfPhase3" parent="PhaseTransitions" unique_id=605447168 instance=ExtResource("15_lajvx")]
-position = Vector2(128, 27)
+[node name="StartOfPhase3" parent="PhaseTransitions" unique_id=605447168 instance=ExtResource("15_r3soi")]
+position = Vector2(250, 27)
 phase = 3
-world = 3
 
-[node name="EndPhase2" parent="PhaseTransitions" unique_id=870564523 node_paths=PackedStringArray("player", "stamp_npcs_count") instance=ExtResource("16_o7dsp")]
+[node name="EndPhase3" parent="PhaseTransitions" unique_id=870564523 node_paths=PackedStringArray("player", "stamp_npcs_count") instance=ExtResource("16_p4kpj")]
 position = Vector2(10224, 197)
 player = NodePath("../../Player/Player")
 stamp_npcs_count = NodePath("../../UI/StampsLeft")
-next_phase_uid = "uid://d0ikofaip68oa"
+next_phase_uid = "uid://hevhp04vosoy"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=876751282]
 
-[node name="StampPhaseTimer" parent="UI" unique_id=76836385 node_paths=PackedStringArray("level", "stamps_left_module") instance=ExtResource("17_5fg2x")]
+[node name="StampPhaseTimer" parent="UI" unique_id=76836385 node_paths=PackedStringArray("level", "stamps_left_module") instance=ExtResource("17_cx6it")]
 level = NodePath("../..")
 stamps_left_module = NodePath("../StampsLeft")
 
-[node name="StampsLeft" parent="UI" unique_id=2143747648 instance=ExtResource("18_b8ns3")]
+[node name="StampsLeft" parent="UI" unique_id=2143747648 instance=ExtResource("18_vh082")]

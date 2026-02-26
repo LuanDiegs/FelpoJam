@@ -1,25 +1,38 @@
-[gd_scene format=3 uid="uid://dgc85er46p2o4"]
+[gd_scene format=3 uid="uid://dntsqe6ghkqeq"]
 
 [ext_resource type="Script" uid="uid://cv6f8mcpp4a1y" path="res://Scripts/Levels/Levels/1_Level/level1.gd" id="1_ojgpo"]
-[ext_resource type="PackedScene" uid="uid://blnt6mte6r0l3" path="res://Cenas/Levels/GameLevels/Utils/Background/background.tscn" id="2_tppq7"]
-[ext_resource type="Texture2D" uid="uid://d1wpc6wpsckc4" path="res://Assets/Arts/Train/40_years/trem-inteiro.png" id="3_bhy3p"]
-[ext_resource type="Texture2D" uid="uid://b18y20fp3qfmj" path="res://Assets/Arts/Train/40_years/pedacinho-do-trem.png" id="4_5a5sa"]
-[ext_resource type="Texture2D" uid="uid://cuyhqnwe01rl5" path="res://Assets/Arts/Train/40_years/trem-metade-esquerda.png" id="5_74on8"]
-[ext_resource type="Texture2D" uid="uid://dgmn6ye048ddg" path="res://Assets/Arts/Train/40_years/roda.png" id="6_fhf8m"]
+[ext_resource type="Texture2D" uid="uid://c5qxm84q2l23l" path="res://Assets/Arts/Train/30_years/ceu.png" id="2_5vddp"]
+[ext_resource type="Texture2D" uid="uid://gr4p5dua74j6" path="res://Assets/Arts/Train/50_years/nuvens.png" id="3_mwfro"]
+[ext_resource type="Texture2D" uid="uid://dgdyiu725woak" path="res://Assets/Arts/Train/30_years/montanha.png" id="4_tsaqk"]
+[ext_resource type="Texture2D" uid="uid://bq4sd6cx8ebhy" path="res://Assets/Arts/Train/30_years/chao.png" id="5_cdjv1"]
+[ext_resource type="Texture2D" uid="uid://ck8a8dsldcqml" path="res://Assets/Arts/Train/30_years/mato.png" id="6_hsri3"]
+[ext_resource type="Texture2D" uid="uid://dueel2jbt0p6j" path="res://Assets/Arts/Train/30_years/cerca.png" id="7_w3qhm"]
 [ext_resource type="PackedScene" uid="uid://bvad14hsyus2p" path="res://Cenas/Player/player.tscn" id="8_mwfro"]
+[ext_resource type="Texture2D" uid="uid://btqbmompjecs7" path="res://Assets/Arts/Train/30_years/trem.png" id="8_sfhky"]
+[ext_resource type="Texture2D" uid="uid://cud2bbf1ydeq4" path="res://Assets/Arts/Train/30_years/meio.png" id="9_bxfrv"]
 [ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Obstacle/FloorObstacle/obstacle.tscn" id="9_tsaqk"]
+[ext_resource type="Texture2D" uid="uid://cvmi11jh3pulg" path="res://Assets/Arts/Train/30_years/frente.png" id="10_4nsgk"]
 [ext_resource type="PackedScene" uid="uid://c1hulgff7kndp" path="res://Cenas/NPCs/StampNpc/stamp_npc.tscn" id="10_cdjv1"]
+[ext_resource type="Texture2D" uid="uid://c1msdjnhg4jau" path="res://Assets/Arts/Train/30_years/roda.png" id="11_ctmfk"]
 [ext_resource type="PackedScene" uid="uid://ow5adp35qrb2" path="res://Cenas/Levels/Utils/StartNewPhaseOrWorld/start_new_phase_or_world_area.tscn" id="11_hsri3"]
+[ext_resource type="Texture2D" uid="uid://dy5woitqacywo" path="res://Assets/Arts/Train/40_years/peça-que-conectar-trens.png" id="12_s1xxm"]
 [ext_resource type="PackedScene" uid="uid://bhqynq01gcwx" path="res://Cenas/Levels/Utils/PhaseFinishAndSpawnNextPhase/phase_finish_and_spawn_next_phase.tscn" id="12_w3qhm"]
 [ext_resource type="PackedScene" uid="uid://cjydupv4ijj2c" path="res://Cenas/Levels/UI/StampTimer/stamp_timer.tscn" id="13_sfhky"]
+[ext_resource type="Texture2D" uid="uid://byywpvrp6f6ct" path="res://Assets/Arts/Train/30_years/tras.png" id="13_slda0"]
 [ext_resource type="PackedScene" uid="uid://rsrluaj37ape" path="res://Cenas/Levels/UI/StampsLeft/stamps_left.tscn" id="14_bxfrv"]
+[ext_resource type="Texture2D" uid="uid://b4yayahmi4thf" path="res://Cenas/Levels/Props/bag_pile/bag_pile.tres" id="16_sfhky"]
+[ext_resource type="Shape2D" uid="uid://c5ytuplxj6xwk" path="res://Cenas/Levels/Props/bag_pile/bag_pile_collision.tres" id="17_bxfrv"]
+[ext_resource type="Texture2D" uid="uid://ctoarev68ca61" path="res://Cenas/Levels/Props/hay/hay.tres" id="18_4nsgk"]
+[ext_resource type="Shape2D" uid="uid://cw4fnbe3jsrdf" path="res://Cenas/Levels/Props/hay/hay_collision.tres" id="19_ctmfk"]
+[ext_resource type="Texture2D" uid="uid://boinp7a82ojns" path="res://Cenas/Levels/Props/coffe_bag/coffe_bag.tres" id="20_s1xxm"]
+[ext_resource type="Shape2D" uid="uid://becl2m6yldt34" path="res://Cenas/Levels/Props/coffe_bag/coffe_bag_collision.tres" id="21_slda0"]
 
 [sub_resource type="Animation" id="Animation_ue21f"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Phase3/Wheels/Wheels:rotation")
+tracks/0/path = NodePath("Phase1/Wheels/Wheels:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -31,7 +44,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Phase3/Wheels/Wheels2:rotation")
+tracks/1/path = NodePath("Phase1/Wheels/Wheels2:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -43,7 +56,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Phase3/Wheels/Wheels3:rotation")
+tracks/2/path = NodePath("Phase1/Wheels/Wheels6:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -55,10 +68,34 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Phase3/Wheels/Wheels4:rotation")
+tracks/3/path = NodePath("Phase1/Wheels/Wheels5:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Phase1/Wheels/Wheels4:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Phase1/Wheels/Wheels3:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -73,7 +110,7 @@ step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Phase3/Wheels/Wheels:rotation")
+tracks/0/path = NodePath("Phase1/Wheels/Wheels:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -85,7 +122,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Phase3/Wheels/Wheels2:rotation")
+tracks/1/path = NodePath("Phase1/Wheels/Wheels2:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -97,7 +134,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Phase3/Wheels/Wheels3:rotation")
+tracks/2/path = NodePath("Phase1/Wheels/Wheels6:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -109,7 +146,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Phase3/Wheels/Wheels4:rotation")
+tracks/3/path = NodePath("Phase1/Wheels/Wheels5:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -118,18 +155,45 @@ tracks/3/keys = {
 "update": 0,
 "values": [0.0, 6.2831855]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Phase1/Wheels/Wheels4:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Phase1/Wheels/Wheels3:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vkjf1"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dfgfx"]
 _data = {
 &"RESET": SubResource("Animation_ue21f"),
 &"rotate": SubResource("Animation_w7ut2")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0id4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5egb4"]
+size = Vector2(10467, 82.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uk2wi"]
 size = Vector2(10446, 82.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6c0b"]
-size = Vector2(44.58, 721)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vljj5"]
+size = Vector2(96.29, 729.5)
 
 [node name="Level 1 - Phase 3" type="Node2D" unique_id=1242278278]
 script = ExtResource("1_ojgpo")
@@ -137,208 +201,428 @@ world_name = 1
 phase_name = 3
 phases_count = 3
 
-[node name="BackgroundAndTrain" type="Node2D" parent="." unique_id=42311663]
+[node name="BackgroundAndTrain" type="Node2D" parent="." unique_id=1605088056]
 
-[node name="Background" parent="BackgroundAndTrain" unique_id=323763249 instance=ExtResource("2_tppq7")]
-
-[node name="Train" type="Node2D" parent="BackgroundAndTrain" unique_id=861081704]
-
-[node name="Phase3" type="Node2D" parent="BackgroundAndTrain/Train" unique_id=111238141]
-
-[node name="StartTrain" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase3" unique_id=207454984]
-modulate = Color(0.75, 0.75, 0.75, 1)
-z_index = -1
-position = Vector2(1431.0001, 233.99997)
-scale = Vector2(0.5690645, 0.5690647)
-texture = ExtResource("3_bhy3p")
-region_enabled = true
-region_rect = Rect2(0, 854, 5120, 1893)
+[node name="Parallax" type="Node2D" parent="BackgroundAndTrain" unique_id=2129636847]
+z_index = -4096
 metadata/_edit_lock_ = true
 
-[node name="MiddleTrainPart1" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase3" unique_id=1533381218]
+[node name="ParallaxbackgroundAndCloud" type="Parallax2D" parent="BackgroundAndTrain/Parallax" unique_id=1096018064]
+z_index = -1
+scroll_scale = Vector2(0.05, 0.05)
+scroll_offset = Vector2(-1756, -18)
+repeat_size = Vector2(2560, 0)
+autoscroll = Vector2(1000, 0)
+repeat_times = 4
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="BackgroundAndTrain/Parallax/ParallaxbackgroundAndCloud" unique_id=967544569]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5vddp")
+
+[node name="Cloud" type="Sprite2D" parent="BackgroundAndTrain/Parallax/ParallaxbackgroundAndCloud" unique_id=1471485099]
+position = Vector2(334, 241)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_mwfro")
+
+[node name="ParallaxField" type="Parallax2D" parent="BackgroundAndTrain/Parallax" unique_id=2091324000]
+z_index = -1
+scroll_scale = Vector2(0.05, 0)
+scroll_offset = Vector2(1382, -189)
+autoscroll = Vector2(500, 0)
+metadata/_edit_lock_ = true
+
+[node name="Field" type="Sprite2D" parent="BackgroundAndTrain/Parallax/ParallaxField" unique_id=982466804]
+texture = ExtResource("4_tsaqk")
+
+[node name="ParallaxFloor" type="Parallax2D" parent="BackgroundAndTrain/Parallax" unique_id=799807084]
+z_index = -1
+scroll_scale = Vector2(0.05, 0)
+scroll_offset = Vector2(-1178, -416)
+repeat_size = Vector2(3945.385, 0)
+repeat_times = 2
+
+[node name="Floor" type="Sprite2D" parent="BackgroundAndTrain/Parallax/ParallaxFloor" unique_id=881184376]
+z_index = -2
+scale = Vector2(0.7740234, 1.0548612)
+texture = ExtResource("5_cdjv1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="BackgroundAndTrain/Parallax" unique_id=1923636766]
+
+[node name="Frente" type="Sprite2D" parent="BackgroundAndTrain/Parallax/CanvasLayer" unique_id=269286907]
+position = Vector2(645.00006, 358.00003)
+scale = Vector2(0.25243053, 0.25243056)
+texture = ExtResource("6_hsri3")
+
+[node name="Cerca" type="Sprite2D" parent="BackgroundAndTrain/Parallax/CanvasLayer" unique_id=149747583]
+position = Vector2(645.00006, 358.00003)
+scale = Vector2(0.25243053, 0.25243056)
+texture = ExtResource("7_w3qhm")
+
+[node name="Train" type="Node2D" parent="BackgroundAndTrain" unique_id=201620812]
+metadata/_edit_lock_ = true
+
+[node name="Phase1" type="Node2D" parent="BackgroundAndTrain/Train" unique_id=1655758733]
+
+[node name="StartTrain" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=1267971937]
 modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -1
-position = Vector2(3475, 238.00003)
-scale = Vector2(0.568, 0.568)
-texture = ExtResource("4_5a5sa")
+position = Vector2(1457, 233.99997)
+scale = Vector2(0.5690645, 0.5690647)
+texture = ExtResource("8_sfhky")
+region_enabled = true
+region_rect = Rect2(0, 854, 5120, 1893)
+
+[node name="MiddleTrainPart1" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=1393797686]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(3711, 200.98105)
+scale = Vector2(0.57, 0.569)
+texture = ExtResource("9_bxfrv")
 flip_h = true
-region_enabled = true
-region_rect = Rect2(841, 614.65, 2084, 1907.21)
+region_rect = Rect2(1544, 614.65, 2113, 1907.2098)
 
-[node name="MiddleTrainPart2" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase3" unique_id=1952515968]
+[node name="MiddleTrainPart2" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=369502486]
 modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -1
-position = Vector2(4657, 235.99997)
-scale = Vector2(0.568, 0.568)
-texture = ExtResource("4_5a5sa")
-region_enabled = true
-region_rect = Rect2(836, 627, 2089, 1875.47)
-
-[node name="MiddleTrainPart3" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase3" unique_id=158033524]
-modulate = Color(0.75, 0.75, 0.75, 1)
-z_index = -1
-position = Vector2(5833.8555, 238.00005)
-scale = Vector2(0.568, 0.568)
-texture = ExtResource("4_5a5sa")
+position = Vector2(5301.9995, 200.98105)
+scale = Vector2(0.57, 0.569)
+texture = ExtResource("9_bxfrv")
 flip_h = true
-region_enabled = true
-region_rect = Rect2(841, 614.65, 2084, 1907.21)
+region_rect = Rect2(1544, 614.65, 2113, 1907.2098)
 
-[node name="MiddleTrainPart4" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase3" unique_id=968682903]
+[node name="MiddleTrainPart3" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=1136433024]
 modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -1
-position = Vector2(7014.8555, 235.99997)
-scale = Vector2(0.568, 0.568)
-texture = ExtResource("4_5a5sa")
-region_enabled = true
-region_rect = Rect2(836, 627, 2089, 1875.47)
-
-[node name="MiddleTrainPart5" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase3" unique_id=947456815]
-modulate = Color(0.75, 0.75, 0.75, 1)
-z_index = -1
-position = Vector2(8190, 238.00005)
-scale = Vector2(0.568, 0.568)
-texture = ExtResource("4_5a5sa")
+position = Vector2(6897, 200.98103)
+scale = Vector2(0.57, 0.569)
+texture = ExtResource("9_bxfrv")
 flip_h = true
-region_enabled = true
-region_rect = Rect2(841, 614.65, 2084, 1907.21)
+region_rect = Rect2(1544, 614.65, 2113, 1907.2098)
 
-[node name="EndTrain" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase3" unique_id=174346490]
+[node name="MiddleTrainPart4" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=2065029443]
 modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -1
-position = Vector2(9645.87, 34)
+position = Vector2(8478, 200.98103)
+scale = Vector2(0.57, 0.569)
+texture = ExtResource("9_bxfrv")
+flip_h = true
+region_rect = Rect2(1544, 614.65, 2113, 1907.2098)
+
+[node name="EndTrain" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=665622354]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(9909.999, 219)
 scale = Vector2(0.569, 0.569)
-texture = ExtResource("5_74on8")
-region_enabled = true
+texture = ExtResource("10_4nsgk")
 region_rect = Rect2(57, 0, 3047, 2880)
 
-[node name="Wheels" type="AnimationPlayer" parent="BackgroundAndTrain/Train/Phase3" unique_id=1110546512]
+[node name="Wheels" type="AnimationPlayer" parent="BackgroundAndTrain/Train/Phase1" unique_id=1003166752]
 root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_vkjf1")
+libraries/ = SubResource("AnimationLibrary_dfgfx")
 autoplay = &"rotate"
 
-[node name="Wheels" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase3/Wheels" unique_id=1146997534]
+[node name="Wheels" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=1305718701]
 z_index = -2
-position = Vector2(552, 722)
-texture = ExtResource("6_fhf8m")
+position = Vector2(333, 685)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_ctmfk")
 region_enabled = true
-region_rect = Rect2(327, 2502, 334, 337)
+region_rect = Rect2(-4, 0, 493, 513)
 
-[node name="Wheels2" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase3/Wheels" unique_id=917140144]
+[node name="Wheels2" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=1952699335]
 z_index = -2
-position = Vector2(1398, 722)
-texture = ExtResource("6_fhf8m")
+position = Vector2(1196, 685)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_ctmfk")
 region_enabled = true
-region_rect = Rect2(327, 2502, 334, 337)
+region_rect = Rect2(-4, 0, 493, 513)
 
-[node name="Wheels3" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase3/Wheels" unique_id=1501873743]
+[node name="Wheels3" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=1391867715]
 z_index = -2
-position = Vector2(9090.816, 722)
-texture = ExtResource("6_fhf8m")
+position = Vector2(9284.25, 685)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_ctmfk")
 region_enabled = true
-region_rect = Rect2(327, 2502, 334, 337)
+region_rect = Rect2(-4, 0, 493, 513)
 
-[node name="Wheels4" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase3/Wheels" unique_id=1355098141]
+[node name="Wheels4" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=29386946]
 z_index = -2
-position = Vector2(9936.816, 722)
-texture = ExtResource("6_fhf8m")
+position = Vector2(10147.25, 685)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_ctmfk")
 region_enabled = true
-region_rect = Rect2(327, 2502, 334, 337)
+region_rect = Rect2(-4, 0, 493, 513)
 
-[node name="ChaoParedeTeto" type="StaticBody2D" parent="." unique_id=1842553620]
+[node name="Wheels5" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=1977741749]
+z_index = -2
+position = Vector2(11656.25, 685)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_ctmfk")
+region_enabled = true
+region_rect = Rect2(-4, 0, 493, 513)
+
+[node name="Wheels6" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=1190520940]
+z_index = -2
+position = Vector2(12519.25, 685)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_ctmfk")
+region_enabled = true
+region_rect = Rect2(-4, 0, 493, 513)
+
+[node name="Connection" type="Sprite2D" parent="BackgroundAndTrain/Train" unique_id=1246428257]
+z_index = -2
+position = Vector2(10887.999, 480.99997)
+scale = Vector2(0.569, 0.569)
+texture = ExtResource("12_s1xxm")
+region_enabled = true
+region_rect = Rect2(3053, 1942, 1546, 433)
+
+[node name="StartNextPhase" type="Sprite2D" parent="BackgroundAndTrain/Train" unique_id=1031556166]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(11919.001, 233.99997)
+scale = Vector2(0.5690645, 0.5690647)
+texture = ExtResource("13_slda0")
+region_rect = Rect2(0, 854, 5120, 1893)
+
+[node name="ChaoParedeTeto" type="StaticBody2D" parent="." unique_id=1362536165]
 collision_layer = 64
 collision_mask = 0
 
-[node name="ChaoCollision" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=30658458]
-position = Vector2(5226, 511.5)
-shape = SubResource("RectangleShape2D_g0id4")
+[node name="ChaoCollision" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=254701901]
+position = Vector2(5226.5, 511.5)
+shape = SubResource("RectangleShape2D_5egb4")
 
-[node name="Teto" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=228105814]
-position = Vector2(5221, -212)
-shape = SubResource("RectangleShape2D_g0id4")
+[node name="ParedeTeto" type="StaticBody2D" parent="." unique_id=2129133791]
+collision_layer = 256
+collision_mask = 0
 
-[node name="Parede" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=1447642209]
-position = Vector2(-20.71, 197)
-shape = SubResource("RectangleShape2D_s6c0b")
+[node name="Teto" type="CollisionShape2D" parent="ParedeTeto" unique_id=1597121382]
+position = Vector2(5223, -212)
+shape = SubResource("RectangleShape2D_uk2wi")
 
-[node name="Parede2" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=1395362402]
+[node name="Parede" type="CollisionShape2D" parent="ParedeTeto" unique_id=2005153851]
+position = Vector2(73.854996, 192.75)
+shape = SubResource("RectangleShape2D_vljj5")
+
+[node name="Parede2" type="CollisionShape2D" parent="ParedeTeto" unique_id=700778654]
 position = Vector2(10466, 197)
-shape = SubResource("RectangleShape2D_s6c0b")
+shape = SubResource("RectangleShape2D_vljj5")
 
-[node name="Player" type="Node2D" parent="." unique_id=1627431743]
+[node name="Player" type="Node2D" parent="." unique_id=819967241]
 
 [node name="Player" parent="Player" unique_id=167809822 instance=ExtResource("8_mwfro")]
-position = Vector2(135, 450)
+position = Vector2(250, 441)
 
-[node name="Obstaculos" type="Node2D" parent="." unique_id=1893226001]
+[node name="Obstaculos" type="Node2D" parent="." unique_id=689765136]
 
-[node name="Obstaculo" parent="Obstaculos" unique_id=357976468 instance=ExtResource("9_tsaqk")]
-position = Vector2(438, 386)
+[node name="BagPile2" parent="Obstaculos" unique_id=281486825 instance=ExtResource("9_tsaqk")]
+position = Vector2(2876, 413)
+sprite = ExtResource("16_sfhky")
+collision_shape = ExtResource("17_bxfrv")
+object_mass = 20.0
 
-[node name="Obstaculo2" parent="Obstaculos" unique_id=1147964164 instance=ExtResource("9_tsaqk")]
-position = Vector2(1196, 238)
+[node name="BagPile3" parent="Obstaculos" unique_id=328958681 instance=ExtResource("9_tsaqk")]
+position = Vector2(2876, 314)
+sprite = ExtResource("16_sfhky")
+collision_shape = ExtResource("17_bxfrv")
+object_mass = 20.0
 
-[node name="StampNpcs" type="Node2D" parent="." unique_id=1763725906]
+[node name="BagPile4" parent="Obstaculos" unique_id=1878665845 instance=ExtResource("9_tsaqk")]
+position = Vector2(3080, 423)
+sprite = ExtResource("16_sfhky")
+collision_shape = ExtResource("17_bxfrv")
+object_mass = 20.0
+
+[node name="BagPile5" parent="Obstaculos" unique_id=1940930354 instance=ExtResource("9_tsaqk")]
+position = Vector2(3301, 423)
+sprite = ExtResource("16_sfhky")
+collision_shape = ExtResource("17_bxfrv")
+object_mass = 20.0
+
+[node name="BagPile6" parent="Obstaculos" unique_id=81681289 instance=ExtResource("9_tsaqk")]
+position = Vector2(3093, 322)
+sprite = ExtResource("16_sfhky")
+collision_shape = ExtResource("17_bxfrv")
+object_mass = 20.0
+
+[node name="BagPile7" parent="Obstaculos" unique_id=292934795 instance=ExtResource("9_tsaqk")]
+position = Vector2(3517, 427)
+sprite = ExtResource("16_sfhky")
+collision_shape = ExtResource("17_bxfrv")
+object_mass = 20.0
+
+[node name="BagPile8" parent="Obstaculos" unique_id=1907472173 instance=ExtResource("9_tsaqk")]
+position = Vector2(3738, 427)
+sprite = ExtResource("16_sfhky")
+collision_shape = ExtResource("17_bxfrv")
+object_mass = 20.0
+
+[node name="BagPile9" parent="Obstaculos" unique_id=1840473421 instance=ExtResource("9_tsaqk")]
+position = Vector2(3738, 370)
+sprite = ExtResource("16_sfhky")
+collision_shape = ExtResource("17_bxfrv")
+object_mass = 20.0
+
+[node name="BagPile10" parent="Obstaculos" unique_id=1923804171 instance=ExtResource("9_tsaqk")]
+position = Vector2(3967, 360)
+sprite = ExtResource("16_sfhky")
+collision_shape = ExtResource("17_bxfrv")
+object_mass = 20.0
+
+[node name="BagPile11" parent="Obstaculos" unique_id=315675816 instance=ExtResource("9_tsaqk")]
+position = Vector2(3967, 441)
+sprite = ExtResource("16_sfhky")
+collision_shape = ExtResource("17_bxfrv")
+object_mass = 20.0
+
+[node name="BagPile12" parent="Obstaculos" unique_id=1608719619 instance=ExtResource("9_tsaqk")]
+position = Vector2(3967, 276)
+sprite = ExtResource("16_sfhky")
+collision_shape = ExtResource("17_bxfrv")
+object_mass = 20.0
+
+[node name="BagPile13" parent="Obstaculos" unique_id=357976468 instance=ExtResource("9_tsaqk")]
+position = Vector2(7846, 414)
+sprite = ExtResource("16_sfhky")
+collision_shape = ExtResource("17_bxfrv")
+object_mass = 20.0
+
+[node name="BagPile14" parent="Obstaculos" unique_id=2108931028 instance=ExtResource("9_tsaqk")]
+position = Vector2(8050, 414)
+sprite = ExtResource("16_sfhky")
+collision_shape = ExtResource("17_bxfrv")
+object_mass = 20.0
+
+[node name="BagPile15" parent="Obstaculos" unique_id=137116448 instance=ExtResource("9_tsaqk")]
+position = Vector2(8050, 326)
+sprite = ExtResource("16_sfhky")
+collision_shape = ExtResource("17_bxfrv")
+object_mass = 20.0
+
+[node name="BagPile16" parent="Obstaculos" unique_id=330399400 instance=ExtResource("9_tsaqk")]
+position = Vector2(8266, 423)
+sprite = ExtResource("16_sfhky")
+collision_shape = ExtResource("17_bxfrv")
+object_mass = 20.0
+
+[node name="Hay" parent="Obstaculos" unique_id=251112515 instance=ExtResource("9_tsaqk")]
+position = Vector2(1149, 373)
+sprite = ExtResource("18_4nsgk")
+collision_shape = ExtResource("19_ctmfk")
+object_mass = 10.0
+
+[node name="Hay2" parent="Obstaculos" unique_id=607553924 instance=ExtResource("9_tsaqk")]
+position = Vector2(965, 373)
+sprite = ExtResource("18_4nsgk")
+collision_shape = ExtResource("19_ctmfk")
+object_mass = 10.0
+
+[node name="Hay3" parent="Obstaculos" unique_id=1794680372 instance=ExtResource("9_tsaqk")]
+position = Vector2(5179, 373)
+sprite = ExtResource("18_4nsgk")
+collision_shape = ExtResource("19_ctmfk")
+object_mass = 10.0
+
+[node name="Hay4" parent="Obstaculos" unique_id=1540090513 instance=ExtResource("9_tsaqk")]
+position = Vector2(5350, 373)
+sprite = ExtResource("18_4nsgk")
+collision_shape = ExtResource("19_ctmfk")
+object_mass = 10.0
+
+[node name="CoffeBag" parent="Obstaculos" unique_id=705198667 instance=ExtResource("9_tsaqk")]
+position = Vector2(4169, 379)
+sprite = ExtResource("20_s1xxm")
+collision_shape = ExtResource("21_slda0")
+object_mass = 15.0
+
+[node name="CoffeBag2" parent="Obstaculos" unique_id=2144920691 instance=ExtResource("9_tsaqk")]
+position = Vector2(6080, 379)
+sprite = ExtResource("20_s1xxm")
+collision_shape = ExtResource("21_slda0")
+object_mass = 15.0
+
+[node name="CoffeBag3" parent="Obstaculos" unique_id=1833464368 instance=ExtResource("9_tsaqk")]
+position = Vector2(6249, 379)
+sprite = ExtResource("20_s1xxm")
+collision_shape = ExtResource("21_slda0")
+object_mass = 15.0
+
+[node name="StampNpcs" type="Node2D" parent="." unique_id=1162292117]
 
 [node name="StampNpc" parent="StampNpcs" unique_id=717433113 instance=ExtResource("10_cdjv1")]
-position = Vector2(919, 370)
+position = Vector2(1417, 371)
 npc_phase = 3
 
-[node name="StampNpc2" parent="StampNpcs" unique_id=1967649654 instance=ExtResource("10_cdjv1")]
-position = Vector2(2187, 370)
+[node name="StampNpc2" parent="StampNpcs" unique_id=1326621537 instance=ExtResource("10_cdjv1")]
+position = Vector2(2412, 367)
 npc_phase = 3
 
-[node name="StampNpc3" parent="StampNpcs" unique_id=1589561778 instance=ExtResource("10_cdjv1")]
-position = Vector2(2459, 370)
+[node name="StampNpc3" parent="StampNpcs" unique_id=292484954 instance=ExtResource("10_cdjv1")]
+position = Vector2(3980, 136)
 npc_phase = 3
 
-[node name="StampNpc4" parent="StampNpcs" unique_id=1243829871 instance=ExtResource("10_cdjv1")]
-position = Vector2(3856, 370)
+[node name="StampNpc4" parent="StampNpcs" unique_id=1957946697 instance=ExtResource("10_cdjv1")]
+position = Vector2(3446, 290)
 npc_phase = 3
 
-[node name="StampNpc5" parent="StampNpcs" unique_id=2050899279 instance=ExtResource("10_cdjv1")]
-position = Vector2(5075, 370)
+[node name="StampNpc5" parent="StampNpcs" unique_id=478568713 instance=ExtResource("10_cdjv1")]
+position = Vector2(5602, 368)
 npc_phase = 3
 
-[node name="StampNpc6" parent="StampNpcs" unique_id=1338577702 instance=ExtResource("10_cdjv1")]
-position = Vector2(6149, 370)
+[node name="StampNpc6" parent="StampNpcs" unique_id=1380469790 instance=ExtResource("10_cdjv1")]
+position = Vector2(6757, 368)
 npc_phase = 3
 
-[node name="StampNpc7" parent="StampNpcs" unique_id=1204225181 instance=ExtResource("10_cdjv1")]
-position = Vector2(6309, 370)
+[node name="StampNpc7" parent="StampNpcs" unique_id=2060671825 instance=ExtResource("10_cdjv1")]
+position = Vector2(6945, 368)
 npc_phase = 3
 
-[node name="StampNpc8" parent="StampNpcs" unique_id=1383989920 instance=ExtResource("10_cdjv1")]
-position = Vector2(7250, 370)
+[node name="StampNpc8" parent="StampNpcs" unique_id=1159744882 instance=ExtResource("10_cdjv1")]
+position = Vector2(7118, 368)
 npc_phase = 3
 
-[node name="StampNpc9" parent="StampNpcs" unique_id=1097728204 instance=ExtResource("10_cdjv1")]
-position = Vector2(7873, 370)
+[node name="StampNpc9" parent="StampNpcs" unique_id=337372496 instance=ExtResource("10_cdjv1")]
+position = Vector2(7294, 368)
 npc_phase = 3
 
-[node name="StampNpc10" parent="StampNpcs" unique_id=773975500 instance=ExtResource("10_cdjv1")]
-position = Vector2(8518, 370)
+[node name="StampNpc10" parent="StampNpcs" unique_id=1814100125 instance=ExtResource("10_cdjv1")]
+position = Vector2(8047, 180)
 npc_phase = 3
 
-[node name="PhaseTransitions" type="Node2D" parent="." unique_id=1564032221]
+[node name="StampNpc11" parent="StampNpcs" unique_id=530705750 instance=ExtResource("10_cdjv1")]
+position = Vector2(8869, 368)
+npc_phase = 3
+
+[node name="StampNpc12" parent="StampNpcs" unique_id=1336860181 instance=ExtResource("10_cdjv1")]
+position = Vector2(9098, 368)
+npc_phase = 3
+
+[node name="StampNpc13" parent="StampNpcs" unique_id=426730258 instance=ExtResource("10_cdjv1")]
+position = Vector2(9274, 368)
+npc_phase = 3
+
+[node name="StampNpc14" parent="StampNpcs" unique_id=1536518996 instance=ExtResource("10_cdjv1")]
+position = Vector2(9475, 368)
+npc_phase = 3
+
+[node name="PhaseTransitions" type="Node2D" parent="." unique_id=1716037029]
 
 [node name="StartOfPhase3" parent="PhaseTransitions" unique_id=605447168 instance=ExtResource("11_hsri3")]
-position = Vector2(136, 27)
+position = Vector2(333, 27)
 phase = 3
-world = 1
 
 [node name="EndPhase3" parent="PhaseTransitions" unique_id=870564523 node_paths=PackedStringArray("player", "stamp_npcs_count") instance=ExtResource("12_w3qhm")]
-position = Vector2(10206, 195)
+position = Vector2(10167, 197)
 player = NodePath("../../Player/Player")
 stamp_npcs_count = NodePath("../../UI/StampsLeft")
-next_phase_uid = "uid://ddkqfw2c6h8od"
+next_phase_uid = "uid://djqn3uktl2vfd"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=876751282]
 
 [node name="StampPhaseTimer" parent="UI" unique_id=76836385 node_paths=PackedStringArray("level", "stamps_left_module") instance=ExtResource("13_sfhky")]
-layer = 3
 level = NodePath("../..")
 stamps_left_module = NodePath("../StampsLeft")
 
 [node name="StampsLeft" parent="UI" unique_id=2143747648 instance=ExtResource("14_bxfrv")]
-layer = 3
