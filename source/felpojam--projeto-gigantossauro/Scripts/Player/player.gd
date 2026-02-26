@@ -123,6 +123,13 @@ func _verify_direction(delta: float):
 	#Salva o valor das teclas pressionadas, uma em valor negativo e outra em valor positivo
 	var direction = Input.get_axis("move_left", "move_right")
 	
+		#Checa se a direção está indo para um lado e se o jogador pode se mover para esse lado
+	if (direction < 0 and !can_move_left) or (direction > 0 and !can_move_right):
+		#Direção é igual a 0
+		direction = 0
+		#Veloidade x é igual a zero
+		velocity.x = 0
+	
 	if direction != 0 and !Global.phase_finished:
 		#Seta a animaçao
 		animation_player.play("run")

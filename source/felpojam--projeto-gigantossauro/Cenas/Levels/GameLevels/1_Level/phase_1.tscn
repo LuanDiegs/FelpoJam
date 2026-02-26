@@ -453,7 +453,7 @@ collision_shape = ExtResource("17_drbae")
 object_mass = 20.0
 
 [node name="BagPile5" parent="Obstaculos" unique_id=1497718258 instance=ExtResource("3_fgvlk")]
-position = Vector2(752, 296)
+position = Vector2(755, 318)
 sprite = ExtResource("16_6465m")
 collision_shape = ExtResource("17_drbae")
 object_mass = 20.0

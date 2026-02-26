@@ -115,7 +115,7 @@ func load_music(music_name: String) -> bool:
 	return true #Retorna true
 #endregion
 
-#region Funções de controle de reprodução de todas as faixas
+#region Funções de controle de faixas
 #Função para tocar todas as faixas
 func play_all():
 	for player in current_players:
@@ -136,9 +136,7 @@ func pause_all():
 func resume_all():
 	for player in current_players:
 		player.stream_paused = false
-#endregion
 
-#region Funções para o ontrole de volume individual e coletivo com fade
 #Função para setar o volume individual de cada track
 func set_track_volume(track_index: int, volume_db: float, fade_duration: float = 0.0):
 	#Checa se o index da track é menor que 0 ou maior ou igual que o tamando do array que salva os players de audio
@@ -200,8 +198,178 @@ func fade_out(duration: float = 2.0, stop_after: bool = true):
 		stop_all()
 #endregion
 
+#region Funções de controle de efeitos
+#Retorna qual é o bus da track (por mais que a gente já saiba qual o bus a godot não sabe)
+func get_track_bus(track_index : int) -> String:
+	#Checa se o index é menor que zero ou maior ou igual que o numero de player do array
+	if track_index  < 0 or track_index >= current_players.size():
+		#Envia uma mensagem de push
+		push_error("Índice de faixa inválido: ", track_index)
+		return "" #REtorna nada
+	#Define player como o player atual com base no index
+	var player = current_players[track_index]
+	return player.bus #Retorna o nome da bus do player
+
+#Função para adicionar qualquer efeito existente nativamente na godot
+func add_effect_to_track(track_index : int, effect : AudioEffect) -> bool:
+	#Pega o bus da track
+	var bus_name = get_track_bus(track_index)
+	#Checa se o nome do bus não está vazio
+	if bus_name.is_empty():
+		return false #REtorna falso
+	#pega o index do bus
+	var bus_idx = AudioServer.get_bus_index(bus_name)
+	#Checa se o index do bus é invalido
+	if bus_idx == -1:
+		#Emite um push erros
+		push_error("Bus não encontrado: ", bus_name)
+		return false #Retorna false
+	#Adiciona o efeito desejado
+	AudioServer.add_bus_effect(bus_idx, effect)
+	return true #Retorna true
+
+#Função para remover qualquer efeito existente nativamente na godot
+func remove_effects_from_track(track_index : int, effect_index : int) -> bool:
+	#Pega o nome do bus
+	var bus_name = get_track_bus(track_index)
+	#Checa se o nome do bus está vazio
+	if bus_name.is_empty():
+		return false #Retorna falso
+	#Pega o index do bus 
+	var bus_idx = AudioServer.get_bus_index(bus_name)
+	#Checa que o index do bus é invalid
+	if bus_idx == -1:
+		#Emite um push error
+		push_error("Bus não encontrado: ", bus_name)
+		return false #Retorna false
+	#REmove o efeitos escolhido do bus
+	AudioServer.remove_bus_effect(bus_idx, effect_index)
+	return true #retorna verdadeiro
+
+#Retorna o numero de efeitos na bus da track
+func get_track_effect_count(track_index: int) -> int:
+	#Pega o nome do bus da track
+	var bus_name = get_track_bus(track_index)
+	#Checa se o nome do bus é vazio
+	if bus_name.is_empty():
+		return -1 #Retorna -1
+	#Pegar o index do bus da track
+	var bus_idx = AudioServer.get_bus_index(bus_name)
+	#Checa se o index do bus é invalido
+	if bus_idx == -1:
+		return -1 #Retorna -1
+	#Retorna o numero de efeitos no bus da track
+	return AudioServer.get_bus_effect_count(bus_idx)
+#endregion
+
+#os parametros que estão comentados não existem na godot 4.6, tenho que ver depois
+
+#Função para a dicionar reverb na track de audio
+func add_reverb_to_track(track_index : int, room_size : float = 0.5, damping : float = 0.5, spread : float = 1.0,
+dry : float = 1.0, wet : float = 1.0, hpf : float = 0.0, predelay_msec : float = 0.02,
+predelay_feedback : float = 0.01) -> bool:
+	var effect = AudioEffectReverb.new()
+	effect.room_size = room_size
+	effect.damping = damping
+	effect.spread = spread
+	effect.dry = dry
+	effect.wet = wet
+	effect.hipass = hpf
+	effect.predelay_msec = predelay_msec
+	effect.predelay_feedback = predelay_feedback
+	return add_effect_to_track(track_index, effect)
+
+#Função para adicionar o efeito de chorus na track
+func add_chorus_to_track( track_index : int, voice_count : int = 2, wet : float = 1.0, dry: float = 1.0) -> bool:
+	var effect = AudioEffectChorus.new()
+	effect.voice_count = voice_count
+	effect.wet = wet
+	effect.dry = dry
+	return add_effect_to_track(track_index, effect)
+
+#Função para adicionar o defeito dedelay na track
+func add_delay_to_track( track_index : int, feedback : bool = true, feedback_delay_ms : int = 500.0,
+feedback_level_db : float = -6.0, feedback_lowpass : int = 16000, dry : float = 1.0, tap1_active: bool = true,
+tap1_delay_ms : float = 250.0, tap1_level_db : float = 0.0, tap1_pan : float = 0.2, tap2_active: bool = true,
+tap2_delay_ms : float = 500.0, tap2_level_db : float = 0.0, tap2_pan : float = -0.4) -> bool:
+	var effect = AudioEffectDelay.new()
+	effect.feedback_active = feedback
+	effect.feedback_delay_ms = feedback_delay_ms
+	effect.feedback_level_db = feedback_level_db
+	effect.feedback_lowpass = feedback_lowpass
+	effect.dry = dry
+	effect.tap1_active = tap1_active
+	effect.tap1_delay_ms = tap1_delay_ms
+	effect.tap1_level_db = tap1_level_db
+	effect.tap1_pan = tap1_pan
+	effect.tap2_active = tap2_active
+	effect.tap2_delay_ms = tap2_delay_ms
+	effect.tap2_level_db = tap2_level_db
+	effect.tap2_pan = tap2_pan
+	return add_effect_to_track(track_index, effect)
+
+#Função que adiciona um efeito de filtro na track
+func add_filter_to_track( track_index : int, cutoff_hz : float = 2000.0, resonance : float = 0.5,
+gain : float = 0.0, db = 0) -> bool:
+	var effect = AudioEffectFilter.new()
+	effect.cutoff_hz = cutoff_hz
+	effect.resonance = resonance
+	effect.gain = gain
+	effect.db = db
+	return add_effect_to_track(track_index, effect)
+
+#Função de efeito de panning da track
+func add_panner_to_track(track_index: int, pan: float = 0.0) -> bool:
+	var effect = AudioEffectPanner.new()
+	effect.pan = pan
+	return add_effect_to_track(track_index, effect)
+
+#Função de efeito de expansão stereo da track
+func add_stereo_enhance_to_track( track_index : int, pan_pullout: float = 1, time_pullot_ms : float = 50,
+surround : float = 0) -> bool:
+	var effect = AudioEffectStereoEnhance.new()
+	effect.pan_pullout = pan_pullout
+	effect.time_pullout_ms = time_pullot_ms
+	effect.surround = surround
+	return add_effect_to_track(track_index, effect)
+
+#Função de efeito de mudança pitch de track
+func add_pitch_shift_to_track(track_index: int,
+pitch_scale: float = 1.0, fft_size : int = 2, oversampling: int = 4) -> bool:
+	var effect = AudioEffectPitchShift.new()
+	effect.pitch_scale = pitch_scale
+	effect.fft_size = fft_size
+	effect.oversampling = oversampling
+	return add_effect_to_track(track_index, effect)
+
+#Função para adicionar efeito de phaser na track
+func add_phaser_to_track(track_index : int, depth : float = 1.0, feedback : float = 0.7,
+range_max_hz : float = 1600, range_min_hz : float = 440, rate_hz : float = 0.5) -> bool:
+	var effect = AudioEffectPhaser.new()
+	effect.depth = depth
+	effect.feedback = feedback
+	effect.range_max_hz = range_max_hz
+	effect.range_min_hz = range_min_hz
+	effect.rate_hz = rate_hz
+	return add_effect_to_track(track_index, effect)
+
+#Função para adicionar o efetiro de distorção na trak
+func add_distortion_to_track(track_index : int, mode : int = 0, pre_gain : float = 1.0, post_gain : float = 1.0,
+	drive : float = 0, keep_hf_hz : int = 16000) -> bool:
+	var effect = AudioEffectDistortion.new()
+	effect.mode = mode
+	effect.pre_gain = pre_gain
+	effect.post_gain = post_gain
+	effect.drive = drive
+	effect.keep_hf_hz = keep_hf_hz
+	return add_effect_to_track(track_index, effect)
+
 #Função que executa ao iniciar (é aqui que as músicas serão carregadas)
 func _ready() -> void:
+	
+	var menu = register_music("Menu")
+	menu.add_track(preload("res://Assets/Musicas/Menu/Menu-001.ogg"), "Track1")
+	menu.add_track(preload("res://Assets/Musicas/Menu/Menu-002.ogg"), "Track2")
 	
 	#Exemplo de como a biblioteca vai ser carregada
 	#(Assim é mais facil e rapido, é mais pesado, mas nosso jogo é leve)
