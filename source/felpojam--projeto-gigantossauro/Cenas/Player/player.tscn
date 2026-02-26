@@ -164,6 +164,8 @@ target_position = Vector2(0, -36.5)
 collision_mask = 256
 
 [node name="LeftContact" type="Area2D" parent="." unique_id=1426533481]
+collision_layer = 0
+collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="LeftContact" unique_id=119136164]
 position = Vector2(198, -137)
@@ -171,6 +173,8 @@ shape = SubResource("RectangleShape2D_sdvfy")
 debug_color = Color(0.74484295, 0.67389137, 0.17609882, 0.41960785)
 
 [node name="RightContact" type="Area2D" parent="." unique_id=74246524]
+collision_layer = 2
+collision_mask = 0
 
 [node name="Collision" type="CollisionShape2D" parent="RightContact" unique_id=2032322918]
 position = Vector2(-199, -139)
@@ -186,3 +190,8 @@ position_smoothing_enabled = true
 editor_draw_screen = false
 script = ExtResource("2_8xljj")
 player = NodePath("..")
+
+[connection signal="body_entered" from="LeftContact" to="." method="_on_left_contact_body_entered"]
+[connection signal="body_exited" from="LeftContact" to="." method="_on_left_contact_body_exited"]
+[connection signal="body_entered" from="RightContact" to="." method="_on_right_contact_body_entered"]
+[connection signal="body_exited" from="RightContact" to="." method="_on_right_contact_body_exited"]

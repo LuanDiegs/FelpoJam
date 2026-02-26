@@ -5,6 +5,7 @@ var gravity = 1200
 
 @export var speed: float = 1200
 @export var acelleration: float = 800
+var direction = 0
 @export var turn_acelleration: float = 1600
 @export var friction: float = 1600
 @export var jump_force: float = -900
@@ -31,18 +32,24 @@ var original_hurtbox_width: float
 var original_collision_pos: Vector2
 var original_hurtbox_pos: Vector2
 
+@onready var area_left_contact = $LeftContact
+@onready var area_right_contact = $RightContact
+var left_contacts: Array[RigidBody2D] = []
+var right_contacts: Array[RigidBody2D] = []
+
 @export var slide_height_ratio := 0.5
 @export var slide_width_ratio := 1.5
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite
 
+var collider_is_obstacule
+
 signal life_changed(new_life)
 
 #Função que roda ao iniciar onó/cena
 func _ready() -> void:
 	_set_and_save_player_collision_and_hurtbox()
-
 
 func _set_and_save_player_collision_and_hurtbox():
 	var col_shape = collision_shape.shape as RectangleShape2D
@@ -101,7 +108,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Move e verifica colisão
 	var collision := move_and_collide(velocity * delta)
-	_verify_if_colliding(collision)
+	collider_is_obstacule = _verify_if_colliding(collision)
 	
 	#Checa se está no chão
 	_verify_if_on_floor(delta)
@@ -120,8 +127,23 @@ func _verify_direction(delta: float):
 		velocity.y = 0
 		velocity.y += gravity * delta
 	
+	var left_mass = get_total_mass(left_contacts)
+	var right_mass = get_total_mass(right_contacts)
+	
+	# Permite mover para esquerda se não houver parede E massa <= 15
+	can_move_left = not ray_left.is_colliding() and left_mass <= 15.0
+	# Permite mover para direita se não houver parede E massa <= 15
+	can_move_right = not ray_right.is_colliding() and right_mass <= 15.0
+	
 	#Salva o valor das teclas pressionadas, uma em valor negativo e outra em valor positivo
-	var direction = Input.get_axis("move_left", "move_right")
+	direction = Input.get_axis("move_left", "move_right")
+	
+	#Checa se a direção está indo para um lado e se o jogador pode se mover para esse lado
+	if (direction < 0 and !can_move_left) or (direction > 0 and !can_move_right):
+		#Direção é igual a 0
+		direction = 0
+		#Veloidade x é igual a zero
+		velocity.x = 0
 	
 	if direction != 0 and !Global.phase_finished:
 		#Seta a animaçao
@@ -138,30 +160,45 @@ func _verify_direction(delta: float):
 	else: # Caso o contratio (seja igual a 0, não tem uma direçãop)
 		#Aplica a fricção
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
+	
+	print(velocity.x)
 
 func _verify_if_colliding(collision):
 	#Checa se está colidindo com alguma coisa
 	if collision:
 		#Pega com quem está colidindo
 		var collider = collision.get_collider()
-		
 		#Checa se o colisor está no grupo dos obstaculos se o colissor é um rigidbody
 		if collider.is_in_group("Obstacles") and collider is RigidBody2D:
 			#Pega o normal da colisão
 			var normal = collision.get_normal()
 			
-			#Checa se o normal x é maior que o normal y
-			if abs(normal.x) > abs(normal.y):
-				#Pega a direção inversa do normal
-				var push_dir = - normal
-				
-				#Aplica o empurrão
-				collider.apply_central_impulse(push_dir * abs(velocity.x / 2.5))
-			else: # caso contrario
-				#Se o normal de y for maior que 0
-				if normal.y > 0:
+			var left_mass = get_total_mass(left_contacts)
+			var right_mass = get_total_mass(right_contacts)
+			
+			if (left_mass < 15 and direction < 0) or (right_mass < 15 and direction > 0):
+			
+				#Checa se o normal x é maior que o normal y
+				if abs(normal.x) > abs(normal.y):
+					#Pega a direção inversa do normal
+					var push_dir = - normal
 					#Aplica o empurrão
-					collider.apply_central_impulse(Vector2(0, velocity.y * 5))
+					collider.apply_central_impulse(push_dir * abs(velocity.x / 2.5))
+				else: # caso contrario
+					#Se o normal de y for maior que 0
+					if normal.y > 0:
+						#Aplica o empurrão
+						collider.apply_central_impulse(Vector2(0, velocity.y * 5))
+
+#Função para calcular o total de massa
+func get_total_mass(contacts: Array[RigidBody2D]) -> float:
+	#inicia o total com 0
+	var total = 0.0
+	#Pega todos os itens do array
+	for body in contacts:
+		#Incrementa a massa deles
+		total += body.mass
+	return total #REtorna o total da massa na area
 
 func _verify_if_on_floor(delta: float):
 	if in_floor():
@@ -246,3 +283,37 @@ func _exit_tree() -> void:
 	#Inserimos os valores originais
 	#Para evitar que quando recarregue a cena ele estivesse deslizando e o shape ficaria do jeito "slide"
 	_set_and_save_player_collision_and_hurtbox()
+
+#Caso algum nó entrar na area do left contact
+func _on_left_contact_body_entered(body: Node2D) -> void:
+	#Checa se ele é um rigid body e está no grupo de obstaculos
+	if body is RigidBody2D and body.is_in_group("Obstacles"):
+		#Checa se ele não está no array dos contatos na esquerda
+		if body not in left_contacts:
+			#Adiciona ele no array de ocntados da esquerda
+			left_contacts.append(body)
+	
+	print(left_contacts)
+
+#Caso algum nó saia da area do left contact
+func _on_left_contact_body_exited(body: Node2D) -> void:
+	#Checa se ele está no array de contatos na esquerda
+	if body in left_contacts:
+		#Tira ele da lista de contatos na esquerda
+		left_contacts.erase(body)
+
+#Caso algum nó entrar na area do right contact
+func _on_right_contact_body_entered(body: Node2D) -> void:
+	#Checa se ele é um rigid body e está no grupo de obstaculos
+	if body is RigidBody2D and body.is_in_group("Obstacles"):
+		#Checa se ele não está no array dos contatos na direita
+		if body not in right_contacts:
+			#Adiciona ele no array de ocntados da direita
+			right_contacts.append(body)
+
+#Caso algum nó saia da area do right contact
+func _on_right_contact_body_exited(body: Node2D) -> void:
+	#Checa se ele está no array de contatos na direita
+	if body in right_contacts:
+		#Tira ele da lista de contatos nadireita
+		right_contacts.erase(body)
