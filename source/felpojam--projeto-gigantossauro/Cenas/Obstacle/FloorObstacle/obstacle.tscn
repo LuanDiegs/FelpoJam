@@ -1,16 +1,14 @@
 [gd_scene format=3 uid="uid://b1ufgtckjsbtw"]
 
 [ext_resource type="Script" uid="uid://e5xfdpnl4n48" path="res://Scripts/Obstacles/obstacle.gd" id="1_lnmmn"]
+[ext_resource type="Texture2D" uid="uid://cespjp7dvlepp" path="res://Assets/Arts/ObstaclesProps/prop_1.png" id="2_sv4vm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lnmmn"]
 bounce = 1.0
 absorbent = true
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0ui4t"]
-size = Vector2(128, 128)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnmmn"]
-size = Vector2(128, 128)
+size = Vector2(201, 133)
 
 [node name="ObstaclePlaceholder" type="RigidBody2D" unique_id=357976468 groups=["Obstacles"]]
 collision_layer = 2
@@ -20,8 +18,11 @@ physics_material_override = SubResource("PhysicsMaterial_lnmmn")
 script = ExtResource("1_lnmmn")
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=560448378]
-texture = SubResource("PlaceholderTexture2D_0ui4t")
+position = Vector2(2.0000038, -15)
+scale = Vector2(0.29924247, 0.2992424)
+texture = ExtResource("2_sv4vm")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=771197902]
+position = Vector2(4.5, -14.5)
 shape = SubResource("RectangleShape2D_lnmmn")
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)

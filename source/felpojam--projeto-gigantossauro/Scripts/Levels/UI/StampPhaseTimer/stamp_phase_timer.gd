@@ -6,7 +6,6 @@ class_name StampPhaseTimerUI
 @export var stop_time_debug: bool
 
 @onready var timer: Timer = $Timer
-@onready var time_progress: ProgressBar = $ContainerTimer/ContainerHeight/TimeProgress
 @onready var number_label: RichTextLabel = $ContainerTimer/ContainerHeight/LabelsTempo/Panel/NumberLabel
 var time_passed: float = 0
 var time_passed_in_world: float = 0
@@ -55,9 +54,6 @@ func _ready() -> void:
 	Global.PhaseChanged.connect(func(_phaseNumber): _reset_timer())
 	stamps_left_module.AllNpcStamped.connect(_on_all_npc_stamped)
 	
-	#Conecta o signal de para o timer caso 
-	time_progress.max_value = max_stamp_time_to_die
-	time_progress.value = time_progress.max_value
 	_update_timer(0)
 	
 	#Criar a UI dependendo das fases do leveis
@@ -83,12 +79,7 @@ func _update_timer(time: float):
 func _update_display():
 	var remaining = max_stamp_time_to_die - time_passed
 	
-	time_progress.value = remaining
 	number_label.text = "%0.3f" % remaining
-	
-	# Tween do progress bar
-	var tween_progress = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CIRC)
-	tween_progress.tween_property(time_progress, "value", remaining, 0.1)
 	
 	
 func _set_timer_stopped(value: bool):

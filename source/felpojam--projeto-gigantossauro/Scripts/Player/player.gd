@@ -26,8 +26,10 @@ var original_hurtbox_pos: Vector2
 @export var slide_height_ratio := 0.5
 @export var slide_width_ratio := 1.5
 
-signal life_changed(new_life)
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var sprite: Sprite2D = $Sprite
 
+signal life_changed(new_life)
 
 #Função que roda ao iniciar onó/cena
 func _ready() -> void:
@@ -107,7 +109,11 @@ func _verify_direction(delta: float):
 	#Salva o valor das teclas pressionadas, uma em valor negativo e outra em valor positivo
 	var direction = Input.get_axis("move_left", "move_right")
 	
-	if direction != 0 and !Global.phase_finished:	
+	if direction != 0 and !Global.phase_finished:
+		#Seta a animaçao
+		animation_player.play("run")
+		sprite.flip_h = direction == -1
+		
 		#Verifica se está tentando ir na direção oposta da velocidade atual, ou se está "parado"
 		if sign(direction) == sign(velocity.x) or velocity.x == 0:
 			#Continua com a aceleração normal

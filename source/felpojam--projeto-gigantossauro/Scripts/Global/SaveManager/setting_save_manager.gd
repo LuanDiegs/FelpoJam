@@ -32,7 +32,7 @@ func _verify_and_save_settings():
 		#Video
 		file.set_value(video_config.video, video_config.window, DisplayServer.WINDOW_MODE_FULLSCREEN)
 		file.set_value(video_config.video, video_config.resolution, DisplayServer.screen_get_size()) # Primeiro e maior index
-		file.set_value(video_config.video, video_config.vsync, DisplayServer.VSYNC_DISABLED)
+		file.set_value(video_config.video, video_config.vsync, DisplayServer.VSYNC_ADAPTIVE)
 		
 		file.save(configfile_path)
 	else:

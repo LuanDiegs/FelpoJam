@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _fill_phase_container(phase: Global.GAME_PHASES):
 	#Se não for a fase, só retorna
-	if phase != phase_number:
+	if phase_number > phase:	
 		return
-		
+	
 	self.add_theme_stylebox_override("panel", PHASE_COMPLETED)

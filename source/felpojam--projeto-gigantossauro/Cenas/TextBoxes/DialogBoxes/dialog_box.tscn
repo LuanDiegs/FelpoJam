@@ -1,6 +1,20 @@
 [gd_scene format=3 uid="uid://ds3m7ggl5s42s"]
 
 [ext_resource type="Script" uid="uid://1toxp6x1v4o" path="res://Scripts/TextBoxes/DialogBox/dialog_box.gd" id="1_dmrbj"]
+[ext_resource type="Texture2D" uid="uid://mqvoig58xm31" path="res://Assets/UI/Intermission/banner dialogo.png" id="1_wu5x8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wu5x8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k6v5m"]
+texture = ExtResource("1_wu5x8")
+expand_margin_right = 5.0
+expand_margin_bottom = 15.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu5x8"]
+texture = ExtResource("1_wu5x8")
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_20ydk"]
 content_margin_left = 15.0
@@ -19,22 +33,35 @@ grow_vertical = 2
 pivot_offset = Vector2(60, 64)
 size_flags_horizontal = 0
 size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wu5x8")
 script = ExtResource("1_dmrbj")
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1152890467]
+[node name="PanelSpriteShadow" type="PanelContainer" parent="." unique_id=724966825]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_k6v5m")
+
+[node name="PanelSprite" type="PanelContainer" parent="PanelSpriteShadow" unique_id=551589982]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wu5x8")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelSpriteShadow/PanelSprite" unique_id=1152890467]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Text" type="Label" parent="MarginContainer" unique_id=2086256017]
+[node name="Text" type="Label" parent="PanelSpriteShadow/PanelSprite/MarginContainer" unique_id=2086256017]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxEmpty_20ydk")
 text = "a"
+horizontal_alignment = 1
 vertical_alignment = 1
 text_direction = 1

@@ -127,7 +127,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbng6"]
-size = Vector2(10492.5, 64)
+size = Vector2(10439.375, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s6c0b"]
 size = Vector2(44.58, 721)
@@ -163,7 +163,7 @@ region_rect = Rect2(841, 614.65, 2084, 1907.21)
 [node name="MiddleTrainPart2" type="Sprite2D" parent="BackgroundAndTrain/Train" unique_id=1355363814]
 modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -1
-position = Vector2(4659, 235.99998)
+position = Vector2(4657, 235.99997)
 scale = Vector2(0.568, 0.568)
 texture = ExtResource("4_ga6jx")
 region_enabled = true
@@ -172,7 +172,7 @@ region_rect = Rect2(836, 627, 2089, 1875.47)
 [node name="MiddleTrainPart3" type="Sprite2D" parent="BackgroundAndTrain/Train" unique_id=1070286883]
 modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -1
-position = Vector2(5836.8555, 238.00003)
+position = Vector2(5831.856, 238.00005)
 scale = Vector2(0.568, 0.568)
 texture = ExtResource("4_ga6jx")
 flip_h = true
@@ -182,7 +182,7 @@ region_rect = Rect2(841, 614.65, 2084, 1907.21)
 [node name="MiddleTrainPart4" type="Sprite2D" parent="BackgroundAndTrain/Train" unique_id=435199233]
 modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -1
-position = Vector2(7020.8555, 235.99998)
+position = Vector2(7010.856, 235.99997)
 scale = Vector2(0.568, 0.568)
 texture = ExtResource("4_ga6jx")
 region_enabled = true
@@ -191,7 +191,7 @@ region_rect = Rect2(836, 627, 2089, 1875.47)
 [node name="MiddleTrainPart5" type="Sprite2D" parent="BackgroundAndTrain/Train" unique_id=1143605048]
 modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -1
-position = Vector2(8199, 238.00003)
+position = Vector2(8185, 238.00003)
 scale = Vector2(0.568, 0.568)
 texture = ExtResource("4_ga6jx")
 flip_h = true
@@ -201,7 +201,7 @@ region_rect = Rect2(841, 614.65, 2084, 1907.21)
 [node name="EndTrain" type="Sprite2D" parent="BackgroundAndTrain/Train" unique_id=980409985]
 modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -1
-position = Vector2(9653.871, 35)
+position = Vector2(9634.871, 35)
 scale = Vector2(0.569, 0.569)
 texture = ExtResource("3_8q13b")
 region_enabled = true
@@ -244,11 +244,11 @@ collision_layer = 64
 collision_mask = 0
 
 [node name="Floor" type="CollisionShape2D" parent="FloorAndRoof" unique_id=1699526054]
-position = Vector2(5281, 507)
+position = Vector2(5263.875, 507)
 shape = SubResource("RectangleShape2D_pbng6")
 
 [node name="Roof" type="CollisionShape2D" parent="FloorAndRoof" unique_id=869039135]
-position = Vector2(5265.75, -199)
+position = Vector2(5256.3125, -199)
 shape = SubResource("RectangleShape2D_pbng6")
 
 [node name="Parede" type="CollisionShape2D" parent="FloorAndRoof" unique_id=186993306]
@@ -256,7 +256,7 @@ position = Vector2(15, 172)
 shape = SubResource("RectangleShape2D_s6c0b")
 
 [node name="Parede2" type="CollisionShape2D" parent="FloorAndRoof" unique_id=1592475784]
-position = Vector2(10478, 172)
+position = Vector2(10455, 172)
 shape = SubResource("RectangleShape2D_s6c0b")
 
 [node name="Player" parent="." unique_id=167809822 instance=ExtResource("2_qor82")]
@@ -332,11 +332,9 @@ position = Vector2(9390, 403)
 
 [node name="StartOfTutorial" parent="PhaseTransitions" unique_id=605447168 instance=ExtResource("7_qor82")]
 position = Vector2(770, 27)
-phase = 1
-world = 0
 
 [node name="EndOfTutorial" parent="PhaseTransitions" unique_id=568993121 instance=ExtResource("7_qor82")]
-position = Vector2(10404, 27)
+position = Vector2(10382, 27)
 go_to_next_world = true
 next_world_name = "Intermission2"
 

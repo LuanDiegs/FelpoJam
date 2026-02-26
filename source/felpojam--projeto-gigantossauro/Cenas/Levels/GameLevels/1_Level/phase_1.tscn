@@ -1,0 +1,364 @@
+[gd_scene format=3 uid="uid://dyxdcldko83lw"]
+
+[ext_resource type="Script" uid="uid://cv6f8mcpp4a1y" path="res://Scripts/Levels/Levels/1_Level/level1.gd" id="1_3kibx"]
+[ext_resource type="PackedScene" uid="uid://bvad14hsyus2p" path="res://Cenas/Player/player.tscn" id="2_rfccx"]
+[ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Obstacle/FloorObstacle/obstacle.tscn" id="3_fgvlk"]
+[ext_resource type="Texture2D" uid="uid://d1wpc6wpsckc4" path="res://Assets/Arts/Train/40_years/trem-inteiro.png" id="3_vkjf1"]
+[ext_resource type="Texture2D" uid="uid://b18y20fp3qfmj" path="res://Assets/Arts/Train/40_years/pedacinho-do-trem.png" id="4_lrosg"]
+[ext_resource type="PackedScene" uid="uid://ow5adp35qrb2" path="res://Cenas/Levels/Utils/StartNewPhaseOrWorld/start_new_phase_or_world_area.tscn" id="5_4qfbq"]
+[ext_resource type="Texture2D" uid="uid://cuyhqnwe01rl5" path="res://Assets/Arts/Train/40_years/trem-metade-esquerda.png" id="5_bq6qm"]
+[ext_resource type="PackedScene" uid="uid://c1hulgff7kndp" path="res://Cenas/NPCs/StampNpc/stamp_npc.tscn" id="5_cmqa7"]
+[ext_resource type="PackedScene" uid="uid://cjydupv4ijj2c" path="res://Cenas/Levels/UI/StampTimer/stamp_timer.tscn" id="6_4qfbq"]
+[ext_resource type="Texture2D" uid="uid://dgmn6ye048ddg" path="res://Assets/Arts/Train/40_years/roda.png" id="6_vcsnc"]
+[ext_resource type="Texture2D" uid="uid://dy5woitqacywo" path="res://Assets/Arts/Train/40_years/peça-que-conectar-trens.png" id="7_lrosg"]
+[ext_resource type="PackedScene" uid="uid://rsrluaj37ape" path="res://Cenas/Levels/UI/StampsLeft/stamps_left.tscn" id="7_sf2cx"]
+[ext_resource type="PackedScene" uid="uid://blnt6mte6r0l3" path="res://Cenas/Levels/GameLevels/Utils/Background/background.tscn" id="8_sf2cx"]
+[ext_resource type="PackedScene" uid="uid://bhqynq01gcwx" path="res://Cenas/Levels/Utils/PhaseFinishAndSpawnNextPhase/phase_finish_and_spawn_next_phase.tscn" id="14_bq6qm"]
+
+[sub_resource type="Animation" id="Animation_ue21f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Phase1/Wheels/Wheels:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Phase1/Wheels/Wheels2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Phase1/Wheels/Wheels3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Phase1/Wheels/Wheels4:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_w7ut2"]
+resource_name = "rotate"
+length = 0.1
+loop_mode = 1
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Phase1/Wheels/Wheels:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Phase1/Wheels/Wheels2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Phase1/Wheels/Wheels3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Phase1/Wheels/Wheels4:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vkjf1"]
+_data = {
+&"RESET": SubResource("Animation_ue21f"),
+&"rotate": SubResource("Animation_w7ut2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0id4"]
+size = Vector2(10446, 82.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6c0b"]
+size = Vector2(44.58, 721)
+
+[node name="Level 1 - Phase 1" type="Node2D" unique_id=1242278278]
+script = ExtResource("1_3kibx")
+world_name = 1
+phases_count = 3
+
+[node name="BackgroundAndTrain" type="Node2D" parent="." unique_id=42311663]
+
+[node name="Background" parent="BackgroundAndTrain" unique_id=323763249 instance=ExtResource("8_sf2cx")]
+
+[node name="Train" type="Node2D" parent="BackgroundAndTrain" unique_id=861081704]
+
+[node name="Phase1" type="Node2D" parent="BackgroundAndTrain/Train" unique_id=111238141]
+
+[node name="StartTrain" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=207454984]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(1431.0001, 233.99997)
+scale = Vector2(0.5690645, 0.5690647)
+texture = ExtResource("3_vkjf1")
+region_enabled = true
+region_rect = Rect2(0, 854, 5120, 1893)
+metadata/_edit_lock_ = true
+
+[node name="MiddleTrainPart1" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=1533381218]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(3475, 238.00003)
+scale = Vector2(0.568, 0.568)
+texture = ExtResource("4_lrosg")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(841, 614.65, 2084, 1907.21)
+
+[node name="MiddleTrainPart2" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=1952515968]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(4657, 235.99997)
+scale = Vector2(0.568, 0.568)
+texture = ExtResource("4_lrosg")
+region_enabled = true
+region_rect = Rect2(836, 627, 2089, 1875.47)
+
+[node name="MiddleTrainPart3" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=158033524]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(5833.8555, 238.00005)
+scale = Vector2(0.568, 0.568)
+texture = ExtResource("4_lrosg")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(841, 614.65, 2084, 1907.21)
+
+[node name="MiddleTrainPart4" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=968682903]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(7014.8555, 235.99997)
+scale = Vector2(0.568, 0.568)
+texture = ExtResource("4_lrosg")
+region_enabled = true
+region_rect = Rect2(836, 627, 2089, 1875.47)
+
+[node name="MiddleTrainPart5" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=947456815]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(8190, 238.00005)
+scale = Vector2(0.568, 0.568)
+texture = ExtResource("4_lrosg")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(841, 614.65, 2084, 1907.21)
+
+[node name="EndTrain" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=174346490]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(9645.87, 34)
+scale = Vector2(0.569, 0.569)
+texture = ExtResource("5_bq6qm")
+region_enabled = true
+region_rect = Rect2(57, 0, 3047, 2880)
+
+[node name="Wheels" type="AnimationPlayer" parent="BackgroundAndTrain/Train/Phase1" unique_id=1110546512]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_vkjf1")
+autoplay = &"rotate"
+
+[node name="Wheels" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=1146997534]
+z_index = -2
+position = Vector2(552, 722)
+texture = ExtResource("6_vcsnc")
+region_enabled = true
+region_rect = Rect2(327, 2502, 334, 337)
+
+[node name="Wheels2" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=917140144]
+z_index = -2
+position = Vector2(1398, 722)
+texture = ExtResource("6_vcsnc")
+region_enabled = true
+region_rect = Rect2(327, 2502, 334, 337)
+
+[node name="Wheels3" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=1501873743]
+z_index = -2
+position = Vector2(9090.816, 722)
+texture = ExtResource("6_vcsnc")
+region_enabled = true
+region_rect = Rect2(327, 2502, 334, 337)
+
+[node name="Wheels4" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=1355098141]
+z_index = -2
+position = Vector2(9936.816, 722)
+texture = ExtResource("6_vcsnc")
+region_enabled = true
+region_rect = Rect2(327, 2502, 334, 337)
+
+[node name="Wheels5" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=1702825730]
+z_index = -2
+position = Vector2(11869, 722)
+texture = ExtResource("6_vcsnc")
+region_enabled = true
+region_rect = Rect2(327, 2502, 334, 337)
+
+[node name="Wheels6" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=1739785029]
+z_index = -2
+position = Vector2(12719, 722)
+texture = ExtResource("6_vcsnc")
+region_enabled = true
+region_rect = Rect2(327, 2502, 334, 337)
+
+[node name="Connection" type="Sprite2D" parent="BackgroundAndTrain/Train" unique_id=1209299858]
+z_index = -2
+position = Vector2(10887.999, 480.99997)
+scale = Vector2(0.569, 0.569)
+texture = ExtResource("7_lrosg")
+region_enabled = true
+region_rect = Rect2(3053, 1942, 1546, 433)
+
+[node name="StartTrain" type="Sprite2D" parent="BackgroundAndTrain/Train" unique_id=59164342]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(12753.001, 233.99997)
+scale = Vector2(0.5690645, 0.5690647)
+texture = ExtResource("3_vkjf1")
+region_enabled = true
+region_rect = Rect2(0, 854, 5120, 1893)
+
+[node name="ChaoParedeTeto" type="StaticBody2D" parent="." unique_id=1842553620]
+collision_layer = 64
+collision_mask = 0
+
+[node name="ChaoCollision" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=30658458]
+position = Vector2(5223, 511.5)
+shape = SubResource("RectangleShape2D_g0id4")
+
+[node name="Teto" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=228105814]
+position = Vector2(5223, -212)
+shape = SubResource("RectangleShape2D_g0id4")
+
+[node name="Parede" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=1447642209]
+position = Vector2(-20.71, 197)
+shape = SubResource("RectangleShape2D_s6c0b")
+
+[node name="Parede2" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=1395362402]
+position = Vector2(10466, 197)
+shape = SubResource("RectangleShape2D_s6c0b")
+
+[node name="Player" type="Node2D" parent="." unique_id=1627431743]
+
+[node name="Player" parent="Player" unique_id=167809822 instance=ExtResource("2_rfccx")]
+position = Vector2(135, 450)
+
+[node name="Obstaculos" type="Node2D" parent="." unique_id=1893226001]
+
+[node name="Obstaculo" parent="Obstaculos" unique_id=357976468 instance=ExtResource("3_fgvlk")]
+position = Vector2(438, 386)
+
+[node name="Obstaculo2" parent="Obstaculos" unique_id=1147964164 instance=ExtResource("3_fgvlk")]
+position = Vector2(1396, 252)
+
+[node name="StampNpcs" type="Node2D" parent="." unique_id=1763725906]
+
+[node name="StampNpc" parent="StampNpcs" unique_id=717433113 instance=ExtResource("5_cmqa7")]
+position = Vector2(919, 370)
+
+[node name="StampNpc2" parent="StampNpcs" unique_id=1967649654 instance=ExtResource("5_cmqa7")]
+position = Vector2(2187, 370)
+
+[node name="StampNpc3" parent="StampNpcs" unique_id=1589561778 instance=ExtResource("5_cmqa7")]
+position = Vector2(2459, 370)
+
+[node name="StampNpc4" parent="StampNpcs" unique_id=1243829871 instance=ExtResource("5_cmqa7")]
+position = Vector2(3856, 370)
+
+[node name="StampNpc5" parent="StampNpcs" unique_id=2050899279 instance=ExtResource("5_cmqa7")]
+position = Vector2(5075, 370)
+
+[node name="StampNpc6" parent="StampNpcs" unique_id=1338577702 instance=ExtResource("5_cmqa7")]
+position = Vector2(6149, 370)
+
+[node name="StampNpc7" parent="StampNpcs" unique_id=1204225181 instance=ExtResource("5_cmqa7")]
+position = Vector2(6309, 370)
+
+[node name="StampNpc8" parent="StampNpcs" unique_id=1383989920 instance=ExtResource("5_cmqa7")]
+position = Vector2(7250, 370)
+
+[node name="StampNpc9" parent="StampNpcs" unique_id=1097728204 instance=ExtResource("5_cmqa7")]
+position = Vector2(7873, 370)
+
+[node name="StampNpc10" parent="StampNpcs" unique_id=773975500 instance=ExtResource("5_cmqa7")]
+position = Vector2(8518, 370)
+
+[node name="PhaseTransitions" type="Node2D" parent="." unique_id=1564032221]
+
+[node name="StartOfPhase1" parent="PhaseTransitions" unique_id=605447168 instance=ExtResource("5_4qfbq")]
+position = Vector2(137, 27)
+world = 1
+
+[node name="EndOfPhase1" parent="PhaseTransitions" unique_id=870564523 node_paths=PackedStringArray("player", "stamp_npcs_count") instance=ExtResource("14_bq6qm")]
+position = Vector2(10196, 197)
+player = NodePath("../../Player/Player")
+stamp_npcs_count = NodePath("../../UI/StampsLeft")
+next_phase_uid = "uid://dylbv5jrkf54l"
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=876751282]
+
+[node name="StampPhaseTimer" parent="UI" unique_id=76836385 node_paths=PackedStringArray("level", "stamps_left_module") instance=ExtResource("6_4qfbq")]
+layer = 3
+level = NodePath("../..")
+stamps_left_module = NodePath("../StampsLeft")
+
+[node name="StampsLeft" parent="UI" unique_id=2143747648 instance=ExtResource("7_sf2cx")]
+layer = 3
