@@ -56,6 +56,12 @@ size = Vector2(146, 269)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rwkh"]
 size = Vector2(141, 260)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdvfy"]
+size = Vector2(256, 261)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iq1aa"]
+size = Vector2(256, 261)
+
 [node name="Player" type="CharacterBody2D" unique_id=167809822 groups=["Player"]]
 collision_mask = 334
 script = ExtResource("1_vldss")
@@ -156,6 +162,20 @@ position = Vector2(0, -133)
 scale = Vector2(4, 4)
 target_position = Vector2(0, -36.5)
 collision_mask = 256
+
+[node name="LeftContact" type="Area2D" parent="." unique_id=1426533481]
+
+[node name="Collision" type="CollisionShape2D" parent="LeftContact" unique_id=119136164]
+position = Vector2(198, -137)
+shape = SubResource("RectangleShape2D_sdvfy")
+debug_color = Color(0.74484295, 0.67389137, 0.17609882, 0.41960785)
+
+[node name="RightContact" type="Area2D" parent="." unique_id=74246524]
+
+[node name="Collision" type="CollisionShape2D" parent="RightContact" unique_id=2032322918]
+position = Vector2(-199, -139)
+shape = SubResource("RectangleShape2D_iq1aa")
+debug_color = Color(0.74509805, 0.6745098, 0.1764706, 0.41960785)
 
 [node name="PrincipalCamera" type="Camera2D" parent="." unique_id=1710026888 node_paths=PackedStringArray("player")]
 position = Vector2(0, -360)
