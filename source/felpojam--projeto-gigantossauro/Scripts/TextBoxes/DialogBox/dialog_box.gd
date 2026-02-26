@@ -2,7 +2,7 @@ extends PanelContainer
 class_name DialogBox
 
 #Label
-@onready var label: Label = $MarginContainer/Text
+@onready var label: Label = $PanelSpriteShadow/PanelSprite/MarginContainer/Text
 @onready var max_width := 1000
 
 

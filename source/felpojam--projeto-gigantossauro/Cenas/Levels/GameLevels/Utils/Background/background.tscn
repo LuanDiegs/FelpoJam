@@ -15,7 +15,7 @@ z_index = -1
 scroll_scale = Vector2(0.05, 0.05)
 scroll_offset = Vector2(-1756, -18)
 repeat_size = Vector2(2560, 0)
-autoscroll = Vector2(1000, 0)
+autoscroll = Vector2(500, 0)
 repeat_times = 4
 
 [node name="Background" type="Sprite2D" parent="Parallax/Parallaxbackground" unique_id=271471275]
@@ -36,8 +36,8 @@ z_index = -1
 scroll_scale = Vector2(0.7, 1)
 scroll_offset = Vector2(-24, -189)
 repeat_size = Vector2(2560, 0)
-autoscroll = Vector2(5000, 0)
-repeat_times = 4
+autoscroll = Vector2(2000, 0)
+repeat_times = 3
 
 [node name="Tree" type="Sprite2D" parent="Parallax/ParallaxTree" unique_id=1060575570]
 position = Vector2(-1652, 42.500004)

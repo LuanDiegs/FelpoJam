@@ -3,9 +3,9 @@ class_name PhaseFinishAndSpawnNextPhase
 
 @export var player: Player = null
 @export var stamp_npcs_count: StampsLeftUI = null
+@export var next_phase_uid: String = ""
 
 @onready var phase_finish_area: Area2D = $PhaseFinishArea
-@onready var spawn_next_phase: Area2D = $SpawnNextPhase
 @onready var panel_warning: Panel = $PanelWarning
 @onready var label_warning: Label = $PanelWarning/LabelWarning
 
@@ -36,8 +36,9 @@ func _on_body_entered_finish_area(body: Node):
 
 	var all_npc_stamped := stamp_npcs_count.all_npc_stamped
 	var stamps_left := stamp_npcs_count.stamps_left
+	var stamps_left_message = "Falta 1 carimbo" if stamps_left < 2 else "Faltam %s carimbos" % stamps_left
 	var message := "Clique no botão '%s' para continuar" % interactKey if all_npc_stamped \
-		else "Faltam %s carimbo(s) para você carimbar, corre!" % stamps_left
+		else "%s para você carimbar, corre!" % stamps_left_message
 	
 	#Colocamos a mensagem
 	if body is Player:
@@ -54,8 +55,7 @@ func _input(event: InputEvent) -> void:
 	
 	#Se carimbou todos, o jogador estiver na area e pressionar o botao, ira teleportar
 	if event.is_action_pressed("interact") and player_in_area and all_npc_stamped:
-		print("oiaaa")
-		player.global_position = spawn_next_phase.global_position
+		Transition.change_to_scene(next_phase_uid)
 
 
 func _player_is_in_area() -> bool:

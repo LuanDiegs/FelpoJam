@@ -1,0 +1,570 @@
+[gd_scene format=3 uid="uid://bkfgkst5l8n35"]
+
+[ext_resource type="Script" uid="uid://cv6f8mcpp4a1y" path="res://Scripts/Levels/Levels/1_Level/level1.gd" id="1_3kibx"]
+[ext_resource type="Texture2D" uid="uid://c5qxm84q2l23l" path="res://Assets/Arts/Train/30_years/ceu.png" id="2_bhgc0"]
+[ext_resource type="PackedScene" uid="uid://bvad14hsyus2p" path="res://Cenas/Player/player.tscn" id="2_rfccx"]
+[ext_resource type="Texture2D" uid="uid://gr4p5dua74j6" path="res://Assets/Arts/Train/50_years/nuvens.png" id="3_6qml8"]
+[ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Obstacle/FloorObstacle/obstacle.tscn" id="3_fgvlk"]
+[ext_resource type="Texture2D" uid="uid://dgdyiu725woak" path="res://Assets/Arts/Train/30_years/montanha.png" id="4_6465m"]
+[ext_resource type="PackedScene" uid="uid://ow5adp35qrb2" path="res://Cenas/Levels/Utils/StartNewPhaseOrWorld/start_new_phase_or_world_area.tscn" id="5_4qfbq"]
+[ext_resource type="PackedScene" uid="uid://c1hulgff7kndp" path="res://Cenas/NPCs/StampNpc/stamp_npc.tscn" id="5_cmqa7"]
+[ext_resource type="Texture2D" uid="uid://bq4sd6cx8ebhy" path="res://Assets/Arts/Train/30_years/chao.png" id="5_drbae"]
+[ext_resource type="PackedScene" uid="uid://cjydupv4ijj2c" path="res://Cenas/Levels/UI/StampTimer/stamp_timer.tscn" id="6_4qfbq"]
+[ext_resource type="Texture2D" uid="uid://ck8a8dsldcqml" path="res://Assets/Arts/Train/30_years/mato.png" id="6_pjm1u"]
+[ext_resource type="Texture2D" uid="uid://dy5woitqacywo" path="res://Assets/Arts/Train/40_years/peça-que-conectar-trens.png" id="7_lrosg"]
+[ext_resource type="PackedScene" uid="uid://rsrluaj37ape" path="res://Cenas/Levels/UI/StampsLeft/stamps_left.tscn" id="7_sf2cx"]
+[ext_resource type="Texture2D" uid="uid://dueel2jbt0p6j" path="res://Assets/Arts/Train/30_years/cerca.png" id="7_ut3ck"]
+[ext_resource type="Texture2D" uid="uid://btqbmompjecs7" path="res://Assets/Arts/Train/30_years/trem.png" id="8_wfmlh"]
+[ext_resource type="Texture2D" uid="uid://cud2bbf1ydeq4" path="res://Assets/Arts/Train/30_years/meio.png" id="9_yjw24"]
+[ext_resource type="Texture2D" uid="uid://cvmi11jh3pulg" path="res://Assets/Arts/Train/30_years/frente.png" id="10_8aimn"]
+[ext_resource type="Texture2D" uid="uid://c1msdjnhg4jau" path="res://Assets/Arts/Train/30_years/roda.png" id="11_qxbug"]
+[ext_resource type="Texture2D" uid="uid://byywpvrp6f6ct" path="res://Assets/Arts/Train/30_years/tras.png" id="13_njjat"]
+[ext_resource type="PackedScene" uid="uid://bhqynq01gcwx" path="res://Cenas/Levels/Utils/PhaseFinishAndSpawnNextPhase/phase_finish_and_spawn_next_phase.tscn" id="14_bq6qm"]
+[ext_resource type="Texture2D" uid="uid://b4yayahmi4thf" path="res://Cenas/Levels/Props/bag_pile/bag_pile.tres" id="16_6465m"]
+[ext_resource type="Shape2D" uid="uid://c5ytuplxj6xwk" path="res://Cenas/Levels/Props/bag_pile/bag_pile_collision.tres" id="17_drbae"]
+[ext_resource type="Texture2D" uid="uid://ctoarev68ca61" path="res://Cenas/Levels/Props/hay/hay.tres" id="18_pjm1u"]
+[ext_resource type="Shape2D" uid="uid://cw4fnbe3jsrdf" path="res://Cenas/Levels/Props/hay/hay_collision.tres" id="19_ut3ck"]
+[ext_resource type="Texture2D" uid="uid://boinp7a82ojns" path="res://Cenas/Levels/Props/coffe_bag/coffe_bag.tres" id="20_wfmlh"]
+[ext_resource type="Shape2D" uid="uid://becl2m6yldt34" path="res://Cenas/Levels/Props/coffe_bag/coffe_bag_collision.tres" id="21_yjw24"]
+
+[sub_resource type="Animation" id="Animation_ue21f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Phase1/Wheels/Wheels:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Phase1/Wheels/Wheels2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Phase1/Wheels/Wheels6:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Phase1/Wheels/Wheels5:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Phase1/Wheels/Wheels4:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Phase1/Wheels/Wheels3:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_w7ut2"]
+resource_name = "rotate"
+length = 0.1
+loop_mode = 1
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Phase1/Wheels/Wheels:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Phase1/Wheels/Wheels2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Phase1/Wheels/Wheels6:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Phase1/Wheels/Wheels5:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Phase1/Wheels/Wheels4:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Phase1/Wheels/Wheels3:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dfgfx"]
+_data = {
+&"RESET": SubResource("Animation_ue21f"),
+&"rotate": SubResource("Animation_w7ut2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5egb4"]
+size = Vector2(10467, 82.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uk2wi"]
+size = Vector2(10446, 82.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vljj5"]
+size = Vector2(96.29, 729.5)
+
+[node name="Level 1 - Phase 1" type="Node2D" unique_id=1242278278]
+script = ExtResource("1_3kibx")
+world_name = 1
+phases_count = 3
+
+[node name="BackgroundAndTrain" type="Node2D" parent="." unique_id=1605088056]
+
+[node name="Parallax" type="Node2D" parent="BackgroundAndTrain" unique_id=2129636847]
+z_index = -4096
+metadata/_edit_lock_ = true
+
+[node name="ParallaxbackgroundAndCloud" type="Parallax2D" parent="BackgroundAndTrain/Parallax" unique_id=1096018064]
+z_index = -1
+scroll_scale = Vector2(0.05, 0.05)
+scroll_offset = Vector2(-1756, -18)
+repeat_size = Vector2(2560, 0)
+autoscroll = Vector2(1000, 0)
+repeat_times = 4
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="BackgroundAndTrain/Parallax/ParallaxbackgroundAndCloud" unique_id=967544569]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_bhgc0")
+
+[node name="Cloud" type="Sprite2D" parent="BackgroundAndTrain/Parallax/ParallaxbackgroundAndCloud" unique_id=1471485099]
+position = Vector2(334, 241)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_6qml8")
+
+[node name="ParallaxField" type="Parallax2D" parent="BackgroundAndTrain/Parallax" unique_id=2091324000]
+z_index = -1
+scroll_scale = Vector2(0.05, 0)
+scroll_offset = Vector2(1382, -189)
+autoscroll = Vector2(500, 0)
+metadata/_edit_lock_ = true
+
+[node name="Field" type="Sprite2D" parent="BackgroundAndTrain/Parallax/ParallaxField" unique_id=982466804]
+texture = ExtResource("4_6465m")
+
+[node name="ParallaxFloor" type="Parallax2D" parent="BackgroundAndTrain/Parallax" unique_id=799807084]
+z_index = -1
+scroll_scale = Vector2(0.05, 0)
+scroll_offset = Vector2(-1178, -416)
+repeat_size = Vector2(3945.385, 0)
+repeat_times = 2
+
+[node name="Floor" type="Sprite2D" parent="BackgroundAndTrain/Parallax/ParallaxFloor" unique_id=881184376]
+z_index = -2
+scale = Vector2(0.7740234, 1.0548612)
+texture = ExtResource("5_drbae")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="BackgroundAndTrain/Parallax" unique_id=1923636766]
+
+[node name="Frente" type="Sprite2D" parent="BackgroundAndTrain/Parallax/CanvasLayer" unique_id=269286907]
+position = Vector2(645.00006, 358.00003)
+scale = Vector2(0.25243053, 0.25243056)
+texture = ExtResource("6_pjm1u")
+
+[node name="Cerca" type="Sprite2D" parent="BackgroundAndTrain/Parallax/CanvasLayer" unique_id=149747583]
+position = Vector2(645.00006, 358.00003)
+scale = Vector2(0.25243053, 0.25243056)
+texture = ExtResource("7_ut3ck")
+
+[node name="Train" type="Node2D" parent="BackgroundAndTrain" unique_id=201620812]
+metadata/_edit_lock_ = true
+
+[node name="Phase1" type="Node2D" parent="BackgroundAndTrain/Train" unique_id=1655758733]
+
+[node name="StartTrain" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=1267971937]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(1457, 233.99997)
+scale = Vector2(0.5690645, 0.5690647)
+texture = ExtResource("8_wfmlh")
+region_enabled = true
+region_rect = Rect2(0, 854, 5120, 1893)
+
+[node name="MiddleTrainPart1" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=1393797686]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(3711, 200.98105)
+scale = Vector2(0.57, 0.569)
+texture = ExtResource("9_yjw24")
+flip_h = true
+region_rect = Rect2(1544, 614.65, 2113, 1907.2098)
+
+[node name="MiddleTrainPart2" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=369502486]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(5301.9995, 200.98105)
+scale = Vector2(0.57, 0.569)
+texture = ExtResource("9_yjw24")
+flip_h = true
+region_rect = Rect2(1544, 614.65, 2113, 1907.2098)
+
+[node name="MiddleTrainPart3" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=1136433024]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(6897, 200.98103)
+scale = Vector2(0.57, 0.569)
+texture = ExtResource("9_yjw24")
+flip_h = true
+region_rect = Rect2(1544, 614.65, 2113, 1907.2098)
+
+[node name="MiddleTrainPart4" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=2065029443]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(8478, 200.98103)
+scale = Vector2(0.57, 0.569)
+texture = ExtResource("9_yjw24")
+flip_h = true
+region_rect = Rect2(1544, 614.65, 2113, 1907.2098)
+
+[node name="EndTrain" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1" unique_id=665622354]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(9909.999, 219)
+scale = Vector2(0.569, 0.569)
+texture = ExtResource("10_8aimn")
+region_rect = Rect2(57, 0, 3047, 2880)
+
+[node name="Wheels" type="AnimationPlayer" parent="BackgroundAndTrain/Train/Phase1" unique_id=1003166752]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_dfgfx")
+autoplay = &"rotate"
+
+[node name="Wheels" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=1305718701]
+z_index = -2
+position = Vector2(333, 685)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_qxbug")
+region_enabled = true
+region_rect = Rect2(-4, 0, 493, 513)
+
+[node name="Wheels2" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=1952699335]
+z_index = -2
+position = Vector2(1196, 685)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_qxbug")
+region_enabled = true
+region_rect = Rect2(-4, 0, 493, 513)
+
+[node name="Wheels3" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=1391867715]
+z_index = -2
+position = Vector2(9284.25, 685)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_qxbug")
+region_enabled = true
+region_rect = Rect2(-4, 0, 493, 513)
+
+[node name="Wheels4" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=29386946]
+z_index = -2
+position = Vector2(10147.25, 685)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_qxbug")
+region_enabled = true
+region_rect = Rect2(-4, 0, 493, 513)
+
+[node name="Wheels5" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=1977741749]
+z_index = -2
+position = Vector2(11656.25, 685)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_qxbug")
+region_enabled = true
+region_rect = Rect2(-4, 0, 493, 513)
+
+[node name="Wheels6" type="Sprite2D" parent="BackgroundAndTrain/Train/Phase1/Wheels" unique_id=1190520940]
+z_index = -2
+position = Vector2(12519.25, 685)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_qxbug")
+region_enabled = true
+region_rect = Rect2(-4, 0, 493, 513)
+
+[node name="Connection" type="Sprite2D" parent="BackgroundAndTrain/Train" unique_id=1246428257]
+z_index = -2
+position = Vector2(10887.999, 480.99997)
+scale = Vector2(0.569, 0.569)
+texture = ExtResource("7_lrosg")
+region_enabled = true
+region_rect = Rect2(3053, 1942, 1546, 433)
+
+[node name="StartNextPhase" type="Sprite2D" parent="BackgroundAndTrain/Train" unique_id=1031556166]
+modulate = Color(0.75, 0.75, 0.75, 1)
+z_index = -1
+position = Vector2(11919.001, 233.99997)
+scale = Vector2(0.5690645, 0.5690647)
+texture = ExtResource("13_njjat")
+region_rect = Rect2(0, 854, 5120, 1893)
+
+[node name="ChaoParedeTeto" type="StaticBody2D" parent="." unique_id=1362536165]
+collision_layer = 64
+collision_mask = 0
+
+[node name="ChaoCollision" type="CollisionShape2D" parent="ChaoParedeTeto" unique_id=254701901]
+position = Vector2(5226.5, 511.5)
+shape = SubResource("RectangleShape2D_5egb4")
+
+[node name="ParedeTeto" type="StaticBody2D" parent="." unique_id=2129133791]
+collision_layer = 256
+collision_mask = 0
+
+[node name="Teto" type="CollisionShape2D" parent="ParedeTeto" unique_id=1597121382]
+position = Vector2(5223, -212)
+shape = SubResource("RectangleShape2D_uk2wi")
+
+[node name="Parede" type="CollisionShape2D" parent="ParedeTeto" unique_id=2005153851]
+position = Vector2(73.854996, 192.75)
+shape = SubResource("RectangleShape2D_vljj5")
+
+[node name="Parede2" type="CollisionShape2D" parent="ParedeTeto" unique_id=700778654]
+position = Vector2(10466, 197)
+shape = SubResource("RectangleShape2D_vljj5")
+
+[node name="Player" type="Node2D" parent="." unique_id=819967241]
+
+[node name="Player" parent="Player" unique_id=167809822 instance=ExtResource("2_rfccx")]
+position = Vector2(250, 441)
+
+[node name="Obstaculos" type="Node2D" parent="." unique_id=689765136]
+
+[node name="BagPile" parent="Obstaculos" unique_id=357976468 instance=ExtResource("3_fgvlk")]
+position = Vector2(5697, 415)
+sprite = ExtResource("16_6465m")
+collision_shape = ExtResource("17_drbae")
+object_mass = 20.0
+
+[node name="BagPile6" parent="Obstaculos" unique_id=734011538 instance=ExtResource("3_fgvlk")]
+position = Vector2(5887, 415)
+sprite = ExtResource("16_6465m")
+collision_shape = ExtResource("17_drbae")
+object_mass = 20.0
+
+[node name="BagPile7" parent="Obstaculos" unique_id=1986688980 instance=ExtResource("3_fgvlk")]
+position = Vector2(5799, 313)
+sprite = ExtResource("16_6465m")
+collision_shape = ExtResource("17_drbae")
+object_mass = 20.0
+
+[node name="BagPile2" parent="Obstaculos" unique_id=650621495 instance=ExtResource("3_fgvlk")]
+position = Vector2(7253, 368)
+sprite = ExtResource("16_6465m")
+collision_shape = ExtResource("17_drbae")
+object_mass = 20.0
+
+[node name="BagPile4" parent="Obstaculos" unique_id=2054982600 instance=ExtResource("3_fgvlk")]
+position = Vector2(7430, 368)
+sprite = ExtResource("16_6465m")
+collision_shape = ExtResource("17_drbae")
+object_mass = 20.0
+
+[node name="BagPile3" parent="Obstaculos" unique_id=2058120691 instance=ExtResource("3_fgvlk")]
+position = Vector2(752, 415)
+sprite = ExtResource("16_6465m")
+collision_shape = ExtResource("17_drbae")
+object_mass = 20.0
+
+[node name="BagPile5" parent="Obstaculos" unique_id=1497718258 instance=ExtResource("3_fgvlk")]
+position = Vector2(752, 296)
+sprite = ExtResource("16_6465m")
+collision_shape = ExtResource("17_drbae")
+object_mass = 20.0
+
+[node name="Hay" parent="Obstaculos" unique_id=1220751469 instance=ExtResource("3_fgvlk")]
+position = Vector2(1803, 373)
+sprite = ExtResource("18_pjm1u")
+collision_shape = ExtResource("19_ut3ck")
+object_mass = 10.0
+
+[node name="Hay2" parent="Obstaculos" unique_id=1756457800 instance=ExtResource("3_fgvlk")]
+position = Vector2(1656, 373)
+sprite = ExtResource("18_pjm1u")
+collision_shape = ExtResource("19_ut3ck")
+object_mass = 10.0
+
+[node name="Hay3" parent="Obstaculos" unique_id=191204048 instance=ExtResource("3_fgvlk")]
+position = Vector2(9654, 373)
+sprite = ExtResource("18_pjm1u")
+collision_shape = ExtResource("19_ut3ck")
+object_mass = 10.0
+
+[node name="Hay4" parent="Obstaculos" unique_id=2027648893 instance=ExtResource("3_fgvlk")]
+position = Vector2(10303, 373)
+sprite = ExtResource("18_pjm1u")
+collision_shape = ExtResource("19_ut3ck")
+object_mass = 10.0
+
+[node name="CoffeBag" parent="Obstaculos" unique_id=1809285035 instance=ExtResource("3_fgvlk")]
+position = Vector2(2909, 363)
+rotation = -1.0260223
+sprite = ExtResource("20_wfmlh")
+collision_shape = ExtResource("21_yjw24")
+object_mass = 15.0
+
+[node name="CoffeBag2" parent="Obstaculos" unique_id=1464279816 instance=ExtResource("3_fgvlk")]
+position = Vector2(3090, 363)
+sprite = ExtResource("20_wfmlh")
+collision_shape = ExtResource("21_yjw24")
+object_mass = 15.0
+
+[node name="CoffeBag3" parent="Obstaculos" unique_id=2097136428 instance=ExtResource("3_fgvlk")]
+position = Vector2(8518, 363)
+sprite = ExtResource("20_wfmlh")
+collision_shape = ExtResource("21_yjw24")
+object_mass = 15.0
+
+[node name="CoffeBag4" parent="Obstaculos" unique_id=2075901278 instance=ExtResource("3_fgvlk")]
+position = Vector2(9464, 374)
+rotation = -1.5583563
+sprite = ExtResource("20_wfmlh")
+collision_shape = ExtResource("21_yjw24")
+object_mass = 15.0
+
+[node name="CoffeBag5" parent="Obstaculos" unique_id=755186783 instance=ExtResource("3_fgvlk")]
+position = Vector2(10293, 198)
+rotation = -1.5583563
+sprite = ExtResource("20_wfmlh")
+collision_shape = ExtResource("21_yjw24")
+object_mass = 15.0
+
+[node name="StampNpcs" type="Node2D" parent="." unique_id=1162292117]
+
+[node name="StampNpc" parent="StampNpcs" unique_id=717433113 instance=ExtResource("5_cmqa7")]
+position = Vector2(1120, 358)
+
+[node name="StampNpc2" parent="StampNpcs" unique_id=1331247261 instance=ExtResource("5_cmqa7")]
+position = Vector2(2036, 358)
+
+[node name="StampNpc3" parent="StampNpcs" unique_id=962799651 instance=ExtResource("5_cmqa7")]
+position = Vector2(2376, 358)
+
+[node name="StampNpc4" parent="StampNpcs" unique_id=1192465304 instance=ExtResource("5_cmqa7")]
+position = Vector2(3554, 358)
+
+[node name="StampNpc5" parent="StampNpcs" unique_id=1054847081 instance=ExtResource("5_cmqa7")]
+position = Vector2(4251, 358)
+
+[node name="StampNpc6" parent="StampNpcs" unique_id=1227215388 instance=ExtResource("5_cmqa7")]
+position = Vector2(4573, 358)
+
+[node name="StampNpc7" parent="StampNpcs" unique_id=301696232 instance=ExtResource("5_cmqa7")]
+position = Vector2(4895, 358)
+
+[node name="StampNpc8" parent="StampNpcs" unique_id=22560854 instance=ExtResource("5_cmqa7")]
+position = Vector2(6609, 358)
+
+[node name="StampNpc9" parent="StampNpcs" unique_id=1597630752 instance=ExtResource("5_cmqa7")]
+position = Vector2(7910, 358)
+
+[node name="StampNpc10" parent="StampNpcs" unique_id=1330486680 instance=ExtResource("5_cmqa7")]
+position = Vector2(8774, 358)
+
+[node name="StampNpc11" parent="StampNpcs" unique_id=981134394 instance=ExtResource("5_cmqa7")]
+position = Vector2(8939, 358)
+
+[node name="PhaseTransitions" type="Node2D" parent="." unique_id=1716037029]
+
+[node name="StartOfPhase1" parent="PhaseTransitions" unique_id=605447168 instance=ExtResource("5_4qfbq")]
+position = Vector2(333, 27)
+
+[node name="EndPhase1" parent="PhaseTransitions" unique_id=870564523 node_paths=PackedStringArray("player", "stamp_npcs_count") instance=ExtResource("14_bq6qm")]
+position = Vector2(10167, 197)
+player = NodePath("../../Player/Player")
+stamp_npcs_count = NodePath("../../UI/StampsLeft")
+next_phase_uid = "uid://c7gc1nwbe1302"
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=876751282]
+
+[node name="StampPhaseTimer" parent="UI" unique_id=76836385 node_paths=PackedStringArray("level", "stamps_left_module") instance=ExtResource("6_4qfbq")]
+level = NodePath("../..")
+stamps_left_module = NodePath("../StampsLeft")
+
+[node name="StampsLeft" parent="UI" unique_id=2143747648 instance=ExtResource("7_sf2cx")]

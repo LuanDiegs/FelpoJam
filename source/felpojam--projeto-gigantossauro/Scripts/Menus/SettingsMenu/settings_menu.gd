@@ -210,7 +210,8 @@ func set_resolution_label_enabled(_index: int):
 func load_video_settings():
 	# Vsync
 	var vsync_saved = saved_video_settings[SettingSaveManager.video_config.vsync]
-	vsync.button_pressed = vsync_saved
+	var vsync_transformed = vsync_saved == DisplayServer.VSyncMode.VSYNC_ADAPTIVE
+	vsync.button_pressed = vsync_transformed
 	
 	var resolution_saved = saved_video_settings[SettingSaveManager.video_config.resolution]
 	if resolution_saved != null:
@@ -227,7 +228,8 @@ func load_video_settings():
 
 func save_video_settings():
 	# Salva o estado do vsync
-	SettingSaveManager.save_video_settings(SettingSaveManager.video_config.vsync, vsync.button_pressed)
+	var vsync_transformed = DisplayServer.VSyncMode.VSYNC_ADAPTIVE if vsync.button_pressed else DisplayServer.VSyncMode.VSYNC_DISABLED
+	SettingSaveManager.save_video_settings(SettingSaveManager.video_config.vsync, vsync_transformed)
 	
 	# Salva a resolução selecionada
 	var resolutionVector = available_resolutions[resolution_option.selected]

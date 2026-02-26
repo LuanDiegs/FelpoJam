@@ -8,11 +8,12 @@ size = Vector2(150, 200)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rtp5"]
 content_margin_left = 1.0
+bg_color = Color(0.96, 0.90368, 0.8064, 1)
 skew = Vector2(0.2, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -36,16 +37,14 @@ texture = SubResource("PlaceholderTexture2D_hnjd5")
 
 [node name="InteractiveLabel" type="Label" parent="." unique_id=1093879523]
 z_index = 4096
-offset_left = -225.0
-offset_top = -210.0
-offset_right = 229.0
-offset_bottom = -159.0
-pivot_offset = Vector2(226, 26)
+offset_left = -273.0
+offset_top = -204.0
+offset_right = 274.0
+offset_bottom = -147.0
+pivot_offset = Vector2(274, 29)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/line_spacing = 5
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_0rtp5")
 text = "Pressione 'E' para interagir"
 metadata/_edit_use_anchors_ = true

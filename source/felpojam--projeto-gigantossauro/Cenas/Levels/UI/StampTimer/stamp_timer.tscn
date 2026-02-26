@@ -8,23 +8,6 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nbr5c"]
 texture = ExtResource("2_ccmab")
 
-[sub_resource type="Theme" id="Theme_n02yg"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sudoc"]
-bg_color = Color(0.22951785, 0.2295179, 0.22951788, 0.8784314)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfg4h"]
-bg_color = Color(0.95, 0.928625, 0.5225, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 10
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tr5jw"]
 texture = ExtResource("2_m57cg")
 
@@ -67,17 +50,6 @@ bbcode_enabled = true
 text = "Fase"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="TimeProgress" type="ProgressBar" parent="ContainerTimer/ContainerHeight" unique_id=1151439606]
-visible = false
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-theme = SubResource("Theme_n02yg")
-theme_override_styles/background = SubResource("StyleBoxFlat_sudoc")
-theme_override_styles/fill = SubResource("StyleBoxFlat_kfg4h")
-value = 50.0
-show_percentage = false
 
 [node name="LabelsTempo" type="HBoxContainer" parent="ContainerTimer/ContainerHeight" unique_id=2136134251]
 layout_mode = 2

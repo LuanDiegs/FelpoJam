@@ -13,6 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://76sjil2qc6g3" path="res://Assets/UI/SettingsMenu/Slider/slide bar.png" id="9_wdg3x"]
 [ext_resource type="Texture2D" uid="uid://c6o7sm4ke3xa" path="res://Assets/UI/SettingsMenu/Slider/thumb.png" id="10_sveky"]
 
+[sub_resource type="Gradient" id="Gradient_kn5ng"]
+colors = PackedColorArray(0.11785328, 8.2724725e-08, 1.504086e-08, 1, 0.09638945, 0.09638945, 0.09638945, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sveky"]
+gradient = SubResource("Gradient_kn5ng")
+fill_to = Vector2(1, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fnu67"]
 texture = ExtResource("2_rrg1f")
 expand_margin_left = 50.0
@@ -270,6 +277,11 @@ sfx_volume_slider = NodePath("MarginContainer/TabContainer/Audio/MarginVolume/Gr
 resolution_option = NodePath("MarginContainer/TabContainer/Video/MarginVideo/GridContainer/ResolutionSetButton")
 mode_option = NodePath("MarginContainer/TabContainer/Video/MarginVideo/GridContainer/WindowMode")
 vsync = NodePath("MarginContainer/TabContainer/Video/MarginVideo/GridContainer/vsyncChecked")
+
+[node name="Fundo" type="Sprite2D" parent="." unique_id=1712532874]
+position = Vector2(659, 395)
+scale = Vector2(23.683596, 13.784682)
+texture = SubResource("GradientTexture2D_sveky")
 
 [node name="Panel" type="Panel" parent="." unique_id=774503752]
 anchors_preset = 15

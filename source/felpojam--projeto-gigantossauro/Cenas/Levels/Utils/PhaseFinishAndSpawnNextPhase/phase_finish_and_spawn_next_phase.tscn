@@ -6,9 +6,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrosg"]
 size = Vector2(467, 547.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tw2j"]
-size = Vector2(200, 400)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b2nfk"]
 texture = ExtResource("2_2nxcc")
 
@@ -20,24 +17,15 @@ position = Vector2(1, 0)
 collision_layer = 0
 
 [node name="CollisionFinish" type="CollisionShape2D" parent="PhaseFinishArea" unique_id=1156162181]
-position = Vector2(-327.5, -166.25)
 shape = SubResource("RectangleShape2D_lrosg")
-debug_color = Color(0.5476393, 0, 0.017833069, 0.41960785)
-
-[node name="SpawnNextPhase" type="Area2D" parent="." unique_id=66855497]
-position = Vector2(960, -94)
-collision_layer = 0
-
-[node name="CollisionSpawn" type="CollisionShape2D" parent="SpawnNextPhase" unique_id=192164845]
-shape = SubResource("RectangleShape2D_3tw2j")
 debug_color = Color(0.5476393, 0, 0.017833069, 0.41960785)
 
 [node name="PanelWarning" type="Panel" parent="." unique_id=405360494]
 visible = false
-offset_left = -626.0
-offset_top = -449.0
-offset_right = -26.0
-offset_bottom = -199.0
+offset_left = -297.0
+offset_top = -289.0
+offset_right = 303.0
+offset_bottom = -39.0
 pivot_offset = Vector2(300, 125)
 theme_override_styles/panel = SubResource("StyleBoxTexture_b2nfk")
 

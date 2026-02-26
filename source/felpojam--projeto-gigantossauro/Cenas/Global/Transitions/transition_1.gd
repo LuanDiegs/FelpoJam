@@ -31,14 +31,14 @@ func change_to_scene(scene: String):
 	#Fazemos a transicao
 	Transition.transition()
 	
+	#Espera a transicao
+	await Transition._transition_finished
+	
 	#Load na cena
 	var scene_load = load(scene)
 
 	if !scene_load:
 		scene_load = load(Global.start_menu)
-	
-	#Espera a transicao
-	await Transition._transition_finished
-	
+		
 	#Troca efetivamente
 	get_tree().change_scene_to_packed(scene_load)
