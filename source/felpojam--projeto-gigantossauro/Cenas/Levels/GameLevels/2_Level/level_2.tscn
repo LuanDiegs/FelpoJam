@@ -62,15 +62,21 @@ metadata/_edit_lock_ = true
 collision_layer = 64
 collision_mask = 0
 
-[node name="ChaoCollision" type="CollisionShape2D" parent="Chao" unique_id=30658458]
+[node name="Chao" type="CollisionShape2D" parent="Chao" unique_id=30658458]
 position = Vector2(15000, 679)
 shape = SubResource("RectangleShape2D_g0id4")
 
-[node name="ChaoCollision2" type="CollisionShape2D" parent="Chao" unique_id=1447642209]
+[node name="RayCast2D" type="RayCast2D" parent="Chao" unique_id=1689095037]
+position = Vector2(0, -670)
+scale = Vector2(113.28125, 38.90625)
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=10992033]
+collision_layer = 256
+collision_mask = 0
+
+[node name="Wall" type="CollisionShape2D" parent="Wall" unique_id=1194183088]
 position = Vector2(-20.71, 364.5)
 shape = SubResource("RectangleShape2D_s6c0b")
-
-[node name="RayCast2D" type="RayCast2D" parent="Chao" unique_id=389179221]
 
 [node name="Props" type="Node" parent="." unique_id=548173110]
 

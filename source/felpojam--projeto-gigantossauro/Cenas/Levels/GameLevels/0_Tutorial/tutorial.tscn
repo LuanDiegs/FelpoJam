@@ -240,12 +240,8 @@ region_enabled = true
 region_rect = Rect2(327, 2502, 334, 337)
 
 [node name="FloorAndRoof" type="StaticBody2D" parent="." unique_id=1649533371]
-collision_layer = 64
+collision_layer = 256
 collision_mask = 0
-
-[node name="Floor" type="CollisionShape2D" parent="FloorAndRoof" unique_id=1699526054]
-position = Vector2(5281, 507)
-shape = SubResource("RectangleShape2D_pbng6")
 
 [node name="Roof" type="CollisionShape2D" parent="FloorAndRoof" unique_id=869039135]
 position = Vector2(5265.75, -199)
@@ -258,6 +254,14 @@ shape = SubResource("RectangleShape2D_s6c0b")
 [node name="Parede2" type="CollisionShape2D" parent="FloorAndRoof" unique_id=1592475784]
 position = Vector2(10478, 172)
 shape = SubResource("RectangleShape2D_s6c0b")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1713194742]
+collision_layer = 64
+collision_mask = 0
+
+[node name="Floor" type="CollisionShape2D" parent="Floor" unique_id=1421224082]
+position = Vector2(5281, 507)
+shape = SubResource("RectangleShape2D_pbng6")
 
 [node name="Player" parent="." unique_id=167809822 instance=ExtResource("2_qor82")]
 position = Vector2(159, 467)

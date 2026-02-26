@@ -43,7 +43,6 @@ Enemies=""
 Boss=""
 Floor=""
 StampNPCs=""
-Wall=""
 
 [gui]
 

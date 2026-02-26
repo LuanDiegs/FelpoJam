@@ -8,9 +8,17 @@ var gravity = 1200
 @export var turn_acelleration : float = 1600
 @export var friction : float = 1600
 @export var jump_force : float = -900
+var can_move_left := true
+var can_move_right := true
+var on_ceiling := false
+
 var lifes = Global.player_lifes
 
 @onready var ray_jumps = [$RayJump, $RayJump2, $RayJump3, $RayJump4, $RayJump5,  $RayJump6, $RayJump7, $RayJump8, $RayJump9]
+
+@onready var ray_left : RayCast2D = $RayLeft
+@onready var ray_right : RayCast2D = $RayRight
+@onready var ray_ceiling : RayCast2D = $RayCelling
 
 @onready var collision_shape = $Collision
 @onready var hurtbox = $Hurtbox
@@ -98,8 +106,26 @@ func _physics_process(delta: float) -> void:
 	_verify_slide()
 
 func _verify_direction(delta: float):
+	
+	# Atualiza permissões de movimento com base na colisão dos raycasts das direções de movimento
+	can_move_left = not ray_left.is_colliding()
+	can_move_right = not ray_right.is_colliding()
+	on_ceiling = ray_ceiling.is_colliding()
+	
+	# Se estiver no teto, zera velocidade vertical
+	if on_ceiling:
+		velocity.y = 0
+		velocity.y += gravity * delta
+	
 	#Salva o valor das teclas pressionadas, uma em valor negativo e outra em valor positivo
 	var direction = Input.get_axis("move_left", "move_right")
+	
+	#Checa se a direção para o lado que está se movendo e se pode se mover pra esse lado
+	if (direction < 0 and !can_move_left) or (direction > 0 and !can_move_right):
+		#Zera a velocidade x
+		velocity.x = 0
+		#Define a direção pra 0
+		direction = 0
 	
 	if direction != 0 and !Global.phase_finished:	
 		#Verifica se está tentando ir na direção oposta da velocidade atual, ou se está "parado"

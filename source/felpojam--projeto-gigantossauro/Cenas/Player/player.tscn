@@ -89,6 +89,24 @@ scale = Vector2(4, 4)
 target_position = Vector2(-1, 36)
 collision_mask = 66
 
+[node name="RayLeft" type="RayCast2D" parent="." unique_id=737948210]
+position = Vector2(0, -137)
+scale = Vector2(4, 4)
+target_position = Vector2(-19.25, 0)
+collision_mask = 256
+
+[node name="RayRight" type="RayCast2D" parent="." unique_id=1783555221]
+position = Vector2(0, -137)
+scale = Vector2(4, 4)
+target_position = Vector2(19.25, 0)
+collision_mask = 256
+
+[node name="RayCelling" type="RayCast2D" parent="." unique_id=214141943]
+position = Vector2(0, -133)
+scale = Vector2(4, 4)
+target_position = Vector2(0, -36.5)
+collision_mask = 256
+
 [node name="PrincipalCamera" type="Camera2D" parent="." unique_id=1710026888 node_paths=PackedStringArray("player")]
 position = Vector2(0, -360)
 zoom = Vector2(0.5, 0.5)
