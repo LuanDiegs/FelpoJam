@@ -8,6 +8,8 @@ var gravity = 1200
 @export var turn_acelleration: float = 1600
 @export var friction: float = 1600
 @export var jump_force: float = -900
+var can_move_left = true
+var can_move_right = true
 var on_ceiling := false
 
 var lifes = Global.player_lifes
@@ -201,7 +203,7 @@ func _verify_if_colliding(collision):
 				#Se o normal de y for maior que 0
 				if normal.y > 0:
 					#Aplica o empurrão
-					collider.apply_central_impulse(Vector2(0, impact_velocity * 5))
+					collider.apply_central_impulse(Vector2(0, impact_velocity * 2.5))
 
 
 func _verify_if_on_floor(delta: float):

@@ -12,6 +12,10 @@ func _ready() -> void:
 	
 	#Signal de morte
 	Global.PlayerDied.connect(_show_dead_menu)
+	
+	var current_scene = get_tree().current_scene.name
+	if current_scene == "Tutorial":
+		MusicManager.trocar_musica("tutorial", 1)
 
 
 func _show_dead_menu():

@@ -67,6 +67,23 @@ position = Vector2(2357.5, 329)
 shape = SubResource("RectangleShape2D_jt83f")
 debug_color = Color(0.9735847, 0, 0.43632257, 0.41960785)
 
+[node name="Caldeira2" type="StaticBody2D" parent="." unique_id=1744679612 groups=["Floor"]]
+collision_layer = 64
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Caldeira2" unique_id=980699782]
+position = Vector2(-134, -93)
+shape = SubResource("RectangleShape2D_jdbjj")
+
+[node name="AreaCaldera" type="Area2D" parent="Caldeira2" unique_id=1279394488]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionArea" type="CollisionShape2D" parent="Caldeira2/AreaCaldera" unique_id=1923360823]
+position = Vector2(2357.5, 329)
+shape = SubResource("RectangleShape2D_jt83f")
+debug_color = Color(0.9735847, 0, 0.43632257, 0.41960785)
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=144434657]
 position = Vector2(0, -715)
 anchor_mode = 0

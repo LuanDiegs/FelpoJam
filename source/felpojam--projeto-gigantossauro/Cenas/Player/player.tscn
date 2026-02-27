@@ -116,10 +116,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wreb2"]
-size = Vector2(146, 269)
+size = Vector2(146, 278)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rwkh"]
-size = Vector2(122, 257)
+size = Vector2(122, 271)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sdvfy"]
 size = Vector2(256, 261)
@@ -146,7 +146,7 @@ autoplay = &"idle"
 bus = &"Effects"
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=809067479]
-position = Vector2(0, -139.5)
+position = Vector2(0, -144)
 shape = SubResource("RectangleShape2D_wreb2")
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
@@ -156,7 +156,7 @@ collision_layer = 32
 collision_mask = 128
 
 [node name="Collision" type="CollisionShape2D" parent="Hurtbox" unique_id=1216154644]
-position = Vector2(0, -1.5)
+position = Vector2(0, -8.5)
 shape = SubResource("RectangleShape2D_5rwkh")
 debug_color = Color(1, 0.2784314, 0.3019608, 0.49803922)
 
@@ -219,7 +219,7 @@ collision_mask = 66
 [node name="RayCelling" type="RayCast2D" parent="." unique_id=214141943]
 position = Vector2(0, -133)
 scale = Vector2(4, 4)
-target_position = Vector2(0, -36.5)
+target_position = Vector2(0, -38.75)
 collision_mask = 256
 
 [node name="LeftContact" type="Area2D" parent="." unique_id=1426533481]

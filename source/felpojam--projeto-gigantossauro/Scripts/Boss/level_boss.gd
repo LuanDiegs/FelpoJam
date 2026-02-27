@@ -26,6 +26,7 @@ func _ready() -> void:
 	boss.boss_is_dead.connect(boss_dead_change_scene)
 	area_caldera.body_entered.connect(_delete_props)
 	
+	MusicManager.trocar_musica("boss", 1)
 
 #Função que muda a vida do player no label
 func player_life_changed(new_life : int):
@@ -38,6 +39,8 @@ func boss_life_changed(new_life : int):
 
 
 func boss_dead_change_scene():
+	
+	MusicManager.parar_musica(1)
 	Transition.change_to_scene(Global.credits_menu)
 
 

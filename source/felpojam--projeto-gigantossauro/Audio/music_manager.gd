@@ -1,5 +1,6 @@
 extends Node
 
+#region Não funciona como eu quero
 #region Clases do sistema
 #Classe interna que representa as faixas de audio
 class Track:
@@ -115,7 +116,7 @@ func load_music(music_name: String) -> bool:
 		add_child(track.player)
 		current_players.append(track.player)
 	#Printa as informações da musica atual no debug
-	print("Música '", music_name, "' carregada com ", music.tracks.size(), " faixas.")
+	#print("Música '", music_name, "' carregada com ", music.tracks.size(), " faixas.")
 	return true #Retorna true
 
 #Função para descarregar a proxima música
@@ -157,7 +158,7 @@ func preload_music(music_name : String) -> bool:
 		#Zeza o volume
 		player.volume_db = -100
 	#REtorna no debug a múscia pré-carregada
-	print("Música '", music_name, "' pré-carregada.")
+	#print("Música '", music_name, "' pré-carregada.")
 	return true #retorna true
 
 #endregion
@@ -475,27 +476,96 @@ func add_distortion_to_track(track_index : int, mode : int = 0, pre_gain : float
 	effect.keep_hf_hz = keep_hf_hz
 	return add_effect_to_track(track_index, effect)
 
-#Função que executa ao iniciar (é aqui que as músicas serão carregadas)
-func _ready() -> void:
-	
-	var menu = register_music("Menu")
-	menu.add_track(preload("res://Assets/Musicas/Menu/Menu-001.ogg"), "Track1")
-	menu.add_track(preload("res://Assets/Musicas/Menu/Menu-002.ogg"), "Track2")
-	
-	#Exemplo de como a biblioteca vai ser carregada
-	#(Assim é mais facil e rapido, é mais pesado, mas nosso jogo é leve)
-	#var menu = register_music("menu")
-	#menu.add_track(preload("res://audio/menu_base.ogg"), "Music")
-	#menu.add_track(preload("res://audio/menu_pad.ogg"), "Music")
-	#var fase1 = register_music("fase1")
-	#fase1.add_track(preload("res://audio/fase1_base.ogg"), "Music")
-	#fase1.add_track(preload("res://audio/fase1_bateria.ogg"), "Music")
-	#fase1.add_track(preload("res://audio/fase1_melodia.ogg"), "Music")
-	#var boss = register_music("boss")
-	#boss.add_track(preload("res://audio/boss_base.ogg"), "Music")
-	#boss.add_track(preload("res://audio/boss_bateria.ogg"), "Music")
-	#boss.add_track(preload("res://audio/boss_baixo.ogg"), "Music")
-	#boss.add_track(preload("res://audio/boss_melodia.ogg"), "Music")
-	#boss.add_track(preload("res://audio/boss_extra.ogg"), "Music")
-	
-	pass #não faz nada pro enquanto
+##Função que executa ao iniciar (é aqui que as músicas serão carregadas)
+#func _ready() -> void:
+	#
+	#
+	##Exemplo de como a biblioteca vai ser carregada
+	##(Assim é mais facil e rapido, é mais pesado, mas nosso jogo é leve)
+	##var menu = register_music("menu")
+	##menu.add_track(preload("res://audio/menu_base.ogg"), "Music")
+	##menu.add_track(preload("res://audio/menu_pad.ogg"), "Music")
+	##var fase1 = register_music("fase1")
+	##fase1.add_track(preload("res://audio/fase1_base.ogg"), "Music")
+	##fase1.add_track(preload("res://audio/fase1_bateria.ogg"), "Music")
+	##fase1.add_track(preload("res://audio/fase1_melodia.ogg"), "Music")
+	##var boss = register_music("boss")
+	##boss.add_track(preload("res://audio/boss_base.ogg"), "Music")
+	##boss.add_track(preload("res://audio/boss_bateria.ogg"), "Music")
+	##boss.add_track(preload("res://audio/boss_baixo.ogg"), "Music")
+	##boss.add_track(preload("res://audio/boss_melodia.ogg"), "Music")
+	##boss.add_track(preload("res://audio/boss_extra.ogg"), "Music")
+	#
+	#pass #não faz nada pro enquanto
+#endregion
+
+# Não usa @onready para evitar erro, vamos criar no _ready
+var music_player: AudioStreamPlayer
+
+var musicas = {
+	"tutorial": preload("res://Assets/Musicas/Tutorial/Tutorial.ogg"),
+	"level1": preload("res://Assets/Musicas/Level 1/Level 1.ogg"),
+	"level2": preload("res://Assets/Musicas/Level 2/Level 2.ogg"),
+	"level3": preload("res://Assets/Musicas/Level 3/Level 3.ogg"),
+	"boss": preload("res://Assets/Musicas/Boss/Boss.ogg")
+}
+
+func _ready():
+	# Cria o player se não existir
+	if not has_node("MusicPlayer"):
+		music_player = AudioStreamPlayer.new()
+		music_player.name = "MusicPlayer"
+		add_child(music_player)
+	else:
+		music_player = $MusicPlayer
+	# Configurações iniciais (opcional)
+	music_player.volume_db = 0.0
+
+func trocar_musica(nome: String, fade_duration: float = 0.0):
+	if not musicas.has(nome):
+		push_error("Música não encontrada: ", nome)
+		return
+	var nova_stream = musicas[nome]
+	if music_player.stream == nova_stream and music_player.playing:
+		print("Música '", nome, "' já está tocando.")
+		return
+	if fade_duration <= 0.0:
+		music_player.stream = nova_stream
+		music_player.play()
+		print("Tocando música: ", nome)
+		return
+	# Crossfade (igual ao código anterior)
+	var tween = create_tween()
+	tween.set_parallel(true)
+	if music_player.playing:
+		tween.tween_property(music_player, "volume_db", -80.0, fade_duration)
+	var novo_player = AudioStreamPlayer.new()
+	novo_player.stream = nova_stream
+	novo_player.bus = music_player.bus
+	novo_player.volume_db = -80.0
+	add_child(novo_player)
+	novo_player.play()
+	tween.tween_property(novo_player, "volume_db", 0.0, fade_duration)
+	await tween.finished
+	music_player.stop()
+	music_player.queue_free()
+	music_player = novo_player
+	print("Crossfade concluído: ", nome)
+
+# Função para parar a música (com fade opcional)
+func parar_musica(fade_duration: float = 0.0):
+	if fade_duration <= 0.0:
+		music_player.stop()
+	else:
+		var tween = create_tween()
+		tween.tween_property(music_player, "volume_db", -80.0, fade_duration)
+		await tween.finished
+		music_player.stop()
+
+# Função para pausar/despausar
+func pausar_musica(pausado: bool):
+	music_player.stream_paused = pausado
+
+# Função para ajustar volume (em dB)
+func set_volume(db: float):
+	music_player.volume_db = db
