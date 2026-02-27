@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://cy0p6dg80im14" path="res://Assets/Arts/Npcs/30_years/30_child.png" id="23_ppxoh"]
 [ext_resource type="Texture2D" uid="uid://cjblwnkpppkat" path="res://Assets/Arts/Npcs/30_years/30_grandma.png" id="24_iinsn"]
 [ext_resource type="Texture2D" uid="uid://b70s7tegwe3g2" path="res://Assets/Arts/Npcs/30_years/30_woman.png" id="25_p1ux8"]
+[ext_resource type="PackedScene" uid="uid://couyqnjnltymh" path="res://Cenas/NPCs/DialogNpc/dialog_npc.tscn" id="27_fmsfg"]
 
 [sub_resource type="Animation" id="Animation_ue21f"]
 length = 0.001
@@ -507,13 +508,13 @@ collision_shape = ExtResource("21_fmsfg")
 object_mass = 15.0
 
 [node name="CoffeBag4" parent="Obstaculos" unique_id=682482049 instance=ExtResource("9_5k2of")]
-position = Vector2(9367, 363)
+position = Vector2(8950, 363)
 sprite = ExtResource("20_g0xgi")
 collision_shape = ExtResource("21_fmsfg")
 object_mass = 15.0
 
 [node name="CoffeBag5" parent="Obstaculos" unique_id=541134837 instance=ExtResource("9_5k2of")]
-position = Vector2(9540, 345.00024)
+position = Vector2(9100, 345.00024)
 rotation = -0.4963472
 sprite = ExtResource("20_g0xgi")
 collision_shape = ExtResource("21_fmsfg")
@@ -572,6 +573,14 @@ texture = ExtResource("25_p1ux8")
 position = Vector2(8507, 358)
 npc_phase = 2
 flip_h_sprite = true
+
+[node name="DialogNpcs" type="Node2D" parent="." unique_id=1699424299]
+
+[node name="DialogNpc" parent="DialogNpcs" unique_id=261903943 instance=ExtResource("27_fmsfg")]
+position = Vector2(9546, 319)
+flip_h_sprite = true
+texture = ExtResource("25_p1ux8")
+npc_name = "Sofia"
 
 [node name="PhaseTransitions" type="Node2D" parent="." unique_id=1716037029]
 

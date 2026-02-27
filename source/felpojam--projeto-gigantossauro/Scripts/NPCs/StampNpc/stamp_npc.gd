@@ -55,11 +55,11 @@ func _ready() -> void:
 
 
 func _stamp_animation():
-	var tweenStamp = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	var tweenStamp = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	
 	stampSprite.visible = true
-	tweenStamp.tween_property(stampSprite, "scale", stampSprite.scale + Vector2(1,1), 0.2)
-	tweenStamp.tween_property(stampSprite, "scale", Vector2(1,1), 0.1)
+	tweenStamp.tween_property(stampSprite, "scale", stampSprite.scale + Vector2(0.1,0.1), 0.2)
+	tweenStamp.tween_property(stampSprite, "scale", Vector2(0.1,0.1), 0.1)
 	
 	await tweenStamp.finished
 	

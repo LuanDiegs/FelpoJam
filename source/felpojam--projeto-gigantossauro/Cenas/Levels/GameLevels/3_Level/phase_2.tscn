@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bpvoon0gf4s8t" path="res://Cenas/Levels/Props/normal_level/bags_big.tres" id="20_ytaof"]
 [ext_resource type="Shape2D" uid="uid://cmml7wu1aewgo" path="res://Cenas/Levels/Props/normal_level/two_bags_collision.tres" id="21_n75go"]
 [ext_resource type="Shape2D" uid="uid://ct3vd6bqwhhib" path="res://Cenas/Levels/Props/normal_level/bags_big_collision.tres" id="21_to8ny"]
+[ext_resource type="PackedScene" uid="uid://couyqnjnltymh" path="res://Cenas/NPCs/DialogNpc/dialog_npc.tscn" id="29_to8ny"]
 
 [sub_resource type="Animation" id="Animation_ue21f"]
 length = 0.001
@@ -476,6 +477,14 @@ position = Vector2(9537, 434)
 npc_phase = 2
 texture = ExtResource("17_pex3s")
 
+[node name="DialogNpcs" type="Node2D" parent="." unique_id=1843040707]
+
+[node name="DialogNpc" parent="DialogNpcs" unique_id=261903943 instance=ExtResource("29_to8ny")]
+position = Vector2(9779, 304)
+flip_h_sprite = true
+texture = ExtResource("16_pex3s")
+npc_name = "Kris"
+
 [node name="PhaseTransitions" type="Node2D" parent="." unique_id=1716037029]
 
 [node name="StartOfPhase2" parent="PhaseTransitions" unique_id=605447168 instance=ExtResource("15_sw1l0")]
@@ -486,7 +495,7 @@ phase = 2
 position = Vector2(10224, 197)
 player = NodePath("../../Player/Player")
 stamp_npcs_count = NodePath("../../UI/StampsLeft")
-next_phase_uid = "uid://dhv0ps6kf8hqjq"
+next_phase_uid = "uid://dhv0ps6kf8hqj"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=876751282]
 

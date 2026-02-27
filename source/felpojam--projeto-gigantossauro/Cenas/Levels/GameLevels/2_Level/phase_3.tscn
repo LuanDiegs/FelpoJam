@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://d3v81dasvmnyv" path="res://Assets/Arts/Npcs/40_years/40_woman.png" id="21_f3l64"]
 [ext_resource type="Texture2D" uid="uid://o684xn1i2pxo" path="res://Assets/Arts/Npcs/40_years/40_grandma.png" id="21_hcpgx"]
 [ext_resource type="Texture2D" uid="uid://cixveaqtjkoji" path="res://Assets/Arts/Npcs/40_years/40_men.png" id="22_woira"]
+[ext_resource type="PackedScene" uid="uid://couyqnjnltymh" path="res://Cenas/NPCs/DialogNpc/dialog_npc.tscn" id="27_woira"]
 
 [sub_resource type="Animation" id="Animation_ue21f"]
 length = 0.001
@@ -439,6 +440,13 @@ position = Vector2(10206, 195)
 player = NodePath("../../Player/Player")
 stamp_npcs_count = NodePath("../../UI/StampsLeft")
 next_phase_uid = "uid://hevhp04vosoy"
+
+[node name="DialogNpcs" type="Node2D" parent="." unique_id=795494549]
+
+[node name="DialogNpc" parent="DialogNpcs" unique_id=261903943 instance=ExtResource("27_woira")]
+position = Vector2(9810, 354)
+texture = ExtResource("21_83mov")
+npc_name = "Rick"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=876751282]
 

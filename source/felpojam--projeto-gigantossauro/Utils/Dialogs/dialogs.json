@@ -24,21 +24,71 @@
 		}
 	},
 	"world1": {
-		"joana": {
-			"phrase1": "Oi, eu sou a Joana, se eu pegar um texto muito grande, ele fica muitooooooooooooooooooooooooooooooooooo grande",
-			"phrase2": "Joana é o meu nome",
-			"phrase3": "Joana é legal"
+		"luan": {
+			"phrase1": "Oier, bom dia!",
+			"phrase2": "Se eu vi alguém suspeito? Acho que sim, mas hoje em dia todo mundo é um pouco, né?",
+			"phrase3": "...Não me olha assim, você entendeu o que eu quis dizer!",
+			"phrase4": "Tá boom, para de me julgar! Ele foi para o próximo vagão, é tudo que sei"
 		},
-		"matheus": {
-			"phrase1": "Oi, eu sou o Matheus",
-			"phrase2": "Matheus é o meu nome",
-			"phrase3": "Matheus é legal"
+		"sofia": {
+			"phrase1": "Bom dia, senhor",
+			"phrase2": "Estava no vagão da frente, mas um homem me deixou muito desconfortável",
+			"phrase3": "Não me sinto mais seguro(a) lá",
+			"phrase4": "Se eu fosse você, ficaria por aqui..."
 		},
-		"andré": {
-			"phrase1": "Oi, eu sou o André",
-			"phrase2": "André é o meu nome",
-			"phrase3": "André é legal"
-		}
+		"catarinha": {
+			"phrase1": "Oieee moço",
+			"phrase2": "Que bigode legal!!",
+			"phrase3": "Se eu vi alguem estranho aqui... Acho que sim",
+			"phrase4": "Acho que ele pulou da janela!",
+			"phrase5": "Nah, brincadeira, ele desceu na estação anterior"
+		},
+	},
+	"world2": {
+		"josé": {
+			"phrase1": "Pois não...",
+			"phrase2": "Suspeito é você com essa roupa antiquada",
+			"phrase3": "Se bem que...",
+			"phrase4": "Vi uma pessoa horrorosa passado com um sobretudo",
+			"phrase5": "Me dá arrepio só de lembrar"
+		},
+		"ely": {
+			"phrase1": "Olá jovem",
+			"phrase2": "Claro que é jovem, considerando minha idade",
+			"phrase3": "Um jovem com sobretudo?",
+			"phrase4": "...",
+			"phrase5": "......",
+			"phrase6": ".........",
+			"phrase7": "Ah sim, ele estava alí",
+			"phrase7": "Olá jovem...",
+		},
+		"rick": {
+			"phrase1": "Cra cra cra",
+			"phrase2": "Eu sou um papagaio, não está vendo moço?",
+			"phrase3": "Claro que papagaio viu alguem estranho, ele até parecia um pirata!",
+			"phrase4": "Papagaio, papagaio, papagaio",
+			"phrase5": "Quer brincar comigo?"
+		},
+	},
+	"world3": {
+		"gabriel": {
+			"phrase1": "Oiii senhor",
+			"phrase2": "Você tem uma boa pinta né",
+			"phrase3": "Alguem estranho? Posso ter visto se vc vier comigo",
+			"phrase4": "Aff seu chato, ele foi pra lá",
+			"phrase5": "Se quiser me levar junto..."
+		},
+		"kris": {
+			"phrase1": "*Revira o olho*",
+			"phrase2": "Ele foi pra lá, agora não me enche mais",
+		},
+		"maria": {
+			"phrase1": "Pois não moço?",
+			"phrase2": "Suspeito...? Suspeito...? Suspeito...?",
+			"phrase3": "Não me lembro, minha vista não funciona muito bem",
+			"phrase4": "Mas...",
+			"phrase5": "Ah, ei vi um vulto preto entrando alí"
+		},
 	},
 	"default1": {
 		"phrase1": "Pois não?"

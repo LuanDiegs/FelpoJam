@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://b70s7tegwe3g2" path="res://Assets/Arts/Npcs/30_years/30_woman.png" id="24_8aimn"]
 [ext_resource type="Texture2D" uid="uid://cy0p6dg80im14" path="res://Assets/Arts/Npcs/30_years/30_child.png" id="25_qxbug"]
 [ext_resource type="Texture2D" uid="uid://cjblwnkpppkat" path="res://Assets/Arts/Npcs/30_years/30_grandma.png" id="26_njjat"]
+[ext_resource type="PackedScene" uid="uid://couyqnjnltymh" path="res://Cenas/NPCs/DialogNpc/dialog_npc.tscn" id="29_8kobv"]
 
 [sub_resource type="Animation" id="Animation_ue21f"]
 length = 0.001
@@ -475,7 +476,7 @@ collision_shape = ExtResource("19_ut3ck")
 object_mass = 10.0
 
 [node name="Hay3" parent="Obstaculos" unique_id=191204048 instance=ExtResource("3_fgvlk")]
-position = Vector2(9654, 373)
+position = Vector2(9531, 373)
 sprite = ExtResource("18_pjm1u")
 collision_shape = ExtResource("19_ut3ck")
 object_mass = 10.0
@@ -506,7 +507,7 @@ collision_shape = ExtResource("21_yjw24")
 object_mass = 15.0
 
 [node name="CoffeBag4" parent="Obstaculos" unique_id=2075901278 instance=ExtResource("3_fgvlk")]
-position = Vector2(9464, 374)
+position = Vector2(9341, 374)
 rotation = -1.5583563
 sprite = ExtResource("20_wfmlh")
 collision_shape = ExtResource("21_yjw24")
@@ -576,10 +577,16 @@ player = NodePath("../../Player/Player")
 stamp_npcs_count = NodePath("../../UI/StampsLeft")
 next_phase_uid = "uid://c7gc1nwbe1302"
 
+[node name="DialogNpcs" type="Node2D" parent="." unique_id=357315884]
+
+[node name="DialogNpc" parent="DialogNpcs" unique_id=261903943 instance=ExtResource("29_8kobv")]
+position = Vector2(9779, 304)
+flip_h_sprite = true
+npc_name = "Luan"
+
 [node name="UI" type="CanvasLayer" parent="." unique_id=876751282]
 
 [node name="StampPhaseTimer" parent="UI" unique_id=76836385 node_paths=PackedStringArray("level", "stamps_left_module") instance=ExtResource("6_4qfbq")]
-stop_time_debug = true
 level = NodePath("../..")
 stamps_left_module = NodePath("../StampsLeft")
 

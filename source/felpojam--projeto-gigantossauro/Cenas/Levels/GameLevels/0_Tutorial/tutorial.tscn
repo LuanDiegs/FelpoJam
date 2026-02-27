@@ -287,7 +287,7 @@ position = Vector2(159, 467)
 [node name="DialogNpcs" type="Node2D" parent="." unique_id=1786446751]
 
 [node name="DialogNpc" parent="DialogNpcs" unique_id=261903943 instance=ExtResource("3_kbrmu")]
-position = Vector2(575, 304)
+position = Vector2(570, 304)
 flip_h_sprite = true
 texture = ExtResource("10_w7ut2")
 npc_name = "Tutorial1"
@@ -410,7 +410,7 @@ collision_shape = ExtResource("23_la1bh")
 [node name="PhaseTransitions" type="Node2D" parent="." unique_id=1343927095]
 
 [node name="StartOfTutorial" parent="PhaseTransitions" unique_id=605447168 instance=ExtResource("7_qor82")]
-position = Vector2(770, 27)
+position = Vector2(1016, 27)
 
 [node name="EndOfTutorial" parent="PhaseTransitions" unique_id=870564523 node_paths=PackedStringArray("player", "stamp_npcs_count") instance=ExtResource("13_2hkoo")]
 position = Vector2(10187, 210)

@@ -1,32 +1,38 @@
 {
 	"scene_1": {
-		"lore_1": "O assassino do carimbo né...",
-		"lore_2": "Quanto tempo que não ouço falar dele, hein? O carimbo é um dos maiores assassinos de todos os tempos",
-		"lore_3": "O quê?!?",
-		"lore_4": "Como assim ele vai estar no trem de São Paulo para Belo Horizonte?",
-		"lore_5": "O trem vai sair daqui 30 minutos??? Como você sabe disso???",
-		"lore_6": "Ok ok, depois falo contingo. Preciso ir logo pegar esse trem!!!"
+		"lore_1": "O Assassino do Carimbo? Sim, tenho uma longa história com ele.",
+		"lore_2": "Não importa o quanto eu corresse, nunca consegui descobrir a sua identidade.",
+		"lore_3": "Ele foi uma mancha na minha carreira. Tantas vítimas carimbadas, sem um desfecho para as famílias...",
+		"lore_4": "...O que!?",
+		"lore_5": "Como assim ele vai estar no trem de Bauru para Itapura?? Onde você conseguiu essa informação?",
+		"lore_6": "ELE SAI DAQUI 30 MINUTOS?",
+		"lore_7": "Tá, tá! Depois conversamos, preciso pegar logo esse trem!!"
 	},
 	"scene_2": {
-		"lore_1": "Certo, ele deve estar nesse trem certo?",
-		"lore_2": "Agora além de detetive virei maquinista...",
-		"lore_3": "Não importa, tenho que agir rápido",
-		"lore_4": "Ufff, Bora lá"
+		"lore_1": "Então, ele está aqui, é?",
+		"lore_2": "Agora, além de detetive, virei fiscal de bilhetes...",
+		"lore_3": "Não importa, preciso agir rápido.",
+		"lore_4": "Uff... Tô ficando velho demais para isso..."
 	},
 	"scene_3": {
-		"lore_1": "Uff, uff. Não acredito que ele fugiu denovo...",
+		"lore_1": "Uff, uff, não acredito que ele fugiu, de novo...",
 		"lore_2": "Que droga!",
-		"lore_3": "Vou voltar e falar com o José, falar que perdi ele novamente..."
+		"lore_3": "Preciso encontrar o José e falar o que aconteceu...",
+		"lore_4": "[10 anos depois]",
+		"lore_5": "Recebi a informação de que o Assassino do Carimbo vai estar no trem de Itapura para Corumbá!!",
+		"lore_6": "Rápido, preciso me apressar!"
 	},
 	"scene_4": {
-		"lore_1": "[10 anos depois]",
-		"lore_2": "Rápido rápido, temos notícias do assassino do carimbo!!",
-		"lore_3": "Ele vai estar no trem de Belo Horizonte para Rio de Janeiro",
-		"lore_4": "Rápido, vamos nos mobilizar"
+		"lore_1": "*Ele escapou novamente*",
+		"lore_2": "[20 anos após a primeira perseguição do assassino]",
+		"lore_3": "Tenho notícias do Assassino do Carimbo",
+		"lore_4": "Ele vai estar no trem de Corumbá para Bauru",
+		"lore_5": "De volta ao ponto inicial, não é?",
 	},
 	"scene_5": {
-		"lore_1": "[20 anos após a primeira perseguição do assassino]",
-		"lore_2": "Porra, vamos logo",
-		"lore_3": "Dessa vez eu pego esse merda"
+		"lore_1": "Aqui, ele só pode estar aqui. Na sala da caldeira",
+		"lore_2": "É isso. Dessa vez, eu não perco esse salafrário!",
+		"lore_3": "DESSA VEZ EU QUE VOU CARIMBAR SUA CARA",
+		"lore_4": "*Mathias entra e se depara com ele*",
 	}
 }
