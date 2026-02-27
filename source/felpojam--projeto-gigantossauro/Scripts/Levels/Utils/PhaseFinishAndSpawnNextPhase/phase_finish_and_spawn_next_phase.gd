@@ -48,13 +48,17 @@ func _on_body_entered_finish_area(body: Node):
 func _on_body_exited_finish_area(_body: Node):
 	_animate_panel(false)
 
-
 func _input(event: InputEvent) -> void:
 	var all_npc_stamped := stamp_npcs_count.all_npc_stamped
 	var player_in_area := _player_is_in_area()
 	
 	#Se carimbou todos, o jogador estiver na area e pressionar o botao, ira teleportar
 	if event.is_action_pressed("interact") and player_in_area and all_npc_stamped:
+		
+		var current_scene = get_tree().current_scene.name
+		if current_scene == "Tutorial" or current_scene == "Level 1 - Phase 3" or current_scene == "Level 2 - Phase 3" or current_scene == "Level 3 - Phase 3":
+			MusicManager.parar_musica(1)
+		
 		Transition.change_to_scene(next_phase_uid)
 
 

@@ -330,5 +330,5 @@ func _process(delta: float) -> void:
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	#Checa se o corpor está no grupo de obstaculos e é um rigid body
 	if body.is_in_group("Obstacles") and body is RigidBody2D:
-		take_damage()
-			
+		if body.linear_velocity.y > 0:
+			take_damage()

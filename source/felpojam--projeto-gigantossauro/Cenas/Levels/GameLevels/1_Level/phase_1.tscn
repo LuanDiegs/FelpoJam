@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cc71oylt0270h"]
+[gd_scene format=3 uid="uid://bkfgkst5l8n35"]
 
 [ext_resource type="Script" uid="uid://cv6f8mcpp4a1y" path="res://Scripts/Levels/Levels/1_Level/level1.gd" id="1_3kibx"]
 [ext_resource type="Texture2D" uid="uid://c5qxm84q2l23l" path="res://Assets/Arts/Train/30_years/ceu.png" id="2_bhgc0"]
