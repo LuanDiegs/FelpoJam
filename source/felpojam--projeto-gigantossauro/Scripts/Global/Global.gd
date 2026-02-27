@@ -158,6 +158,7 @@ func fade_to_scene(scene_path: String, duration: float = 0.5):
 	#transition_instance = null
 #endregion
 
+
 #region Função Gerais
 #Função para centralizar a janela
 func center_window():
@@ -184,4 +185,22 @@ func center_window():
 #Configuracoes globais
 func set_saved_settings():
 	pass
+#endregion
+
+
+#region Audio
+func play_sound_effect(_stream_player: AudioStreamPlayer2D, sound: AudioStream):
+	if _stream_player.stream == null or _stream_player.stream != sound:
+		_stream_player.stream = sound
+	
+	if !_stream_player.playing:	
+		_stream_player.play()
+		
+		
+func stop_sound_effect(_stream_player: AudioStreamPlayer2D):
+	if _stream_player.stream != null:
+		_stream_player.stream = null
+	
+	if !_stream_player.playing:	
+		_stream_player.stop()
 #endregion

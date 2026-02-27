@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://rvyixvm1ll61"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0v3e"]
-size = Vector2(300, 200)
+size = Vector2(300, 401)
 
 [node name="AreaInterativa" type="Area2D" unique_id=554324001 groups=["NPCs"]]
 

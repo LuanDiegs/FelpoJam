@@ -1,10 +1,13 @@
 extends Node2D
 
 #VAriaveis
-@onready var player_life_label : Label = $PlayersLifeCounter
+@onready var player_life_label : Label = $Debug/PlayersLifeCounter
 @onready var player : CharacterBody2D = $Player
-@onready var boss_life_label : Label = $BossLifeCounter
+@onready var boss_life_label : Label = $Debug/BossLifeCounter
 @onready var boss : Node2D = $Boss
+
+#Area caldera
+@onready var area_caldera: Area2D = $Caldeira/AreaCaldera
 
 #Função que roda ao iniciar o nó
 func _ready() -> void:
@@ -15,11 +18,14 @@ func _ready() -> void:
 	
 	#Conecta o sinal do boss na função de mudar a vida do boss no label
 	boss.boss_life_changed.connect(boss_life_changed)
+	
 	#Adiciona o valor da vida do player no label
 	boss_life_changed(boss.boss_lifes)
 	
+	#Signals
 	boss.boss_is_dead.connect(boss_dead_change_scene)
-
+	area_caldera.body_entered.connect(_delete_props)
+	
 
 #Função que muda a vida do player no label
 func player_life_changed(new_life : int):
@@ -33,3 +39,11 @@ func boss_life_changed(new_life : int):
 
 func boss_dead_change_scene():
 	Transition.change_to_scene(Global.credits_menu)
+
+
+func _delete_props(body: Node):
+	print(body)
+	#Se um obstaculo for jogado na caldera, ela irá sumir
+	if body.is_in_group("Obstacles"):
+		body.queue_free()
+	

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bvad14hsyus2p" path="res://Cenas/Player/player.tscn" id="8_mwfro"]
 [ext_resource type="Texture2D" uid="uid://btqbmompjecs7" path="res://Assets/Arts/Train/30_years/trem.png" id="8_sfhky"]
 [ext_resource type="Texture2D" uid="uid://cud2bbf1ydeq4" path="res://Assets/Arts/Train/30_years/meio.png" id="9_bxfrv"]
-[ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Obstacle/FloorObstacle/obstacle.tscn" id="9_tsaqk"]
+[ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Obstacle/FloorObstacle/obstacleCoffe.tscn" id="9_tsaqk"]
 [ext_resource type="Texture2D" uid="uid://cvmi11jh3pulg" path="res://Assets/Arts/Train/30_years/frente.png" id="10_4nsgk"]
 [ext_resource type="PackedScene" uid="uid://c1hulgff7kndp" path="res://Cenas/NPCs/StampNpc/stamp_npc.tscn" id="10_cdjv1"]
 [ext_resource type="Texture2D" uid="uid://c1msdjnhg4jau" path="res://Assets/Arts/Train/30_years/roda.png" id="11_ctmfk"]
@@ -20,12 +20,16 @@
 [ext_resource type="PackedScene" uid="uid://cjydupv4ijj2c" path="res://Cenas/Levels/UI/StampTimer/stamp_timer.tscn" id="13_sfhky"]
 [ext_resource type="Texture2D" uid="uid://byywpvrp6f6ct" path="res://Assets/Arts/Train/30_years/tras.png" id="13_slda0"]
 [ext_resource type="PackedScene" uid="uid://rsrluaj37ape" path="res://Cenas/Levels/UI/StampsLeft/stamps_left.tscn" id="14_bxfrv"]
-[ext_resource type="Texture2D" uid="uid://b4yayahmi4thf" path="res://Cenas/Levels/Props/bag_pile/bag_pile.tres" id="16_sfhky"]
-[ext_resource type="Shape2D" uid="uid://c5ytuplxj6xwk" path="res://Cenas/Levels/Props/bag_pile/bag_pile_collision.tres" id="17_bxfrv"]
-[ext_resource type="Texture2D" uid="uid://ctoarev68ca61" path="res://Cenas/Levels/Props/hay/hay.tres" id="18_4nsgk"]
-[ext_resource type="Shape2D" uid="uid://cw4fnbe3jsrdf" path="res://Cenas/Levels/Props/hay/hay_collision.tres" id="19_ctmfk"]
-[ext_resource type="Texture2D" uid="uid://boinp7a82ojns" path="res://Cenas/Levels/Props/coffe_bag/coffe_bag.tres" id="20_s1xxm"]
-[ext_resource type="Shape2D" uid="uid://becl2m6yldt34" path="res://Cenas/Levels/Props/coffe_bag/coffe_bag_collision.tres" id="21_slda0"]
+[ext_resource type="Texture2D" uid="uid://b4yayahmi4thf" path="res://Cenas/Levels/Props/coffe_level/bag_pile/bag_pile.tres" id="16_sfhky"]
+[ext_resource type="Texture2D" uid="uid://ctoarev68ca61" path="res://Cenas/Levels/Props/coffe_level/hay/hay.tres" id="18_4nsgk"]
+[ext_resource type="Shape2D" uid="uid://c5ytuplxj6xwk" path="res://Cenas/Levels/Props/coffe_level/bag_pile/bag_pile_collision.tres" id="18_slda0"]
+[ext_resource type="Shape2D" uid="uid://cw4fnbe3jsrdf" path="res://Cenas/Levels/Props/coffe_level/hay/hay_collision.tres" id="19_ctmfk"]
+[ext_resource type="Texture2D" uid="uid://boinp7a82ojns" path="res://Cenas/Levels/Props/coffe_level/coffe_bag/coffe_bag.tres" id="20_s1xxm"]
+[ext_resource type="Shape2D" uid="uid://becl2m6yldt34" path="res://Cenas/Levels/Props/coffe_level/coffe_bag/coffe_bag_collision.tres" id="21_slda0"]
+[ext_resource type="Texture2D" uid="uid://b70s7tegwe3g2" path="res://Assets/Arts/Npcs/30_years/30_woman.png" id="23_4nsgk"]
+[ext_resource type="Texture2D" uid="uid://cy0p6dg80im14" path="res://Assets/Arts/Npcs/30_years/30_child.png" id="24_ctmfk"]
+[ext_resource type="Texture2D" uid="uid://cjblwnkpppkat" path="res://Assets/Arts/Npcs/30_years/30_grandma.png" id="24_s1xxm"]
+[ext_resource type="Texture2D" uid="uid://tefqwf7mp7m2" path="res://Assets/Arts/Npcs/30_years/30_men.png" id="26_s1xxm"]
 
 [sub_resource type="Animation" id="Animation_ue21f"]
 length = 0.001
@@ -420,91 +424,91 @@ position = Vector2(250, 441)
 [node name="BagPile2" parent="Obstaculos" unique_id=281486825 instance=ExtResource("9_tsaqk")]
 position = Vector2(2876, 413)
 sprite = ExtResource("16_sfhky")
-collision_shape = ExtResource("17_bxfrv")
+collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile3" parent="Obstaculos" unique_id=328958681 instance=ExtResource("9_tsaqk")]
 position = Vector2(2876, 314)
 sprite = ExtResource("16_sfhky")
-collision_shape = ExtResource("17_bxfrv")
+collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile4" parent="Obstaculos" unique_id=1878665845 instance=ExtResource("9_tsaqk")]
 position = Vector2(3080, 423)
 sprite = ExtResource("16_sfhky")
-collision_shape = ExtResource("17_bxfrv")
+collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile5" parent="Obstaculos" unique_id=1940930354 instance=ExtResource("9_tsaqk")]
 position = Vector2(3301, 423)
 sprite = ExtResource("16_sfhky")
-collision_shape = ExtResource("17_bxfrv")
+collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile6" parent="Obstaculos" unique_id=81681289 instance=ExtResource("9_tsaqk")]
 position = Vector2(3093, 322)
 sprite = ExtResource("16_sfhky")
-collision_shape = ExtResource("17_bxfrv")
+collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile7" parent="Obstaculos" unique_id=292934795 instance=ExtResource("9_tsaqk")]
 position = Vector2(3517, 427)
 sprite = ExtResource("16_sfhky")
-collision_shape = ExtResource("17_bxfrv")
+collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile8" parent="Obstaculos" unique_id=1907472173 instance=ExtResource("9_tsaqk")]
 position = Vector2(3738, 427)
 sprite = ExtResource("16_sfhky")
-collision_shape = ExtResource("17_bxfrv")
+collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile9" parent="Obstaculos" unique_id=1840473421 instance=ExtResource("9_tsaqk")]
 position = Vector2(3738, 370)
 sprite = ExtResource("16_sfhky")
-collision_shape = ExtResource("17_bxfrv")
+collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile10" parent="Obstaculos" unique_id=1923804171 instance=ExtResource("9_tsaqk")]
 position = Vector2(3967, 360)
 sprite = ExtResource("16_sfhky")
-collision_shape = ExtResource("17_bxfrv")
+collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile11" parent="Obstaculos" unique_id=315675816 instance=ExtResource("9_tsaqk")]
 position = Vector2(3967, 441)
 sprite = ExtResource("16_sfhky")
-collision_shape = ExtResource("17_bxfrv")
+collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile12" parent="Obstaculos" unique_id=1608719619 instance=ExtResource("9_tsaqk")]
 position = Vector2(3967, 276)
 sprite = ExtResource("16_sfhky")
-collision_shape = ExtResource("17_bxfrv")
+collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile13" parent="Obstaculos" unique_id=357976468 instance=ExtResource("9_tsaqk")]
 position = Vector2(7846, 414)
 sprite = ExtResource("16_sfhky")
-collision_shape = ExtResource("17_bxfrv")
+collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile14" parent="Obstaculos" unique_id=2108931028 instance=ExtResource("9_tsaqk")]
 position = Vector2(8050, 414)
 sprite = ExtResource("16_sfhky")
-collision_shape = ExtResource("17_bxfrv")
+collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile15" parent="Obstaculos" unique_id=137116448 instance=ExtResource("9_tsaqk")]
 position = Vector2(8050, 326)
 sprite = ExtResource("16_sfhky")
-collision_shape = ExtResource("17_bxfrv")
+collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile16" parent="Obstaculos" unique_id=330399400 instance=ExtResource("9_tsaqk")]
 position = Vector2(8266, 423)
 sprite = ExtResource("16_sfhky")
-collision_shape = ExtResource("17_bxfrv")
+collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="Hay" parent="Obstaculos" unique_id=251112515 instance=ExtResource("9_tsaqk")]
@@ -554,21 +558,26 @@ object_mass = 15.0
 [node name="StampNpc" parent="StampNpcs" unique_id=717433113 instance=ExtResource("10_cdjv1")]
 position = Vector2(1417, 371)
 npc_phase = 3
+flip_h_sprite = true
+texture = ExtResource("23_4nsgk")
 
 [node name="StampNpc2" parent="StampNpcs" unique_id=1326621537 instance=ExtResource("10_cdjv1")]
-position = Vector2(2412, 367)
+position = Vector2(2700, 367)
 npc_phase = 3
+flip_h_sprite = true
 
 [node name="StampNpc3" parent="StampNpcs" unique_id=292484954 instance=ExtResource("10_cdjv1")]
-position = Vector2(3980, 136)
+position = Vector2(3950, 185)
 npc_phase = 3
+texture = ExtResource("24_s1xxm")
 
 [node name="StampNpc4" parent="StampNpcs" unique_id=1957946697 instance=ExtResource("10_cdjv1")]
-position = Vector2(3446, 290)
+position = Vector2(3432, 362)
 npc_phase = 3
+texture = ExtResource("24_ctmfk")
 
 [node name="StampNpc5" parent="StampNpcs" unique_id=478568713 instance=ExtResource("10_cdjv1")]
-position = Vector2(5602, 368)
+position = Vector2(5473, 368)
 npc_phase = 3
 
 [node name="StampNpc6" parent="StampNpcs" unique_id=1380469790 instance=ExtResource("10_cdjv1")]
@@ -578,6 +587,7 @@ npc_phase = 3
 [node name="StampNpc7" parent="StampNpcs" unique_id=2060671825 instance=ExtResource("10_cdjv1")]
 position = Vector2(6945, 368)
 npc_phase = 3
+flip_h_sprite = true
 
 [node name="StampNpc8" parent="StampNpcs" unique_id=1159744882 instance=ExtResource("10_cdjv1")]
 position = Vector2(7118, 368)
@@ -586,26 +596,32 @@ npc_phase = 3
 [node name="StampNpc9" parent="StampNpcs" unique_id=337372496 instance=ExtResource("10_cdjv1")]
 position = Vector2(7294, 368)
 npc_phase = 3
+flip_h_sprite = true
 
 [node name="StampNpc10" parent="StampNpcs" unique_id=1814100125 instance=ExtResource("10_cdjv1")]
-position = Vector2(8047, 180)
+position = Vector2(8070, 219)
 npc_phase = 3
+texture = ExtResource("23_4nsgk")
 
 [node name="StampNpc11" parent="StampNpcs" unique_id=530705750 instance=ExtResource("10_cdjv1")]
-position = Vector2(8869, 368)
+position = Vector2(8941, 368)
 npc_phase = 3
+texture = ExtResource("23_4nsgk")
 
 [node name="StampNpc12" parent="StampNpcs" unique_id=1336860181 instance=ExtResource("10_cdjv1")]
 position = Vector2(9098, 368)
 npc_phase = 3
+flip_h_sprite = true
 
 [node name="StampNpc13" parent="StampNpcs" unique_id=426730258 instance=ExtResource("10_cdjv1")]
-position = Vector2(9274, 368)
+position = Vector2(9348, 368)
 npc_phase = 3
 
 [node name="StampNpc14" parent="StampNpcs" unique_id=1536518996 instance=ExtResource("10_cdjv1")]
 position = Vector2(9475, 368)
 npc_phase = 3
+flip_h_sprite = true
+texture = ExtResource("26_s1xxm")
 
 [node name="PhaseTransitions" type="Node2D" parent="." unique_id=1716037029]
 
@@ -617,7 +633,7 @@ phase = 3
 position = Vector2(10167, 197)
 player = NodePath("../../Player/Player")
 stamp_npcs_count = NodePath("../../UI/StampsLeft")
-next_phase_uid = "uid://djqn3uktl2vfd"
+next_phase_uid = "uid://ddkqfw2c6h8od"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=876751282]
 

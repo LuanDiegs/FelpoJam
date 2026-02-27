@@ -1,2 +1,2 @@
 extends LevelBase
-class_name Level1
+class_name Level

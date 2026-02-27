@@ -20,15 +20,22 @@ func _ready() -> void:
 	_update_sprite_viewport()
 	
 	if not Engine.is_editor_hint():
-		self.mass = object_mass
-		texture.texture = sprite
-		collision.shape = collision_shape
+		if mass:
+			self.mass = object_mass
+		
+		if sprite:
+			texture.texture = sprite
+		
+		if collision_shape:
+			collision.shape = collision_shape
+	
 	
 #função que roda a todo frame
 func  _process(_delta: float) -> void:
 	#Checa se a posição global y é maior que 1280
 	if global_position.y > 1280:
 		queue_free()
+
 
 func _update_sprite_viewport() -> void:
 	if Engine.is_editor_hint():

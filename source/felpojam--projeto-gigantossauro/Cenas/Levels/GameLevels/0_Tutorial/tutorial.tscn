@@ -9,12 +9,26 @@
 [ext_resource type="PackedScene" uid="uid://c1hulgff7kndp" path="res://Cenas/NPCs/StampNpc/stamp_npc.tscn" id="4_8q13b"]
 [ext_resource type="Texture2D" uid="uid://b18y20fp3qfmj" path="res://Assets/Arts/Train/40_years/pedacinho-do-trem.png" id="4_ga6jx"]
 [ext_resource type="PackedScene" uid="uid://dg0ybsuj2cwws" path="res://Cenas/Obstacle/AirObstacle/air_obstacle.tscn" id="5_lcjlg"]
-[ext_resource type="PackedScene" uid="uid://b1ufgtckjsbtw" path="res://Cenas/Obstacle/FloorObstacle/obstacle.tscn" id="6_ga6jx"]
 [ext_resource type="PackedScene" uid="uid://cjydupv4ijj2c" path="res://Cenas/Levels/UI/StampTimer/stamp_timer.tscn" id="7_cihc3"]
 [ext_resource type="PackedScene" uid="uid://ow5adp35qrb2" path="res://Cenas/Levels/Utils/StartNewPhaseOrWorld/start_new_phase_or_world_area.tscn" id="7_qor82"]
 [ext_resource type="PackedScene" uid="uid://rsrluaj37ape" path="res://Cenas/Levels/UI/StampsLeft/stamps_left.tscn" id="8_2hkoo"]
 [ext_resource type="Texture2D" uid="uid://dgmn6ye048ddg" path="res://Assets/Arts/Train/40_years/roda.png" id="9_ue21f"]
+[ext_resource type="Texture2D" uid="uid://cixveaqtjkoji" path="res://Assets/Arts/Npcs/40_years/40_men.png" id="10_w7ut2"]
+[ext_resource type="Texture2D" uid="uid://d3v81dasvmnyv" path="res://Assets/Arts/Npcs/40_years/40_woman.png" id="11_ue21f"]
+[ext_resource type="Texture2D" uid="uid://o684xn1i2pxo" path="res://Assets/Arts/Npcs/40_years/40_grandma.png" id="12_aan10"]
 [ext_resource type="PackedScene" uid="uid://bhqynq01gcwx" path="res://Cenas/Levels/Utils/PhaseFinishAndSpawnNextPhase/phase_finish_and_spawn_next_phase.tscn" id="13_2hkoo"]
+[ext_resource type="Texture2D" uid="uid://rmn278sxwan0" path="res://Assets/Arts/Npcs/40_years/40_child.png" id="13_iewre"]
+[ext_resource type="PackedScene" uid="uid://cumvd5bqswq5h" path="res://Cenas/Obstacle/FloorObstacle/obstacle40_50.tscn" id="15_iewre"]
+[ext_resource type="Texture2D" uid="uid://bdpkxmlcj3s50" path="res://Cenas/Levels/Props/normal_level/two_bags.tres" id="16_y6on7"]
+[ext_resource type="Shape2D" uid="uid://cmml7wu1aewgo" path="res://Cenas/Levels/Props/normal_level/two_bags_collision.tres" id="17_46pu0"]
+[ext_resource type="Texture2D" uid="uid://dwgsvbgecpmx2" path="res://Cenas/Levels/Props/normal_level/three_bags.tres" id="18_8c51f"]
+[ext_resource type="Shape2D" uid="uid://7idxemt0452a" path="res://Cenas/Levels/Props/normal_level/three_bags_collision.tres" id="19_8uri3"]
+[ext_resource type="Texture2D" uid="uid://b362visngbg20" path="res://Cenas/Levels/Props/normal_level/closed_case.tres" id="20_m3lcw"]
+[ext_resource type="Shape2D" uid="uid://bbokymq5t2s8t" path="res://Cenas/Levels/Props/normal_level/closed_case_collision.tres" id="21_82kxv"]
+[ext_resource type="Texture2D" uid="uid://lmo0ae4a76cj" path="res://Cenas/Levels/Props/normal_level/round_bag.tres" id="22_ittek"]
+[ext_resource type="Shape2D" uid="uid://cyycpautu28si" path="res://Cenas/Levels/Props/normal_level/round_bag_collision.tres" id="23_la1bh"]
+[ext_resource type="Texture2D" uid="uid://bpvoon0gf4s8t" path="res://Cenas/Levels/Props/normal_level/bags_big.tres" id="24_t0kbo"]
+[ext_resource type="Shape2D" uid="uid://ct3vd6bqwhhib" path="res://Cenas/Levels/Props/normal_level/bags_big_collision.tres" id="25_4e777"]
 
 [sub_resource type="Animation" id="Animation_cihc3"]
 length = 0.001
@@ -262,7 +276,6 @@ shape = SubResource("RectangleShape2D_s6c0b")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1713194742]
 collision_layer = 64
-collision_mask = 0
 
 [node name="Floor" type="CollisionShape2D" parent="Floor" unique_id=1421224082]
 position = Vector2(5281, 507)
@@ -274,68 +287,125 @@ position = Vector2(159, 467)
 [node name="DialogNpcs" type="Node2D" parent="." unique_id=1786446751]
 
 [node name="DialogNpc" parent="DialogNpcs" unique_id=261903943 instance=ExtResource("3_kbrmu")]
-position = Vector2(575, 372)
+position = Vector2(575, 304)
+flip_h_sprite = true
+texture = ExtResource("10_w7ut2")
 npc_name = "Tutorial1"
 open_dialog_when_player_pass = true
 
 [node name="DialogNpc2" parent="DialogNpcs" unique_id=2105809813 instance=ExtResource("3_kbrmu")]
-position = Vector2(4385, 368)
+position = Vector2(4385, 384)
+texture = ExtResource("13_iewre")
 npc_name = "Tutorial2"
 open_dialog_when_player_pass = true
 
 [node name="DialogNpc3" parent="DialogNpcs" unique_id=175938624 instance=ExtResource("3_kbrmu")]
-position = Vector2(6456, 368)
+position = Vector2(6456, 313)
+texture = ExtResource("11_ue21f")
 npc_name = "Tutorial3"
 open_dialog_when_player_pass = true
 
 [node name="DialogNpc4" parent="DialogNpcs" unique_id=6366021 instance=ExtResource("3_kbrmu")]
-position = Vector2(9770, 368)
+position = Vector2(9667, 364)
+texture = ExtResource("12_aan10")
 npc_name = "Tutorial4"
 
 [node name="StampNpcs" type="Node2D" parent="." unique_id=729267224]
 
 [node name="StampNpc" parent="StampNpcs" unique_id=717433113 instance=ExtResource("4_8q13b")]
 position = Vector2(1431, 372)
+texture = ExtResource("10_w7ut2")
 
 [node name="StampNpc3" parent="StampNpcs" unique_id=875876358 instance=ExtResource("4_8q13b")]
-position = Vector2(2696, 372)
+position = Vector2(2758, 372)
+texture = ExtResource("10_w7ut2")
 
 [node name="StampNpc4" parent="StampNpcs" unique_id=2040704394 instance=ExtResource("4_8q13b")]
-position = Vector2(2973, 372)
+position = Vector2(2924, 372)
+flip_h_sprite = true
+texture = ExtResource("11_ue21f")
 
 [node name="StampNpc5" parent="StampNpcs" unique_id=1264729001 instance=ExtResource("4_8q13b")]
-position = Vector2(5711, 372)
+position = Vector2(5711, 425)
+texture = ExtResource("12_aan10")
 
 [node name="StampNpc6" parent="StampNpcs" unique_id=1219036461 instance=ExtResource("4_8q13b")]
-position = Vector2(7841, 372)
+position = Vector2(7892, 372)
+texture = ExtResource("10_w7ut2")
 
 [node name="StampNpc7" parent="StampNpcs" unique_id=1542585013 instance=ExtResource("4_8q13b")]
-position = Vector2(8117, 372)
+position = Vector2(8117, 451)
+texture = ExtResource("13_iewre")
 
 [node name="AirObstacles" type="Node2D" parent="." unique_id=1142759523]
 
 [node name="AirObstacle" parent="AirObstacles" unique_id=113276379 instance=ExtResource("5_lcjlg")]
-position = Vector2(7013, -189)
+position = Vector2(7170, -189)
 
 [node name="AirObstacle2" parent="AirObstacles" unique_id=1067235578 instance=ExtResource("5_lcjlg")]
 position = Vector2(8614, -189)
 
 [node name="FloorObstacles" type="Node2D" parent="." unique_id=1100314317]
 
-[node name="Obstacle" parent="FloorObstacles" unique_id=357976468 instance=ExtResource("6_ga6jx")]
-position = Vector2(3756, 409)
+[node name="Obstacle" parent="FloorObstacles" unique_id=357976468 instance=ExtResource("15_iewre")]
+position = Vector2(2013, 425)
+sprite = ExtResource("16_y6on7")
+collision_shape = ExtResource("17_46pu0")
 
-[node name="Obstacle2" parent="FloorObstacles" unique_id=143657309 instance=ExtResource("6_ga6jx")]
-position = Vector2(5076, 409)
+[node name="Obstacle2" parent="FloorObstacles" unique_id=1414365655 instance=ExtResource("15_iewre")]
+position = Vector2(2180, 425)
+sprite = ExtResource("18_8c51f")
+collision_shape = ExtResource("19_8uri3")
 
-[node name="Obstacle3" parent="FloorObstacles" unique_id=1010828008 instance=ExtResource("6_ga6jx")]
-position = Vector2(5217, 409)
+[node name="Obstacle3" parent="FloorObstacles" unique_id=891543768 instance=ExtResource("15_iewre")]
+position = Vector2(3534, 451)
+sprite = ExtResource("20_m3lcw")
+collision_shape = ExtResource("21_82kxv")
 
-[node name="Obstacle4" parent="FloorObstacles" unique_id=354227010 instance=ExtResource("6_ga6jx")]
-position = Vector2(5151, 274)
+[node name="Obstacle4" parent="FloorObstacles" unique_id=1478548691 instance=ExtResource("15_iewre")]
+position = Vector2(3706, 451)
+sprite = ExtResource("20_m3lcw")
+collision_shape = ExtResource("21_82kxv")
 
-[node name="Obstacle7" parent="FloorObstacles" unique_id=582916153 instance=ExtResource("6_ga6jx")]
-position = Vector2(9390, 403)
+[node name="Obstacle5" parent="FloorObstacles" unique_id=1169724616 instance=ExtResource("15_iewre")]
+position = Vector2(3878, 451)
+sprite = ExtResource("20_m3lcw")
+collision_shape = ExtResource("21_82kxv")
+
+[node name="Obstacle6" parent="FloorObstacles" unique_id=207937417 instance=ExtResource("15_iewre")]
+position = Vector2(3807, 372)
+sprite = ExtResource("20_m3lcw")
+collision_shape = ExtResource("21_82kxv")
+
+[node name="Obstacle7" parent="FloorObstacles" unique_id=1980360455 instance=ExtResource("15_iewre")]
+position = Vector2(3636, 372)
+sprite = ExtResource("20_m3lcw")
+collision_shape = ExtResource("21_82kxv")
+
+[node name="Obstacle8" parent="FloorObstacles" unique_id=1388658567 instance=ExtResource("15_iewre")]
+position = Vector2(3725, 298)
+sprite = ExtResource("22_ittek")
+collision_shape = ExtResource("23_la1bh")
+
+[node name="Obstacle9" parent="FloorObstacles" unique_id=448980203 instance=ExtResource("15_iewre")]
+position = Vector2(4919, 385)
+sprite = ExtResource("24_t0kbo")
+collision_shape = ExtResource("25_4e777")
+
+[node name="Obstacle12" parent="FloorObstacles" unique_id=1398876416 instance=ExtResource("15_iewre")]
+position = Vector2(9126, 391)
+sprite = ExtResource("24_t0kbo")
+collision_shape = ExtResource("25_4e777")
+
+[node name="Obstacle10" parent="FloorObstacles" unique_id=2119943141 instance=ExtResource("15_iewre")]
+position = Vector2(5067, 432)
+sprite = ExtResource("22_ittek")
+collision_shape = ExtResource("23_la1bh")
+
+[node name="Obstacle11" parent="FloorObstacles" unique_id=976431598 instance=ExtResource("15_iewre")]
+position = Vector2(5204, 431)
+sprite = ExtResource("22_ittek")
+collision_shape = ExtResource("23_la1bh")
 
 [node name="PhaseTransitions" type="Node2D" parent="." unique_id=1343927095]
 
@@ -346,7 +416,7 @@ position = Vector2(770, 27)
 position = Vector2(10187, 210)
 player = NodePath("../../Player")
 stamp_npcs_count = NodePath("../../UI/StampsLeft")
-next_phase_uid = "uid://bxgq6p58qxcx3"
+next_phase_uid = "uid://cvay0ta05kj2j"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=635148530]
 

@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://bqh03fym7is0"]
 
 [ext_resource type="Script" uid="uid://b0vipfn4ilag6" path="res://Scripts/Menus/MainMenu/start_menu.gd" id="1_54808"]
+[ext_resource type="Texture2D" uid="uid://bf00th28w22fd" path="res://Assets/Arts/MainMenu/boneco.png" id="2_l04c6"]
+[ext_resource type="Theme" uid="uid://jbesfq73oggh" path="res://Cenas/Utils/themes/button-themes/button-theme.tres" id="2_redrh"]
+[ext_resource type="Texture2D" uid="uid://bvffmtuvypx7e" path="res://Assets/Arts/MainMenu/fundo.png" id="2_sh1b4"]
+[ext_resource type="Script" uid="uid://x3c3mjyxawol" path="res://Scripts/Menus/MainMenu/Parallax/boneco_parallax.gd" id="4_h7b2t"]
+[ext_resource type="Texture2D" uid="uid://mqvoig58xm31" path="res://Assets/UI/Intermission/banner dialogo.png" id="5_vni8p"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_52tck"]
-size = Vector2(1280, 720)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7cdh"]
+texture = ExtResource("5_vni8p")
 
 [node name="StartMenu" type="Control" unique_id=1998698571]
 layout_mode = 3
@@ -15,73 +20,113 @@ grow_vertical = 2
 script = ExtResource("1_54808")
 
 [node name="BgPlaceholder" type="Sprite2D" parent="." unique_id=1606699792]
-modulate = Color(0.40859753, 0.5007568, 0.72983867, 0.49803922)
-texture = SubResource("PlaceholderTexture2D_52tck")
-centered = false
+position = Vector2(635.8333, 358.50006)
+scale = Vector2(0.341059, 0.3430556)
+texture = ExtResource("2_sh1b4")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1024908076]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+[node name="Boneco" type="Node2D" parent="." unique_id=1036224027]
+position = Vector2(685, 364)
+
+[node name="Boneco" type="Sprite2D" parent="Boneco" unique_id=1168441786]
+scale = Vector2(0.33218867, 0.3321886)
+texture = ExtResource("2_l04c6")
+script = ExtResource("4_h7b2t")
+
+[node name="PanelPressButton" type="PanelContainer" parent="." unique_id=606136979]
+layout_mode = 0
+anchor_left = 0.021875
+anchor_top = 0.6805556
+anchor_right = 0.38828126
+anchor_bottom = 0.9583333
+offset_top = -3.0517578e-05
+theme_override_styles/panel = SubResource("StyleBoxTexture_u7cdh")
 metadata/_edit_use_anchors_ = true
 
-[node name="Labels" type="VBoxContainer" parent="MarginContainer" unique_id=178023965]
+[node name="PressButtonText" type="Label" parent="PanelPressButton" unique_id=1120023823]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
+text = "Aperte qualquer botão"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginButtons" type="MarginContainer" parent="." unique_id=1024908076]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -494.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 50
+
+[node name="Labels" type="VBoxContainer" parent="MarginButtons" unique_id=178023965]
 custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 60
 alignment = 1
 
-[node name="Title" type="VBoxContainer" parent="MarginContainer/Labels" unique_id=41015899]
+[node name="Title" type="VBoxContainer" parent="MarginButtons/Labels" unique_id=41015899]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/Labels/Title" unique_id=608432669]
+[node name="Logo" type="PanelContainer" parent="MarginButtons/Labels" unique_id=2080568604]
+custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
-theme_override_font_sizes/font_size = 72
-text = "ASSASSINO DO CARIMBO"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="MarginContainer/Labels" unique_id=157510351]
+[node name="ButtonsContainer" type="VBoxContainer" parent="MarginButtons/Labels" unique_id=157510351]
 layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="PlayButton" type="Button" parent="MarginContainer/Labels/ButtonsContainer" unique_id=852808119]
+[node name="PlayButton" type="Button" parent="MarginButtons/Labels/ButtonsContainer" unique_id=852808119]
+custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_redrh")
+theme_override_font_sizes/font_size = 38
 text = "Jogar"
 
-[node name="SettingsButton" type="Button" parent="MarginContainer/Labels/ButtonsContainer" unique_id=1099062913]
+[node name="SettingsButton" type="Button" parent="MarginButtons/Labels/ButtonsContainer" unique_id=1099062913]
+custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 48
+theme = ExtResource("2_redrh")
+theme_override_font_sizes/font_size = 38
 text = "Opções
 "
 
-[node name="CreditsButton" type="Button" parent="MarginContainer/Labels/ButtonsContainer" unique_id=1319867856]
+[node name="CreditsButton" type="Button" parent="MarginButtons/Labels/ButtonsContainer" unique_id=1319867856]
+custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_redrh")
+theme_override_font_sizes/font_size = 38
 text = "Créditos
 "
 
-[node name="ExitButton" type="Button" parent="MarginContainer/Labels/ButtonsContainer" unique_id=1094835960]
+[node name="ExitButton" type="Button" parent="MarginButtons/Labels/ButtonsContainer" unique_id=1094835960]
+custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_redrh")
+theme_override_font_sizes/font_size = 38
 text = "Sair
 
 "
 
-[connection signal="pressed" from="MarginContainer/Labels/ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="MarginContainer/Labels/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="MarginContainer/Labels/ButtonsContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="MarginContainer/Labels/ButtonsContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="MarginButtons/Labels/ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginButtons/Labels/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginButtons/Labels/ButtonsContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MarginButtons/Labels/ButtonsContainer/ExitButton" to="." method="_on_exit_button_pressed"]

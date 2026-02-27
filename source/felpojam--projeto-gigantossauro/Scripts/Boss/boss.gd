@@ -62,15 +62,22 @@ func execute_walking(vel, time, time_transition, chance, delta):
 		attack_timer = time #SEta o timer do ataque para 1 segundo
 		attack_time_transition = time_transition #Seta o timer de espera para a transição deestado depois do ataque para 1 segundo
 
+
 #Função de spawndar obstaculos
 func spawn_obstacles():
-	
 	#Intancia o obstaculo
-	var instance = obstacle.instantiate()
+	var instance = obstacle.instantiate() as Obstacle
+	
+	#Colocamos a massa e o z_index
+	instance.object_mass = 1.4
+	instance.z_index = 2
+	
 	#Pega a camada onde se deve criar o objeto
 	var layer = get_parent()
+	
 	#Define a posição inicial da instancia na posição x e y atual
 	instance.global_position = Vector2(position.x, position.y - 128)
+	
 	#Adiciona a intancia na layr correta
 	layer.add_child(instance)
 
@@ -158,10 +165,8 @@ func attack_transition(delta):
 
 #Função que executa os ataques
 func execute_attack(stt, delta):
-	
 	#Verifica se o stt tem um valor especifico
 	match stt:
-		
 		#Se o valor de stt for state.attack
 		State.ATTACK:
 			#Diminui o timer pro ataque
@@ -253,16 +258,13 @@ func execute_attack(stt, delta):
 
 
 func _ready() -> void:
+	await get_tree().create_timer(1.0).timeout
 	
-	await get_tree().create_timer(2).timeout
-	
-	take_damage()
 
 #função de pprocessamento a cada quadro
 func _process(delta: float) -> void:
-	
-	#Checa se a vida é maior a 2
-	if boss_lifes > 3:
+	#Checa se a vida é maior a 3
+	if boss_lifes > 3 and boss_lifes != 0:
 		#Verifica se o actual_state tem um valor especifico
 		match actual_state:	
 			#Se o valor de actual_state for state.walking
@@ -279,11 +281,13 @@ func _process(delta: float) -> void:
 			State.ATTACK2:
 				#xecuta a função de ataque (ataque 2)
 				execute_attack(actual_state, delta)
-	#Caso o contrario (a vida é igual o menor que 2)
-	elif boss_lifes >= 1:
-		
-		match actual_state:
 			
+			#Por padrao irá andar
+			_:
+				execute_walking(speed, 1, 1, 0.005, delta)
+	#Caso o contrario (a vida é igual o menor que 2)
+	elif boss_lifes <= 3 and boss_lifes > 0:
+		match actual_state:
 			#Se o valor de actual_state for state.walkin
 			State.WALKING:
 				#Executa a função da caminhada
@@ -308,8 +312,12 @@ func _process(delta: float) -> void:
 			State.ATTACK5:
 				#xecuta a função de ataque (ataque 5)
 				execute_attack(actual_state, delta)
+			
+			#Por padrao irá andar
+			_:
+				execute_walking(speed_running, .5, 1, 0.010, delta)
 	#Caso seja 0
-	else:
+	elif boss_lifes == 0:
 		#Checa se is_dead é falso
 		if !is_dead:
 			#Emite o sinal que morreu
@@ -317,12 +325,10 @@ func _process(delta: float) -> void:
 			#Is_dead é verdadeiro (morreu)
 			is_dead = true
 
+
 #Função que checa a entrade de corpos no hurtbox
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	#Checa se o corpor está no grupo de obstaculos e é um rigid body
 	if body.is_in_group("Obstacles") and body is RigidBody2D:
-		
-		#Checa se a velocidade linear y é maior que 0
-		if body.linear_velocity.y > 0:
-			#Executa a função de tomar dano
-			take_damage()
+		take_damage()
+			
