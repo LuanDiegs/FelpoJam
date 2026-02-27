@@ -49,6 +49,10 @@ var library : Dictionary = {}
 #Variaveis de estado atual
 var current_music : Music = null
 var current_players : Array[AudioStreamPlayer] = []
+
+var next_music : Music = null
+var next_players : Array[AudioStreamPlayer] = []
+
 #endregion
 
 #region Funções para construir a biblioteca
@@ -113,9 +117,116 @@ func load_music(music_name: String) -> bool:
 	#Printa as informações da musica atual no debug
 	print("Música '", music_name, "' carregada com ", music.tracks.size(), " faixas.")
 	return true #Retorna true
+
+#Função para descarregar a proxima música
+func unload_next_music():
+	#Pega os players da proxima música
+	for player in next_players:
+		#Pausa o player da música
+		player.stop()
+		#Apaga o player da memoria
+		player.queue_free()
+	#Limpa o array de proximos  players
+	next_players.clear()
+	#Define a proxima música como null
+	next_music = null
+
+#Função para pré-carregar uma música (a proxima música) 
+func preload_music(music_name : String) -> bool:
+	#Checa se a musica é invalida
+	if !library.has(music_name):
+		#Exibe um push error
+		push_error("Música não encontrada: ", music_name)
+		return false #retorna falso
+	
+	##Descarrega a proxima musica 
+	unload_next_music()
+	
+	#Pega a música na  biblioteca
+	var music = library[music_name]
+	#Define a proxima música como a musica
+	next_music = music
+	#Pega todas as tracks da música
+	for track in music.tracks:
+		#Pega o player da track
+		var player = track.player
+		#Adiciona da cena
+		add_child(player)
+		#Adiciona o prayer no arrya dos proximos players
+		next_players.append(player)
+		#Zeza o volume
+		player.volume_db = -100
+	#REtorna no debug a múscia pré-carregada
+	print("Música '", music_name, "' pré-carregada.")
+	return true #retorna true
+
 #endregion
 
 #region Funções de controle de faixas
+
+#Função para mudar para a nova música
+func _swap_to_next():
+	#descarrega a música atual
+	unload_current_music()
+	#Muda os players atuais para os players seguintes
+	current_players = next_players
+	#Muda a música atual para a proxima música
+	current_music = next_music
+	#DEfine o next players
+	next_players = []
+	#Define a proxima música como null
+	next_music = null
+
+#Função para crossfade com a música seguinte
+func crossfade_to_next(duration: float = 2.0):
+	#Checa se o next players está vazio
+	if next_players.is_empty():
+		#Envia um push error
+		push_error("Nenhuma música pré-carregada.")
+		return #Retorna
+	#Se não há música atual, apenas toca a próxima
+	if current_players.is_empty():
+		#Troca para a proxima musica
+		_swap_to_next()
+		#Fade in
+		fade_in(duration)
+		return #retorna
+	#Fade out da atual e fade in da próxima simultaneamente
+	var tween = create_tween()
+	tween.set_parallel(true) #Define o tween como paalelo
+	#Pega todos os players atuais
+	for player in current_players:
+		#Aplica o fade out
+		tween.tween_property(player, "volume_db", -100.0, duration)
+	#pega todos os  proxios players
+	for player in next_players:
+		#Seta o volume inicial como -100
+		player.volume_db = -100.0
+		#Toca os  players
+		player.play()
+		#Aplica o fadein
+		tween.tween_property(player, "volume_db", 0.0, duration)
+	#Termina o tween
+	await tween.finished
+	# Substitui a música atual pela próxima
+	unload_current_music()
+	#Define o player atuais como os proximos
+	current_players = next_players
+	#Define a música atual como a proxima múica
+	current_music = next_music
+	#REseta o proximo players
+	next_players = []
+	#Define a proxima música como null
+	next_music = null
+
+#Conexta o final dsa musica atual com a proxima
+func connect_music_finished(callback: Callable):
+	#Checa se os players atuais estão vazio
+	if current_players.is_empty():
+		return #Retorna
+	#Conecta apenas o primeiro player (assume que todos têm a mesma duração)
+	current_players[0].finished.connect(callback)
+
 #Função para tocar todas as faixas
 func play_all():
 	for player in current_players:
