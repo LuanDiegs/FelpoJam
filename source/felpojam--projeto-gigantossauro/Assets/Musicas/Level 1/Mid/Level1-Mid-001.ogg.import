@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0am7qfqx5q1j"
+path="res://.godot/imported/Level1-Mid-001.ogg-fd4ee3217577c73a836b3cb556845656.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Musicas/Level 1/Mid/Level1-Mid-001.ogg"
+dest_files=["res://.godot/imported/Level1-Mid-001.ogg-fd4ee3217577c73a836b3cb556845656.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
