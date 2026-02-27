@@ -1,1 +1,5 @@
-Pegamos a fonte Lexend do google fonts - Utilizamos principalmente a fonte regular e bold - https://fonts.google.com/specimen/Lexend (Feito por Bonnie Shaver-Troup, Thomas Jockin, Santiago Orozco, Héctor Gómez, Superunion) - https://www.lexend.com/
+Pegamos a fonte Lexend do google fonts (cc0)
+- Licença (SIL https://openfontlicense.org/open-font-license-official-text/)
+- Utilizamos principalmente a fonte regular e bold 
+- https://fonts.google.com/specimen/Lexend (Feito por Bonnie Shaver-Troup, Thomas Jockin, Santiago Orozco, Héctor Gómez, Superunion) 
+- https://www.lexend.com/

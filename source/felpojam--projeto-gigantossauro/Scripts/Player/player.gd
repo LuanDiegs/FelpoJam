@@ -8,16 +8,12 @@ var gravity = 1200
 @export var turn_acelleration: float = 1600
 @export var friction: float = 1600
 @export var jump_force: float = -900
-var can_move_left := true
-var can_move_right := true
 var on_ceiling := false
 
 var lifes = Global.player_lifes
 
 @onready var ray_jumps = [$RayJump, $RayJump2, $RayJump3, $RayJump4, $RayJump5, $RayJump6, $RayJump7, $RayJump8, $RayJump9]
 
-@onready var ray_left: RayCast2D = $RayLeft
-@onready var ray_right: RayCast2D = $RayRight
 @onready var ray_ceiling: RayCast2D = $RayCelling
 
 @onready var collision_shape = $Collision
@@ -36,6 +32,11 @@ var original_hurtbox_pos: Vector2
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite
+
+#Audio
+@onready var stream_player: AudioStreamPlayer2D = $StreamPlayer
+var running_sound_effect := preload("uid://lhmk4vx6gkth") as AudioStream
+var turning_sound_effect := preload("uid://c1wa5sicsav1t") as AudioStream
 
 signal life_changed(new_life)
 
@@ -76,10 +77,17 @@ func _set_and_save_player_collision_and_hurtbox():
 			hurtbox_shape.position = original_hurtbox_pos
 		original_hurtbox_pos = hurtbox_shape.position
 
+
 #Função que checa se está no chão
 func in_floor() -> bool:
-	#Retrona o valor de colisão do raycast
-	return ray_jumps[0].is_colliding() or ray_jumps[1].is_colliding() or ray_jumps[2].is_colliding() or ray_jumps[3].is_colliding() or ray_jumps[4].is_colliding() or ray_jumps[5].is_colliding() or ray_jumps[6].is_colliding() or ray_jumps[7].is_colliding() or ray_jumps[8].is_colliding()
+	for i in range(ray_jumps.size()):
+		var ray = ray_jumps[i]
+		ray.force_raycast_update()
+		if ray.is_colliding():
+			return true
+				
+	return false
+
 
 #função de tomar dano
 func take_damage(amount: int):
@@ -87,6 +95,7 @@ func take_damage(amount: int):
 	lifes -= amount
 	#Emite o sinal d emudança de vida
 	life_changed.emit(lifes)
+
 
 #Função de processamento de fisica
 func _physics_process(delta: float) -> void:
@@ -109,17 +118,15 @@ func _physics_process(delta: float) -> void:
 	#Verifica slide
 	_verify_slide()
 
+
 func _verify_direction(delta: float):
 	# Atualiza permissões de movimento com base na colisão dos raycasts das direções de movimento
-	can_move_left = not ray_left.is_colliding()
-	can_move_right = not ray_right.is_colliding()
 	on_ceiling = ray_ceiling.is_colliding()
 	
-	# Se estiver no teto, zera velocidade vertical
-	if on_ceiling:
+	#Bateu no teto, cai
+	if on_ceiling and velocity.y < 0:
 		velocity.y = 0
-		velocity.y += gravity * delta
-	
+
 	#Salva o valor das teclas pressionadas, uma em valor negativo e outra em valor positivo
 	var direction = Input.get_axis("move_left", "move_right")
 	
@@ -132,36 +139,63 @@ func _verify_direction(delta: float):
 		if sign(direction) == sign(velocity.x) or velocity.x == 0:
 			#Continua com a aceleração normal
 			velocity.x = move_toward(velocity.x, direction * speed, acelleration * delta)
+			
+			#Correndo sound effect
+			if in_floor():
+				Global.play_sound_effect(stream_player, running_sound_effect)
+			else:
+				Global.stop_sound_effect(stream_player)
 		else: # caso contrario (esteja indo para a direção oposta da sua velocidade)
 			#Usa a aceleração de virada
 			velocity.x = move_toward(velocity.x, direction * speed, turn_acelleration * delta)
+			
+			#Virando sound effect
+			if in_floor():
+				Global.play_sound_effect(stream_player, running_sound_effect)
+			else:
+				Global.stop_sound_effect(stream_player)
 	else: # Caso o contratio (seja igual a 0, não tem uma direçãop)
 		#Aplica a fricção
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
+		
+		#Para o efeito
+		Global.stop_sound_effect(stream_player)
+		
+		#Coloca a animacao de idle
+		animation_player.play("idle")
+
 
 func _verify_if_colliding(collision):
 	#Checa se está colidindo com alguma coisa
 	if collision:
 		#Pega com quem está colidindo
-		var collider = collision.get_collider()
+		var collider = collision.get_collider() as Node
+		var normal = collision.get_normal()
+		
+		#Guardamos o impacto para empurrar os obstaculos
+		var impact_velocity = velocity.x if abs(normal.x) > abs(normal.y) else velocity.y
+		
+		#Verifica se estamos colidindo na lateral, caso sim desativamos o movimento
+		if  abs(normal.x) > abs(normal.y):
+			velocity.x = 0
+		else:
+			velocity.y = 0
 		
 		#Checa se o colisor está no grupo dos obstaculos se o colissor é um rigidbody
-		if collider.is_in_group("Obstacles") and collider is RigidBody2D:
-			#Pega o normal da colisão
-			var normal = collision.get_normal()
-			
+		if (collider.is_in_group("Obstacles") or collider.is_in_group("AirObstacle")) and collider is RigidBody2D:
 			#Checa se o normal x é maior que o normal y
 			if abs(normal.x) > abs(normal.y):
 				#Pega a direção inversa do normal
 				var push_dir = - normal
 				
 				#Aplica o empurrão
-				collider.apply_central_impulse(push_dir * abs(velocity.x / 2.5))
+				collider.apply_central_impulse(push_dir * abs(2500 / 2.5))
 			else: # caso contrario
 				#Se o normal de y for maior que 0
 				if normal.y > 0:
 					#Aplica o empurrão
-					collider.apply_central_impulse(Vector2(0, velocity.y * 5))
+					collider.apply_central_impulse(Vector2(0, impact_velocity * 5))
+
 
 func _verify_if_on_floor(delta: float):
 	if in_floor():
@@ -190,12 +224,14 @@ func _verify_if_on_floor(delta: float):
 	else:
 		velocity.y += gravity * delta
 
+
 func _verify_slide():
 	#Checa se a tecla de slide está sendo pressionada e se a velocidade x é maior que speed / 2.5
 	if Input.is_action_pressed("slide") and abs(velocity.x) > (speed / 2):
 		set_slide(true) # Faz o slide
 	else: # Caso o contrario
 		set_slide(false) # Não faz o slide
+
 
 func set_slide(sliding: bool):
 	#Salva o formato  da colião um retangulo 2D
@@ -236,11 +272,13 @@ func set_slide(sliding: bool):
 			hurt_shape.size.y = original_hurtbox_height
 			hurtbox_shape.position.y = original_hurtbox_pos.y
 	
+	
 func _input(event: InputEvent) -> void:
 	#Checa se o botão de pular foi pressionado
 	if event.is_action_pressed("jump") and in_floor() and !Global.phase_finished:
 		#Aplica a força do pulo
 		velocity.y = jump_force
+
 
 func _exit_tree() -> void:
 	#Inserimos os valores originais

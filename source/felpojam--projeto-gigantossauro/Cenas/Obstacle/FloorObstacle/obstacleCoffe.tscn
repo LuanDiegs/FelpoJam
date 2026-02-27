@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b1ufgtckjsbtw"]
+
+[ext_resource type="Script" uid="uid://e5xfdpnl4n48" path="res://Scripts/Obstacles/obstacle.gd" id="1_txfgu"]
+[ext_resource type="Texture2D" uid="uid://b4yayahmi4thf" path="res://Cenas/Levels/Props/coffe_level/bag_pile/bag_pile.tres" id="2_4efsu"]
+[ext_resource type="Shape2D" uid="uid://c5ytuplxj6xwk" path="res://Cenas/Levels/Props/coffe_level/bag_pile/bag_pile_collision.tres" id="3_txfgu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lnmmn"]
+bounce = 1.0
+absorbent = true
+
+[node name="Obstacle" type="RigidBody2D" unique_id=357976468 groups=["Obstacles"]]
+collision_layer = 2
+collision_mask = 323
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_lnmmn")
+script = ExtResource("1_txfgu")
+
+[node name="Texture" type="Sprite2D" parent="." unique_id=560448378]
+position = Vector2(2.3841858e-07, -9.536743e-07)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_4efsu")
+region_enabled = true
+region_rect = Rect2(0, 415, 1500, 1085)
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=771197902]
+shape = ExtResource("3_txfgu")
+debug_color = Color(0, 0.6, 0.7019608, 0.41960785)

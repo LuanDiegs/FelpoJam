@@ -21,7 +21,7 @@ func _ready() -> void:
 	phrases_count = npc_phrases.size()
 	
 	# Ajustamos a posicao para ele ficar em cima da cabeca do node
-	self.global_position.y = reference_node.position.y - 300
+	self.global_position.y = reference_node.position.y - 325
 	
 	#Signals
 	Global.DialogClosed.connect(dialog_closed)

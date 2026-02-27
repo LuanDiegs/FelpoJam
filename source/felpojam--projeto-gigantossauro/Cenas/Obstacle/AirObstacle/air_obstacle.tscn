@@ -2,18 +2,22 @@
 
 [ext_resource type="Script" uid="uid://3xa7ic30gd8y" path="res://Scripts/Obstacles/AirObstacle/air_obstacle.gd" id="1_8lxdx"]
 [ext_resource type="PackedScene" uid="uid://d2w3fgqh4ym2f" path="res://Cenas/Obstacle/AirObstacle/obstacle_segment.tscn" id="2_nc2gy"]
+[ext_resource type="Texture2D" uid="uid://bbjt50vrmefe" path="res://Assets/Arts/ObstaclesProps/prop_3.png" id="3_geg6o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fy8j"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0fy8j"]
+[sub_resource type="Gradient" id="Gradient_geg6o"]
+colors = PackedColorArray(0.4009219, 0.2771535, 0, 1, 0.4, 0.27333334, 0, 1)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6e8eq"]
-size = Vector2(2, 2)
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p327f"]
+gradient = SubResource("Gradient_geg6o")
+width = 20
+height = 20
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8lxdx"]
-size = Vector2(93, 95)
+size = Vector2(153, 95)
 
-[node name="AirObstacle" type="Node2D" unique_id=113276379 groups=["Obstacles"]]
+[node name="AirObstacle" type="Node2D" unique_id=113276379 groups=["AirObstacle"]]
 script = ExtResource("1_8lxdx")
 
 [node name="Holder" type="StaticBody2D" parent="." unique_id=335827582]
@@ -22,8 +26,7 @@ script = ExtResource("1_8lxdx")
 shape = SubResource("RectangleShape2D_0fy8j")
 
 [node name="Sprite2D" type="Sprite2D" parent="Holder" unique_id=1349548118]
-scale = Vector2(20, 20)
-texture = SubResource("PlaceholderTexture2D_0fy8j")
+texture = SubResource("GradientTexture2D_p327f")
 
 [node name="RopeSegments" type="Node2D" parent="." unique_id=2085659376]
 
@@ -48,33 +51,42 @@ position = Vector2(0, 124)
 [node name="Pin 2-3" type="PinJoint2D" parent="RopeSegments" unique_id=997983248]
 position = Vector2(0, 162)
 node_a = NodePath("../Rope2")
-node_b = NodePath("../Roope3")
+node_b = NodePath("../Rope3")
 disable_collision = false
 
-[node name="Roope3" parent="RopeSegments" unique_id=30064820 instance=ExtResource("2_nc2gy")]
-position = Vector2(0, 200)
+[node name="Rope3" parent="RopeSegments" unique_id=1971905025 instance=ExtResource("2_nc2gy")]
+position = Vector2(0, 201)
+
+[node name="Pin 3-4" type="PinJoint2D" parent="RopeSegments" unique_id=1261470037]
+position = Vector2(0, 239)
+node_a = NodePath("../Rope3")
+node_b = NodePath("../Rope4")
+disable_collision = false
+
+[node name="Rope4" parent="RopeSegments" unique_id=30064820 instance=ExtResource("2_nc2gy")]
+position = Vector2(0, 277)
 
 [node name="Pint 3-obj" type="PinJoint2D" parent="RopeSegments" unique_id=1569802952]
-position = Vector2(0, 238)
-node_a = NodePath("../Roope3")
+position = Vector2(0, 315)
+node_a = NodePath("../Rope4")
 node_b = NodePath("../../Obj")
 disable_collision = false
 
-[node name="Obj" type="RigidBody2D" parent="." unique_id=1835590911 groups=["Obstacles"]]
-position = Vector2(0, 284)
+[node name="Obj" type="RigidBody2D" parent="." unique_id=1835590911 groups=["AirObstacle"]]
+position = Vector2(0, 361)
 collision_layer = 2
-collision_mask = 193
-mass = 5.0
+collision_mask = 321
+mass = 0.5
 linear_damp_mode = 1
 linear_damp = 2.0
 angular_damp_mode = 1
 angular_damp = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Obj" unique_id=1869051043]
-position = Vector2(0.25, 0.5)
-scale = Vector2(46.5, 46.5)
-texture = SubResource("PlaceholderTexture2D_6e8eq")
+position = Vector2(1, 25)
+scale = Vector2(0.3239645, 0.3239645)
+texture = ExtResource("3_geg6o")
 
 [node name="Collision" type="CollisionShape2D" parent="Obj" unique_id=1882305006]
-position = Vector2(0.5000019, -0.5)
+position = Vector2(1.5000019, -0.5)
 shape = SubResource("RectangleShape2D_8lxdx")

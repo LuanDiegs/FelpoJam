@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c64xhqtvt5nbl" path="res://Scripts/NPCs/StampNpc/stamp_npc.gd" id="1_gxuit"]
 [ext_resource type="PackedScene" uid="uid://rvyixvm1ll61" path="res://Cenas/NPCs/Components/area_interativa_npc.tscn" id="1_mk810"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jlqwx"]
-size = Vector2(150, 200)
+[ext_resource type="Texture2D" uid="uid://tefqwf7mp7m2" path="res://Assets/Arts/Npcs/30_years/30_men.png" id="2_xkucb"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mk810"]
 size = Vector2(100, 100)
@@ -25,8 +23,9 @@ script = ExtResource("1_gxuit")
 label = NodePath("StampLabel")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=680743639]
-position = Vector2(0, 100)
-texture = SubResource("PlaceholderTexture2D_jlqwx")
+position = Vector2(-1.5258789e-05, -42)
+scale = Vector2(0.17900346, 0.17900343)
+texture = ExtResource("2_xkucb")
 offset = Vector2(0, -100)
 
 [node name="AreaInterativa" parent="." unique_id=554324001 instance=ExtResource("1_mk810")]
@@ -34,9 +33,9 @@ offset = Vector2(0, -100)
 [node name="StampLabel" type="Control" parent="." unique_id=908051306]
 layout_mode = 3
 anchors_preset = 0
-offset_top = -200.0
+offset_top = -353.0
 offset_right = 40.0
-offset_bottom = -160.0
+offset_bottom = -313.0
 
 [node name="StampPopUp" type="PanelContainer" parent="StampLabel" unique_id=1055155445]
 custom_minimum_size = Vector2(150, 150)
@@ -70,3 +69,6 @@ text = "E"
 visible = false
 scale = Vector2(10, 10)
 texture = SubResource("GradientTexture2D_xkucb")
+
+[node name="StreamPlayer" type="AudioStreamPlayer2D" parent="." unique_id=41489859]
+bus = &"Effects"

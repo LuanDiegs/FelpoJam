@@ -1,10 +1,8 @@
 [gd_scene format=3 uid="uid://couyqnjnltymh"]
 
 [ext_resource type="Script" uid="uid://bj2l83204jtjm" path="res://Scripts/NPCs/DialogNpc/dialog_npc.gd" id="1_hnjd5"]
+[ext_resource type="Texture2D" uid="uid://tefqwf7mp7m2" path="res://Assets/Arts/Npcs/30_years/30_men.png" id="2_14qug"]
 [ext_resource type="PackedScene" uid="uid://rvyixvm1ll61" path="res://Cenas/NPCs/Components/area_interativa_npc.tscn" id="3_14qug"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hnjd5"]
-size = Vector2(150, 200)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rtp5"]
 content_margin_left = 1.0
@@ -31,16 +29,17 @@ npc_name = "André"
 label = NodePath("InteractiveLabel")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=893442623]
-texture = SubResource("PlaceholderTexture2D_hnjd5")
+scale = Vector2(0.179, 0.179)
+texture = ExtResource("2_14qug")
 
 [node name="AreaInterativa" parent="." unique_id=554324001 instance=ExtResource("3_14qug")]
 
 [node name="InteractiveLabel" type="Label" parent="." unique_id=1093879523]
 z_index = 4096
 offset_left = -273.0
-offset_top = -204.0
+offset_top = -301.0
 offset_right = 274.0
-offset_bottom = -147.0
+offset_bottom = -244.0
 pivot_offset = Vector2(274, 29)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
