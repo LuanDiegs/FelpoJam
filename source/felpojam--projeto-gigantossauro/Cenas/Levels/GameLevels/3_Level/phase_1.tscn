@@ -25,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://o684xn1i2pxo" path="res://Assets/Arts/Npcs/40_years/40_grandma.png" id="16_iqq1d"]
 [ext_resource type="Texture2D" uid="uid://cixveaqtjkoji" path="res://Assets/Arts/Npcs/40_years/40_men.png" id="17_ym4wr"]
 [ext_resource type="Texture2D" uid="uid://rmn278sxwan0" path="res://Assets/Arts/Npcs/40_years/40_child.png" id="18_iqq1d"]
+[ext_resource type="PackedScene" uid="uid://couyqnjnltymh" path="res://Cenas/NPCs/DialogNpc/dialog_npc.tscn" id="22_cb21j"]
+[ext_resource type="Texture2D" uid="uid://bejhfc4rw5g2k" path="res://Assets/Arts/Npcs/50_years/50_men.png" id="23_ucx0h"]
 
 [sub_resource type="Animation" id="Animation_ue21f"]
 length = 0.001
@@ -417,6 +419,14 @@ texture = ExtResource("18_iqq1d")
 position = Vector2(8916, 437)
 texture = ExtResource("18_iqq1d")
 
+[node name="DialogNpcs" type="Node2D" parent="." unique_id=2038021116]
+
+[node name="DialogNpc" parent="DialogNpcs" unique_id=261903943 instance=ExtResource("22_cb21j")]
+position = Vector2(9779, 304)
+flip_h_sprite = true
+texture = ExtResource("23_ucx0h")
+npc_name = "Gabriel"
+
 [node name="PhaseTransitions" type="Node2D" parent="." unique_id=1716037029]
 
 [node name="StartOfPhase1" parent="PhaseTransitions" unique_id=605447168 instance=ExtResource("5_ut7x3")]
@@ -426,7 +436,7 @@ position = Vector2(122, 27)
 position = Vector2(10224, 197)
 player = NodePath("../../Player/Player")
 stamp_npcs_count = NodePath("../../UI/StampsLeft")
-next_phase_uid = "uid://7pdmrd83w4g"
+next_phase_uid = "uid://djqn3uktl2vfd"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=876751282]
 

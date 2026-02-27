@@ -29,6 +29,7 @@
 [ext_resource type="Shape2D" uid="uid://cmml7wu1aewgo" path="res://Cenas/Levels/Props/normal_level/two_bags_collision.tres" id="18_jcgf7"]
 [ext_resource type="Texture2D" uid="uid://lmo0ae4a76cj" path="res://Cenas/Levels/Props/normal_level/round_bag.tres" id="19_1pjy6"]
 [ext_resource type="Shape2D" uid="uid://cyycpautu28si" path="res://Cenas/Levels/Props/normal_level/round_bag_collision.tres" id="20_87peq"]
+[ext_resource type="PackedScene" uid="uid://couyqnjnltymh" path="res://Cenas/NPCs/DialogNpc/dialog_npc.tscn" id="26_jcgf7"]
 
 [sub_resource type="Animation" id="Animation_ue21f"]
 length = 0.001
@@ -466,10 +467,12 @@ npc_phase = 2
 flip_h_sprite = true
 texture = ExtResource("14_4rn6r")
 
-[node name="StampNpc13" parent="StampNpcs" unique_id=1297599308 instance=ExtResource("10_vip02")]
-position = Vector2(9760, 447)
-npc_phase = 2
+[node name="DialogNpcs" type="Node2D" parent="." unique_id=1790754020]
+
+[node name="DialogNpc" parent="DialogNpcs" unique_id=261903943 instance=ExtResource("26_jcgf7")]
+position = Vector2(9810, 354)
 texture = ExtResource("15_lqpd2")
+npc_name = "Ely"
 
 [node name="PhaseTransitions" type="Node2D" parent="." unique_id=1564032221]
 

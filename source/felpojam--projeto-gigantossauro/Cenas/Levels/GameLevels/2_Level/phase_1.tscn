@@ -27,6 +27,7 @@
 [ext_resource type="Shape2D" uid="uid://7idxemt0452a" path="res://Cenas/Levels/Props/normal_level/three_bags_collision.tres" id="15_g1q51"]
 [ext_resource type="Texture2D" uid="uid://bdpkxmlcj3s50" path="res://Cenas/Levels/Props/normal_level/two_bags.tres" id="16_plhy8"]
 [ext_resource type="Shape2D" uid="uid://cmml7wu1aewgo" path="res://Cenas/Levels/Props/normal_level/two_bags_collision.tres" id="17_h6hst"]
+[ext_resource type="PackedScene" uid="uid://couyqnjnltymh" path="res://Cenas/NPCs/DialogNpc/dialog_npc.tscn" id="24_h6hst"]
 
 [sub_resource type="Animation" id="Animation_ue21f"]
 length = 0.001
@@ -451,6 +452,14 @@ texture = ExtResource("13_l2f4t")
 position = Vector2(9192, 344)
 flip_h_sprite = true
 texture = ExtResource("12_kpo1t")
+
+[node name="DialogNpcs" type="Node2D" parent="." unique_id=1016104749]
+
+[node name="DialogNpc" parent="DialogNpcs" unique_id=261903943 instance=ExtResource("24_h6hst")]
+position = Vector2(9779, 304)
+flip_h_sprite = true
+texture = ExtResource("11_07dba")
+npc_name = "José"
 
 [node name="PhaseTransitions" type="Node2D" parent="." unique_id=1564032221]
 

@@ -96,7 +96,7 @@ func _input(event: InputEvent) -> void:
 		return
 		
 	# Se apertar qualquer tecla
-	if ((event is InputEventKey and event.is_released()) or event.is_action_pressed("interact")) \
+	if ((event is InputEventKey and event.is_released()) or event.is_action_released("interact")) \
 	and current_lore_sentence <= count_lore_sentences + 1:
 		if !tween_text_ratio:
 			return

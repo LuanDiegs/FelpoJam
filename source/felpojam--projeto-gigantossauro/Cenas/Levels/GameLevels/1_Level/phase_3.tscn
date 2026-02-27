@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://cy0p6dg80im14" path="res://Assets/Arts/Npcs/30_years/30_child.png" id="24_ctmfk"]
 [ext_resource type="Texture2D" uid="uid://cjblwnkpppkat" path="res://Assets/Arts/Npcs/30_years/30_grandma.png" id="24_s1xxm"]
 [ext_resource type="Texture2D" uid="uid://tefqwf7mp7m2" path="res://Assets/Arts/Npcs/30_years/30_men.png" id="26_s1xxm"]
+[ext_resource type="PackedScene" uid="uid://couyqnjnltymh" path="res://Cenas/NPCs/DialogNpc/dialog_npc.tscn" id="27_slda0"]
 
 [sub_resource type="Animation" id="Animation_ue21f"]
 length = 0.001
@@ -604,24 +605,31 @@ npc_phase = 3
 texture = ExtResource("23_4nsgk")
 
 [node name="StampNpc11" parent="StampNpcs" unique_id=530705750 instance=ExtResource("10_cdjv1")]
-position = Vector2(8941, 368)
+position = Vector2(8592, 368)
 npc_phase = 3
 texture = ExtResource("23_4nsgk")
 
 [node name="StampNpc12" parent="StampNpcs" unique_id=1336860181 instance=ExtResource("10_cdjv1")]
-position = Vector2(9098, 368)
+position = Vector2(8749, 368)
 npc_phase = 3
 flip_h_sprite = true
 
 [node name="StampNpc13" parent="StampNpcs" unique_id=426730258 instance=ExtResource("10_cdjv1")]
-position = Vector2(9348, 368)
+position = Vector2(8999, 368)
 npc_phase = 3
 
 [node name="StampNpc14" parent="StampNpcs" unique_id=1536518996 instance=ExtResource("10_cdjv1")]
-position = Vector2(9475, 368)
+position = Vector2(9126, 368)
 npc_phase = 3
 flip_h_sprite = true
 texture = ExtResource("26_s1xxm")
+
+[node name="DialogNpcs" type="Node2D" parent="." unique_id=1270504287]
+
+[node name="DialogNpc" parent="DialogNpcs" unique_id=261903943 instance=ExtResource("27_slda0")]
+position = Vector2(9675, 376)
+texture = ExtResource("24_ctmfk")
+npc_name = "Catarinha"
 
 [node name="PhaseTransitions" type="Node2D" parent="." unique_id=1716037029]
 

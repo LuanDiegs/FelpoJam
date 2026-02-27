@@ -3,20 +3,12 @@
 [ext_resource type="Script" uid="uid://c64xhqtvt5nbl" path="res://Scripts/NPCs/StampNpc/stamp_npc.gd" id="1_gxuit"]
 [ext_resource type="PackedScene" uid="uid://rvyixvm1ll61" path="res://Cenas/NPCs/Components/area_interativa_npc.tscn" id="1_mk810"]
 [ext_resource type="Texture2D" uid="uid://tefqwf7mp7m2" path="res://Assets/Arts/Npcs/30_years/30_men.png" id="2_xkucb"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mk810"]
-size = Vector2(100, 100)
+[ext_resource type="Texture2D" uid="uid://bnjvd0r7i7h6e" path="res://Assets/UI/Global/banner/banner-fundo.png" id="4_kt58f"]
+[ext_resource type="Texture2D" uid="uid://c1msdjnhg4jau" path="res://Assets/Arts/Train/30_years/roda.png" id="5_m3rxq"]
 
 [sub_resource type="FontVariation" id="FontVariation_mk810"]
 variation_embolden = 1.0
 variation_transform = Transform2D(1.35, -0.045, -0.245, 1.12, -0.145, 0)
-
-[sub_resource type="Gradient" id="Gradient_gxuit"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xkucb"]
-gradient = SubResource("Gradient_gxuit")
-width = 32
-height = 32
 
 [node name="StampNpc" type="Node2D" unique_id=717433113 node_paths=PackedStringArray("label") groups=["StampNPCs"]]
 script = ExtResource("1_gxuit")
@@ -48,9 +40,16 @@ pivot_offset = Vector2(75, 87)
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="StampLabel/StampPopUp" unique_id=1312101313]
+[node name="Shadow" type="Sprite2D" parent="StampLabel/StampPopUp" unique_id=1151604801]
+modulate = Color(0, 0, 0, 1)
 position = Vector2(75, 77)
-texture = SubResource("PlaceholderTexture2D_mk810")
+scale = Vector2(0.105, 0.105)
+texture = ExtResource("4_kt58f")
+
+[node name="Paper" type="Sprite2D" parent="StampLabel/StampPopUp" unique_id=1312101313]
+position = Vector2(75, 77)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_kt58f")
 
 [node name="Dick" type="Label" parent="StampLabel" unique_id=626536966]
 layout_mode = 0
@@ -67,8 +66,7 @@ text = "E"
 
 [node name="Stamp" type="Sprite2D" parent="StampLabel" unique_id=1781282869]
 visible = false
-scale = Vector2(10, 10)
-texture = SubResource("GradientTexture2D_xkucb")
+texture = ExtResource("5_m3rxq")
 
 [node name="StreamPlayer" type="AudioStreamPlayer2D" parent="." unique_id=41489859]
 bus = &"Effects"
