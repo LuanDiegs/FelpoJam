@@ -46,7 +46,6 @@ signal life_changed(new_life)
 func _ready() -> void:
 	_set_and_save_player_collision_and_hurtbox()
 
-
 func _set_and_save_player_collision_and_hurtbox():
 	var col_shape = collision_shape.shape as RectangleShape2D
 	#Seta e salva as propriedades do jogador
