@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Próximo Vagão"
+config/name="Próxima estação"
 run/main_scene="uid://bqh03fym7is0"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://ctd01q7iuwxu0"

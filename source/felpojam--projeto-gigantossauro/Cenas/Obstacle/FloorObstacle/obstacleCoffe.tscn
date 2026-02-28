@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b1ufgtckjsbtw"]
 
 [ext_resource type="Script" uid="uid://e5xfdpnl4n48" path="res://Scripts/Obstacles/obstacle.gd" id="1_txfgu"]
-[ext_resource type="Texture2D" uid="uid://b4yayahmi4thf" path="res://Cenas/Levels/Props/coffe_level/bag_pile/bag_pile.tres" id="2_4efsu"]
-[ext_resource type="Shape2D" uid="uid://c5ytuplxj6xwk" path="res://Cenas/Levels/Props/coffe_level/bag_pile/bag_pile_collision.tres" id="3_txfgu"]
+[ext_resource type="Texture2D" uid="uid://dj40bkhcf2pw0" path="res://Assets/Arts/ObstaclesProps/prop_9.png" id="2_txfgu"]
+[ext_resource type="Shape2D" uid="uid://becl2m6yldt34" path="res://Cenas/Levels/Props/coffe_level/coffe_bag/coffe_bag_collision.tres" id="3_4efsu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lnmmn"]
 bounce = 1.0
@@ -18,10 +18,10 @@ script = ExtResource("1_txfgu")
 [node name="Texture" type="Sprite2D" parent="." unique_id=560448378]
 position = Vector2(2.3841858e-07, -9.536743e-07)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_4efsu")
+texture = ExtResource("2_txfgu")
 region_enabled = true
 region_rect = Rect2(0, 415, 1500, 1085)
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=771197902]
-shape = ExtResource("3_txfgu")
+shape = ExtResource("3_4efsu")
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)

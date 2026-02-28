@@ -1,6 +1,8 @@
 extends Node
 
 #region Não funciona como eu quero
+
+
 #region Clases do sistema
 #Classe interna que representa as faixas de audio
 class Track:
@@ -43,6 +45,7 @@ class Music:
 		return tracks.size()
 #endregion
 
+
 #region Variaveis
 #Biblioteca de músicas
 var library : Dictionary = {}
@@ -55,6 +58,7 @@ var next_music : Music = null
 var next_players : Array[AudioStreamPlayer] = []
 
 #endregion
+
 
 #region Funções para construir a biblioteca
 #Função que registras a musica na biblioteca
@@ -83,6 +87,7 @@ func add_track_to_music(music_name: String, stream: AudioStreamPlayer, bus: Stri
 		#Envia um push error falando que a música não foi encontrada
 		push_error("Música não encontrada: ", music_name)
 #endregion
+
 
 #region Funções de carregamento e descarregamento
 #Função que descarreva a música atual
@@ -162,6 +167,7 @@ func preload_music(music_name : String) -> bool:
 	return true #retorna true
 
 #endregion
+
 
 #region Funções de controle de faixas
 
@@ -310,6 +316,7 @@ func fade_out(duration: float = 2.0, stop_after: bool = true):
 		stop_all()
 #endregion
 
+
 #region Funções de controle de efeitos
 #Retorna qual é o bus da track (por mais que a gente já saiba qual o bus a godot não sabe)
 func get_track_bus(track_index : int) -> String:
@@ -391,6 +398,7 @@ predelay_feedback : float = 0.01) -> bool:
 	effect.predelay_feedback = predelay_feedback
 	return add_effect_to_track(track_index, effect)
 
+
 #Função para adicionar o efeito de chorus na track
 func add_chorus_to_track( track_index : int, voice_count : int = 2, wet : float = 1.0, dry: float = 1.0) -> bool:
 	var effect = AudioEffectChorus.new()
@@ -398,6 +406,7 @@ func add_chorus_to_track( track_index : int, voice_count : int = 2, wet : float 
 	effect.wet = wet
 	effect.dry = dry
 	return add_effect_to_track(track_index, effect)
+
 
 #Função para adicionar o defeito dedelay na track
 func add_delay_to_track( track_index : int, feedback : bool = true, feedback_delay_ms : int = 500.0,
@@ -420,6 +429,7 @@ tap2_delay_ms : float = 500.0, tap2_level_db : float = 0.0, tap2_pan : float = -
 	effect.tap2_pan = tap2_pan
 	return add_effect_to_track(track_index, effect)
 
+
 #Função que adiciona um efeito de filtro na track
 func add_filter_to_track( track_index : int, cutoff_hz : float = 2000.0, resonance : float = 0.5,
 gain : float = 0.0, db = 0) -> bool:
@@ -430,11 +440,13 @@ gain : float = 0.0, db = 0) -> bool:
 	effect.db = db
 	return add_effect_to_track(track_index, effect)
 
+
 #Função de efeito de panning da track
 func add_panner_to_track(track_index: int, pan: float = 0.0) -> bool:
 	var effect = AudioEffectPanner.new()
 	effect.pan = pan
 	return add_effect_to_track(track_index, effect)
+
 
 #Função de efeito de expansão stereo da track
 func add_stereo_enhance_to_track( track_index : int, pan_pullout: float = 1, time_pullot_ms : float = 50,
@@ -445,6 +457,7 @@ surround : float = 0) -> bool:
 	effect.surround = surround
 	return add_effect_to_track(track_index, effect)
 
+
 #Função de efeito de mudança pitch de track
 func add_pitch_shift_to_track(track_index: int,
 pitch_scale: float = 1.0, fft_size : int = 2, oversampling: int = 4) -> bool:
@@ -453,6 +466,7 @@ pitch_scale: float = 1.0, fft_size : int = 2, oversampling: int = 4) -> bool:
 	effect.fft_size = fft_size
 	effect.oversampling = oversampling
 	return add_effect_to_track(track_index, effect)
+
 
 #Função para adicionar efeito de phaser na track
 func add_phaser_to_track(track_index : int, depth : float = 1.0, feedback : float = 0.7,
@@ -465,6 +479,7 @@ range_max_hz : float = 1600, range_min_hz : float = 440, rate_hz : float = 0.5) 
 	effect.rate_hz = rate_hz
 	return add_effect_to_track(track_index, effect)
 
+
 #Função para adicionar o efetiro de distorção na trak
 func add_distortion_to_track(track_index : int, mode : int = 0, pre_gain : float = 1.0, post_gain : float = 1.0,
 	drive : float = 0, keep_hf_hz : int = 16000) -> bool:
@@ -475,6 +490,7 @@ func add_distortion_to_track(track_index : int, mode : int = 0, pre_gain : float
 	effect.drive = drive
 	effect.keep_hf_hz = keep_hf_hz
 	return add_effect_to_track(track_index, effect)
+
 
 ##Função que executa ao iniciar (é aqui que as músicas serão carregadas)
 #func _ready() -> void:
@@ -507,7 +523,10 @@ var musicas = {
 	"level1": preload("res://Assets/Musicas/Level 1/Level 1.ogg"),
 	"level2": preload("res://Assets/Musicas/Level 2/Level 2.ogg"),
 	"level3": preload("res://Assets/Musicas/Level 3/Level 3.ogg"),
-	"boss": preload("res://Assets/Musicas/Boss/Boss.ogg")
+	"boss": preload("res://Assets/Musicas/Boss/Boss.ogg"),
+	"intermission": preload("uid://bnvtsb2o04dow"),
+	"main_menu": preload("uid://e6f84ndn4g16"),
+	"dead_menu": preload("uid://eds42pn5t275")
 }
 
 func _ready():
@@ -557,6 +576,7 @@ func trocar_musica(nome: String, fade_duration: float = 0.0):
 	music_player = novo_player
 	print("Crossfade concluído: ", nome)
 
+
 # Função para parar a música (com fade opcional)
 func parar_musica(fade_duration: float = 0.0):
 	if fade_duration <= 0.0:
@@ -567,10 +587,17 @@ func parar_musica(fade_duration: float = 0.0):
 		await tween.finished
 		music_player.stop()
 
+
 # Função para pausar/despausar
 func pausar_musica(pausado: bool):
 	music_player.stream_paused = pausado
 
+
 # Função para ajustar volume (em dB)
 func set_volume(db: float):
 	music_player.volume_db = db
+
+
+#Verifica se a musica já tá tocando
+func verify_if_playing(music_name: String):
+	return music_player.name == music_name and music_player.playing

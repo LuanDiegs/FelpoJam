@@ -10,23 +10,25 @@
 [ext_resource type="PackedScene" uid="uid://bvad14hsyus2p" path="res://Cenas/Player/player.tscn" id="8_axi16"]
 [ext_resource type="PackedScene" uid="uid://cumvd5bqswq5h" path="res://Cenas/Obstacle/FloorObstacle/obstacle40_50.tscn" id="9_cxipq"]
 [ext_resource type="PackedScene" uid="uid://c1hulgff7kndp" path="res://Cenas/NPCs/StampNpc/stamp_npc.tscn" id="10_6hgxn"]
-[ext_resource type="Texture2D" uid="uid://b362visngbg20" path="res://Cenas/Levels/Props/normal_level/closed_case.tres" id="10_axi16"]
+[ext_resource type="Texture2D" uid="uid://cespjp7dvlepp" path="res://Assets/Arts/ObstaclesProps/prop_1.png" id="10_on1xh"]
 [ext_resource type="PackedScene" uid="uid://dg0ybsuj2cwws" path="res://Cenas/Obstacle/AirObstacle/air_obstacle.tscn" id="10_rqy6q"]
 [ext_resource type="PackedScene" uid="uid://ow5adp35qrb2" path="res://Cenas/Levels/Utils/StartNewPhaseOrWorld/start_new_phase_or_world_area.tscn" id="11_3b8wm"]
+[ext_resource type="Shape2D" uid="uid://ct3vd6bqwhhib" path="res://Cenas/Levels/Props/normal_level/bags_big_collision.tres" id="11_5tqim"]
 [ext_resource type="Texture2D" uid="uid://cixveaqtjkoji" path="res://Assets/Arts/Npcs/40_years/40_men.png" id="11_07dba"]
 [ext_resource type="Shape2D" uid="uid://bbokymq5t2s8t" path="res://Cenas/Levels/Props/normal_level/closed_case_collision.tres" id="11_vshq1"]
-[ext_resource type="Texture2D" uid="uid://lmo0ae4a76cj" path="res://Cenas/Levels/Props/normal_level/round_bag.tres" id="12_6hgxn"]
+[ext_resource type="Texture2D" uid="uid://o8kkmy7fhnno" path="res://Assets/Arts/ObstaclesProps/prop_4.png" id="12_5tqim"]
 [ext_resource type="PackedScene" uid="uid://bhqynq01gcwx" path="res://Cenas/Levels/Utils/PhaseFinishAndSpawnNextPhase/phase_finish_and_spawn_next_phase.tscn" id="12_b1142"]
 [ext_resource type="Texture2D" uid="uid://d3v81dasvmnyv" path="res://Assets/Arts/Npcs/40_years/40_woman.png" id="12_kpo1t"]
 [ext_resource type="Shape2D" uid="uid://cyycpautu28si" path="res://Cenas/Levels/Props/normal_level/round_bag_collision.tres" id="13_3b8wm"]
 [ext_resource type="PackedScene" uid="uid://cjydupv4ijj2c" path="res://Cenas/Levels/UI/StampTimer/stamp_timer.tscn" id="13_g1q51"]
 [ext_resource type="Texture2D" uid="uid://o684xn1i2pxo" path="res://Assets/Arts/Npcs/40_years/40_grandma.png" id="13_l2f4t"]
-[ext_resource type="Texture2D" uid="uid://dwgsvbgecpmx2" path="res://Cenas/Levels/Props/normal_level/three_bags.tres" id="14_b1142"]
+[ext_resource type="Texture2D" uid="uid://b2tcvqhdcekvn" path="res://Assets/Arts/ObstaclesProps/prop_2.png" id="14_on1xh"]
 [ext_resource type="PackedScene" uid="uid://rsrluaj37ape" path="res://Cenas/Levels/UI/StampsLeft/stamps_left.tscn" id="14_plhy8"]
 [ext_resource type="Texture2D" uid="uid://rmn278sxwan0" path="res://Assets/Arts/Npcs/40_years/40_child.png" id="14_wkud4"]
 [ext_resource type="Shape2D" uid="uid://7idxemt0452a" path="res://Cenas/Levels/Props/normal_level/three_bags_collision.tres" id="15_g1q51"]
-[ext_resource type="Texture2D" uid="uid://bdpkxmlcj3s50" path="res://Cenas/Levels/Props/normal_level/two_bags.tres" id="16_plhy8"]
 [ext_resource type="Shape2D" uid="uid://cmml7wu1aewgo" path="res://Cenas/Levels/Props/normal_level/two_bags_collision.tres" id="17_h6hst"]
+[ext_resource type="Texture2D" uid="uid://c1b6yx5yqs1q3" path="res://Assets/Arts/ObstaclesProps/prop_6.png" id="18_on1xh"]
+[ext_resource type="Texture2D" uid="uid://xp5daltu1qw2" path="res://Assets/Arts/ObstaclesProps/prop_5.png" id="18_sevgs"]
 [ext_resource type="PackedScene" uid="uid://couyqnjnltymh" path="res://Cenas/NPCs/DialogNpc/dialog_npc.tscn" id="24_h6hst"]
 
 [sub_resource type="Animation" id="Animation_ue21f"]
@@ -323,78 +325,82 @@ position = Vector2(135, 450)
 
 [node name="Obstacle" parent="Obstaculos" unique_id=357976468 instance=ExtResource("9_cxipq")]
 position = Vector2(1275, 417)
+sprite = ExtResource("10_on1xh")
+collision_shape = ExtResource("11_5tqim")
 
 [node name="Obstacle2" parent="Obstaculos" unique_id=1671802045 instance=ExtResource("9_cxipq")]
 position = Vector2(1110, 417)
+sprite = ExtResource("10_on1xh")
+collision_shape = ExtResource("11_5tqim")
 
 [node name="Obstacle3" parent="Obstaculos" unique_id=679447129 instance=ExtResource("9_cxipq")]
 position = Vector2(3011, 447)
-sprite = ExtResource("10_axi16")
+sprite = ExtResource("12_5tqim")
 collision_shape = ExtResource("11_vshq1")
 
 [node name="Obstacle4" parent="Obstaculos" unique_id=651588686 instance=ExtResource("9_cxipq")]
 position = Vector2(3011, 361)
-sprite = ExtResource("10_axi16")
+sprite = ExtResource("12_5tqim")
 collision_shape = ExtResource("11_vshq1")
 
 [node name="Obstacle5" parent="Obstaculos" unique_id=1573321962 instance=ExtResource("9_cxipq")]
 position = Vector2(3202, 436)
-sprite = ExtResource("10_axi16")
+sprite = ExtResource("12_5tqim")
 collision_shape = ExtResource("11_vshq1")
 
 [node name="Obstacle6" parent="Obstaculos" unique_id=329104505 instance=ExtResource("9_cxipq")]
 position = Vector2(3202, 342)
-sprite = ExtResource("10_axi16")
+sprite = ExtResource("12_5tqim")
 collision_shape = ExtResource("11_vshq1")
 
 [node name="Obstacle7" parent="Obstaculos" unique_id=1668991821 instance=ExtResource("9_cxipq")]
 position = Vector2(3363, 434)
-sprite = ExtResource("12_6hgxn")
+sprite = ExtResource("14_on1xh")
 collision_shape = ExtResource("13_3b8wm")
 
 [node name="Obstacle8" parent="Obstaculos" unique_id=909364065 instance=ExtResource("9_cxipq")]
 position = Vector2(4776, 380)
-sprite = ExtResource("14_b1142")
+sprite = ExtResource("18_sevgs")
 collision_shape = ExtResource("15_g1q51")
 
 [node name="Obstacle9" parent="Obstaculos" unique_id=2128491033 instance=ExtResource("9_cxipq")]
 position = Vector2(4600, 380)
-sprite = ExtResource("14_b1142")
+sprite = ExtResource("18_sevgs")
 collision_shape = ExtResource("15_g1q51")
 
 [node name="Obstacle10" parent="Obstaculos" unique_id=1594354356 instance=ExtResource("9_cxipq")]
 position = Vector2(4675, 256)
-sprite = ExtResource("10_axi16")
+sprite = ExtResource("12_5tqim")
 collision_shape = ExtResource("11_vshq1")
 
 [node name="Obstacle11" parent="Obstaculos" unique_id=1719184537 instance=ExtResource("9_cxipq")]
 position = Vector2(6716, 410)
-sprite = ExtResource("16_plhy8")
+sprite = ExtResource("18_on1xh")
 collision_shape = ExtResource("17_h6hst")
 
 [node name="Obstacle12" parent="Obstaculos" unique_id=469105547 instance=ExtResource("9_cxipq")]
 position = Vector2(6894, 410)
-sprite = ExtResource("16_plhy8")
+sprite = ExtResource("18_on1xh")
 collision_shape = ExtResource("17_h6hst")
 
 [node name="Obstacle13" parent="Obstaculos" unique_id=559319791 instance=ExtResource("9_cxipq")]
 position = Vector2(6894, 232)
-sprite = ExtResource("16_plhy8")
+sprite = ExtResource("18_on1xh")
 collision_shape = ExtResource("17_h6hst")
 
 [node name="Obstacle14" parent="Obstaculos" unique_id=793960909 instance=ExtResource("9_cxipq")]
 position = Vector2(8250, 399)
-sprite = ExtResource("14_b1142")
+sprite = ExtResource("18_sevgs")
 collision_shape = ExtResource("15_g1q51")
 
 [node name="Obstacle15" parent="Obstaculos" unique_id=993764148 instance=ExtResource("9_cxipq")]
 position = Vector2(8443, 399)
-sprite = ExtResource("14_b1142")
+sprite = ExtResource("18_sevgs")
 collision_shape = ExtResource("15_g1q51")
 
 [node name="Obstacle16" parent="Obstaculos" unique_id=741523409 instance=ExtResource("9_cxipq")]
 position = Vector2(8348, 218)
-sprite = ExtResource("14_b1142")
+sprite = ExtResource("18_sevgs")
 collision_shape = ExtResource("15_g1q51")
 
 [node name="AirObstacle" parent="Obstaculos" unique_id=113276379 instance=ExtResource("10_rqy6q")]

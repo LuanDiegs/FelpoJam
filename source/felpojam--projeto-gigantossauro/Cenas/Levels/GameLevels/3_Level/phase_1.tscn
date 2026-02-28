@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cumvd5bqswq5h" path="res://Cenas/Obstacle/FloorObstacle/obstacle40_50.tscn" id="14_t6so8"]
 [ext_resource type="PackedScene" uid="uid://dg0ybsuj2cwws" path="res://Cenas/Obstacle/AirObstacle/air_obstacle.tscn" id="14_ym4wr"]
 [ext_resource type="Texture2D" uid="uid://d3v81dasvmnyv" path="res://Assets/Arts/Npcs/40_years/40_woman.png" id="15_i84ql"]
-[ext_resource type="Texture2D" uid="uid://dwgsvbgecpmx2" path="res://Cenas/Levels/Props/normal_level/three_bags.tres" id="15_tbtd1"]
+[ext_resource type="Texture2D" uid="uid://xp5daltu1qw2" path="res://Assets/Arts/ObstaclesProps/prop_5.png" id="15_ucx0h"]
 [ext_resource type="Shape2D" uid="uid://7idxemt0452a" path="res://Cenas/Levels/Props/normal_level/three_bags_collision.tres" id="16_cb21j"]
 [ext_resource type="PackedScene" uid="uid://bhqynq01gcwx" path="res://Cenas/Levels/Utils/PhaseFinishAndSpawnNextPhase/phase_finish_and_spawn_next_phase.tscn" id="16_efiie"]
 [ext_resource type="Texture2D" uid="uid://o684xn1i2pxo" path="res://Assets/Arts/Npcs/40_years/40_grandma.png" id="16_iqq1d"]
@@ -382,17 +382,17 @@ position = Vector2(6219, -189)
 
 [node name="Obstacle" parent="Obstaculos" unique_id=357976468 instance=ExtResource("14_t6so8")]
 position = Vector2(2088, 384)
-sprite = ExtResource("15_tbtd1")
+sprite = ExtResource("15_ucx0h")
 collision_shape = ExtResource("16_cb21j")
 
 [node name="Obstacle2" parent="Obstaculos" unique_id=1142871280 instance=ExtResource("14_t6so8")]
 position = Vector2(3469, 384)
-sprite = ExtResource("15_tbtd1")
+sprite = ExtResource("15_ucx0h")
 collision_shape = ExtResource("16_cb21j")
 
 [node name="Obstacle3" parent="Obstaculos" unique_id=377154857 instance=ExtResource("14_t6so8")]
 position = Vector2(4840, 384)
-sprite = ExtResource("15_tbtd1")
+sprite = ExtResource("15_ucx0h")
 collision_shape = ExtResource("16_cb21j")
 
 [node name="StampNpcs" type="Node2D" parent="." unique_id=1162292117]

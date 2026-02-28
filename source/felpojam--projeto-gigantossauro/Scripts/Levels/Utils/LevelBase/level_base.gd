@@ -13,11 +13,22 @@ func _ready() -> void:
 	#Signal de morte
 	Global.PlayerDied.connect(_show_dead_menu)
 	
-	var current_scene = get_tree().current_scene.name
-	if current_scene == "Tutorial":
-		MusicManager.trocar_musica("tutorial", 1)
+	#Insere as musicas
+	if world_name == Global.GAME_WORLDS.tutorial:
+		_verify_and_play_music("tutorial", 2)
+	elif world_name == Global.GAME_WORLDS.world1:
+		_verify_and_play_music("level1", 2)
+	elif world_name == Global.GAME_WORLDS.world2:
+		_verify_and_play_music("level2", 2)
+	elif world_name == Global.GAME_WORLDS.world3:
+		_verify_and_play_music("level3", 2)
 
 
 func _show_dead_menu():
 	var dead_menu = (preload(Global.dead_menu)).instantiate() as DeadMenu
 	add_child(dead_menu)
+
+
+func _verify_and_play_music(music_name: String, fade_duration: int):
+	if !MusicManager.verify_if_playing(music_name):
+		MusicManager.trocar_musica(music_name, fade_duration)

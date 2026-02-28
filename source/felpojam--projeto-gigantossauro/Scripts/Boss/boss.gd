@@ -21,6 +21,10 @@ var is_dead: bool = false
 var obstacle = preload("uid://b1ufgtckjsbtw")
 var bullet = preload("uid://1jjs6id7cee8")
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var sprite: Sprite2D = $Sprite
+var attacked: bool = false
+
 signal boss_life_changed(new_life)
 signal boss_is_dead
 
@@ -38,6 +42,14 @@ func take_damage():
 
 #Função que executa o estado de caminhada
 func execute_walking(vel, time, time_transition, chance, delta):
+	#Faz animação
+	sprite.flip_h = direction == -1
+	if animation_player.current_animation != "move":
+		animation_player.play("move")
+		
+		#Parou de atacar e andou:
+		attacked = false
+		
 	#Attack_chance é igual a chance
 	attack_chance = chance
 	
@@ -62,8 +74,8 @@ func execute_walking(vel, time, time_transition, chance, delta):
 			actual_state = [State.ATTACK, State.ATTACK2].pick_random() # Pega aleatoriamente um desses estados
 		else: # caso contrario
 			actual_state = [State.ATTACK, State.ATTACK3, State.ATTACK, State.ATTACK4, State.ATTACK, State.ATTACK5, State.ATTACK].pick_random() # Pega aleatoriamente um desses estados
-		attack_timer = time # SEta o timer do ataque para 1 segundo
-		attack_time_transition = time_transition # Seta o timer de espera para a transição deestado depois do ataque para 1 segundo
+			attack_timer = time # SEta o timer do ataque para 1 segundo
+			attack_time_transition = time_transition # Seta o timer de espera para a transição deestado depois do ataque para 1 segundo
 
 
 #Função de spawndar obstaculos
@@ -134,7 +146,7 @@ func spawn_multiply_bullets(quantity: int, dir):
 		if !valid:
 			#Define um novo x com base em um espaçamento proporcional da largura total
 			#Coloca os projeteis em uma largura ok (mas ainda pode haver erros)
-			new_x = left_limit + (right_limit - left_limit) * (i / 2)
+			new_x = left_limit + (right_limit - left_limit) * (i / 2.0)
 		#Adiciona o x escolhida na lista de posições usadas
 		used_x.append(new_x)
 		#Instancia o obstaculo
@@ -174,7 +186,15 @@ func execute_attack(stt, delta):
 		State.ATTACK:
 			#Diminui o timer pro ataque
 			attack_timer -= delta
+			
 			#Se o timer for menor ou igual a 0
+			if attack_timer <= 0.6:
+				#Faz animaçao de ataque
+				if animation_player.current_animation != "attack1" and !attacked:
+					animation_player.play("attack1")
+					attacked = true
+			
+			#Ataca
 			if attack_timer <= 0:
 				#Checa se pode instanciar
 				if can_instantiate:
@@ -208,8 +228,7 @@ func execute_attack(stt, delta):
 			attack_timer -= delta
 			#Pega o player
 			var player = get_tree().get_first_node_in_group("Player")
-			#Pega a posição do player (antes de parar para atacar, pra dar tempo do player fugir)
-			var player_position = player.global_position
+			
 			#Checa se o timer é menor ou igual a0
 			if attack_timer <= 0:
 				#Checa se pode instanciar
@@ -243,8 +262,7 @@ func execute_attack(stt, delta):
 			attack_timer -= delta
 			#Pega o player
 			var player = get_tree().get_first_node_in_group("Player")
-			#Pega a posição do player (antes de parar para atacar, pra dar tempo do player fugir)
-			var player_position = player.global_position
+
 			#Checa se o timer é menor ou igual a0
 			if attack_timer <= 0:
 				#Checa se pode instanciar
@@ -277,7 +295,7 @@ func _process(delta: float) -> void:
 				execute_walking(speed, 1, 1, 0.005, delta)
 			
 			#Se o valor de actual_state for state.attack
-			State.ATTACK:
+			State.ATTACK, State.ATTACK2:
 				#xecuta a função de ataque (ataque 1)
 				execute_attack(actual_state, delta)
 			
@@ -298,25 +316,9 @@ func _process(delta: float) -> void:
 				execute_walking(speed_running, .5, 1, 0.010, delta)
 			
 			#Se o valor de actual_state for state.attack
-			State.ATTACK:
+			State.ATTACK, State.ATTACK3, State.ATTACK4, State.ATTACK5:
 				#xecuta a função de ataque (ataque 1)
 				execute_attack(actual_state, delta)
-			
-			#Se o valor de actual_state for state.attack3
-			State.ATTACK3:
-				#xecuta a função de ataque (ataque 3)
-				execute_attack(actual_state, delta)
-			
-			#Se o valor de actual_state for state.attack4
-			State.ATTACK4:
-				#xecuta a função de ataque (ataque 4)
-				execute_attack(actual_state, delta)
-			
-			#Se o valor de actual_state for state.attack5
-			State.ATTACK5:
-				#xecuta a função de ataque (ataque 5)
-				execute_attack(actual_state, delta)
-			
 			#Por padrao irá andar
 			_:
 				execute_walking(speed_running, .5, 1, 0.010, delta)

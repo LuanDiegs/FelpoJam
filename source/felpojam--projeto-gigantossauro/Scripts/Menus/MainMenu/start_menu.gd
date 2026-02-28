@@ -12,6 +12,9 @@ var is_start_menu: bool = false
 func _ready() -> void:
 	buttons_container.visible = false
 	_initial_position_character = node_character.global_position
+	
+	#Inicia a musica
+	MusicManager.trocar_musica("main_menu")
 
 
 func _animate_start_(start_menu: bool):

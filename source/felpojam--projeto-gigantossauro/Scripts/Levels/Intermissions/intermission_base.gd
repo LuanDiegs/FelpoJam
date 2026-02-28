@@ -25,6 +25,9 @@ func _ready() -> void:
 	count_lore_sentences = dic_sentences.size()
 	_set_sentence()
 	
+	#Toca a musica de intermissao
+	MusicManager.trocar_musica("intermission")
+	
 
 func _set_sentence():
 	var key = "lore_" + str(current_lore_sentence)
@@ -116,4 +119,9 @@ func _input(event: InputEvent) -> void:
 		
 		if current_lore_sentence >= count_lore_sentences + 1 and !tween_text_ratio:
 			lore_finished = true
-		
+
+
+func _exit_tree() -> void:
+	#Se nao for a tela de creditos nao paramos a musica
+	if scene_to_change_uid != Global.credits_menu:
+		MusicManager.parar_musica(1)

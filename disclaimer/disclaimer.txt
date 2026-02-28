@@ -1,0 +1,54 @@
+==============================================Fontes=======================================================
+
+Pegamos a fonte Lexend do google fonts (cc0)
+- Licença (SIL https://openfontlicense.org/open-font-license-official-text/)
+- Utilizamos principalmente a fonte regular e bold 
+- https://fonts.google.com/specimen/Lexend (Feito por Bonnie Shaver-Troup, Thomas Jockin, Santiago Orozco, Héctor Gómez, Superunion) 
+- https://www.lexend.com/
+
+
+LICENSE
+Copyright 2018 The Lexend Project Authors (https://github.com/googlefonts/lexend), with Reserved Font Name “RevReading Lexend”.
+This Font Software is licensed under the SIL Open Font License, Version 1.1 . This license is copied below, and is also available with a FAQ at: https://openfontlicense.org
+
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+
+===============================================Artes=======================================================
+
+Todas as artes foram feitas pelos membros do nosso grupo, os artistas são:
+- Pampanda
+- Stuartts
+
+Os backgrounds, levels 2 e 3, props de malas e npcs foram feitos pela Pampanda
+O background e trem do level 1, props desse level, personagem e background da tela de menu foi feito pelo Stuartts
+
+=============================================Animações=====================================================
+
+Todas as animações do personagem foram feitas pelo Stuartts
+
+Algumas animações mais simples foram feitas via código pelo Zdzin e pelo Mordchan, como a de carimbar, do menu inicial, diálogos e movimento dos npcs
+
+===============================================UI==========================================================
+
+Toda a parte artística da interface gráfica foi feito pelo Stuartts
+
+=========================================Efeitos sonoros===================================================
+Todos os efeitos sonoros foram feitos pelo Mordchan
+
+Todos os efeitos são gravados por ele
+
+============================================Músicas========================================================
+
+As músicas foram feitas pelo nosso compositor kevin
+
+Ele dividiu a música em várias streams e partes para que possamos utilizar elas de forma conjunta ou separada só as partezinhas
+
+============================================Códigos========================================================
+
+O código foi feito pelo Mordchan e pelo Zdzin
+
+Ambos se organizaram para cada um realizar uma parte, Mordchan fez a maior parte da movimentação do personagem, do boss e do sistema de músicas, além da otimização
+
+Zdzin ficou com partes como a de NPCs, sistema de carimbar, diálogos, intermissões, fazer a UI com base nas artes do Stuartts e realizar pipelines para otimizar o desenvolvimento do jogo
+
+Como foi dito na IA.txt, algumas consultas foram realizadas para tirar dúvidas, não foram pegos trechos de códigos e sim lidos para que possamos entender e realizar o código do nosso jeito

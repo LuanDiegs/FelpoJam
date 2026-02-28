@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 		#Paramos o timer e emitimos o sinal
 		timer_stopped = true
 		Global.PlayerDied.emit()
-
+		
 
 func _ready() -> void:
 	#Se esta no editor nao irá compilar o codigo do jogo

@@ -20,12 +20,12 @@
 [ext_resource type="Texture2D" uid="uid://byywpvrp6f6ct" path="res://Assets/Arts/Train/30_years/tras.png" id="13_g0xgi"]
 [ext_resource type="PackedScene" uid="uid://cjydupv4ijj2c" path="res://Cenas/Levels/UI/StampTimer/stamp_timer.tscn" id="13_xev4y"]
 [ext_resource type="PackedScene" uid="uid://rsrluaj37ape" path="res://Cenas/Levels/UI/StampsLeft/stamps_left.tscn" id="14_ppxoh"]
-[ext_resource type="Texture2D" uid="uid://b4yayahmi4thf" path="res://Cenas/Levels/Props/coffe_level/bag_pile/bag_pile.tres" id="16_xev4y"]
+[ext_resource type="Texture2D" uid="uid://bjx3an4kt7vk2" path="res://Assets/Arts/ObstaclesProps/prop_8.png" id="16_fmsfg"]
 [ext_resource type="Shape2D" uid="uid://c5ytuplxj6xwk" path="res://Cenas/Levels/Props/coffe_level/bag_pile/bag_pile_collision.tres" id="17_g0xgi"]
 [ext_resource type="Shape2D" uid="uid://ct3vd6bqwhhib" path="res://Cenas/Levels/Props/normal_level/bags_big_collision.tres" id="17_p1ux8"]
-[ext_resource type="Texture2D" uid="uid://ctoarev68ca61" path="res://Cenas/Levels/Props/coffe_level/hay/hay.tres" id="18_iinsn"]
+[ext_resource type="Texture2D" uid="uid://bts1vjxyb1ofm" path="res://Assets/Arts/ObstaclesProps/prop_7.png" id="19_fwvhy"]
 [ext_resource type="Shape2D" uid="uid://cw4fnbe3jsrdf" path="res://Cenas/Levels/Props/coffe_level/hay/hay_collision.tres" id="19_p1ux8"]
-[ext_resource type="Texture2D" uid="uid://boinp7a82ojns" path="res://Cenas/Levels/Props/coffe_level/coffe_bag/coffe_bag.tres" id="20_g0xgi"]
+[ext_resource type="Texture2D" uid="uid://dj40bkhcf2pw0" path="res://Assets/Arts/ObstaclesProps/prop_9.png" id="21_6y38q"]
 [ext_resource type="Shape2D" uid="uid://becl2m6yldt34" path="res://Cenas/Levels/Props/coffe_level/coffe_bag/coffe_bag_collision.tres" id="21_fmsfg"]
 [ext_resource type="Texture2D" uid="uid://cy0p6dg80im14" path="res://Assets/Arts/Npcs/30_years/30_child.png" id="23_ppxoh"]
 [ext_resource type="Texture2D" uid="uid://cjblwnkpppkat" path="res://Assets/Arts/Npcs/30_years/30_grandma.png" id="24_iinsn"]
@@ -436,87 +436,87 @@ position = Vector2(250, 441)
 
 [node name="BagPile" parent="Obstaculos" unique_id=357976468 instance=ExtResource("9_5k2of")]
 position = Vector2(4493, 419)
-sprite = ExtResource("16_xev4y")
+sprite = ExtResource("16_fmsfg")
 collision_shape = ExtResource("17_g0xgi")
 object_mass = 20.0
 
 [node name="BagPile2" parent="Obstaculos" unique_id=1694982068 instance=ExtResource("9_5k2of")]
 position = Vector2(4315, 419)
-sprite = ExtResource("16_xev4y")
+sprite = ExtResource("16_fmsfg")
 collision_shape = ExtResource("17_g0xgi")
 object_mass = 20.0
 
 [node name="BagPile3" parent="Obstaculos" unique_id=1973385712 instance=ExtResource("9_5k2of")]
 position = Vector2(4131, 419)
-sprite = ExtResource("16_xev4y")
+sprite = ExtResource("16_fmsfg")
 collision_shape = ExtResource("17_g0xgi")
 object_mass = 20.0
 
 [node name="BagPile4" parent="Obstaculos" unique_id=1196926750 instance=ExtResource("9_5k2of")]
 position = Vector2(3942, 419)
-sprite = ExtResource("16_xev4y")
+sprite = ExtResource("16_fmsfg")
 collision_shape = ExtResource("17_g0xgi")
 object_mass = 20.0
 
 [node name="BagPile5" parent="Obstaculos" unique_id=620653590 instance=ExtResource("9_5k2of")]
 position = Vector2(6760, 210)
-sprite = ExtResource("16_xev4y")
+sprite = ExtResource("16_fmsfg")
 collision_shape = ExtResource("17_g0xgi")
 object_mass = 20.0
 
 [node name="BagPile6" parent="Obstaculos" unique_id=1764672543 instance=ExtResource("9_5k2of")]
 position = Vector2(4499, 324)
-sprite = ExtResource("16_xev4y")
+sprite = ExtResource("16_fmsfg")
 collision_shape = ExtResource("17_p1ux8")
 object_mass = 20.0
 
 [node name="Hay" parent="Obstaculos" unique_id=200226298 instance=ExtResource("9_5k2of")]
 position = Vector2(2902, 373)
-sprite = ExtResource("18_iinsn")
+sprite = ExtResource("19_fwvhy")
 collision_shape = ExtResource("19_p1ux8")
 object_mass = 10.0
 
 [node name="Hay2" parent="Obstaculos" unique_id=1681277183 instance=ExtResource("9_5k2of")]
 position = Vector2(6669, 373)
-sprite = ExtResource("18_iinsn")
+sprite = ExtResource("19_fwvhy")
 collision_shape = ExtResource("19_p1ux8")
 object_mass = 10.0
 
 [node name="Hay3" parent="Obstaculos" unique_id=822701934 instance=ExtResource("9_5k2of")]
 position = Vector2(6882, 369)
-sprite = ExtResource("18_iinsn")
+sprite = ExtResource("19_fwvhy")
 collision_shape = ExtResource("19_p1ux8")
 object_mass = 10.0
 
 [node name="CoffeBag" parent="Obstaculos" unique_id=1961837102 instance=ExtResource("9_5k2of")]
 position = Vector2(1030, 363)
-sprite = ExtResource("20_g0xgi")
+sprite = ExtResource("21_6y38q")
 collision_shape = ExtResource("21_fmsfg")
 object_mass = 15.0
 
 [node name="CoffeBag2" parent="Obstaculos" unique_id=1207614662 instance=ExtResource("9_5k2of")]
 position = Vector2(4687, 363)
-sprite = ExtResource("20_g0xgi")
+sprite = ExtResource("21_6y38q")
 collision_shape = ExtResource("21_fmsfg")
 object_mass = 15.0
 
 [node name="CoffeBag3" parent="Obstaculos" unique_id=1645737117 instance=ExtResource("9_5k2of")]
 position = Vector2(10303, 386)
 rotation = -1.5707964
-sprite = ExtResource("20_g0xgi")
+sprite = ExtResource("21_6y38q")
 collision_shape = ExtResource("21_fmsfg")
 object_mass = 15.0
 
 [node name="CoffeBag4" parent="Obstaculos" unique_id=682482049 instance=ExtResource("9_5k2of")]
 position = Vector2(8950, 363)
-sprite = ExtResource("20_g0xgi")
+sprite = ExtResource("21_6y38q")
 collision_shape = ExtResource("21_fmsfg")
 object_mass = 15.0
 
 [node name="CoffeBag5" parent="Obstaculos" unique_id=541134837 instance=ExtResource("9_5k2of")]
 position = Vector2(9100, 345.00024)
 rotation = -0.4963472
-sprite = ExtResource("20_g0xgi")
+sprite = ExtResource("21_6y38q")
 collision_shape = ExtResource("21_fmsfg")
 object_mass = 15.0
 
