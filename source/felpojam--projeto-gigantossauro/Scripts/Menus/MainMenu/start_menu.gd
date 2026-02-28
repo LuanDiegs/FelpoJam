@@ -15,6 +15,9 @@ func _ready() -> void:
 	
 	#Inicia a musica
 	MusicManager.trocar_musica("main_menu")
+	
+	#Falamos que a fase nao terminou
+	Global.phase_finished = false
 
 
 func _animate_start_(start_menu: bool):

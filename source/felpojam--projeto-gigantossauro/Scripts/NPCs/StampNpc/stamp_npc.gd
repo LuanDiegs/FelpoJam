@@ -86,7 +86,7 @@ func _npc_go_away_animation():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event: InputEvent) -> void:
 	# Se apertou o botao de interagir e um dos corpos em volta é um jogador, habilita o dialogo
-	if event.is_action_pressed("interact") and _player_is_in_area() and !stamped:
+	if event.is_action_pressed("interact") and _player_is_in_area() and !stamped and !Global.phase_finished:
 		#Emite o signal de carimbado
 		Global.NpcStamped.emit()
 		

@@ -56,7 +56,6 @@ func _set_labels():
 
 func _reset_scene():
 	#Esconde e coloca que a fase ainda nao terminou
-	self.hide()
 	Global.phase_finished = false
 	
 	#Faz reload da cena
@@ -67,7 +66,6 @@ func _reset_scene():
 
 func _return_to_menu():
 	#Esconde e coloca que a fase ainda nao terminou
-	self.hide()
 	Global.phase_finished = false
 	
 	#Vai para o menu de start

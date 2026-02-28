@@ -51,7 +51,7 @@ position = Vector2(2557, 661.5)
 shape = SubResource("RectangleShape2D_4kuyq")
 
 [node name="Caldeira" type="StaticBody2D" parent="." unique_id=695108425 groups=["Floor"]]
-collision_layer = 64
+collision_layer = 256
 collision_mask = 0
 
 [node name="Collision" type="CollisionShape2D" parent="Caldeira" unique_id=435077792]

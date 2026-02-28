@@ -53,7 +53,7 @@ func _input(event: InputEvent) -> void:
 	var player_in_area := _player_is_in_area()
 	
 	#Se carimbou todos, o jogador estiver na area e pressionar o botao, ira teleportar
-	if event.is_action_pressed("interact") and player_in_area and all_npc_stamped:		
+	if event.is_action_pressed("interact") and player_in_area and all_npc_stamped and !Global.phase_finished:		
 		Transition.change_to_scene(next_phase_uid)
 
 
