@@ -74,8 +74,8 @@ func execute_walking(vel, time, time_transition, chance, delta):
 			actual_state = [State.ATTACK, State.ATTACK2].pick_random() # Pega aleatoriamente um desses estados
 		else: # caso contrario
 			actual_state = [State.ATTACK, State.ATTACK3, State.ATTACK, State.ATTACK4, State.ATTACK, State.ATTACK5, State.ATTACK].pick_random() # Pega aleatoriamente um desses estados
-			attack_timer = time # SEta o timer do ataque para 1 segundo
-			attack_time_transition = time_transition # Seta o timer de espera para a transição deestado depois do ataque para 1 segundo
+		attack_timer = time # SEta o timer do ataque para 1 segundo
+		attack_time_transition = time_transition # Seta o timer de espera para a transição deestado depois do ataque para 1 segundo
 
 
 #Função de spawndar obstaculos
