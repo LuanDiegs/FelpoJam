@@ -195,7 +195,7 @@ func _verify_if_colliding(collision):
 				#Se o normal de y for maior que 0
 				if normal.y > 0:
 					#Aplica o empurrão
-					collider.apply_central_impulse(Vector2(0, impact_velocity * 2.5))
+					collider.apply_central_impulse(Vector2(0, impact_velocity * 4))
 
 
 func _verify_if_on_floor(delta: float):

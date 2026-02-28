@@ -77,8 +77,6 @@ position = Vector2(590, 600)
 
 [node name="Boss" parent="." unique_id=261981283 node_paths=PackedStringArray("camera") instance=ExtResource("3_4uhye")]
 position = Vector2(2184, -330)
-left_limit = 100.0
-right_limit = 2150.0
 attack_chance = 0.25
 camera = NodePath("../Camera2D")
 

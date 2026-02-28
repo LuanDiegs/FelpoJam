@@ -518,8 +518,12 @@ func _ready():
 		add_child(music_player)
 	else:
 		music_player = $MusicPlayer
+		
 	# Configurações iniciais (opcional)
 	music_player.volume_db = 0.0
+	music_player.bus = "Music"
+	
+
 
 func trocar_musica(nome: String, fade_duration: float = 0.0):
 	if not musicas.has(nome):
@@ -541,6 +545,7 @@ func trocar_musica(nome: String, fade_duration: float = 0.0):
 		tween.tween_property(music_player, "volume_db", -80.0, fade_duration)
 	var novo_player = AudioStreamPlayer.new()
 	novo_player.stream = nova_stream
+	print(music_player.bus)
 	novo_player.bus = music_player.bus
 	novo_player.volume_db = -80.0
 	add_child(novo_player)

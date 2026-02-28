@@ -1,4 +1,5 @@
 extends Node2D
+class_name BaseLevelBoss
 
 #VAriaveis
 @onready var player_life_label : Label = $Debug/PlayersLifeCounter
@@ -28,6 +29,7 @@ func _ready() -> void:
 	
 	MusicManager.trocar_musica("boss", 1)
 
+
 #Função que muda a vida do player no label
 func player_life_changed(new_life : int):
 	#Define o texto do label para a nova vida do player
@@ -39,13 +41,11 @@ func boss_life_changed(new_life : int):
 
 
 func boss_dead_change_scene():
-	
 	MusicManager.parar_musica(1)
 	Transition.change_to_scene(Global.credits_menu)
 
 
 func _delete_props(body: Node):
-	print(body)
 	#Se um obstaculo for jogado na caldera, ela irá sumir
 	if body.is_in_group("Obstacles"):
 		body.queue_free()

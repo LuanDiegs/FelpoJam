@@ -58,10 +58,8 @@ func _on_play_button_pressed() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	print(event.is_pressed())
 	if ((event is InputEventKey and event.is_pressed() and !event.is_action_pressed("ui_cancel")) \
 	or event is InputEventMouseButton) and !is_start_menu :
-		print("ue")
 		_animate_start_(true)
 	
 	if event.is_action_pressed("ui_cancel") and is_start_menu:

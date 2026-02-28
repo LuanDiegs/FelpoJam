@@ -45,8 +45,6 @@ func _ready() -> void:
 	if Engine.is_editor_hint() or stop_time_debug:
 		return
 	
-	print(get_tree().current_scene)
-	
 	#Conecta o signal de aumentar timer
 	Global.NpcStamped.connect(_on_npc_stamped)
 	
