@@ -4,6 +4,7 @@ extends Area2D
 var speed = 1200
 var direction = Vector2.RIGHT
 
+
 #Função que roda a cada frame
 func _physics_process(delta: float) -> void:
 	#Incrementa posição com base na direção vezes a velocidade vezes delta

@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bb07pptbrxn3f" path="res://Assets/Arts/Player/idle/19.png" id="22_ev637"]
 [ext_resource type="Texture2D" uid="uid://cqavoawepmnui" path="res://Assets/Arts/Player/idle/20.png" id="23_vlhcy"]
 [ext_resource type="Texture2D" uid="uid://brl2eeb1aug3g" path="res://Assets/Arts/Player/idle/21.png" id="24_gwuht"]
+[ext_resource type="Texture2D" uid="uid://dbar04krog1qk" path="res://Assets/Arts/Player/slide/slide.png" id="32_hcuun"]
 
 [sub_resource type="Animation" id="Animation_yjlpd"]
 length = 0.001
@@ -58,6 +59,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-2, -197)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2, 0.2)]
 }
 
 [sub_resource type="Animation" id="Animation_5rwkh"]
@@ -108,11 +121,54 @@ tracks/0/keys = {
 "values": [ExtResource("3_5rwkh"), ExtResource("4_sdvfy"), ExtResource("5_iq1aa"), ExtResource("6_3myaa"), ExtResource("7_pqygk"), ExtResource("8_43nfp"), ExtResource("9_1bu7h")]
 }
 
+[sub_resource type="Animation" id="Animation_x6co3"]
+resource_name = "slide"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("32_hcuun")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-2.83, -150), Vector2(-2.83, -160), Vector2(-2.83, -150), Vector2(-2.83, -160), Vector2(-2.83, -150)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.21, 0.21), Vector2(0.2, 0.2)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wu7yt"]
 _data = {
 &"RESET": SubResource("Animation_yjlpd"),
 &"idle": SubResource("Animation_5rwkh"),
-&"run": SubResource("Animation_wh621")
+&"run": SubResource("Animation_wh621"),
+&"slide": SubResource("Animation_x6co3")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wreb2"]
@@ -126,6 +182,7 @@ collision_mask = 334
 script = ExtResource("1_vldss")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=218503401]
+texture_filter = 4
 position = Vector2(-2, -197)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_yjlpd")

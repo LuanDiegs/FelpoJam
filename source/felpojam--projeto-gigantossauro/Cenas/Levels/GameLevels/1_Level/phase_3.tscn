@@ -20,11 +20,11 @@
 [ext_resource type="PackedScene" uid="uid://cjydupv4ijj2c" path="res://Cenas/Levels/UI/StampTimer/stamp_timer.tscn" id="13_sfhky"]
 [ext_resource type="Texture2D" uid="uid://byywpvrp6f6ct" path="res://Assets/Arts/Train/30_years/tras.png" id="13_slda0"]
 [ext_resource type="PackedScene" uid="uid://rsrluaj37ape" path="res://Cenas/Levels/UI/StampsLeft/stamps_left.tscn" id="14_bxfrv"]
-[ext_resource type="Texture2D" uid="uid://b4yayahmi4thf" path="res://Cenas/Levels/Props/coffe_level/bag_pile/bag_pile.tres" id="16_sfhky"]
-[ext_resource type="Texture2D" uid="uid://ctoarev68ca61" path="res://Cenas/Levels/Props/coffe_level/hay/hay.tres" id="18_4nsgk"]
+[ext_resource type="Texture2D" uid="uid://bjx3an4kt7vk2" path="res://Assets/Arts/ObstaclesProps/prop_8.png" id="16_slda0"]
+[ext_resource type="Texture2D" uid="uid://bts1vjxyb1ofm" path="res://Assets/Arts/ObstaclesProps/prop_7.png" id="18_nfr2l"]
 [ext_resource type="Shape2D" uid="uid://c5ytuplxj6xwk" path="res://Cenas/Levels/Props/coffe_level/bag_pile/bag_pile_collision.tres" id="18_slda0"]
 [ext_resource type="Shape2D" uid="uid://cw4fnbe3jsrdf" path="res://Cenas/Levels/Props/coffe_level/hay/hay_collision.tres" id="19_ctmfk"]
-[ext_resource type="Texture2D" uid="uid://boinp7a82ojns" path="res://Cenas/Levels/Props/coffe_level/coffe_bag/coffe_bag.tres" id="20_s1xxm"]
+[ext_resource type="Texture2D" uid="uid://dj40bkhcf2pw0" path="res://Assets/Arts/ObstaclesProps/prop_9.png" id="20_45hhx"]
 [ext_resource type="Shape2D" uid="uid://becl2m6yldt34" path="res://Cenas/Levels/Props/coffe_level/coffe_bag/coffe_bag_collision.tres" id="21_slda0"]
 [ext_resource type="Texture2D" uid="uid://b70s7tegwe3g2" path="res://Assets/Arts/Npcs/30_years/30_woman.png" id="23_4nsgk"]
 [ext_resource type="Texture2D" uid="uid://cy0p6dg80im14" path="res://Assets/Arts/Npcs/30_years/30_child.png" id="24_ctmfk"]
@@ -424,133 +424,133 @@ position = Vector2(250, 441)
 
 [node name="BagPile2" parent="Obstaculos" unique_id=281486825 instance=ExtResource("9_tsaqk")]
 position = Vector2(2876, 413)
-sprite = ExtResource("16_sfhky")
+sprite = ExtResource("16_slda0")
 collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile3" parent="Obstaculos" unique_id=328958681 instance=ExtResource("9_tsaqk")]
 position = Vector2(2876, 314)
-sprite = ExtResource("16_sfhky")
+sprite = ExtResource("16_slda0")
 collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile4" parent="Obstaculos" unique_id=1878665845 instance=ExtResource("9_tsaqk")]
 position = Vector2(3080, 423)
-sprite = ExtResource("16_sfhky")
+sprite = ExtResource("16_slda0")
 collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile5" parent="Obstaculos" unique_id=1940930354 instance=ExtResource("9_tsaqk")]
 position = Vector2(3301, 423)
-sprite = ExtResource("16_sfhky")
+sprite = ExtResource("16_slda0")
 collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile6" parent="Obstaculos" unique_id=81681289 instance=ExtResource("9_tsaqk")]
 position = Vector2(3093, 322)
-sprite = ExtResource("16_sfhky")
+sprite = ExtResource("16_slda0")
 collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile7" parent="Obstaculos" unique_id=292934795 instance=ExtResource("9_tsaqk")]
 position = Vector2(3517, 427)
-sprite = ExtResource("16_sfhky")
+sprite = ExtResource("16_slda0")
 collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile8" parent="Obstaculos" unique_id=1907472173 instance=ExtResource("9_tsaqk")]
 position = Vector2(3738, 427)
-sprite = ExtResource("16_sfhky")
+sprite = ExtResource("16_slda0")
 collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile9" parent="Obstaculos" unique_id=1840473421 instance=ExtResource("9_tsaqk")]
 position = Vector2(3738, 370)
-sprite = ExtResource("16_sfhky")
+sprite = ExtResource("16_slda0")
 collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile10" parent="Obstaculos" unique_id=1923804171 instance=ExtResource("9_tsaqk")]
 position = Vector2(3967, 360)
-sprite = ExtResource("16_sfhky")
+sprite = ExtResource("16_slda0")
 collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile11" parent="Obstaculos" unique_id=315675816 instance=ExtResource("9_tsaqk")]
 position = Vector2(3967, 441)
-sprite = ExtResource("16_sfhky")
+sprite = ExtResource("16_slda0")
 collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile12" parent="Obstaculos" unique_id=1608719619 instance=ExtResource("9_tsaqk")]
 position = Vector2(3967, 276)
-sprite = ExtResource("16_sfhky")
+sprite = ExtResource("16_slda0")
 collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile13" parent="Obstaculos" unique_id=357976468 instance=ExtResource("9_tsaqk")]
 position = Vector2(7846, 414)
-sprite = ExtResource("16_sfhky")
+sprite = ExtResource("16_slda0")
 collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile14" parent="Obstaculos" unique_id=2108931028 instance=ExtResource("9_tsaqk")]
 position = Vector2(8050, 414)
-sprite = ExtResource("16_sfhky")
+sprite = ExtResource("16_slda0")
 collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile15" parent="Obstaculos" unique_id=137116448 instance=ExtResource("9_tsaqk")]
 position = Vector2(8050, 326)
-sprite = ExtResource("16_sfhky")
+sprite = ExtResource("16_slda0")
 collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="BagPile16" parent="Obstaculos" unique_id=330399400 instance=ExtResource("9_tsaqk")]
 position = Vector2(8266, 423)
-sprite = ExtResource("16_sfhky")
+sprite = ExtResource("16_slda0")
 collision_shape = ExtResource("18_slda0")
 object_mass = 20.0
 
 [node name="Hay" parent="Obstaculos" unique_id=251112515 instance=ExtResource("9_tsaqk")]
 position = Vector2(1149, 373)
-sprite = ExtResource("18_4nsgk")
+sprite = ExtResource("18_nfr2l")
 collision_shape = ExtResource("19_ctmfk")
 object_mass = 10.0
 
 [node name="Hay2" parent="Obstaculos" unique_id=607553924 instance=ExtResource("9_tsaqk")]
 position = Vector2(965, 373)
-sprite = ExtResource("18_4nsgk")
+sprite = ExtResource("18_nfr2l")
 collision_shape = ExtResource("19_ctmfk")
 object_mass = 10.0
 
 [node name="Hay3" parent="Obstaculos" unique_id=1794680372 instance=ExtResource("9_tsaqk")]
 position = Vector2(5179, 373)
-sprite = ExtResource("18_4nsgk")
+sprite = ExtResource("18_nfr2l")
 collision_shape = ExtResource("19_ctmfk")
 object_mass = 10.0
 
 [node name="Hay4" parent="Obstaculos" unique_id=1540090513 instance=ExtResource("9_tsaqk")]
 position = Vector2(5350, 373)
-sprite = ExtResource("18_4nsgk")
+sprite = ExtResource("18_nfr2l")
 collision_shape = ExtResource("19_ctmfk")
 object_mass = 10.0
 
 [node name="CoffeBag" parent="Obstaculos" unique_id=705198667 instance=ExtResource("9_tsaqk")]
 position = Vector2(4169, 379)
-sprite = ExtResource("20_s1xxm")
+sprite = ExtResource("20_45hhx")
 collision_shape = ExtResource("21_slda0")
 object_mass = 15.0
 
 [node name="CoffeBag2" parent="Obstaculos" unique_id=2144920691 instance=ExtResource("9_tsaqk")]
 position = Vector2(6080, 379)
-sprite = ExtResource("20_s1xxm")
+sprite = ExtResource("20_45hhx")
 collision_shape = ExtResource("21_slda0")
 object_mass = 15.0
 
 [node name="CoffeBag3" parent="Obstaculos" unique_id=1833464368 instance=ExtResource("9_tsaqk")]
 position = Vector2(6249, 379)
-sprite = ExtResource("20_s1xxm")
+sprite = ExtResource("20_45hhx")
 collision_shape = ExtResource("21_slda0")
 object_mass = 15.0
 

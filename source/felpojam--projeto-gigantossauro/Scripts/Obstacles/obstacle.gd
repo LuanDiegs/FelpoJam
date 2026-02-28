@@ -16,6 +16,7 @@ class_name Obstacle
 @onready var texture: Sprite2D = $Texture
 @onready var collision: CollisionShape2D = $Collision
 
+
 func _ready() -> void:
 	_update_sprite_viewport()
 	

@@ -6,9 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://bvffmtuvypx7e" path="res://Assets/Arts/MainMenu/fundo.png" id="2_sh1b4"]
 [ext_resource type="Script" uid="uid://x3c3mjyxawol" path="res://Scripts/Menus/MainMenu/Parallax/boneco_parallax.gd" id="4_h7b2t"]
 [ext_resource type="Texture2D" uid="uid://mqvoig58xm31" path="res://Assets/UI/Intermission/banner dialogo.png" id="5_vni8p"]
+[ext_resource type="Texture2D" uid="uid://b3ebhaetdxoax" path="res://Assets/Arts/Logo/logo.png" id="6_u7cdh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7cdh"]
 texture = ExtResource("5_vni8p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pa1yl"]
+texture = ExtResource("6_u7cdh")
+expand_margin_left = 75.0
+expand_margin_top = 57.0
+expand_margin_right = 57.0
+expand_margin_bottom = 75.0
 
 [node name="StartMenu" type="Control" unique_id=1998698571]
 layout_mode = 3
@@ -79,6 +87,7 @@ alignment = 1
 [node name="Logo" type="PanelContainer" parent="MarginButtons/Labels" unique_id=2080568604]
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_pa1yl")
 
 [node name="ButtonsContainer" type="VBoxContainer" parent="MarginButtons/Labels" unique_id=157510351]
 layout_mode = 2

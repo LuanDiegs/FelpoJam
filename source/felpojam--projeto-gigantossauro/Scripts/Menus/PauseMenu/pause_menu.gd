@@ -17,8 +17,8 @@ func pause_despause():
 	if Global.phase_finished: 
 		return
 		
-	# Só funciona em LevelBase
-	if not get_tree().current_scene is LevelBase:
+	# Só funciona em LevelBase e BaseLevelBoss
+	if not get_tree().current_scene is LevelBase and not get_tree().current_scene is BaseLevelBoss:
 		return
 	
 	#Se existir as settings, deletamos ela

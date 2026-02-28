@@ -31,6 +31,7 @@ var original_hurtbox_pos: Vector2
 
 @export var slide_height_ratio := 0.5
 @export var slide_width_ratio := 1.5
+var is_sliding: bool = false
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite
@@ -100,12 +101,6 @@ func take_damage(amount: int):
 
 #Função de processamento de fisica
 func _physics_process(delta: float) -> void:
-	if lifes <= 0:
-		await get_tree().create_timer(1).timeout
-		
-		if get_tree():
-			get_tree().reload_current_scene()
-	
 	#Checa se alguma direção está sendo aplicada
 	_verify_direction(delta)
 	
@@ -130,11 +125,12 @@ func _verify_direction(delta: float):
 
 	#Salva o valor das teclas pressionadas, uma em valor negativo e outra em valor positivo
 	var direction = Input.get_axis("move_left", "move_right")
-
+	
 	if direction != 0 and !Global.phase_finished:
-		#Seta a animaçao
-		animation_player.play("run")
-		sprite.flip_h = direction == -1
+		#Seta a animaçao e nao tiver sliding
+		if !is_sliding: 
+			animation_player.play("run")
+			sprite.flip_h = direction == -1
 		
 		#Verifica se está tentando ir na direção oposta da velocidade atual, ou se está "parado"
 		if sign(direction) == sign(velocity.x) or velocity.x == 0:
@@ -195,7 +191,7 @@ func _verify_if_colliding(collision):
 				#Se o normal de y for maior que 0
 				if normal.y > 0:
 					#Aplica o empurrão
-					collider.apply_central_impulse(Vector2(0, impact_velocity * 2.5))
+					collider.apply_central_impulse(Vector2(0, impact_velocity * 4))
 
 
 func _verify_if_on_floor(delta: float):
@@ -229,19 +225,26 @@ func _verify_if_on_floor(delta: float):
 func _verify_slide():
 	#Checa se a tecla de slide está sendo pressionada e se a velocidade x é maior que speed / 2.5
 	if Input.is_action_pressed("slide") and abs(velocity.x) > (speed / 2):
-		set_slide(true) # Faz o slide
+		is_sliding = true
+		set_slide() # Faz o slide
+		
+		#Seta a animação
+		if animation_player.current_animation != "slide":
+			animation_player.play("slide")
+			
 	else: # Caso o contrario
-		set_slide(false) # Não faz o slide
+		is_sliding = false
+		set_slide() # Não faz o slide
+		
 
-
-func set_slide(sliding: bool):
+func set_slide():
 	#Salva o formato  da colião um retangulo 2D
 	var col_shape = collision_shape.shape as RectangleShape2D
 	
 	#Checa se é uma forma valida
 	if col_shape:
 		#Checa se sliding é verdadeiro
-		if sliding:
+		if is_sliding:
 			#define o tamanho da altura e largura com base no multiplicador de area
 			col_shape.size.x = original_collision_width * slide_width_ratio
 			col_shape.size.y = original_collision_height * slide_height_ratio
@@ -260,7 +263,7 @@ func set_slide(sliding: bool):
 	#Checa se é um formato valido
 	if hurt_shape:
 		#Checa se sliding é verdadeiro
-		if sliding:
+		if is_sliding:
 			#Define o tamanho da altura e largura com base no multiplicador da area
 			hurt_shape.size.x = original_hurtbox_width * slide_width_ratio
 			hurt_shape.size.y = original_hurtbox_height * slide_height_ratio

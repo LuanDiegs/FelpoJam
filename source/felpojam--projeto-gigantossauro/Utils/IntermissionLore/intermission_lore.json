@@ -17,7 +17,7 @@
 	"scene_3": {
 		"lore_1": "Uff, uff, não acredito que ele fugiu, de novo...",
 		"lore_2": "Que droga!",
-		"lore_3": "Preciso encontrar o José e falar o que aconteceu...",
+		"lore_3": "Preciso encontrar os outros e contar o que aconteceu...",
 		"lore_4": "[10 anos depois]",
 		"lore_5": "Recebi a informação de que o Assassino do Carimbo vai estar no trem de Itapura para Corumbá!!",
 		"lore_6": "Rápido, preciso me apressar!"
@@ -34,5 +34,14 @@
 		"lore_2": "É isso. Dessa vez, eu não perco esse salafrário!",
 		"lore_3": "DESSA VEZ EU QUE VOU CARIMBAR SUA CARA",
 		"lore_4": "*Mathias entra e se depara com ele*",
+	},
+	"scene_6": {
+		"lore_1": "Finalmente",
+		"lore_2": "Depois de tantos anos, finalmente capturei o delinquente",
+		"lore_3": "Você vai sentir um gostinho do que suas vitimas tiveram que passar",
+		"lore_4": "Ah, por fim estarei livre",
+		"lore_5": "Hmmm, que estranho...",
+		"lore_6": "Mesmo depois de cumprir meu objetivo, por qual motivo me sinto tão vazio?",
+		"lore_7": "Bom, não importa, vamos pra casa",
 	}
 }

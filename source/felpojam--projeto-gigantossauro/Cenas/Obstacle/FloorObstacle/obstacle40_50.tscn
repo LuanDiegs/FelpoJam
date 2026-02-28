@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cumvd5bqswq5h"]
 
 [ext_resource type="Script" uid="uid://e5xfdpnl4n48" path="res://Scripts/Obstacles/obstacle.gd" id="1_2wep8"]
-[ext_resource type="Texture2D" uid="uid://bpvoon0gf4s8t" path="res://Cenas/Levels/Props/normal_level/bags_big.tres" id="2_2wep8"]
+[ext_resource type="Texture2D" uid="uid://cespjp7dvlepp" path="res://Assets/Arts/ObstaclesProps/prop_1.png" id="2_2wep8"]
 [ext_resource type="Shape2D" uid="uid://ct3vd6bqwhhib" path="res://Cenas/Levels/Props/normal_level/bags_big_collision.tres" id="3_2wep8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lnmmn"]

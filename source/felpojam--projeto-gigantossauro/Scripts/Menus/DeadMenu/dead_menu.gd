@@ -12,13 +12,19 @@ var phase_stamps: int = 0
 const PHASE_TEMPLATE: String = "Fase %s"
 const STAMPS_TEMPLATE: String = "%s carimbos \n coletados"
 
+var is_boss_scene: bool = false
 
 func _ready() -> void:
+	is_boss_scene = get_tree().current_scene is BaseLevelBoss
+	
 	_player_died()
 	
 	#Sinal de botoes
 	restart.pressed.connect(_reset_scene)
 	back_to_menu.pressed.connect(_return_to_menu)
+	
+	#Tocar música
+	MusicManager.trocar_musica("dead_menu", 2)
 
 
 func _player_died():
@@ -37,8 +43,15 @@ func _player_died():
 
 
 func _set_labels():
-	label_stamps.text = STAMPS_TEMPLATE % phase_stamps
-	phase.text = PHASE_TEMPLATE % current_phase
+	var label_stamps_text: String = STAMPS_TEMPLATE % phase_stamps
+	var phase_text: String = PHASE_TEMPLATE % current_phase
+	
+	if is_boss_scene:
+		label_stamps_text = "Você tomou carimbada"
+		phase_text = "Fase final"
+		
+	label_stamps.text = label_stamps_text
+	phase.text = phase_text
 
 
 func _reset_scene():

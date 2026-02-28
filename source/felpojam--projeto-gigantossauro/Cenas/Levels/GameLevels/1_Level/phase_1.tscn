@@ -20,11 +20,11 @@
 [ext_resource type="Texture2D" uid="uid://c1msdjnhg4jau" path="res://Assets/Arts/Train/30_years/roda.png" id="11_qxbug"]
 [ext_resource type="Texture2D" uid="uid://byywpvrp6f6ct" path="res://Assets/Arts/Train/30_years/tras.png" id="13_njjat"]
 [ext_resource type="PackedScene" uid="uid://bhqynq01gcwx" path="res://Cenas/Levels/Utils/PhaseFinishAndSpawnNextPhase/phase_finish_and_spawn_next_phase.tscn" id="14_bq6qm"]
-[ext_resource type="Texture2D" uid="uid://b4yayahmi4thf" path="res://Cenas/Levels/Props/coffe_level/bag_pile/bag_pile.tres" id="16_6465m"]
+[ext_resource type="Texture2D" uid="uid://bjx3an4kt7vk2" path="res://Assets/Arts/ObstaclesProps/prop_8.png" id="16_8kobv"]
+[ext_resource type="Texture2D" uid="uid://bts1vjxyb1ofm" path="res://Assets/Arts/ObstaclesProps/prop_7.png" id="18_0p23r"]
 [ext_resource type="Shape2D" uid="uid://c5ytuplxj6xwk" path="res://Cenas/Levels/Props/coffe_level/bag_pile/bag_pile_collision.tres" id="18_8kobv"]
-[ext_resource type="Texture2D" uid="uid://ctoarev68ca61" path="res://Cenas/Levels/Props/coffe_level/hay/hay.tres" id="18_pjm1u"]
 [ext_resource type="Shape2D" uid="uid://cw4fnbe3jsrdf" path="res://Cenas/Levels/Props/coffe_level/hay/hay_collision.tres" id="19_ut3ck"]
-[ext_resource type="Texture2D" uid="uid://boinp7a82ojns" path="res://Cenas/Levels/Props/coffe_level/coffe_bag/coffe_bag.tres" id="20_wfmlh"]
+[ext_resource type="Texture2D" uid="uid://dj40bkhcf2pw0" path="res://Assets/Arts/ObstaclesProps/prop_9.png" id="20_8kobv"]
 [ext_resource type="Shape2D" uid="uid://becl2m6yldt34" path="res://Cenas/Levels/Props/coffe_level/coffe_bag/coffe_bag_collision.tres" id="21_yjw24"]
 [ext_resource type="Texture2D" uid="uid://tefqwf7mp7m2" path="res://Assets/Arts/Npcs/30_years/30_men.png" id="23_yjw24"]
 [ext_resource type="Texture2D" uid="uid://b70s7tegwe3g2" path="res://Assets/Arts/Npcs/30_years/30_woman.png" id="24_8aimn"]
@@ -423,100 +423,100 @@ position = Vector2(221, 459)
 
 [node name="BagPile" parent="Obstaculos" unique_id=357976468 instance=ExtResource("3_fgvlk")]
 position = Vector2(5697, 415)
-sprite = ExtResource("16_6465m")
+sprite = ExtResource("16_8kobv")
 collision_shape = ExtResource("18_8kobv")
 object_mass = 20.0
 
 [node name="BagPile6" parent="Obstaculos" unique_id=734011538 instance=ExtResource("3_fgvlk")]
 position = Vector2(5887, 415)
-sprite = ExtResource("16_6465m")
+sprite = ExtResource("16_8kobv")
 collision_shape = ExtResource("18_8kobv")
 object_mass = 20.0
 
 [node name="BagPile7" parent="Obstaculos" unique_id=1986688980 instance=ExtResource("3_fgvlk")]
 position = Vector2(5799, 313)
-sprite = ExtResource("16_6465m")
+sprite = ExtResource("16_8kobv")
 collision_shape = ExtResource("18_8kobv")
 object_mass = 20.0
 
 [node name="BagPile2" parent="Obstaculos" unique_id=650621495 instance=ExtResource("3_fgvlk")]
 position = Vector2(7253, 368)
-sprite = ExtResource("16_6465m")
+sprite = ExtResource("16_8kobv")
 collision_shape = ExtResource("18_8kobv")
 object_mass = 20.0
 
 [node name="BagPile4" parent="Obstaculos" unique_id=2054982600 instance=ExtResource("3_fgvlk")]
 position = Vector2(7430, 368)
-sprite = ExtResource("16_6465m")
+sprite = ExtResource("16_8kobv")
 collision_shape = ExtResource("18_8kobv")
 object_mass = 20.0
 
 [node name="BagPile3" parent="Obstaculos" unique_id=2058120691 instance=ExtResource("3_fgvlk")]
 position = Vector2(752, 415)
-sprite = ExtResource("16_6465m")
+sprite = ExtResource("16_8kobv")
 collision_shape = ExtResource("18_8kobv")
 object_mass = 20.0
 
 [node name="BagPile5" parent="Obstaculos" unique_id=1497718258 instance=ExtResource("3_fgvlk")]
 position = Vector2(755, 318)
-sprite = ExtResource("16_6465m")
+sprite = ExtResource("16_8kobv")
 collision_shape = ExtResource("18_8kobv")
 object_mass = 20.0
 
 [node name="Hay" parent="Obstaculos" unique_id=1220751469 instance=ExtResource("3_fgvlk")]
 position = Vector2(1803, 373)
-sprite = ExtResource("18_pjm1u")
+sprite = ExtResource("18_0p23r")
 collision_shape = ExtResource("19_ut3ck")
 object_mass = 10.0
 
 [node name="Hay2" parent="Obstaculos" unique_id=1756457800 instance=ExtResource("3_fgvlk")]
 position = Vector2(1656, 373)
-sprite = ExtResource("18_pjm1u")
+sprite = ExtResource("18_0p23r")
 collision_shape = ExtResource("19_ut3ck")
 object_mass = 10.0
 
 [node name="Hay3" parent="Obstaculos" unique_id=191204048 instance=ExtResource("3_fgvlk")]
 position = Vector2(9531, 373)
-sprite = ExtResource("18_pjm1u")
+sprite = ExtResource("18_0p23r")
 collision_shape = ExtResource("19_ut3ck")
 object_mass = 10.0
 
 [node name="Hay4" parent="Obstaculos" unique_id=2027648893 instance=ExtResource("3_fgvlk")]
 position = Vector2(10303, 373)
-sprite = ExtResource("18_pjm1u")
+sprite = ExtResource("18_0p23r")
 collision_shape = ExtResource("19_ut3ck")
 object_mass = 10.0
 
 [node name="CoffeBag" parent="Obstaculos" unique_id=1809285035 instance=ExtResource("3_fgvlk")]
 position = Vector2(2909, 363)
 rotation = -1.0260223
-sprite = ExtResource("20_wfmlh")
+sprite = ExtResource("20_8kobv")
 collision_shape = ExtResource("21_yjw24")
 object_mass = 15.0
 
 [node name="CoffeBag2" parent="Obstaculos" unique_id=1464279816 instance=ExtResource("3_fgvlk")]
 position = Vector2(3090, 363)
-sprite = ExtResource("20_wfmlh")
+sprite = ExtResource("20_8kobv")
 collision_shape = ExtResource("21_yjw24")
 object_mass = 15.0
 
 [node name="CoffeBag3" parent="Obstaculos" unique_id=2097136428 instance=ExtResource("3_fgvlk")]
 position = Vector2(8518, 363)
-sprite = ExtResource("20_wfmlh")
+sprite = ExtResource("20_8kobv")
 collision_shape = ExtResource("21_yjw24")
 object_mass = 15.0
 
 [node name="CoffeBag4" parent="Obstaculos" unique_id=2075901278 instance=ExtResource("3_fgvlk")]
 position = Vector2(9341, 374)
 rotation = -1.5583563
-sprite = ExtResource("20_wfmlh")
+sprite = ExtResource("20_8kobv")
 collision_shape = ExtResource("21_yjw24")
 object_mass = 15.0
 
 [node name="CoffeBag5" parent="Obstaculos" unique_id=755186783 instance=ExtResource("3_fgvlk")]
 position = Vector2(10293, 198)
 rotation = -1.5583563
-sprite = ExtResource("20_wfmlh")
+sprite = ExtResource("20_8kobv")
 collision_shape = ExtResource("21_yjw24")
 object_mass = 15.0
 

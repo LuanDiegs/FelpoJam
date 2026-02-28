@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://d0be4afyq8exh"]
 
 [ext_resource type="Script" uid="uid://hdy4w3rqi1em" path="res://Scripts/Menus/CreditsMenu/credits_menu.gd" id="1_ukhn6"]
+[ext_resource type="Texture2D" uid="uid://bvffmtuvypx7e" path="res://Assets/Arts/MainMenu/fundo.png" id="2_mt1bo"]
+[ext_resource type="Theme" uid="uid://jbesfq73oggh" path="res://Cenas/Utils/themes/button-themes/button-theme.tres" id="3_iy05r"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mt1bo"]
-size = Vector2(1280, 720)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mt1bo"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_mt1bo"]
+color = Color(1, 1, 1, 1)
+thickness = 2
 
 [node name="CreditsMenu" type="Control" unique_id=431387502]
 layout_mode = 3
@@ -17,78 +22,204 @@ grow_vertical = 2
 script = ExtResource("1_ukhn6")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1592988077]
-texture = SubResource("PlaceholderTexture2D_mt1bo")
+position = Vector2(-26, -11)
+scale = Vector2(0.34583333, 0.34583333)
+texture = ExtResource("2_mt1bo")
 centered = false
+metadata/_edit_lock_ = true
 
-[node name="Code" type="Label" parent="." unique_id=1685871230]
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1809983975]
 layout_mode = 0
-offset_top = 57.0
-offset_right = 1280.0
-offset_bottom = 145.0
-theme_override_font_sizes/font_size = 64
-text = "Programação"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 40.0
+offset_top = 35.0
+offset_right = 1240.0
+offset_bottom = 233.0
+columns = 3
 
-[node name="CodePeoples" type="Label" parent="Code" unique_id=848786689]
-layout_mode = 0
-offset_top = 110.0
-offset_right = 1280.0
-offset_bottom = 203.0
-theme_override_font_sizes/font_size = 32
-text = "Wesley Brito (Mordchan)
-Zdzin"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="PanelContainer" type="PanelContainer" parent="GridContainer" unique_id=470879760]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mt1bo")
 
-[node name="Music" type="Label" parent="." unique_id=2049594834]
-layout_mode = 0
-offset_top = 507.0
-offset_right = 1280.0
-offset_bottom = 595.0
-theme_override_font_sizes/font_size = 64
-text = "Músicas"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/PanelContainer" unique_id=1175610834]
+layout_mode = 2
+theme_override_constants/separation = 20
 
-[node name="MusicPeoples" type="Label" parent="Music" unique_id=1994981917]
-layout_mode = 0
-offset_top = 110.0
-offset_right = 1280.0
-offset_bottom = 155.0
-theme_override_font_sizes/font_size = 32
-text = "Kevin Molina (Knive)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Visual" type="Label" parent="." unique_id=1097159349]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 282.0
-offset_right = 1290.0
-offset_bottom = 370.0
-theme_override_font_sizes/font_size = 64
+[node name="Visual" type="Label" parent="GridContainer/PanelContainer/VBoxContainer" unique_id=1097159349]
+layout_mode = 2
+theme_override_font_sizes/font_size = 58
 text = "Visual"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VisualPeoples2" type="Label" parent="Visual" unique_id=939235006]
-layout_mode = 0
-offset_top = 110.0
-offset_right = 1280.0
-offset_bottom = 203.0
-theme_override_font_sizes/font_size = 32
+[node name="VisualPeoples2" type="Label" parent="GridContainer/PanelContainer/VBoxContainer" unique_id=939235006]
+layout_mode = 2
+theme_override_constants/line_spacing = 15
+theme_override_font_sizes/font_size = 28
 text = "Pâmela Palazzi (Pampalazzi)
 Ruam Costa (Stuartts)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ReturnToMenuButton" type="Button" parent="." unique_id=344070208]
+[node name="PanelContainer2" type="PanelContainer" parent="GridContainer" unique_id=2016584197]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mt1bo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/PanelContainer2" unique_id=753666404]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Code" type="Label" parent="GridContainer/PanelContainer2/VBoxContainer" unique_id=1685871230]
+layout_mode = 2
+theme_override_font_sizes/font_size = 58
+text = "Programação"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CodePeoples" type="Label" parent="GridContainer/PanelContainer2/VBoxContainer" unique_id=848786689]
+layout_mode = 2
+theme_override_constants/line_spacing = 15
+theme_override_font_sizes/font_size = 28
+text = "Wesley Brito (Mordchan)
+Luan Diego (Zdzin)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer3" type="PanelContainer" parent="GridContainer" unique_id=1448406452]
+custom_minimum_size = Vector2(387, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mt1bo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/PanelContainer3" unique_id=454591617]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Music" type="Label" parent="GridContainer/PanelContainer3/VBoxContainer" unique_id=2049594834]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 58
+text = "Músicas "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicPeoples" type="Label" parent="GridContainer/PanelContainer3/VBoxContainer" unique_id=1994981917]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/line_spacing = 15
+theme_override_font_sizes/font_size = 28
+text = "Kevin Molina (Knive)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="." unique_id=189215941]
+custom_minimum_size = Vector2(17.195, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -104.0
+offset_right = 600.0
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(600, 5)
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mt1bo")
+
+[node name="GridContainer2" type="GridContainer" parent="." unique_id=671703883]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 654.0
-offset_right = 135.0
-offset_bottom = 707.0
+offset_left = 40.0
+offset_top = 277.0
+offset_right = 1244.0
+offset_bottom = 605.0
+columns = 2
+
+[node name="PanelContainer5" type="PanelContainer" parent="GridContainer2" unique_id=1793372237]
+custom_minimum_size = Vector2(385, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mt1bo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer2/PanelContainer5" unique_id=806692568]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Music" type="Label" parent="GridContainer2/PanelContainer5/VBoxContainer" unique_id=537772432]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 58
+text = "Efeitos sonoros"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicPeoples" type="Label" parent="GridContainer2/PanelContainer5/VBoxContainer" unique_id=1342447021]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/line_spacing = 15
+theme_override_font_sizes/font_size = 28
+text = "Wesley Brito (Mordchan)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PanelContainer4" type="PanelContainer" parent="GridContainer2" unique_id=569900873]
+custom_minimum_size = Vector2(385, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mt1bo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer2/PanelContainer4" unique_id=1507743254]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Music" type="Label" parent="GridContainer2/PanelContainer4/VBoxContainer" unique_id=1832665251]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 58
+text = "Terceiros"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicPeoples" type="Label" parent="GridContainer2/PanelContainer4/VBoxContainer" unique_id=1419753707]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/line_spacing = 15
+theme_override_font_sizes/font_size = 28
+text = "Fonte \"Lexend\" por Bonnie Shaver-Troup, Thomas Jockin, Santiago Orozco, Héctor Gómez, Superunion
+Licenciada sob under the SIL Open Font License, Version 1.1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ReturnToMenuButton" type="Button" parent="." unique_id=344070208]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = 245.0
+offset_right = -350.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(125, 38)
+theme = ExtResource("3_iy05r")
 theme_override_font_sizes/font_size = 32
 text = "Voltar
 "

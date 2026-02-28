@@ -1,4 +1,5 @@
 extends Control
+class_name CreditsMenu
 
 @onready var return_to_menu_button: Button = $ReturnToMenuButton
 

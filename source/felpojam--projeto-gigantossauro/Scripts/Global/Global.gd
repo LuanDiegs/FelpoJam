@@ -6,6 +6,7 @@ const start_menu := "uid://bqh03fym7is0"
 const settings_menu := "uid://bmbjeqofrspuq"
 const settings_pause_menu := "uid://dcw4bqhs4pxmr"
 const intermission_1 := "uid://bxgq6p58qxcx3"
+const intermission_6 := "uid://cnyc5043wa401"
 const tutorial := "uid://4w463o650n0"
 const dead_menu = "uid://b8vlhv86akk0y"
 var dialogs_json = "res://Utils/Dialogs/dialogs.json"
@@ -65,6 +66,7 @@ func get_action_key(action_name: String):
 	# Pega o nome do evento que foi passado
 	var button_events_name = str(InputMap.action_get_events(action_name)[0])
 	return button_events_name.get_slice(":", 1).get_slice(",", 0).get_slice("(", 1).get_slice(")", 0)
+
 
 func open_dialog_modal(node: Node, world: int, npc_name: String):
 	var dialogNode = (preload("uid://ds3m7ggl5s42s")).instantiate() as DialogBox

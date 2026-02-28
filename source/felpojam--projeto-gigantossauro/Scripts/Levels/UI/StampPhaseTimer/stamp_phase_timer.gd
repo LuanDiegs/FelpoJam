@@ -38,14 +38,12 @@ func _process(delta: float) -> void:
 		#Paramos o timer e emitimos o sinal
 		timer_stopped = true
 		Global.PlayerDied.emit()
-
+		
 
 func _ready() -> void:
 	#Se esta no editor nao irá compilar o codigo do jogo
 	if Engine.is_editor_hint() or stop_time_debug:
 		return
-	
-	print(get_tree().current_scene)
 	
 	#Conecta o signal de aumentar timer
 	Global.NpcStamped.connect(_on_npc_stamped)

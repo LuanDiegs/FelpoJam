@@ -16,6 +16,7 @@ texture = ExtResource("3_ccmab")
 
 [node name="StampTimer" type="CanvasLayer" unique_id=76836385]
 script = ExtResource("1_n02yg")
+max_stamp_time_to_die = 15.0
 
 [node name="Timer" type="Timer" parent="." unique_id=1289911169]
 
